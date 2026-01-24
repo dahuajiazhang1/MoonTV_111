@@ -1,7 +1,7 @@
 /* eslint-disable no-console, @typescript-eslint/no-explicit-any, @typescript-eslint/no-non-null-assertion */
 
 import { AdminConfig } from './admin.types';
-import { Favorite, IStorage, PlayRecord, SkipConfig } from './types';
+import { Favorite, IStorage, PlayRecord, SkipConfig, SubscriptionPlan, UserSubscription, PaymentOrder, PaymentSettings } from './types';
 
 // 搜索历史最大条数
 const SEARCH_HISTORY_LIMIT = 20;
@@ -612,5 +612,219 @@ export class D1Storage implements IStorage {
     await this.db.prepare('DELETE FROM skip_configs').run();
     await this.db.prepare('DELETE FROM users').run();
     await this.db.prepare('DELETE FROM admin_config').run();
+    // 清空支付相关表
+    await this.db.prepare('DELETE FROM payment_orders').run();
+    await this.db.prepare('DELETE FROM user_subscriptions').run();
+    await this.db.prepare('DELETE FROM subscription_plans').run();
+    await this.db.prepare('DELETE FROM payment_settings').run();
+  }
+
+  // ---------- 订阅和支付相关实现 ----------
+
+  // 1. 订阅套餐
+  async getSubscriptionPlans(includeInactive?: boolean): Promise<SubscriptionPlan[]> {
+    let sql = 'SELECT * FROM subscription_plans';
+    if (!includeInactive) {
+      sql += ' WHERE is_active = 1';
+    }
+    sql += ' ORDER BY sort_order ASC';
+
+    const result = await this.db.prepare(sql).all<SubscriptionPlan>();
+    return result.results || [];
+  }
+
+  async getPlanById(id: number): Promise<SubscriptionPlan | null> {
+    const result = await this.db.prepare(
+      'SELECT * FROM subscription_plans WHERE id = ?'
+    ).bind(id).first<SubscriptionPlan>();
+    return result;
+  }
+
+  async saveSubscriptionPlan(plan: SubscriptionPlan): Promise<void> {
+    if (plan.id) {
+      // Update
+      await this.db.prepare(
+        `UPDATE subscription_plans SET 
+         name = ?, description = ?, duration_days = ?, price = ?, 
+         original_price = ?, features = ?, is_active = ?, sort_order = ?, updated_at = CURRENT_TIMESTAMP
+         WHERE id = ?`
+      ).bind(
+        plan.name, plan.description, plan.duration_days, plan.price,
+        plan.original_price, plan.features, plan.is_active ? 1 : 0, plan.sort_order, plan.id
+      ).run();
+    } else {
+      // Insert
+      await this.db.prepare(
+        `INSERT INTO subscription_plans 
+         (name, description, duration_days, price, original_price, features, is_active, sort_order)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+      ).bind(
+        plan.name, plan.description, plan.duration_days, plan.price,
+        plan.original_price, plan.features, plan.is_active ? 1 : 0, plan.sort_order
+      ).run();
+    }
+  }
+
+  // 2. 用户订阅
+  async getUserSubscription(userName: string): Promise<UserSubscription | null> {
+    const userId = await this.getUserId(userName);
+    if (!userId) return null;
+
+    const result = await this.db.prepare(
+      `SELECT us.*, sp.name as plan_name 
+       FROM user_subscriptions us
+       JOIN subscription_plans sp ON us.plan_id = sp.id
+       WHERE us.user_id = ? AND us.status = 'active' AND us.end_date > CURRENT_TIMESTAMP
+       ORDER BY us.end_date DESC LIMIT 1`
+    ).bind(userId).first<UserSubscription>();
+
+    return result;
+  }
+
+  async createUserSubscription(subscription: UserSubscription): Promise<void> {
+    // 这里的 username 是可选的，如果传入了 username，先获取 userId
+    let userId = subscription.user_id;
+    if (!userId && subscription.username) {
+      userId = await this.getUserId(subscription.username);
+    }
+    if (!userId) throw new Error('User not found');
+
+    // 禁用旧的活跃订阅
+    await this.db.prepare(
+      "UPDATE user_subscriptions SET status = 'cancelled' WHERE user_id = ? AND status = 'active'"
+    ).bind(userId).run();
+
+    await this.db.prepare(
+      `INSERT INTO user_subscriptions 
+       (user_id, plan_id, status, start_date, end_date, auto_renew)
+       VALUES (?, ?, ?, ?, ?, ?)`
+    ).bind(
+      userId, subscription.plan_id, 'active',
+      subscription.start_date, subscription.end_date, subscription.auto_renew ? 1 : 0
+    ).run();
+  }
+
+  async updateUserSubscription(subscription: UserSubscription): Promise<void> {
+    if (!subscription.id) return;
+    await this.db.prepare(
+      "UPDATE user_subscriptions SET status = ?, end_date = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?"
+    ).bind(subscription.status, subscription.end_date, subscription.id).run();
+  }
+
+  // 3. 订单管理
+  async createOrder(order: PaymentOrder): Promise<string> {
+    let userId = order.user_id;
+    if (!userId && order.username) {
+      userId = await this.getUserId(order.username);
+    }
+    if (!userId) throw new Error('User not found');
+
+    // 生成订单号: ORD + 时间戳 + 随机数
+    const orderNo = order.order_no || `ORD${Date.now()}${Math.floor(Math.random() * 1000)}`;
+
+    await this.db.prepare(
+      `INSERT INTO payment_orders 
+       (order_no, user_id, order_type, related_id, amount, payment_method, payment_status, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, 'pending', CURRENT_TIMESTAMP)`
+    ).bind(
+      orderNo, userId, order.order_type, order.related_id, order.amount, order.payment_method
+    ).run();
+
+    return orderNo;
+  }
+
+  async getOrder(orderNo: string): Promise<PaymentOrder | null> {
+    const result = await this.db.prepare(
+      `SELECT po.*, u.username 
+       FROM payment_orders po
+       LEFT JOIN users u ON po.user_id = u.id
+       WHERE po.order_no = ?`
+    ).bind(orderNo).first<PaymentOrder>();
+    return result;
+  }
+
+  async getOrdersByUser(userName: string): Promise<PaymentOrder[]> {
+    const userId = await this.getUserId(userName);
+    if (!userId) return [];
+
+    const result = await this.db.prepare(
+      'SELECT * FROM payment_orders WHERE user_id = ? ORDER BY created_at DESC'
+    ).bind(userId).all<PaymentOrder>();
+    return result.results || [];
+  }
+
+  async getPendingOrders(): Promise<PaymentOrder[]> {
+    const result = await this.db.prepare(
+      `SELECT po.*, u.username 
+       FROM payment_orders po
+       LEFT JOIN users u ON po.user_id = u.id
+       WHERE po.payment_status = 'pending' 
+       ORDER BY po.created_at DESC`
+    ).all<PaymentOrder>();
+    return result.results || [];
+  }
+
+  async getAllOrders(page: number = 1, limit: number = 20): Promise<{ orders: PaymentOrder[], total: number }> {
+    const offset = (page - 1) * limit;
+
+    const countResult = await this.db.prepare(
+      'SELECT count(*) as count FROM payment_orders'
+    ).first<{ count: number }>();
+
+    const result = await this.db.prepare(
+      `SELECT po.*, u.username 
+       FROM payment_orders po
+       LEFT JOIN users u ON po.user_id = u.id
+       ORDER BY po.created_at DESC 
+       LIMIT ? OFFSET ?`
+    ).bind(limit, offset).all<PaymentOrder>();
+
+    return {
+      orders: result.results || [],
+      total: countResult?.count || 0
+    };
+  }
+
+  async updateOrderProof(orderNo: string, proofPath: string): Promise<void> {
+    await this.db.prepare(
+      "UPDATE payment_orders SET payment_proof = ?, paid_at = CURRENT_TIMESTAMP WHERE order_no = ?"
+    ).bind(proofPath, orderNo).run();
+  }
+
+  async updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId?: number, reason?: string): Promise<void> {
+    if (status === 'approved') {
+      await this.db.prepare(
+        "UPDATE payment_orders SET payment_status = ?, verified_by = ?, verified_at = CURRENT_TIMESTAMP WHERE order_no = ?"
+      ).bind(status, adminId, orderNo).run();
+    } else {
+      await this.db.prepare(
+        "UPDATE payment_orders SET payment_status = ?, verified_by = ?, verified_at = CURRENT_TIMESTAMP, reject_reason = ? WHERE order_no = ?"
+      ).bind(status, adminId, reason, orderNo).run();
+    }
+  }
+
+  // 4. 支付设置
+  async getPaymentSettings(): Promise<PaymentSettings | null> {
+    const result = await this.db.prepare(
+      'SELECT * FROM payment_settings WHERE id = 1'
+    ).first<PaymentSettings>();
+    return result;
+  }
+
+  async savePaymentSettings(settings: PaymentSettings): Promise<void> {
+    await this.db.prepare(
+      `INSERT INTO payment_settings (id, alipay_qr_code, alipay_account_name, payment_notice, auto_approval, order_expire_hours)
+       VALUES (1, ?, ?, ?, ?, ?)
+       ON CONFLICT(id) DO UPDATE SET
+       alipay_qr_code = excluded.alipay_qr_code,
+       alipay_account_name = excluded.alipay_account_name,
+       payment_notice = excluded.payment_notice,
+       auto_approval = excluded.auto_approval,
+       order_expire_hours = excluded.order_expire_hours,
+       updated_at = CURRENT_TIMESTAMP`
+    ).bind(
+      settings.alipay_qr_code, settings.alipay_account_name, settings.payment_notice,
+      settings.auto_approval ? 1 : 0, settings.order_expire_hours
+    ).run();
   }
 }

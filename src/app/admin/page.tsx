@@ -33,6 +33,7 @@ import {
   Settings,
   Users,
   Video,
+  CreditCard,
 } from 'lucide-react';
 import { GripVertical } from 'lucide-react';
 import { Suspense, useCallback, useEffect, useState } from 'react';
@@ -43,6 +44,7 @@ import { getAuthInfoFromBrowserCookie } from '@/lib/auth';
 
 import DataMigration from '@/components/DataMigration';
 import PageLayout from '@/components/PageLayout';
+import MembershipManagement from '@/components/admin/MembershipManagement';
 
 // 统一弹窗方法（必须在首次使用前定义）
 const showError = (message: string) =>
@@ -276,14 +278,14 @@ const UserConfig = ({ config, role, refreshConfig }: UserConfigProps) => {
     const sourceListHtml = `
       <div style="text-align:left;max-height:260px;overflow:auto;border:1px solid var(--swal2-border,#e5e7eb);border-radius:8px;padding:8px;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">
         ${allSources
-          .map(
-            (s) => `
+        .map(
+          (s) => `
             <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e5e7eb;border-radius:8px;background:#fafafa;cursor:pointer">
               <input type="checkbox" name="groupSources" value="${s.key}" />
               <span style="font-size:13px"><strong>${s.name || s.key}</strong> <span style="opacity:.7">(${s.key})</span></span>
             </label>`
-          )
-          .join('')}
+        )
+        .join('')}
       </div>`;
 
     const { value, isConfirmed } = await Swal.fire({
@@ -352,7 +354,7 @@ const UserConfig = ({ config, role, refreshConfig }: UserConfigProps) => {
       showError('请先选择要分配的用户');
       return;
     }
-    
+
     try {
       const resp = await fetch('/api/admin/group', {
         method: 'POST',
@@ -429,7 +431,7 @@ const UserConfig = ({ config, role, refreshConfig }: UserConfigProps) => {
   const openGroupManagementDialog = async () => {
     const groups = config?.UserConfig?.Groups || [];
     setSelectedGroupInDialog(''); // 重置选中状态
-    
+
     await Swal.fire({
       title: '分组管理',
       html: `
@@ -511,7 +513,7 @@ const UserConfig = ({ config, role, refreshConfig }: UserConfigProps) => {
         (window as any).selectGroupInDialog = (groupName: string) => {
           setSelectedGroupInDialog(groupName);
           (window as any).currentSelectedGroup = groupName; // 设置全局变量
-          
+
           // 更新UI
           groups.forEach(g => {
             const card = document.getElementById(`group-card-${g.name}`);
@@ -525,19 +527,19 @@ const UserConfig = ({ config, role, refreshConfig }: UserConfigProps) => {
               }
             }
           });
-          
+
           // 更新文本和按钮状态
           const selectedText = document.getElementById('selected-group-text');
           const editBtn = document.getElementById('edit-group-btn') as HTMLButtonElement;
           const assignBtn = document.getElementById('assign-group-btn') as HTMLButtonElement;
           const deleteBtn = document.getElementById('delete-group-btn') as HTMLButtonElement;
-          
+
           if (selectedText) selectedText.textContent = `已选择: ${groupName}`;
           if (editBtn) editBtn.disabled = false;
           if (assignBtn) assignBtn.disabled = selectedUsers.size === 0;
           if (deleteBtn) deleteBtn.disabled = false;
         };
-        
+
         (window as any).editSelectedGroup = async () => {
           const groupName = (window as any).currentSelectedGroup;
           if (!groupName) return;
@@ -548,25 +550,25 @@ const UserConfig = ({ config, role, refreshConfig }: UserConfigProps) => {
             openGroupManagementDialog();
           }
         };
-        
+
         (window as any).assignToSelectedGroup = async () => {
           const groupName = (window as any).currentSelectedGroup;
           if (!groupName) return;
           await performBatchAssignGroup(groupName);
         };
-        
+
         (window as any).deleteSelectedGroup = async () => {
           const groupName = (window as any).currentSelectedGroup;
           if (!groupName) return;
           await handleDeleteGroup(groupName);
         };
-        
+
         // 绑定按钮事件
         setTimeout(() => {
           const editBtn = document.getElementById('edit-group-btn');
           const assignBtn = document.getElementById('assign-group-btn');
           const deleteBtn = document.getElementById('delete-group-btn');
-          
+
           if (editBtn) editBtn.onclick = () => (window as any).editSelectedGroup();
           if (assignBtn) assignBtn.onclick = () => (window as any).assignToSelectedGroup();
           if (deleteBtn) deleteBtn.onclick = () => (window as any).deleteSelectedGroup();
@@ -580,11 +582,11 @@ const UserConfig = ({ config, role, refreshConfig }: UserConfigProps) => {
     const sourceListHtml = `
       <div style="text-align:left;max-height:260px;overflow:auto;border:1px solid var(--swal2-border,#e5e7eb);border-radius:8px;padding:8px;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">
         ${allSources
-          .map(
-            (s) => `
+        .map(
+          (s) => `
             <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e5e7eb;border-radius:8px;background:#fafafa;cursor:pointer">\n              <input type="checkbox" name="editGroupSources" value="${s.key}" ${currentKeys?.includes(s.key) ? 'checked' : ''}/>\n              <span style="font-size:13px"><strong>${s.name || s.key}</strong> <span style="opacity:.7">(${s.key})</span></span>\n            </label>`
-          )
-          .join('')}
+        )
+        .join('')}
       </div>`;
 
     const { value, isConfirmed } = await Swal.fire({
@@ -683,7 +685,7 @@ const UserConfig = ({ config, role, refreshConfig }: UserConfigProps) => {
 
   return (
     <div className='space-y-6'>
-      
+
       {/* 用户统计 */}
       <div>
         <h4 className='text-sm font-medium text-gray-700 dark:text-gray-300 mb-3'>
@@ -865,7 +867,7 @@ const UserConfig = ({ config, role, refreshConfig }: UserConfigProps) => {
           <table className='min-w-full divide-y divide-gray-200 dark:divide-gray-700'>
             <thead className='bg-gray-50 dark:bg-gray-900'>
               <tr>
-              <th className='w-8' />
+                <th className='w-8' />
                 <th
                   scope='col'
                   className='px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider'
@@ -878,18 +880,18 @@ const UserConfig = ({ config, role, refreshConfig }: UserConfigProps) => {
                 >
                   角色
                 </th>
-              <th
-                scope='col'
-                className='px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider'
-              >
-                分组
-              </th>
-              <th
-                scope='col'
-                className='px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider'
-              >
-                最后在线
-              </th>
+                <th
+                  scope='col'
+                  className='px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider'
+                >
+                  分组
+                </th>
+                <th
+                  scope='col'
+                  className='px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider'
+                >
+                  最后在线
+                </th>
                 <th
                   scope='col'
                   className='px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider'
@@ -1083,7 +1085,7 @@ const VideoSourceConfig = ({
     disabled: false,
     from: 'config',
   });
-  
+
   // 批量操作相关状态
   const [selectedSources, setSelectedSources] = useState<Set<string>>(new Set());
 
@@ -1217,7 +1219,7 @@ const VideoSourceConfig = ({
 
   const handleBatchDisable = async () => {
     if (selectedSources.size === 0) return;
-    
+
     const { isConfirmed } = await Swal.fire({
       title: '确认批量禁用',
       text: `确定要禁用选中的 ${selectedSources.size} 个视频源吗？`,
@@ -1231,9 +1233,9 @@ const VideoSourceConfig = ({
     if (!isConfirmed) return;
 
     try {
-      await callSourceApi({ 
-        action: 'batchDisable', 
-        keys: Array.from(selectedSources) 
+      await callSourceApi({
+        action: 'batchDisable',
+        keys: Array.from(selectedSources)
       });
     } catch (err) {
       console.error('批量禁用失败', err);
@@ -1242,7 +1244,7 @@ const VideoSourceConfig = ({
 
   const handleBatchEnable = async () => {
     if (selectedSources.size === 0) return;
-    
+
     const { isConfirmed } = await Swal.fire({
       title: '确认批量启用',
       text: `确定要启用选中的 ${selectedSources.size} 个视频源吗？`,
@@ -1256,9 +1258,9 @@ const VideoSourceConfig = ({
     if (!isConfirmed) return;
 
     try {
-      await callSourceApi({ 
-        action: 'batchEnable', 
-        keys: Array.from(selectedSources) 
+      await callSourceApi({
+        action: 'batchEnable',
+        keys: Array.from(selectedSources)
       });
       // 批量启用后保持选中状态，不清空
     } catch (err) {
@@ -1268,18 +1270,18 @@ const VideoSourceConfig = ({
 
   const handleBatchDelete = async () => {
     if (selectedSources.size === 0) return;
-    
+
     // 检查是否有不可删除的源
-    const deletableSources = sources.filter(s => 
+    const deletableSources = sources.filter(s =>
       selectedSources.has(s.key) && s.from !== 'config'
     );
     const nonDeletableCount = selectedSources.size - deletableSources.length;
-    
+
     let confirmText = `确定要删除选中的 ${deletableSources.length} 个自定义视频源吗？`;
     if (nonDeletableCount > 0) {
       confirmText += `\n注意：有 ${nonDeletableCount} 个系统默认源无法删除，将被跳过。`;
     }
-    
+
     const { isConfirmed } = await Swal.fire({
       title: '确认批量删除',
       text: confirmText,
@@ -1293,9 +1295,9 @@ const VideoSourceConfig = ({
     if (!isConfirmed) return;
 
     try {
-      await callSourceApi({ 
-        action: 'batchDelete', 
-        keys: deletableSources.map(s => s.key) 
+      await callSourceApi({
+        action: 'batchDelete',
+        keys: deletableSources.map(s => s.key)
       });
       setSelectedSources(new Set());
     } catch (err) {
@@ -1328,7 +1330,7 @@ const VideoSourceConfig = ({
         >
           <GripVertical size={16} />
         </td>
-        
+
         {/* 复选框列 */}
         <td className='px-2 py-4'>
           <input
@@ -1797,15 +1799,15 @@ const CategoryConfig = ({
             </span>
           )}
         </h4>
-            <button
-              onClick={() => setShowAddForm(!showAddForm)}
-              className='px-3 py-1 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg transition-colors'
-            >
-              {showAddForm ? '取消' : '添加分类'}
-            </button>
+        <button
+          onClick={() => setShowAddForm(!showAddForm)}
+          className='px-3 py-1 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg transition-colors'
+        >
+          {showAddForm ? '取消' : '添加分类'}
+        </button>
       </div>
 
-          {showAddForm && (
+      {showAddForm && (
         <div className='p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 space-y-4'>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <input
@@ -1938,7 +1940,7 @@ const ConfigFileComponent = ({ config, refreshConfig }: { config: AdminConfig | 
   const handleSave = async () => {
     try {
       setSaving(true);
-      
+
       // 验证并格式化 JSON
       let formattedConfig;
       try {
@@ -1947,7 +1949,7 @@ const ConfigFileComponent = ({ config, refreshConfig }: { config: AdminConfig | 
       } catch (e) {
         throw new Error('配置文件格式错误，请检查 JSON 语法');
       }
-      
+
       const resp = await fetch('/api/admin/config_file', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -2224,7 +2226,7 @@ const SiteConfigComponent = ({ config }: { config: AdminConfig | null }) => {
   });
   // 保存状态
   const [saving, setSaving] = useState(false);
-  
+
   // TVBox 密码生成
   const generateRandomPassword = () => {
     const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789';
@@ -2792,7 +2794,7 @@ const SiteConfigComponent = ({ config }: { config: AdminConfig | null }) => {
         <h3 className='text-base font-semibold text-gray-900 dark:text-gray-100'>
           TVBox 接口配置
         </h3>
-        
+
         {/* TVBox 开关 */}
         <div>
           <div className='flex items-center justify-between'>
@@ -2816,18 +2818,15 @@ const SiteConfigComponent = ({ config }: { config: AdminConfig | null }) => {
                 }))
               }
               disabled={isLocalStorage}
-              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
-                isLocalStorage ? 'opacity-50 cursor-not-allowed' : ''
-              } ${
-                siteSettings.TVBoxEnabled
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${isLocalStorage ? 'opacity-50 cursor-not-allowed' : ''
+                } ${siteSettings.TVBoxEnabled
                   ? 'bg-green-600'
                   : 'bg-gray-200 dark:bg-gray-700'
-              }`}
+                }`}
             >
               <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  siteSettings.TVBoxEnabled ? 'translate-x-6' : 'translate-x-1'
-                }`}
+                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${siteSettings.TVBoxEnabled ? 'translate-x-6' : 'translate-x-1'
+                  }`}
               />
             </button>
           </div>
@@ -2849,16 +2848,16 @@ const SiteConfigComponent = ({ config }: { config: AdminConfig | null }) => {
                 value={
                   typeof window !== 'undefined'
                     ? (() => {
-                        const uname = getAuthInfoFromBrowserCookie()?.username || '';
-                        const un = (() => {
-                          if (!uname) return '';
-                          const bytes = new TextEncoder().encode(uname);
-                          let binary = '';
-                          for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
-                          return btoa(binary);
-                        })();
-                        return `${window.location.origin}/api/tvbox/config?pwd=${encodeURIComponent(siteSettings.TVBoxPassword || '')}${un ? `&un=${encodeURIComponent(un)}` : ''}`;
-                      })()
+                      const uname = getAuthInfoFromBrowserCookie()?.username || '';
+                      const un = (() => {
+                        if (!uname) return '';
+                        const bytes = new TextEncoder().encode(uname);
+                        let binary = '';
+                        for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+                        return btoa(binary);
+                      })();
+                      return `${window.location.origin}/api/tvbox/config?pwd=${encodeURIComponent(siteSettings.TVBoxPassword || '')}${un ? `&un=${encodeURIComponent(un)}` : ''}`;
+                    })()
                     : ''
                 }
                 readOnly
@@ -2892,9 +2891,8 @@ const SiteConfigComponent = ({ config }: { config: AdminConfig | null }) => {
           {/* 访问密码 */}
           <div>
             <label
-              className={`block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${
-                isLocalStorage ? 'opacity-50' : ''
-              }`}
+              className={`block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${isLocalStorage ? 'opacity-50' : ''
+                }`}
             >
               访问密码
               {isLocalStorage && (
@@ -2916,9 +2914,8 @@ const SiteConfigComponent = ({ config }: { config: AdminConfig | null }) => {
                   }))
                 }
                 disabled={isLocalStorage}
-                className={`flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm focus:ring-2 focus:ring-green-500 focus:border-transparent ${
-                  isLocalStorage ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
+                className={`flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm focus:ring-2 focus:ring-green-500 focus:border-transparent ${isLocalStorage ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
               />
               <button
                 type='button'
@@ -2930,9 +2927,8 @@ const SiteConfigComponent = ({ config }: { config: AdminConfig | null }) => {
                   }))
                 }
                 disabled={isLocalStorage}
-                className={`px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm ${
-                  isLocalStorage ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
+                className={`px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm ${isLocalStorage ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
               >
                 生成
               </button>
@@ -2973,6 +2969,7 @@ function AdminPageClient() {
     categoryConfig: false,
     configFile: false,
     subscriptionConfig: false,
+    membershipConfig: false,
   });
 
   // 获取管理员配置
@@ -3101,6 +3098,21 @@ function AdminPageClient() {
               </button>
             )}
           </div>
+
+          {/* 会员订阅管理标签 */}
+          <CollapsibleTab
+            title='会员订阅管理'
+            icon={
+              <CreditCard
+                size={20}
+                className='text-gray-600 dark:text-gray-400'
+              />
+            }
+            isExpanded={expandedTabs.membershipConfig}
+            onToggle={() => toggleTab('membershipConfig')}
+          >
+            <MembershipManagement />
+          </CollapsibleTab>
 
           {/* 订阅配置标签 */}
           <CollapsibleTab

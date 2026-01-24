@@ -4,7 +4,7 @@ import { AdminConfig } from './admin.types';
 import { D1Storage } from './d1.db';
 import { KvrocksStorage } from './kvrocks.db';
 import { RedisStorage } from './redis.db';
-import { Favorite, IStorage, PlayRecord, SkipConfig } from './types';
+import { Favorite, IStorage, PlayRecord, SkipConfig, SubscriptionPlan, UserSubscription, PaymentOrder, PaymentSettings } from './types';
 import { UpstashRedisStorage } from './upstash.db';
 
 // storage type 常量: 'localstorage' | 'redis' | 'kvrocks' | 'upstash' | 'd1'，默认 'localstorage'
@@ -233,6 +233,110 @@ export class DbManager {
       await (this.storage as any).clearAllData();
     } else {
       throw new Error('存储类型不支持清空数据操作');
+    }
+  }
+  // ---------- 订阅和支付相关 ----------
+
+  // 订阅套餐
+  async getSubscriptionPlans(includeInactive?: boolean): Promise<SubscriptionPlan[]> {
+    if (typeof (this.storage as any).getSubscriptionPlans === 'function') {
+      return (this.storage as any).getSubscriptionPlans(includeInactive);
+    }
+    return [];
+  }
+
+  async getPlanById(id: number): Promise<SubscriptionPlan | null> {
+    if (typeof (this.storage as any).getPlanById === 'function') {
+      return (this.storage as any).getPlanById(id);
+    }
+    return null;
+  }
+
+  async saveSubscriptionPlan(plan: SubscriptionPlan): Promise<void> {
+    if (typeof (this.storage as any).saveSubscriptionPlan === 'function') {
+      await (this.storage as any).saveSubscriptionPlan(plan);
+    }
+  }
+
+  // 用户订阅
+  async getUserSubscription(userName: string): Promise<UserSubscription | null> {
+    if (typeof (this.storage as any).getUserSubscription === 'function') {
+      return (this.storage as any).getUserSubscription(userName);
+    }
+    return null;
+  }
+
+  async createUserSubscription(subscription: UserSubscription): Promise<void> {
+    if (typeof (this.storage as any).createUserSubscription === 'function') {
+      await (this.storage as any).createUserSubscription(subscription);
+    }
+  }
+
+  async updateUserSubscription(subscription: UserSubscription): Promise<void> {
+    if (typeof (this.storage as any).updateUserSubscription === 'function') {
+      await (this.storage as any).updateUserSubscription(subscription);
+    }
+  }
+
+  // 订单管理
+  async createOrder(order: PaymentOrder): Promise<string> {
+    if (typeof (this.storage as any).createOrder === 'function') {
+      return (this.storage as any).createOrder(order);
+    }
+    throw new Error('Storage does not support payment orders');
+  }
+
+  async getOrder(orderNo: string): Promise<PaymentOrder | null> {
+    if (typeof (this.storage as any).getOrder === 'function') {
+      return (this.storage as any).getOrder(orderNo);
+    }
+    return null;
+  }
+
+  async getOrdersByUser(userName: string): Promise<PaymentOrder[]> {
+    if (typeof (this.storage as any).getOrdersByUser === 'function') {
+      return (this.storage as any).getOrdersByUser(userName);
+    }
+    return [];
+  }
+
+  async getPendingOrders(): Promise<PaymentOrder[]> {
+    if (typeof (this.storage as any).getPendingOrders === 'function') {
+      return (this.storage as any).getPendingOrders();
+    }
+    return [];
+  }
+
+  async getAllOrders(page: number = 1, limit: number = 20): Promise<{ orders: PaymentOrder[], total: number }> {
+    if (typeof (this.storage as any).getAllOrders === 'function') {
+      return (this.storage as any).getAllOrders(page, limit);
+    }
+    return { orders: [], total: 0 };
+  }
+
+  async updateOrderProof(orderNo: string, proofPath: string): Promise<void> {
+    if (typeof (this.storage as any).updateOrderProof === 'function') {
+      await (this.storage as any).updateOrderProof(orderNo, proofPath);
+    }
+  }
+
+  async updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId?: number, reason?: string): Promise<void> {
+    if (typeof (this.storage as any).updateOrderStatus === 'function') {
+      await (this.storage as any).updateOrderStatus(orderNo, status, adminId, reason);
+    }
+  }
+
+  // 支付设置
+  async getPaymentSettings(): Promise<PaymentSettings | null> {
+    if (typeof (this.storage as any).getPaymentSettings === 'function') {
+      return (this.storage as any).getPaymentSettings();
+    }
+    return null;
+  }
+
+  async savePaymentSettings(settings: PaymentSettings): Promise<void> {
+    if (typeof (this.storage as any).savePaymentSettings === 'function') {
+      await (this.storage as any).savePaymentSettings(settings);
     }
   }
 }

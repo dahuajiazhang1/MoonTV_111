@@ -25,8 +25,66 @@ export interface Favorite {
   search_title: string; // 搜索时使用的标题
 }
 
-// 存储接口
+
+
+// ---------- 订阅和支付相关 ----------
+
+export interface SubscriptionPlan {
+  id?: number;
+  name: string;
+  description?: string;
+  duration_days: number;
+  price: number;
+  original_price?: number;
+  features: string; // JSON string
+  is_active: boolean;
+  sort_order: number;
+}
+
+export interface UserSubscription {
+  id?: number;
+  user_id?: number;
+  username?: string; // 方便前端显示
+  plan_id: number;
+  status: 'active' | 'expired' | 'cancelled';
+  start_date: string; // ISO date string
+  end_date: string; // ISO date string
+  auto_renew: boolean;
+  plan_name?: string; // 关联的套餐名称
+}
+
+export interface PaymentOrder {
+  id?: number;
+  order_no: string;
+  user_id?: number;
+  username?: string;
+  order_type: 'subscription' | 'credits';
+  related_id?: number;
+  amount: number;
+  payment_method: string;
+  payment_status: 'pending' | 'approved' | 'rejected' | 'expired';
+  payment_proof?: string;
+  verified_by?: number;
+  verified_at?: string;
+  reject_reason?: string;
+  paid_at?: string;
+  expires_at?: string;
+  created_at?: string;
+}
+
+export interface PaymentSettings {
+  id?: number;
+  alipay_qr_code?: string;
+  alipay_account_name?: string;
+  payment_notice?: string;
+  auto_approval?: boolean;
+  order_expire_hours?: number;
+}
+
+// 扩展存储接口
 export interface IStorage {
+  // ... 原有接口保持不变 ...
+
   // 播放记录相关
   getPlayRecord(userName: string, key: string): Promise<PlayRecord | null>;
   setPlayRecord(
@@ -46,11 +104,8 @@ export interface IStorage {
   // 用户相关
   registerUser(userName: string, password: string): Promise<void>;
   verifyUser(userName: string, password: string): Promise<boolean>;
-  // 检查用户是否存在（无需密码）
   checkUserExist(userName: string): Promise<boolean>;
-  // 修改用户密码
   changePassword(userName: string, newPassword: string): Promise<void>;
-  // 删除用户（包括密码、搜索历史、播放记录、收藏夹）
   deleteUser(userName: string): Promise<void>;
 
   // 搜索历史相关
@@ -82,6 +137,31 @@ export interface IStorage {
 
   // 数据清理
   clearAllData(): Promise<void>;
+
+  // ---------- 新增：订阅和支付相关接口 ----------
+
+  // 订阅套餐
+  getSubscriptionPlans(includeInactive?: boolean): Promise<SubscriptionPlan[]>;
+  getPlanById(id: number): Promise<SubscriptionPlan | null>;
+  saveSubscriptionPlan(plan: SubscriptionPlan): Promise<void>;
+
+  // 用户订阅
+  getUserSubscription(userName: string): Promise<UserSubscription | null>;
+  createUserSubscription(subscription: UserSubscription): Promise<void>;
+  updateUserSubscription(subscription: UserSubscription): Promise<void>;
+
+  // 订单管理
+  createOrder(order: PaymentOrder): Promise<string>; // 返回 order_no
+  getOrder(orderNo: string): Promise<PaymentOrder | null>;
+  getOrdersByUser(userName: string): Promise<PaymentOrder[]>;
+  getPendingOrders(): Promise<PaymentOrder[]>;
+  getAllOrders(page?: number, limit?: number): Promise<{ orders: PaymentOrder[], total: number }>;
+  updateOrderProof(orderNo: string, proofPath: string): Promise<void>;
+  updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId?: number, reason?: string): Promise<void>;
+
+  // 支付设置
+  getPaymentSettings(): Promise<PaymentSettings | null>;
+  savePaymentSettings(settings: PaymentSettings): Promise<void>;
 }
 
 // 搜索结果数据结构
