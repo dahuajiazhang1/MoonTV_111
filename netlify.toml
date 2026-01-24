@@ -26,7 +26,6 @@
   
   # 函数执行时间限制（秒）
   # 免费版：10秒，Pro版：26秒
-  included_files = ["**"]
 
 # 构建优化
 [build.processing]
