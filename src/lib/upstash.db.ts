@@ -664,7 +664,7 @@ export class UpstashRedisStorage implements IStorage {
 
     // 获取订单号列表（倒序，最新的在前）
     const orderNos = await withRetry(() =>
-      client.zrevrange(`payment:orders:user:${userName}`, 0, -1)
+      client.zrange(`payment:orders:user:${userName}`, 0, -1, { rev: true })
     ) as string[];
 
     if (!orderNos || orderNos.length === 0) {
@@ -687,7 +687,7 @@ export class UpstashRedisStorage implements IStorage {
     const client = getUpstashRedisClient();
 
     const orderNos = await withRetry(() =>
-      client.zrevrange('payment:orders:pending', 0, -1)
+      client.zrange('payment:orders:pending', 0, -1, { rev: true })
     ) as string[];
 
     if (!orderNos || orderNos.length === 0) {
@@ -718,7 +718,7 @@ export class UpstashRedisStorage implements IStorage {
 
     // 获取订单号（倒序）
     const orderNos = await withRetry(() =>
-      client.zrevrange('payment:orders:all', start, end)
+      client.zrange('payment:orders:all', start, end, { rev: true })
     ) as string[];
 
     const orders: import('./types').PaymentOrder[] = [];
