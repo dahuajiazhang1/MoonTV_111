@@ -449,11 +449,11 @@ export class UpstashRedisStorage implements IStorage {
   async saveSubscriptionPlan(plan: import('./types').SubscriptionPlan): Promise<void> {
     const client = getUpstashRedisClient();
 
-    let planId = plan.id;
+    let planId: number = plan.id || 0;
 
     // 如果没有ID，生成新ID
     if (!planId) {
-      planId = await withRetry(() => client.incr('subscription:plan:counter'));
+      planId = (await withRetry(() => client.incr('subscription:plan:counter'))) as number;
     }
 
     // 保存套餐数据
