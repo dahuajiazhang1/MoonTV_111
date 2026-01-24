@@ -66,7 +66,6 @@ export default function SubscriptionPlansManager() {
             duration_days: 30,
             price: 0,
             original_price: 0,
-            // @ts-expect-error features is json string but we treat as array in UI? No, let's keep it simple string in UI for now
             features: '[]',
             is_active: true,
             sort_order: 0
