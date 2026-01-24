@@ -478,66 +478,67 @@ export abstract class BaseRedisStorage implements IStorage {
       console.error('清空数据失败:', error);
       throw new Error('清空数据失败');
     }
-    // ---------- 订阅和支付相关 (Not Implemented for Redis) ----------
-  
-  async getSubscriptionPlans(): Promise < SubscriptionPlan[] > {
-      throw new Error('Subscription not supported in Redis storage');
-    }
+  }
 
-  async getPlanById(id: number): Promise < SubscriptionPlan | null > {
-      throw new Error('Subscription not supported in Redis storage');
-    }
+  // ---------- 订阅和支付相关 (Not Implemented for Redis) ----------
 
-  async saveSubscriptionPlan(plan: SubscriptionPlan): Promise < void> {
-      throw new Error('Subscription not supported in Redis storage');
-    }
+  async getSubscriptionPlans(): Promise<SubscriptionPlan[]> {
+    throw new Error('Subscription not supported in Redis storage');
+  }
 
-  async getUserSubscription(userName: string): Promise < UserSubscription | null > {
-      throw new Error('Subscription not supported in Redis storage');
-    }
+  async getPlanById(id: number): Promise<SubscriptionPlan | null> {
+    throw new Error('Subscription not supported in Redis storage');
+  }
 
-  async createUserSubscription(subscription: UserSubscription): Promise < void> {
-      throw new Error('Subscription not supported in Redis storage');
-    }
+  async saveSubscriptionPlan(plan: SubscriptionPlan): Promise<void> {
+    throw new Error('Subscription not supported in Redis storage');
+  }
 
-  async updateUserSubscription(subscription: UserSubscription): Promise < void> {
-      throw new Error('Subscription not supported in Redis storage');
-    }
+  async getUserSubscription(userName: string): Promise<UserSubscription | null> {
+    throw new Error('Subscription not supported in Redis storage');
+  }
 
-  async createOrder(order: PaymentOrder): Promise < string > {
-      throw new Error('Payment not supported in Redis storage');
-    }
+  async createUserSubscription(subscription: UserSubscription): Promise<void> {
+    throw new Error('Subscription not supported in Redis storage');
+  }
 
-  async getOrder(orderNo: string): Promise < PaymentOrder | null > {
-      throw new Error('Payment not supported in Redis storage');
-    }
+  async updateUserSubscription(subscription: UserSubscription): Promise<void> {
+    throw new Error('Subscription not supported in Redis storage');
+  }
 
-  async getOrdersByUser(userName: string): Promise < PaymentOrder[] > {
-      throw new Error('Payment not supported in Redis storage');
-    }
+  async createOrder(order: PaymentOrder): Promise<string> {
+    throw new Error('Payment not supported in Redis storage');
+  }
 
-  async getPendingOrders(): Promise < PaymentOrder[] > {
-      throw new Error('Payment not supported in Redis storage');
-    }
+  async getOrder(orderNo: string): Promise<PaymentOrder | null> {
+    throw new Error('Payment not supported in Redis storage');
+  }
 
-  async getAllOrders(page: number = 1, limit: number = 20): Promise < { orders: PaymentOrder[], total: number } > {
-      throw new Error('Payment not supported in Redis storage');
-    }
+  async getOrdersByUser(userName: string): Promise<PaymentOrder[]> {
+    throw new Error('Payment not supported in Redis storage');
+  }
 
-  async updateOrderProof(orderNo: string, proofPath: string): Promise < void> {
-      throw new Error('Payment not supported in Redis storage');
-    }
+  async getPendingOrders(): Promise<PaymentOrder[]> {
+    throw new Error('Payment not supported in Redis storage');
+  }
 
-  async updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId ?: number, reason ?: string): Promise < void> {
-      throw new Error('Payment not supported in Redis storage');
-    }
+  async getAllOrders(page: number = 1, limit: number = 20): Promise<{ orders: PaymentOrder[], total: number }> {
+    throw new Error('Payment not supported in Redis storage');
+  }
 
-  async getPaymentSettings(): Promise < PaymentSettings | null > {
-      throw new Error('Payment not supported in Redis storage');
-    }
+  async updateOrderProof(orderNo: string, proofPath: string): Promise<void> {
+    throw new Error('Payment not supported in Redis storage');
+  }
 
-  async savePaymentSettings(settings: PaymentSettings): Promise < void> {
-      throw new Error('Payment not supported in Redis storage');
-    }
+  async updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId?: number, reason?: string): Promise<void> {
+    throw new Error('Payment not supported in Redis storage');
+  }
+
+  async getPaymentSettings(): Promise<PaymentSettings | null> {
+    throw new Error('Payment not supported in Redis storage');
+  }
+
+  async savePaymentSettings(settings: PaymentSettings): Promise<void> {
+    throw new Error('Payment not supported in Redis storage');
   }
 }
