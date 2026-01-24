@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { getUserFromRequest } from '@/lib/auth';
+import { getAuthInfoFromCookie } from '@/lib/auth';
 import type { PaymentOrder } from '@/lib/types';
 
 export const runtime = 'edge';
@@ -12,8 +12,8 @@ export const runtime = 'edge';
 export async function POST(request: NextRequest) {
     try {
         // 验证用户登录
-        const user = await getUserFromRequest(request);
-        if (!user) {
+        const authInfo = getAuthInfoFromCookie(request);
+        if (!authInfo || !authInfo.username) {
             return NextResponse.json(
                 { success: false, error: '请先登录' },
                 { status: 401 }
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
         // 创建订单
         const order: PaymentOrder = {
             order_no: orderNo,
-            username: user.username,
+            username: authInfo.username,
             order_type: 'subscription',
             related_id: plan.id,
             amount: plan.price,
