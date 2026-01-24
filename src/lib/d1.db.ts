@@ -685,7 +685,7 @@ export class D1Storage implements IStorage {
     // 这里的 username 是可选的，如果传入了 username，先获取 userId
     let userId = subscription.user_id;
     if (!userId && subscription.username) {
-      userId = await this.getUserId(subscription.username);
+      userId = await this.getUserId(subscription.username) ?? undefined;
     }
     if (!userId) throw new Error('User not found');
 
@@ -715,7 +715,7 @@ export class D1Storage implements IStorage {
   async createOrder(order: PaymentOrder): Promise<string> {
     let userId = order.user_id;
     if (!userId && order.username) {
-      userId = await this.getUserId(order.username);
+      userId = await this.getUserId(order.username) ?? undefined;
     }
     if (!userId) throw new Error('User not found');
 
