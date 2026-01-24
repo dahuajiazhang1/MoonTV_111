@@ -84,7 +84,7 @@ export class UpstashRedisStorage implements IStorage {
     if (record.title) {
       const pattern = `u:${userName}:pr:*`;
       const allKeys: string[] = await withRetry(() => this.client.keys(pattern));
-      
+
       for (const fullKey of allKeys) {
         const val = await withRetry(() => this.client.get(fullKey));
         if (val) {
@@ -365,6 +365,68 @@ export class UpstashRedisStorage implements IStorage {
   async clearAllData(): Promise<void> {
     const client = getUpstashRedisClient();
     await client.flushall();
+  }
+
+  // ---------- 订阅和支付相关 (Not Implemented for Upstash Redis) ----------
+
+  async getSubscriptionPlans(): Promise<import('./types').SubscriptionPlan[]> {
+    throw new Error('Subscription not supported in Upstash Redis storage');
+  }
+
+  async getPlanById(id: number): Promise<import('./types').SubscriptionPlan | null> {
+    throw new Error('Subscription not supported in Upstash Redis storage');
+  }
+
+  async saveSubscriptionPlan(plan: import('./types').SubscriptionPlan): Promise<void> {
+    throw new Error('Subscription not supported in Upstash Redis storage');
+  }
+
+  async getUserSubscription(userName: string): Promise<import('./types').UserSubscription | null> {
+    throw new Error('Subscription not supported in Upstash Redis storage');
+  }
+
+  async createUserSubscription(subscription: import('./types').UserSubscription): Promise<void> {
+    throw new Error('Subscription not supported in Upstash Redis storage');
+  }
+
+  async updateUserSubscription(subscription: import('./types').UserSubscription): Promise<void> {
+    throw new Error('Subscription not supported in Upstash Redis storage');
+  }
+
+  async createOrder(order: import('./types').PaymentOrder): Promise<string> {
+    throw new Error('Payment not supported in Upstash Redis storage');
+  }
+
+  async getOrder(orderNo: string): Promise<import('./types').PaymentOrder | null> {
+    throw new Error('Payment not supported in Upstash Redis storage');
+  }
+
+  async getOrdersByUser(userName: string): Promise<import('./types').PaymentOrder[]> {
+    throw new Error('Payment not supported in Upstash Redis storage');
+  }
+
+  async getPendingOrders(): Promise<import('./types').PaymentOrder[]> {
+    throw new Error('Payment not supported in Upstash Redis storage');
+  }
+
+  async getAllOrders(page: number = 1, limit: number = 20): Promise<{ orders: import('./types').PaymentOrder[], total: number }> {
+    throw new Error('Payment not supported in Upstash Redis storage');
+  }
+
+  async updateOrderProof(orderNo: string, proofPath: string): Promise<void> {
+    throw new Error('Payment not supported in Upstash Redis storage');
+  }
+
+  async updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId?: number, reason?: string): Promise<void> {
+    throw new Error('Payment not supported in Upstash Redis storage');
+  }
+
+  async getPaymentSettings(): Promise<import('./types').PaymentSettings | null> {
+    throw new Error('Payment not supported in Upstash Redis storage');
+  }
+
+  async savePaymentSettings(settings: import('./types').PaymentSettings): Promise<void> {
+    throw new Error('Payment not supported in Upstash Redis storage');
   }
 }
 
