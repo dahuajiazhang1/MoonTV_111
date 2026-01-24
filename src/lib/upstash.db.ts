@@ -287,11 +287,17 @@ export class UpstashRedisStorage implements IStorage {
 
   async getAdminConfig(): Promise<AdminConfig | null> {
     const val = await withRetry(() => this.client.get(this.adminConfigKey()));
-    return val ? (val as AdminConfig) : null;
+    if (!val) return null;
+    // 如果是字符串，解析它；否则直接返回（兼容旧数据）
+    if (typeof val === 'string') {
+      return JSON.parse(val) as AdminConfig;
+    }
+    return val as AdminConfig;
   }
 
   async setAdminConfig(config: AdminConfig): Promise<void> {
-    await withRetry(() => this.client.set(this.adminConfigKey(), config));
+    // 使用 JSON.stringify 确保序列化一致性，避免字段丢失
+    await withRetry(() => this.client.set(this.adminConfigKey(), JSON.stringify(config)));
   }
 
   // ---------- 跳过片头片尾配置 ----------
