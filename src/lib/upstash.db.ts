@@ -367,66 +367,420 @@ export class UpstashRedisStorage implements IStorage {
     await client.flushall();
   }
 
-  // ---------- 订阅和支付相关 (Not Implemented for Upstash Redis) ----------
+  // ---------- 订阅和支付相关 (Implemented for Upstash Redis) ----------
 
-  async getSubscriptionPlans(): Promise<import('./types').SubscriptionPlan[]> {
-    throw new Error('Subscription not supported in Upstash Redis storage');
-  }
-
-  async getPlanById(id: number): Promise<import('./types').SubscriptionPlan | null> {
-    throw new Error('Subscription not supported in Upstash Redis storage');
-  }
-
-  async saveSubscriptionPlan(plan: import('./types').SubscriptionPlan): Promise<void> {
-    throw new Error('Subscription not supported in Upstash Redis storage');
-  }
-
-  async getUserSubscription(userName: string): Promise<import('./types').UserSubscription | null> {
-    throw new Error('Subscription not supported in Upstash Redis storage');
-  }
-
-  async createUserSubscription(subscription: import('./types').UserSubscription): Promise<void> {
-    throw new Error('Subscription not supported in Upstash Redis storage');
-  }
-
-  async updateUserSubscription(subscription: import('./types').UserSubscription): Promise<void> {
-    throw new Error('Subscription not supported in Upstash Redis storage');
-  }
-
-  async createOrder(order: import('./types').PaymentOrder): Promise<string> {
-    throw new Error('Payment not supported in Upstash Redis storage');
-  }
-
-  async getOrder(orderNo: string): Promise<import('./types').PaymentOrder | null> {
-    throw new Error('Payment not supported in Upstash Redis storage');
-  }
-
-  async getOrdersByUser(userName: string): Promise<import('./types').PaymentOrder[]> {
-    throw new Error('Payment not supported in Upstash Redis storage');
-  }
-
-  async getPendingOrders(): Promise<import('./types').PaymentOrder[]> {
-    throw new Error('Payment not supported in Upstash Redis storage');
-  }
-
-  async getAllOrders(page: number = 1, limit: number = 20): Promise<{ orders: import('./types').PaymentOrder[], total: number }> {
-    throw new Error('Payment not supported in Upstash Redis storage');
-  }
-
-  async updateOrderProof(orderNo: string, proofPath: string): Promise<void> {
-    throw new Error('Payment not supported in Upstash Redis storage');
-  }
-
-  async updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId?: number, reason?: string): Promise<void> {
-    throw new Error('Payment not supported in Upstash Redis storage');
-  }
+  // === 1. 支付设置管理 ===
 
   async getPaymentSettings(): Promise<import('./types').PaymentSettings | null> {
-    throw new Error('Payment not supported in Upstash Redis storage');
+    const client = getUpstashRedisClient();
+    const data = await withRetry(() => client.hgetall('payment:settings'));
+
+    if (!data || Object.keys(data).length === 0) {
+      return null;
+    }
+
+    return {
+      id: 1,
+      alipay_qr_code: data.alipay_qr_code as string,
+      alipay_account_name: data.alipay_account_name as string,
+      payment_notice: data.payment_notice as string,
+      auto_approval: data.auto_approval === '1',
+      order_expire_hours: data.order_expire_hours ? parseInt(data.order_expire_hours as string) : 24,
+    };
   }
 
   async savePaymentSettings(settings: import('./types').PaymentSettings): Promise<void> {
-    throw new Error('Payment not supported in Upstash Redis storage');
+    const client = getUpstashRedisClient();
+    await withRetry(() => client.hset('payment:settings', {
+      alipay_qr_code: settings.alipay_qr_code || '',
+      alipay_account_name: settings.alipay_account_name || '',
+      payment_notice: settings.payment_notice || '',
+      auto_approval: settings.auto_approval ? '1' : '0',
+      order_expire_hours: (settings.order_expire_hours || 24).toString(),
+    }));
+  }
+
+  // === 2. 订阅套餐管理 ===
+
+  async getSubscriptionPlans(includeInactive?: boolean): Promise<import('./types').SubscriptionPlan[]> {
+    const client = getUpstashRedisClient();
+    const setKey = includeInactive ? 'subscription:plans:all' : 'subscription:plans:active';
+
+    // 获取所有套餐ID（按sort_order排序）
+    const planIds = await withRetry(() => client.zrange(setKey, 0, -1)) as string[];
+
+    if (!planIds || planIds.length === 0) {
+      return [];
+    }
+
+    const plans: import('./types').SubscriptionPlan[] = [];
+
+    for (const id of planIds) {
+      const plan = await this.getPlanById(parseInt(id));
+      if (plan) {
+        plans.push(plan);
+      }
+    }
+
+    return plans;
+  }
+
+  async getPlanById(id: number): Promise<import('./types').SubscriptionPlan | null> {
+    const client = getUpstashRedisClient();
+    const data = await withRetry(() => client.hgetall(`subscription:plan:${id}`));
+
+    if (!data || Object.keys(data).length === 0) {
+      return null;
+    }
+
+    return {
+      id: parseInt(data.id as string),
+      name: data.name as string,
+      description: data.description as string,
+      duration_days: parseInt(data.duration_days as string),
+      price: parseFloat(data.price as string),
+      original_price: data.original_price ? parseFloat(data.original_price as string) : undefined,
+      features: data.features as string,
+      is_active: data.is_active === '1',
+      sort_order: parseInt(data.sort_order as string),
+    };
+  }
+
+  async saveSubscriptionPlan(plan: import('./types').SubscriptionPlan): Promise<void> {
+    const client = getUpstashRedisClient();
+
+    let planId = plan.id;
+
+    // 如果没有ID，生成新ID
+    if (!planId) {
+      planId = await withRetry(() => client.incr('subscription:plan:counter'));
+    }
+
+    // 保存套餐数据
+    await withRetry(() => client.hset(`subscription:plan:${planId}`, {
+      id: planId.toString(),
+      name: plan.name,
+      description: plan.description || '',
+      duration_days: plan.duration_days.toString(),
+      price: plan.price.toString(),
+      original_price: plan.original_price?.toString() || '',
+      features: plan.features,
+      is_active: plan.is_active ? '1' : '0',
+      sort_order: plan.sort_order.toString(),
+    }));
+
+    // 添加到所有套餐列表（使用sort_order作为score）
+    await withRetry(() => client.zadd('subscription:plans:all', {
+      score: plan.sort_order,
+      member: planId!.toString(),
+    }));
+
+    // 如果是活跃套餐，添加到活跃列表
+    if (plan.is_active) {
+      await withRetry(() => client.zadd('subscription:plans:active', {
+        score: plan.sort_order,
+        member: planId!.toString(),
+      }));
+    } else {
+      // 如果是禁用，从活跃列表移除
+      await withRetry(() => client.zrem('subscription:plans:active', planId!.toString()));
+    }
+  }
+
+  // === 3. 用户订阅管理 ===
+
+  async getUserSubscription(userName: string): Promise<import('./types').UserSubscription | null> {
+    const client = getUpstashRedisClient();
+    const data = await withRetry(() => client.hgetall(`user:subscription:${userName}`));
+
+    if (!data || Object.keys(data).length === 0) {
+      return null;
+    }
+
+    const subscription: import('./types').UserSubscription = {
+      id: parseInt(data.id as string),
+      user_id: data.user_id ? parseInt(data.user_id as string) : undefined,
+      username: data.username as string,
+      plan_id: parseInt(data.plan_id as string),
+      status: data.status as 'active' | 'expired' | 'cancelled',
+      start_date: data.start_date as string,
+      end_date: data.end_date as string,
+      auto_renew: data.auto_renew === '1',
+      plan_name: data.plan_name as string,
+    };
+
+    // 检查是否过期
+    if (subscription.status === 'active' && new Date(subscription.end_date) < new Date()) {
+      subscription.status = 'expired';
+      await this.updateUserSubscription(subscription);
+    }
+
+    return subscription;
+  }
+
+  async createUserSubscription(subscription: import('./types').UserSubscription): Promise<void> {
+    const client = getUpstashRedisClient();
+
+    // 检查旧订阅，如果存在则取消
+    const oldSub = await this.getUserSubscription(subscription.username!);
+    if (oldSub && oldSub.status === 'active') {
+      oldSub.status = 'cancelled';
+      await this.updateUserSubscription(oldSub);
+    }
+
+    // 生成新ID
+    const subId = await withRetry(() => client.incr('user:subscription:counter')) as number;
+
+    // 获取套餐名称
+    let planName = subscription.plan_name;
+    if (!planName) {
+      const plan = await this.getPlanById(subscription.plan_id);
+      planName = plan?.name || '';
+    }
+
+    // 保存新订阅
+    await withRetry(() => client.hset(`user:subscription:${subscription.username}`, {
+      id: subId.toString(),
+      user_id: subscription.user_id?.toString() || '',
+      username: subscription.username || '',
+      plan_id: subscription.plan_id.toString(),
+      plan_name: planName,
+      status: 'active',
+      start_date: subscription.start_date,
+      end_date: subscription.end_date,
+      auto_renew: subscription.auto_renew ? '1' : '0',
+    }));
+
+    // 添加到历史记录
+    await withRetry(() => client.lpush(
+      `user:subscriptions:history:${subscription.username}`,
+      JSON.stringify({
+        ...subscription,
+        id: subId,
+        plan_name: planName,
+      })
+    ));
+  }
+
+  async updateUserSubscription(subscription: import('./types').UserSubscription): Promise<void> {
+    const client = getUpstashRedisClient();
+
+    await withRetry(() => client.hset(`user:subscription:${subscription.username}`, {
+      id: subscription.id?.toString() || '',
+      user_id: subscription.user_id?.toString() || '',
+      username: subscription.username || '',
+      plan_id: subscription.plan_id.toString(),
+      plan_name: subscription.plan_name || '',
+      status: subscription.status,
+      start_date: subscription.start_date,
+      end_date: subscription.end_date,
+      auto_renew: subscription.auto_renew ? '1' : '0',
+    }));
+  }
+
+  // === 4. 订单管理 ===
+
+  async createOrder(order: import('./types').PaymentOrder): Promise<string> {
+    const client = getUpstashRedisClient();
+
+    // 生成订单号
+    const orderNo = order.order_no || `ORD${Date.now()}${Math.floor(Math.random() * 1000)}`;
+    const createdAt = new Date().toISOString();
+
+    // 计算过期时间
+    const settings = await this.getPaymentSettings();
+    const expireHours = settings?.order_expire_hours || 24;
+    const expiresAt = new Date(Date.now() + expireHours * 60 * 60 * 1000).toISOString();
+
+    // 保存订单
+    await withRetry(() => client.hset(`payment:order:${orderNo}`, {
+      order_no: orderNo,
+      user_id: order.user_id?.toString() || '',
+      username: order.username || '',
+      order_type: order.order_type,
+      related_id: order.related_id?.toString() || '',
+      amount: order.amount.toString(),
+      payment_method: order.payment_method,
+      payment_status: 'pending',
+      payment_proof: order.payment_proof || '',
+      verified_by: order.verified_by?.toString() || '',
+      verified_at: order.verified_at || '',
+      reject_reason: order.reject_reason || '',
+      paid_at: order.paid_at || '',
+      expires_at: expiresAt,
+      created_at: createdAt,
+    }));
+
+    // 添加到各个索引（使用时间戳作为score）
+    const timestamp = Date.now();
+    await withRetry(() => client.zadd('payment:orders:all', {
+      score: timestamp,
+      member: orderNo,
+    }));
+
+    await withRetry(() => client.zadd(`payment:orders:user:${order.username}`, {
+      score: timestamp,
+      member: orderNo,
+    }));
+
+    await withRetry(() => client.zadd('payment:orders:pending', {
+      score: timestamp,
+      member: orderNo,
+    }));
+
+    return orderNo;
+  }
+
+  async getOrder(orderNo: string): Promise<import('./types').PaymentOrder | null> {
+    const client = getUpstashRedisClient();
+    const data = await withRetry(() => client.hgetall(`payment:order:${orderNo}`));
+
+    if (!data || Object.keys(data).length === 0) {
+      return null;
+    }
+
+    return {
+      id: undefined,
+      order_no: data.order_no as string,
+      user_id: data.user_id ? parseInt(data.user_id as string) : undefined,
+      username: data.username as string,
+      order_type: data.order_type as 'subscription' | 'credits',
+      related_id: data.related_id ? parseInt(data.related_id as string) : undefined,
+      amount: parseFloat(data.amount as string),
+      payment_method: data.payment_method as string,
+      payment_status: data.payment_status as 'pending' | 'approved' | 'rejected' | 'expired',
+      payment_proof: data.payment_proof as string,
+      verified_by: data.verified_by ? parseInt(data.verified_by as string) : undefined,
+      verified_at: data.verified_at as string,
+      reject_reason: data.reject_reason as string,
+      paid_at: data.paid_at as string,
+      expires_at: data.expires_at as string,
+      created_at: data.created_at as string,
+    };
+  }
+
+  async getOrdersByUser(userName: string): Promise<import('./types').PaymentOrder[]> {
+    const client = getUpstashRedisClient();
+
+    // 获取订单号列表（倒序，最新的在前）
+    const orderNos = await withRetry(() =>
+      client.zrevrange(`payment:orders:user:${userName}`, 0, -1)
+    ) as string[];
+
+    if (!orderNos || orderNos.length === 0) {
+      return [];
+    }
+
+    const orders: import('./types').PaymentOrder[] = [];
+
+    for (const orderNo of orderNos) {
+      const order = await this.getOrder(orderNo);
+      if (order) {
+        orders.push(order);
+      }
+    }
+
+    return orders;
+  }
+
+  async getPendingOrders(): Promise<import('./types').PaymentOrder[]> {
+    const client = getUpstashRedisClient();
+
+    const orderNos = await withRetry(() =>
+      client.zrevrange('payment:orders:pending', 0, -1)
+    ) as string[];
+
+    if (!orderNos || orderNos.length === 0) {
+      return [];
+    }
+
+    const orders: import('./types').PaymentOrder[] = [];
+
+    for (const orderNo of orderNos) {
+      const order = await this.getOrder(orderNo);
+      if (order) {
+        orders.push(order);
+      }
+    }
+
+    return orders;
+  }
+
+  async getAllOrders(page: number = 1, limit: number = 20): Promise<{ orders: import('./types').PaymentOrder[], total: number }> {
+    const client = getUpstashRedisClient();
+
+    // 获取总数
+    const total = await withRetry(() => client.zcard('payment:orders:all')) as number;
+
+    // 计算分页
+    const start = (page - 1) * limit;
+    const end = start + limit - 1;
+
+    // 获取订单号（倒序）
+    const orderNos = await withRetry(() =>
+      client.zrevrange('payment:orders:all', start, end)
+    ) as string[];
+
+    const orders: import('./types').PaymentOrder[] = [];
+
+    for (const orderNo of orderNos) {
+      const order = await this.getOrder(orderNo);
+      if (order) {
+        orders.push(order);
+      }
+    }
+
+    return { orders, total: total || 0 };
+  }
+
+  async updateOrderProof(orderNo: string, proofPath: string): Promise<void> {
+    const client = getUpstashRedisClient();
+    await withRetry(() => client.hset(`payment:order:${orderNo}`, {
+      payment_proof: proofPath,
+    }));
+  }
+
+  async updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId?: number, reason?: string): Promise<void> {
+    const client = getUpstashRedisClient();
+    const order = await this.getOrder(orderNo);
+
+    if (!order) {
+      throw new Error('Order not found');
+    }
+
+    const verifiedAt = new Date().toISOString();
+
+    // 更新订单状态
+    await withRetry(() => client.hset(`payment:order:${orderNo}`, {
+      payment_status: status,
+      verified_by: adminId?.toString() || '',
+      verified_at: verifiedAt,
+      reject_reason: reason || '',
+    }));
+
+    // 从待审核列表移除
+    await withRetry(() => client.zrem('payment:orders:pending', orderNo));
+
+    // 如果订单通过且是订阅类型，自动激活会员
+    if (status === 'approved' && order.order_type === 'subscription' && order.related_id) {
+      const plan = await this.getPlanById(order.related_id);
+
+      if (plan) {
+        const startDate = new Date().toISOString();
+        const endDate = new Date(Date.now() + plan.duration_days * 24 * 60 * 60 * 1000).toISOString();
+
+        await this.createUserSubscription({
+          username: order.username,
+          user_id: order.user_id,
+          plan_id: plan.id!,
+          plan_name: plan.name,
+          status: 'active',
+          start_date: startDate,
+          end_date: endDate,
+          auto_renew: false,
+        });
+      }
+    }
   }
 }
 
