@@ -3,7 +3,7 @@ import { getAuthInfoFromCookie } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { SubscriptionPlan } from '@/lib/types';
 
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 
 // 验证管理员权限
 function checkAdminAuth(request: NextRequest) {
