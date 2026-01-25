@@ -511,7 +511,7 @@ export class UpstashRedisStorage implements IStorage {
       status: data.status as 'active' | 'expired' | 'cancelled',
       start_date: data.start_date as string,
       end_date: data.end_date as string,
-      end_date: data.end_date as string,
+
       auto_renew: String(data.auto_renew) === '1',
       plan_name: data.plan_name as string,
     };
