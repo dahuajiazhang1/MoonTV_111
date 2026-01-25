@@ -390,7 +390,7 @@ export class UpstashRedisStorage implements IStorage {
       alipay_qr_code: data.alipay_qr_code as string,
       alipay_account_name: data.alipay_account_name as string,
       payment_notice: data.payment_notice as string,
-      auto_approval: data.auto_approval === '1',
+      auto_approval: String(data.auto_approval) === '1',
       order_expire_hours: data.order_expire_hours ? parseInt(data.order_expire_hours as string) : 24,
     };
   }
@@ -447,7 +447,7 @@ export class UpstashRedisStorage implements IStorage {
       price: parseFloat(data.price as string),
       original_price: data.original_price ? parseFloat(data.original_price as string) : undefined,
       features: data.features as string,
-      is_active: data.is_active === '1',
+      is_active: String(data.is_active) === '1',
       sort_order: parseInt(data.sort_order as string),
     };
   }
@@ -511,7 +511,8 @@ export class UpstashRedisStorage implements IStorage {
       status: data.status as 'active' | 'expired' | 'cancelled',
       start_date: data.start_date as string,
       end_date: data.end_date as string,
-      auto_renew: data.auto_renew === '1',
+      end_date: data.end_date as string,
+      auto_renew: String(data.auto_renew) === '1',
       plan_name: data.plan_name as string,
     };
 
