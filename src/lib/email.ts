@@ -1,20 +1,18 @@
-// import nodemailer from 'nodemailer'; // Nodemailer doesn't work in Edge runtime
+import nodemailer from 'nodemailer';
 import { PaymentOrder } from './types';
 
 // 配置邮件传输器
-// const transporter = nodemailer.createTransport({
-//     host: process.env.SMTP_HOST,
-//     port: Number(process.env.SMTP_PORT) || 465,
-//     secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
-//     auth: {
-//         user: process.env.SMTP_USER,
-//         pass: process.env.SMTP_PASS,
-//     },
-// });
+const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT) || 465,
+    secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
+    auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+    },
+});
 
 export async function sendOrderNotification(order: PaymentOrder) {
-    console.log('Email notification is disabled for Edge Runtime (Cloudflare Pages).');
-    /*
     if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.ADMIN_EMAIL) {
         console.log('Skipping email notification: SMTP settings missing');
         return;
@@ -42,5 +40,4 @@ export async function sendOrderNotification(order: PaymentOrder) {
     } catch (error) {
         console.error('Failed to send order notification:', error);
     }
-    */
 }
