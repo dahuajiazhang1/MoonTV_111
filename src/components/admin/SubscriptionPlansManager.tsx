@@ -3,39 +3,104 @@
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { SubscriptionPlan } from '@/lib/types';
-import { Edit2, Plus, Trash2 } from 'lucide-react';
+import { Edit2, Plus, Loader2 } from 'lucide-react';
 
 export default function SubscriptionPlansManager() {
     const [plans, setPlans] = useState<SubscriptionPlan[]>([]);
     const [editingPlan, setEditingPlan] = useState<Partial<SubscriptionPlan> | null>(null);
+    const [loading, setLoading] = useState(false);
+    const [saving, setSaving] = useState(false);
 
     useEffect(() => {
         fetchPlans();
     }, []);
 
     const fetchPlans = async () => {
+        setLoading(true);
         try {
             const res = await fetch('/api/admin/plans');
             if (res.ok) {
                 const data = await res.json();
                 setPlans(data);
+            } else {
+                throw new Error('Failed to fetch plans');
             }
         } catch (error) {
             console.error('Failed to fetch plans', error);
+            Swal.fire('加载失败', '无法获取套餐列表', 'error');
+        } finally {
+            setLoading(false);
         }
     };
 
+    const validatePlan = (plan: Partial<SubscriptionPlan>): string | null => {
+        if (!plan.name || plan.name.trim() === '') {
+            return '套餐名称不能为空';
+        }
+
+        if (plan.name.trim().length > 50) {
+            return '套餐名称不能超过50个字符';
+        }
+
+        if (typeof plan.price !== 'number' || plan.price < 0) {
+            return '价格必须大于等于0';
+        }
+
+        if (plan.price > 999999) {
+            return '价格不能超过999999';
+        }
+
+        if (typeof plan.duration_days !== 'number' || plan.duration_days <= 0) {
+            return '天数必须大于0';
+        }
+
+        if (plan.duration_days > 3650) {
+            return '天数不能超过3650天（10年）';
+        }
+
+        if (plan.original_price && (typeof plan.original_price !== 'number' || plan.original_price < 0)) {
+            return '原价必须大于等于0';
+        }
+
+        if (plan.original_price && plan.original_price < plan.price) {
+            return '原价必须大于等于现价';
+        }
+
+        if (plan.description && plan.description.length > 200) {
+            return '描述不能超过200个字符';
+        }
+
+        return null;
+    };
+
     const handleSave = async (plan: Partial<SubscriptionPlan>) => {
+        // 数据校验
+        const error = validatePlan(plan);
+        if (error) {
+            await Swal.fire('数据校验失败', error, 'error');
+            return;
+        }
+
+        setSaving(true);
         try {
-            // Parse features if string
+            // 处理特权字段
             let featuresToSend = plan.features;
             if (typeof plan.features === 'string') {
                 try {
+                    // 尝试解析为 JSON
                     JSON.parse(plan.features);
+                    // 如果成功，说明已经是有效 JSON
+                    featuresToSend = plan.features;
                 } catch (e) {
-                    // If not valid JSON, make it an array with one string
-                    featuresToSend = JSON.stringify(plan.features.split('\n').filter(Boolean));
+                    // 解析失败，将每行转换为数组
+                    const lines = plan.features
+                        .split('\n')
+                        .map(l => l.trim())
+                        .filter(Boolean);
+                    featuresToSend = JSON.stringify(lines);
                 }
+            } else if (Array.isArray(plan.features)) {
+                featuresToSend = JSON.stringify(plan.features);
             }
 
             const res = await fetch('/api/admin/plans', {
@@ -43,33 +108,46 @@ export default function SubscriptionPlansManager() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     ...plan,
+                    price: Number(plan.price),
+                    original_price: plan.original_price ? Number(plan.original_price) : undefined,
+                    duration_days: Number(plan.duration_days),
+                    sort_order: Number(plan.sort_order || 0),
                     features: featuresToSend
                 }),
             });
 
             if (res.ok) {
-                Swal.fire('保存成功', '', 'success');
+                await Swal.fire('保存成功', '', 'success');
                 setEditingPlan(null);
-                fetchPlans();
+                await fetchPlans();
             } else {
-                throw new Error('Save failed');
+                const error = await res.json();
+                throw new Error(error.error || 'Save failed');
             }
-        } catch (error) {
-            Swal.fire('保存失败', '请重试', 'error');
+        } catch (error: any) {
+            await Swal.fire('保存失败', error.message || '请重试', 'error');
+        } finally {
+            setSaving(false);
         }
     };
 
     const openEditModal = (plan?: SubscriptionPlan) => {
-        setEditingPlan(plan || {
-            name: '',
-            description: '',
-            duration_days: 30,
-            price: 0,
-            original_price: 0,
-            features: '[]',
-            is_active: true,
-            sort_order: 0
-        });
+        if (plan) {
+            // 编辑现有套餐
+            setEditingPlan(plan);
+        } else {
+            // 新建套餐 - 使用空字符串避免显示 0
+            setEditingPlan({
+                name: '',
+                description: '',
+                duration_days: 30,
+                price: undefined as any,
+                original_price: undefined as any,
+                features: '[]',
+                is_active: true,
+                sort_order: 0
+            });
+        }
     };
 
     return (
