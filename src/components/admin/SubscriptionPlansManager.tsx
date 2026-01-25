@@ -195,119 +195,170 @@ export default function SubscriptionPlansManager() {
             </div>
 
             {editingPlan && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-lg p-6 max-h-[90vh] overflow-y-auto">
-                        <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-                            {editingPlan.id ? '编辑套餐' : '添加套餐'}
-                        </h3>
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => !saving && setEditingPlan(null)}>
+                    <div
+                        className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* 固定头部 */}
+                        <div className="flex-shrink-0 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                                {editingPlan.id ? '编辑套餐' : '添加套餐'}
+                            </h3>
+                        </div>
 
-                        <div className="space-y-4">
-                            <div>
-                                <label className="block text-sm font-medium mb-1">套餐名称</label>
-                                <input
-                                    type="text"
-                                    value={editingPlan.name}
-                                    onChange={e => setEditingPlan({ ...editingPlan, name: e.target.value })}
-                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
-                                />
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-4">
+                        {/* 可滚动内容区 */}
+                        <div className="flex-1 overflow-y-auto px-6 py-4">
+                            <div className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium mb-1">价格</label>
+                                    <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                                        套餐名称 <span className="text-red-500">*</span>
+                                    </label>
                                     <input
-                                        type="number"
-                                        value={editingPlan.price}
-                                        onChange={e => setEditingPlan({ ...editingPlan, price: Number(e.target.value) })}
-                                        className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+                                        type="text"
+                                        value={editingPlan.name || ''}
+                                        onChange={e => setEditingPlan({ ...editingPlan, name: e.target.value })}
+                                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
+                                        placeholder="例如：月度会员"
+                                        disabled={saving}
                                     />
                                 </div>
+
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                                            价格 (元) <span className="text-red-500">*</span>
+                                        </label>
+                                        <input
+                                            type="number"
+                                            value={editingPlan.price ?? ''}
+                                            onChange={e => setEditingPlan({
+                                                ...editingPlan,
+                                                price: e.target.value === '' ? undefined as any : Number(e.target.value)
+                                            })}
+                                            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
+                                            placeholder="19.9"
+                                            min="0"
+                                            step="0.01"
+                                            disabled={saving}
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                                            原价 (元)
+                                        </label>
+                                        <input
+                                            type="number"
+                                            value={editingPlan.original_price ?? ''}
+                                            onChange={e => setEditingPlan({
+                                                ...editingPlan,
+                                                original_price: e.target.value === '' ? undefined as any : Number(e.target.value)
+                                            })}
+                                            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
+                                            placeholder="29.9"
+                                            min="0"
+                                            step="0.01"
+                                            disabled={saving}
+                                        />
+                                    </div>
+                                </div>
+
                                 <div>
-                                    <label className="block text-sm font-medium mb-1">原价</label>
+                                    <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                                        有效天数 <span className="text-red-500">*</span>
+                                    </label>
                                     <input
                                         type="number"
-                                        value={editingPlan.original_price}
-                                        onChange={e => setEditingPlan({ ...editingPlan, original_price: Number(e.target.value) })}
-                                        className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
+                                        value={editingPlan.duration_days ?? 30}
+                                        onChange={e => setEditingPlan({ ...editingPlan, duration_days: Number(e.target.value) })}
+                                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
+                                        placeholder="30"
+                                        min="1"
+                                        disabled={saving}
+                                    />
+                                    <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">购买后的会员有效期</p>
+                                </div>
+
+                                <div>
+                                    <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                                        套餐描述
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={editingPlan.description || ''}
+                                        onChange={e => setEditingPlan({ ...editingPlan, description: e.target.value })}
+                                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
+                                        placeholder="例如：超值月度会员"
+                                        disabled={saving}
                                     />
                                 </div>
-                            </div>
 
-                            <div>
-                                <label className="block text-sm font-medium mb-1">天数</label>
-                                <input
-                                    type="number"
-                                    value={editingPlan.duration_days}
-                                    onChange={e => setEditingPlan({ ...editingPlan, duration_days: Number(e.target.value) })}
-                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium mb-1">描述</label>
-                                <input
-                                    type="text"
-                                    value={editingPlan.description}
-                                    onChange={e => setEditingPlan({ ...editingPlan, description: e.target.value })}
-                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium mb-1">特权 (每行一个)</label>
-                                <textarea
-                                    value={(() => {
-                                        if (!editingPlan.features) return '';
-                                        try {
-                                            const arr = JSON.parse(editingPlan.features);
-                                            return Array.isArray(arr) ? arr.join('\n') : editingPlan.features;
-                                        } catch (e) {
-                                            return editingPlan.features;
-                                        }
-                                    })()}
-                                    onChange={e => {
-                                        const lines = e.target.value.split('\n');
-                                        setEditingPlan({ ...editingPlan, features: JSON.stringify(lines) })
-                                    }}
-                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 h-24"
-                                />
-                            </div>
-
-                            <div className="flex items-center gap-4">
-                                <label className="flex items-center gap-2">
-                                    <input
-                                        type="checkbox"
-                                        checked={editingPlan.is_active}
-                                        onChange={e => setEditingPlan({ ...editingPlan, is_active: e.target.checked })}
-                                        className="rounded border-gray-300"
+                                <div>
+                                    <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                                        会员特权 (每行一个)
+                                    </label>
+                                    <textarea
+                                        value={(() => {
+                                            if (!editingPlan.features) return '';
+                                            try {
+                                                const arr = JSON.parse(editingPlan.features);
+                                                return Array.isArray(arr) ? arr.join('\n') : editingPlan.features;
+                                            } catch (e) {
+                                                return editingPlan.features;
+                                            }
+                                        })()}
+                                        onChange={e => {
+                                            const lines = e.target.value.split('\n');
+                                            setEditingPlan({ ...editingPlan, features: JSON.stringify(lines) })
+                                        }}
+                                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 h-24 resize-none"
+                                        placeholder="去除广告&#10;高清观看&#10;离线下载"
+                                        disabled={saving}
                                     />
-                                    <span>上架销售</span>
-                                </label>
+                                </div>
 
-                                <div className="flex items-center gap-2">
-                                    <span className="text-sm">排序</span>
-                                    <input
-                                        type="number"
-                                        value={editingPlan.sort_order}
-                                        onChange={e => setEditingPlan({ ...editingPlan, sort_order: Number(e.target.value) })}
-                                        className="w-16 px-2 py-1 border rounded dark:bg-gray-700 dark:border-gray-600"
-                                    />
+                                <div className="flex items-center justify-between gap-4">
+                                    <label className="flex items-center gap-2 cursor-pointer">
+                                        <input
+                                            type="checkbox"
+                                            checked={editingPlan.is_active ?? true}
+                                            onChange={e => setEditingPlan({ ...editingPlan, is_active: e.target.checked })}
+                                            className="rounded border-gray-300 text-blue-600"
+                                            disabled={saving}
+                                        />
+                                        <span className="text-sm text-gray-700 dark:text-gray-300">上架销售</span>
+                                    </label>
+
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-sm text-gray-600 dark:text-gray-400">排序</span>
+                                        <input
+                                            type="number"
+                                            value={editingPlan.sort_order ?? 0}
+                                            onChange={e => setEditingPlan({ ...editingPlan, sort_order: Number(e.target.value) })}
+                                            className="w-16 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded dark:bg-gray-700 dark:text-gray-100 text-center focus:ring-2 focus:ring-blue-500"
+                                            disabled={saving}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="mt-6 flex justify-end gap-3">
+                        {/* 固定底部按钮 */}
+                        <div className="flex-shrink-0 px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-3 bg-gray-50 dark:bg-gray-900/50">
                             <button
                                 onClick={() => setEditingPlan(null)}
-                                className="px-4 py-2 text-gray-600 hover:text-gray-800"
+                                disabled={saving}
+                                className="px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 disabled:opacity-50 transition-colors"
                             >
                                 取消
                             </button>
                             <button
                                 onClick={() => handleSave(editingPlan)}
-                                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                                disabled={saving}
+                                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
                             >
-                                保存
+                                {saving && <Loader2 size={16} className="animate-spin" />}
+                                {saving ? '保存中...' : '保存'}
                             </button>
                         </div>
                     </div>
