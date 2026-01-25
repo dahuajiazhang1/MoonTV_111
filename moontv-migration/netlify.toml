@@ -1,0 +1,80 @@
+# Netlify 部署配置文件
+# 优化 MoonTV 的 Netlify 部署
+
+[build]
+  # 构建命令
+  command = "pnpm build"
+  
+  # 发布目录
+  publish = ".next"
+  
+  # Node.js 版本
+  [build.environment]
+    NODE_VERSION = "20"
+    PNPM_VERSION = "10.14.0"
+
+# 重定向规则
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# 函数配置
+[functions]
+  # Edge Functions 目录（如有需要）
+  directory = "netlify/functions"
+  
+  # 函数执行时间限制（秒）
+  # 免费版：10秒，Pro版：26秒
+
+# 构建优化
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# 头部配置
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # 启用 CORS
+    Access-Control-Allow-Origin = "*"
+    # 安全头部
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # 缓存控制
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# 静态资源缓存
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# API 路由不缓存
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# 插件配置
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
