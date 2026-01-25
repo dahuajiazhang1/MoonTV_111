@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { ArrowLeft, Upload, CheckCircle, AlertCircle } from 'lucide-react';
+import Swal from 'sweetalert2';
 import type { SubscriptionPlan, PaymentSettings } from '@/lib/types';
 
 export default function BuyPlanPage() {
@@ -51,13 +52,13 @@ export default function BuyPlanPage() {
 
         // 检查文件大小 (最大 5MB)
         if (file.size > 5 * 1024 * 1024) {
-            alert('图片大小不能超过 5MB');
+            Swal.fire('文件过大', '图片大小不能超过 5MB', 'error');
             return;
         }
 
         // 检查文件类型
         if (!file.type.startsWith('image/')) {
-            alert('请上传图片文件');
+            Swal.fire('格式错误', '请上传图片文件', 'error');
             return;
         }
 
@@ -70,7 +71,7 @@ export default function BuyPlanPage() {
             setUploading(false);
         };
         reader.onerror = () => {
-            alert('图片读取失败，请重试');
+            Swal.fire('读取失败', '图片读取失败，请重试', 'error');
             setUploading(false);
         };
         reader.readAsDataURL(file);
@@ -78,19 +79,19 @@ export default function BuyPlanPage() {
 
     const handleSubmit = async () => {
         if (!proofImage) {
-            alert('请先上传支付凭证');
+            Swal.fire('请上传凭证', '请先上传支付凭证', 'warning');
             return;
         }
 
         if (!plan) {
-            alert('套餐信息加载失败');
+            Swal.fire('错误', '套餐信息加载失败', 'error');
             return;
         }
 
         setSubmitting(true);
 
         try {
-            const response = await fetch('/api/user/orders/create', {
+            const response = await fetch('/api/user/orders', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -108,11 +109,11 @@ export default function BuyPlanPage() {
                     router.push('/orders');
                 }, 3000);
             } else {
-                alert(data.error || '提交订单失败');
+                Swal.fire('提交失败', data.error || '提交订单失败', 'error');
             }
         } catch (error) {
             console.error('提交订单失败:', error);
-            alert('提交订单失败，请重试');
+            Swal.fire('提交失败', '提交订单失败，请重试', 'error');
         } finally {
             setSubmitting(false);
         }
