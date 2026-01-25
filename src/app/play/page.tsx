@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-explicit-any, react-hooks/exhaustive-deps, no-console, @next/next/no-img-element */
 
 'use client';
-import { Download, Heart } from 'lucide-react';
+import { Download, Heart, Lock } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useRef, useState } from 'react';
 
@@ -166,6 +166,88 @@ function PlayPageClient() {
 
   }, []);
 
+  // -----------------------------------------------------------------------------
+  // 会员权限检查
+  // -----------------------------------------------------------------------------
+  const [subscriptionStatus, setSubscriptionStatus] = useState<'loading' | 'active' | 'inactive'>('loading');
+
+  useEffect(() => {
+    const checkSubscription = async () => {
+      // 如果是 localStorage 模式，跳过检查（只有 Upstash 模式支持会员）
+      if ((window as any).RUNTIME_CONFIG?.STORAGE_TYPE === 'localstorage') {
+        setSubscriptionStatus('active');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/user/subscription');
+        if (res.ok) {
+          const data = await res.json();
+          // status: 'active' | 'trial' | 'expired' | 'none'
+          if (data.status === 'active' || data.status === 'trial') {
+            setSubscriptionStatus('active');
+          } else {
+            setSubscriptionStatus('inactive');
+          }
+        } else {
+          // 请求失败，可能是未登录（会被中间件拦截）或服务器错误
+          // 为了安全，默认为 inactive
+          setSubscriptionStatus('inactive');
+        }
+      } catch (error) {
+        console.error('Failed to check subscription:', error);
+        setSubscriptionStatus('inactive');
+      }
+    };
+
+    checkSubscription();
+  }, []);
+
+  // 渲染拦截层
+  if (subscriptionStatus === 'inactive') {
+    return (
+      <PageLayout>
+        <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
+          <div className="bg-gray-100 dark:bg-gray-900 p-8 rounded-2xl shadow-xl max-w-md w-full">
+            <Lock className="w-16 h-16 mx-auto mb-6 text-yellow-500" />
+            <h1 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              本片仅限 VIP 会员观看
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 mb-8">
+              开通会员即可解锁所有海量高清影视内容，享受无广告流畅体验。
+            </p>
+            <div className="flex flex-col gap-4">
+              <button
+                onClick={() => router.push('/vip')}
+                className="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5"
+              >
+                立即开通会员
+              </button>
+              <button
+                onClick={() => router.push('/')}
+                className="w-full py-3 px-6 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium rounded-xl hover:bg-gray-300 dark:hover:bg-gray-700 transition"
+              >
+                返回首页
+              </button>
+            </div>
+          </div>
+        </div>
+      </PageLayout>
+    );
+  }
+
+  // 如果正在检查状态，显示加载中（可选，或者直接渲染播放器等待检查结果）
+  // 这里选择显示简单的加载状态，避免播放器一闪而过
+  if (subscriptionStatus === 'loading') {
+    return (
+      <PageLayout>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500"></div>
+        </div>
+      </PageLayout>
+    );
+  }
+
   const currentSourceRef = useRef(currentSource);
   const currentIdRef = useRef(currentId);
   const videoTitleRef = useRef(videoTitle);
@@ -175,28 +257,28 @@ function PlayPageClient() {
 
   useEffect(() => {
     if (!selectedDanmakuAnime || !detail) return;
-  
+
     const currentEpisodeTitle = detail?.episodes_titles?.[currentEpisodeIndex];
     if (!currentEpisodeTitle) return;
-  
+
     let matchedEpisode: any = null;
-  
+
     /** ① 用户手动选择某一集（权重大最高） */
     if (selectedDanmakuEpisode !== undefined && selectedState) {
       matchedEpisode = selectedDanmakuAnime.episodes[selectedDanmakuEpisode - 1];
       setSelectedState(false);
     }
-  
+
     /** ② 自动匹配模式：直接使用第 0 集 */
     else if (autoDanmakuEnabled) {
       matchedEpisode = selectedDanmakuAnime.episodes[0];
     }
-  
+
     if (!matchedEpisode) return;
-  
+
     const episodeIndex = selectedDanmakuAnime.episodes.indexOf(matchedEpisode);
     const episodeNumber = episodeIndex + 1;
-  
+
     // 更新 tooltip
     setTimeout(() => {
       if (artPlayerRef.current) {
@@ -206,7 +288,7 @@ function PlayPageClient() {
         });
       }
     }, 100);
-  
+
     // 加载弹幕 URL
     (async () => {
       try {
@@ -610,7 +692,7 @@ function PlayPageClient() {
         console.log('页面不可见，跳过 Wake Lock 请求');
         return;
       }
-      
+
       if ('wakeLock' in navigator) {
         wakeLockRef.current = await (navigator as any).wakeLock.request(
           'screen'
@@ -855,11 +937,11 @@ function PlayPageClient() {
                           .toLowerCase();
                       const yearMatch = videoYearRef.current
                         ? r.year.toLowerCase() ===
-                          videoYearRef.current.toLowerCase()
+                        videoYearRef.current.toLowerCase()
                         : true;
                       const typeMatch = searchType
                         ? (searchType === 'tv' && r.episodes.length > 1) ||
-                          (searchType === 'movie' && r.episodes.length === 1)
+                        (searchType === 'movie' && r.episodes.length === 1)
                         : true;
                       return titleMatch && yearMatch && typeMatch;
                     });
@@ -1012,7 +1094,7 @@ function PlayPageClient() {
 
   // 视频初始化后即可匹配弹幕
   useEffect(() => {
-    if (isDanmakuPluginReady && isBlockAdChanged){
+    if (isDanmakuPluginReady && isBlockAdChanged) {
       danmukuPluginInstanceRef.current.config({ danmuku: lastDanmakuUrlRef.current });
       danmukuPluginInstanceRef.current.load();
       setIsBlockAdChanged(false);
@@ -1308,7 +1390,7 @@ function PlayPageClient() {
       if (artPlayerRef.current && !artPlayerRef.current.paused) {
         saveCurrentPlayProgress();
       }
-      if(artPlayerRef.current){
+      if (artPlayerRef.current) {
         cleanupPlayer();
         setIsDanmakuPluginReady(false);
         setCurrentTooltip("");
@@ -1324,7 +1406,7 @@ function PlayPageClient() {
       if (artPlayerRef.current && !artPlayerRef.current.paused) {
         saveCurrentPlayProgress();
       }
-      if(artPlayerRef.current){
+      if (artPlayerRef.current) {
         cleanupPlayer();
         setIsDanmakuPluginReady(false);
         setCurrentTooltip("");
@@ -1653,9 +1735,8 @@ function PlayPageClient() {
     // 非WebKit浏览器且播放器已存在，使用switch方法切换
     if (!isWebkit && artPlayerRef.current) {
       artPlayerRef.current.switch = videoUrl;
-      artPlayerRef.current.title = `${videoTitle} - 第${
-        currentEpisodeIndex + 1
-      }集`;
+      artPlayerRef.current.title = `${videoTitle} - 第${currentEpisodeIndex + 1
+        }集`;
       artPlayerRef.current.poster = videoCover;
       if (artPlayerRef.current?.video) {
         ensureVideoSource(
@@ -2048,7 +2129,7 @@ function PlayPageClient() {
           skipConfigRef.current.outro_time < 0 &&
           duration > 0 &&
           currentTime >
-            artPlayerRef.current.duration + skipConfigRef.current.outro_time
+          artPlayerRef.current.duration + skipConfigRef.current.outro_time
         ) {
           if (
             currentEpisodeIndexRef.current <
@@ -2185,30 +2266,27 @@ function PlayPageClient() {
             <div className='mb-6 w-80 mx-auto'>
               <div className='flex justify-center space-x-2 mb-4'>
                 <div
-                  className={`w-3 h-3 rounded-full transition-all duration-500 ${
-                    loadingStage === 'searching' || loadingStage === 'fetching'
-                      ? 'bg-green-500 scale-125'
-                      : loadingStage === 'preferring' ||
-                        loadingStage === 'ready'
+                  className={`w-3 h-3 rounded-full transition-all duration-500 ${loadingStage === 'searching' || loadingStage === 'fetching'
+                    ? 'bg-green-500 scale-125'
+                    : loadingStage === 'preferring' ||
+                      loadingStage === 'ready'
                       ? 'bg-green-500'
                       : 'bg-gray-300'
-                  }`}
+                    }`}
                 ></div>
                 <div
-                  className={`w-3 h-3 rounded-full transition-all duration-500 ${
-                    loadingStage === 'preferring'
-                      ? 'bg-green-500 scale-125'
-                      : loadingStage === 'ready'
+                  className={`w-3 h-3 rounded-full transition-all duration-500 ${loadingStage === 'preferring'
+                    ? 'bg-green-500 scale-125'
+                    : loadingStage === 'ready'
                       ? 'bg-green-500'
                       : 'bg-gray-300'
-                  }`}
+                    }`}
                 ></div>
                 <div
-                  className={`w-3 h-3 rounded-full transition-all duration-500 ${
-                    loadingStage === 'ready'
-                      ? 'bg-green-500 scale-125'
-                      : 'bg-gray-300'
-                  }`}
+                  className={`w-3 h-3 rounded-full transition-all duration-500 ${loadingStage === 'ready'
+                    ? 'bg-green-500 scale-125'
+                    : 'bg-gray-300'
+                    }`}
                 ></div>
               </div>
 
@@ -2219,11 +2297,11 @@ function PlayPageClient() {
                   style={{
                     width:
                       loadingStage === 'searching' ||
-                      loadingStage === 'fetching'
+                        loadingStage === 'fetching'
                         ? '33%'
                         : loadingStage === 'preferring'
-                        ? '66%'
-                        : '100%',
+                          ? '66%'
+                          : '100%',
                   }}
                 ></div>
               </div>
@@ -2350,7 +2428,7 @@ function PlayPageClient() {
                       if (artPlayerRef.current) {
                         artPlayerRef.current.setting.update({
                           name: "弹幕源",
-                          tooltip: currentTooltip|| '未选择',
+                          tooltip: currentTooltip || '未选择',
                         });
                       }
                     }}
@@ -2389,8 +2467,8 @@ function PlayPageClient() {
                           {videoLoadingStage === 'sourceChanging'
                             ? '🔄 切换播放源...'
                             : videoLoadingStage === 'optimizing'
-                            ? '⚡ 优选播放源...'
-                            : '🔄 视频加载中...'}
+                              ? '⚡ 优选播放源...'
+                              : '🔄 视频加载中...'}
                         </p>
                       </div>
                     </div>
@@ -2534,11 +2612,10 @@ function PlayPageClient() {
           setShowAddDownload(false);
         }}
         initialUrl={videoUrl || ''}
-        initialTitle={`${videoTitle}${
-          totalEpisodes > 1
-            ? `_${detail?.episodes_titles?.[currentEpisodeIndex] || `第${currentEpisodeIndex + 1}集`}`
-            : ''
-        }`}
+        initialTitle={`${videoTitle}${totalEpisodes > 1
+          ? `_${detail?.episodes_titles?.[currentEpisodeIndex] || `第${currentEpisodeIndex + 1}集`}`
+          : ''
+          }`}
         skipConfig={skipConfig}
       />
     </PageLayout>
