@@ -3,7 +3,7 @@ import { getAuthInfoFromCookie } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { PaymentOrder } from '@/lib/types';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 // 获取用户订单列表
 export async function GET(request: NextRequest) {
