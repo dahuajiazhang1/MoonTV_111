@@ -18,7 +18,7 @@ export default function SubscriptionPlansManager() {
     const fetchPlans = async () => {
         setLoading(true);
         try {
-            const res = await fetch('/api/admin/plans');
+            const res = await fetch('/api/admin/plans', { cache: 'no-store' });
             if (res.ok) {
                 const data = await res.json();
                 setPlans(data);

@@ -3,7 +3,7 @@ import { getAuthInfoFromCookie } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { PaymentOrder } from '@/lib/types';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 // 获取用户订单列表
 export async function GET(request: NextRequest) {
@@ -63,6 +63,19 @@ export async function POST(request: NextRequest) {
         };
 
         const orderNo = await db.createOrder(order);
+
+        // 发送邮件通知（异步执行，不阻塞响应）
+        // 注意：在 Vercel/Netlify 等 Serverless 环境中，建议使用 await 或waitUntil
+        // 这里为了响应速度，先不 await，但在 Edge Runtime 可能有问题，暂时这样
+        try {
+            // 动态导入 email 模块以避免构建时缺少依赖报错 (如果是 Edge Runtime)
+            // 但这里是 NodeJS Runtime 应该没事
+            const { sendOrderNotification } = await import('@/lib/email');
+            order.order_no = orderNo; // 确保订单号存在
+            await sendOrderNotification(order);
+        } catch (e) {
+            console.error('Failed to trigger email notification:', e);
+        }
 
         return NextResponse.json({
             success: true,
