@@ -3,7 +3,7 @@ import { getAuthInfoFromCookie } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { SubscriptionPlan } from '@/lib/types';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 // 验证管理员权限
 function checkAdminAuth(request: NextRequest) {
@@ -42,6 +42,19 @@ export async function POST(request: NextRequest) {
 
     try {
         const body = await request.json();
+
+        // 兼容处理 is_active 字段
+        let isActive = true; // 默认为 true
+        if (body.is_active !== undefined) {
+            if (typeof body.is_active === 'boolean') {
+                isActive = body.is_active;
+            } else if (typeof body.is_active === 'string') {
+                isActive = body.is_active === 'true' || body.is_active === '1';
+            } else if (typeof body.is_active === 'number') {
+                isActive = body.is_active === 1;
+            }
+        }
+
         const plan: SubscriptionPlan = {
             id: body.id,
             name: body.name,
@@ -50,7 +63,7 @@ export async function POST(request: NextRequest) {
             price: Number(body.price),
             original_price: body.original_price ? Number(body.original_price) : undefined,
             features: typeof body.features === 'object' ? JSON.stringify(body.features) : body.features,
-            is_active: Boolean(body.is_active),
+            is_active: isActive,
             sort_order: Number(body.sort_order || 0)
         };
 
