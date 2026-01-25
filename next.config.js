@@ -2,19 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const nextConfig = {
-  // output: 'standalone', // Not needed for Cloudflare Pages
-  experimental: {
-    optimizePackageImports: [
-      'lucide-react',
-      'react-icons',
-      '@headlessui/react',
-      'framer-motion',
-      'lodash',
-      'date-fns',
-      'artplayer',
-      'hls.js',
-    ],
-  },
+  output: 'standalone',
   eslint: {
     dirs: ['src'],
     ignoreDuringBuilds: true,
@@ -85,7 +73,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // 检测是否为云平台构建
-const isCloudflarePages = process.env.CF_PAGES === '1' ||
+const isCloudflarePages = process.env.CF_PAGES === '1' || 
   process.env.CLOUDFLARE_PAGES === '1' ||
   process.argv.includes('pages:build');
 
