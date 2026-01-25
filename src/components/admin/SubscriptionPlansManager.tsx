@@ -112,6 +112,7 @@ export default function SubscriptionPlansManager() {
                     original_price: plan.original_price ? Number(plan.original_price) : undefined,
                     duration_days: Number(plan.duration_days),
                     sort_order: Number(plan.sort_order || 0),
+                    is_active: Boolean(plan.is_active),  // 明确传递 is_active 字段
                     features: featuresToSend
                 }),
             });
