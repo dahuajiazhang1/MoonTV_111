@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
 
     try {
         const body = await request.json();
-        const { planId, paymentMethod } = body;
+        const { planId, paymentMethod, paymentProof } = body;
 
         if (!planId) {
             return NextResponse.json({ error: '缺少套餐ID' }, { status: 400 });
@@ -50,6 +50,7 @@ export async function POST(request: NextRequest) {
         }
 
         // 创建订单对象
+        // 修改：直接设置为 approved (模拟自动支付)
         const order: PaymentOrder = {
             order_no: '', // 由数据库层生成
             username: authInfo.username,
@@ -57,16 +58,33 @@ export async function POST(request: NextRequest) {
             related_id: planId,
             amount: plan.price,
             payment_method: paymentMethod || 'alipay_qr',
-            payment_status: 'pending'
+            payment_status: 'approved', // 直接通过
+            payment_proof: paymentProof || '',
+            paid_at: new Date().toISOString(),
+            created_at: new Date().toISOString()
         };
 
         const orderNo = await db.createOrder(order);
+
+        // 自动激活会员
+        const startDate = new Date();
+        const endDate = new Date(startDate.getTime() + plan.duration_days * 24 * 60 * 60 * 1000);
+
+        await db.createUserSubscription({
+            username: authInfo.username,
+            plan_id: plan.id!,
+            plan_name: plan.name,
+            status: 'active',
+            start_date: startDate.toISOString(),
+            end_date: endDate.toISOString(),
+            auto_renew: false,
+        });
 
         return NextResponse.json({
             success: true,
             orderNo: orderNo,
             amount: plan.price,
-            message: '订单创建成功，请上传支付凭证'
+            message: '会员开通成功！'
         });
 
     } catch (error) {

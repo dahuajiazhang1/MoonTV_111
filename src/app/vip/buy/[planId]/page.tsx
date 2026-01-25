@@ -103,9 +103,9 @@ export default function BuyPlanPage() {
 
             if (data.success) {
                 setOrderNo(data.orderNo);
-                // 3秒后跳转到订单列表
+                // 3秒后跳转到首页
                 setTimeout(() => {
-                    router.push('/orders');
+                    router.push('/');
                 }, 3000);
             } else {
                 alert(data.error || '提交订单失败');
@@ -153,20 +153,22 @@ export default function BuyPlanPage() {
                 <div className="text-center max-w-md">
                     <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-4" />
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                        订单提交成功！
+                        会员开通成功！
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                         订单号：{orderNo}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-400 mb-6">
-                        管理员将在 24 小时内审核您的订单，请耐心等待。
+                    <p className="text-gray-600 dark:text-gray-400 mb-6 font-medium text-lg">
+                        您的会员特权已立即生效，快去观看精彩内容吧！
                     </p>
-                    <button
-                        onClick={() => router.push('/orders')}
-                        className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
-                    >
-                        查看我的订单
-                    </button>
+                    <div className="flex gap-4 justify-center">
+                        <button
+                            onClick={() => router.push('/')}
+                            className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition shadow-lg font-bold"
+                        >
+                            去观看视频
+                        </button>
+                    </div>
                 </div>
             </div>
         );
@@ -323,7 +325,7 @@ export default function BuyPlanPage() {
                     disabled={!proofImage || submitting}
                     className="w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    {submitting ? '提交中...' : '提交订单'}
+                    {submitting ? '开通中...' : '我已支付，立即开通'}
                 </button>
 
                 <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
