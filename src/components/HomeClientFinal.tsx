@@ -12,8 +12,8 @@ import {
     subscribeToDataUpdates,
 } from '@/lib/db.client';
 import { getDoubanCategories } from '@/lib/douban.client';
-import { GetBangumiCalendarData } from '@/lib/bangumi.client';
-import { BangumiCalendarData, DoubanItem } from '@/lib/types';
+import { GetBangumiCalendarData, BangumiCalendarData } from '@/lib/bangumi.client';
+import { DoubanItem } from '@/lib/types';
 
 import CapsuleSwitch from '@/components/CapsuleSwitch';
 import ContinueWatching from '@/components/ContinueWatching';
