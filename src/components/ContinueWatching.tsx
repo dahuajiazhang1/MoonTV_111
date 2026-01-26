@@ -96,7 +96,10 @@ export default function ContinueWatching({ className, showAll = false, hideHeade
     return { source, id };
   };
 
-  if (!loading && playRecords.length === 0) {
+  // 移除 early return，确保 Hook 数量一致，防止 Error 310
+  const isEmpty = !loading && playRecords.length === 0;
+
+  if (isEmpty) {
     return null;
   }
 
