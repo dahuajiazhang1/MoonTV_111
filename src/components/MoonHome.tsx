@@ -216,7 +216,8 @@ export default function MoonHome() {
                 <div className='max-w-[95%] mx-auto'>
                     {activeTab === 'history' ? (
                         // 历史视图 - 显示所有播放记录的网格布局
-                        <ContinueWatching key="history-view" showAll={true} />
+                        // <ContinueWatching key="history-view" showAll={true} />
+                        <div className="text-center py-10">历史记录暂时禁用 (Debug)</div>
                     ) : activeTab === 'favorites' ? (
                         // 收藏夹视图
                         <section className='mb-8'>
@@ -314,9 +315,9 @@ export default function MoonHome() {
                                                 hotMovies.map((movie, index) => (
                                                     <div
                                                         key={index}
-                                                        className='min-w-[96px] w-24 sm:min-w-[180px] sm:w-44'
+                                                        className='min-w-[96px] w-24 sm:min-w-[180px] sm:w-44 bg-gray-100 dark:bg-gray-800 rounded p-2'
                                                     >
-                                                        <VideoCard
+                                                        {/* <VideoCard
                                                             from='douban'
                                                             title={movie.title}
                                                             poster={movie.poster}
@@ -324,7 +325,8 @@ export default function MoonHome() {
                                                             rate={movie.rate}
                                                             year={movie.year}
                                                             type='movie'
-                                                        />
+                                                        /> */}
+                                                        <div>{movie.title}</div>
                                                     </div>
                                                 ))}
                                         </ScrollableRow>
