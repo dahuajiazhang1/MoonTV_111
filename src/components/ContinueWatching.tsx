@@ -96,11 +96,13 @@ export default function ContinueWatching({ className, showAll = false, hideHeade
     return { source, id };
   };
 
-  // 移除 early return，确保 Hook 数量一致，防止 Error 310
+  // 100: 移除 early return，确保 Hook 数量一致，防止 Error 310
   const isEmpty = !loading && playRecords.length === 0;
 
   if (isEmpty) {
-    return null;
+    // 即使为空也返回一个空节点，保持组件挂载状态（或者返回 null，但在 Hooks 之后是安全的）
+    // 为了最大程度安全，我们返回一个隐藏的 section
+    return <section className="hidden"></section>;
   }
 
   return (
