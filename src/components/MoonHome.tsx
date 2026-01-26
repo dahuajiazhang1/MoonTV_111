@@ -25,9 +25,20 @@ const ScrollableRow = ({ title, icon, children }: { title: string, icon?: React.
     </div>
 );
 
+const TABS = [
+    { label: '最新', value: 'latest' },
+    { label: '电影', value: 'movie' },
+    { label: '剧集', value: 'tv' },
+    { label: '动漫', value: 'comic' },
+    { label: '综艺', value: 'variety' },
+    { label: '直播', value: 'live' }
+];
+
 export default function MoonHome() {
+    const [activeTab, setActiveTab] = useState('latest');
+
     useEffect(() => {
-        console.log('MoonTV MoonHome v1.0.5-RESTORE-CAPSULE LOADED');
+        console.log('MoonTV MoonHome v1.0.6-FIX-CAPSULE LOADED');
     }, []);
 
     return (
@@ -35,7 +46,11 @@ export default function MoonHome() {
             <div className="relative min-h-screen pb-20">
                 {/* Capsule Switch - RESTORED */}
                 <div className="mt-8 mb-4">
-                    <CapsuleSwitch />
+                    <CapsuleSwitch
+                        options={TABS}
+                        active={activeTab}
+                        onChange={setActiveTab}
+                    />
                 </div>
 
                 {/* Continue Watching Section - DISABLED */}
