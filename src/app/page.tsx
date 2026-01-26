@@ -198,18 +198,28 @@ function HomeClient() {
       <div className='px-2 sm:px-10 py-4 sm:py-8 overflow-visible'>
         {/* 顶部 Tab 切换 */}
         <div className='mb-8 flex justify-center'>
-          <CapsuleSwitch
-            options={simpleMode ? [
+          {/* CapsuleSwitch replacement for debugging - Round 2 */}
+          <div className="flex bg-gray-200 dark:bg-gray-800 rounded-full p-1 gap-2">
+            {(simpleMode ? [
               { label: '历史', value: 'history' },
               { label: '收藏夹', value: 'favorites' },
             ] : [
               { label: '首页', value: 'home' },
               { label: '历史', value: 'history' },
               { label: '收藏夹', value: 'favorites' },
-            ]}
-            active={simpleMode && activeTab === 'home' ? 'history' : activeTab}
-            onChange={(value) => setActiveTab(value as 'home' | 'history' | 'favorites')}
-          />
+            ]).map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => setActiveTab(opt.value as any)}
+                className={`px-4 py-1 rounded-full text-sm font-medium transition-colors ${activeTab === opt.value
+                    ? 'bg-white text-black shadow'
+                    : 'text-gray-500 hover:text-gray-700 dark:text-gray-400'
+                  }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className='max-w-[95%] mx-auto'>
