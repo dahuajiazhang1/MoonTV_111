@@ -111,15 +111,42 @@ export default async function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              if ('serviceWorker' in navigator) {
-                console.log('🛑 执行强制 SW 清理 (Inline)');
-                navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                  for(let registration of registrations) {
-                    registration.unregister().then(function(success) {
-                      if (success) console.log('✅ 旧版 SW 已注销');
+              try {
+                const FORCE_VERSION = 'v1.0.3-BOMB';
+                if (localStorage.getItem('vigo_version') !== FORCE_VERSION) {
+                  console.log('🚀 正在执行深度缓存清理...', FORCE_VERSION);
+                  
+                  // 1. 注销 Service Worker
+                  if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                      for(let registration of registrations) {
+                        registration.unregister();
+                        console.log('✅ Service Worker 已注销');
+                      }
                     });
                   }
-                });
+
+                  // 2. 清除 Cache Storage (最关键)
+                  if ('caches' in window) {
+                    caches.keys().then(function(names) {
+                      for (let name of names) {
+                        caches.delete(name);
+                        console.log('✅ Cache Storage 已清除: ' + name);
+                      }
+                    });
+                  }
+
+                  // 3. 标记并强制刷新
+                  localStorage.setItem('vigo_version', FORCE_VERSION);
+                  console.log('🔄 即将执行强制刷新...');
+                  setTimeout(() => {
+                    window.location.reload(true);
+                  }, 100);
+                } else {
+                  console.log('✅ 客户端已是最新版本:', FORCE_VERSION);
+                }
+              } catch(e) {
+                console.error('缓存清理失败', e);
               }
             `,
           }}
