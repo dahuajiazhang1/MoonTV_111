@@ -29,7 +29,7 @@ import { useNavigationLoading } from '@/components/NavigationLoadingProvider';
 import { useSite } from '@/components/SiteProvider';
 import VideoCard from '@/components/VideoCard';
 
-function HomeClient() {
+function HomeClientFinal() {
   const [activeTab, setActiveTab] = useState<'home' | 'history' | 'favorites'>('home');
   const [hotMovies, setHotMovies] = useState<DoubanItem[]>([]);
   const [hotTvShows, setHotTvShows] = useState<DoubanItem[]>([]);
@@ -49,7 +49,7 @@ function HomeClient() {
 
   useEffect(() => {
     setIsClient(true);
-    console.log('MoonTV HomeClient v1.0.1 loaded'); // Debug version
+    console.log('MoonTV HomeClient Final v1.0.2 loaded (REF-FIX)'); // Debug version
     if (typeof window !== 'undefined') {
       const savedSimpleMode = localStorage.getItem('simpleMode');
       if (savedSimpleMode !== null) {
@@ -95,6 +95,7 @@ function HomeClient() {
 
         if (isSimpleMode) {
           // 简洁模式下跳过豆瓣数据获取
+          console.log('Simple mode active, skipping Douban fetch');
           setLoading(false);
           return;
         }
@@ -545,7 +546,7 @@ function HomeClient() {
 export default function Home() {
   return (
     <Suspense>
-      <HomeClient />
+      <HomeClientFinal />
     </Suspense>
   );
 }
