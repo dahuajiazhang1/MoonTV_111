@@ -19,7 +19,10 @@ import CapsuleSwitch from '@/components/CapsuleSwitch';
 import ContinueWatching from '@/components/ContinueWatching';
 import { useNavigationLoading } from '@/components/NavigationLoadingProvider';
 import PageLayout from '@/components/PageLayout';
-import ScrollableRow from '@/components/ScrollableRow';
+// import ScrollableRow from '@/components/ScrollableRow';
+const ScrollableRow = ({ children }: { children: React.ReactNode }) => (
+    <div className="flex space-x-6 overflow-x-auto scrollbar-hide py-2 px-4">{children}</div>
+);
 import { useSite } from '@/components/SiteProvider';
 import VideoCard from '@/components/VideoCard';
 
