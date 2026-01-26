@@ -12,7 +12,7 @@ import {
     subscribeToDataUpdates,
 } from '@/lib/db.client';
 import { getDoubanCategories } from '@/lib/douban';
-import { GetBangumiCalendarData } from '@/lib/douban_new';
+import { GetBangumiCalendarData } from '@/lib/bangumi.client';
 import { BangumiCalendarData, DoubanItem } from '@/lib/types';
 
 import CapsuleSwitch from '@/components/CapsuleSwitch';
