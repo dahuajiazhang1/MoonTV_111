@@ -16,46 +16,19 @@ export default function ServiceWorkerRegistration() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // 检测流式下载能力
-    const cap = detectStreamingCapability();
-
-    // 如果支持 Service Worker，尝试注册
-    if (cap.method === 'service-worker') {
-      // 先检查 sw.js 是否存在
-      fetch('/sw.js', { method: 'HEAD' })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Service Worker 文件不存在');
-          }
-          
-          return navigator.serviceWorker.register('/sw.js', { 
-            scope: '/',
-            updateViaCache: 'none'
+    // 🛑 紧急修复：强制注销所有 Service Worker 以清除旧缓存
+    // 原有的 SW 可能导致用户一直停留在旧版本代码 (Error 310)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const registration of registrations) {
+          registration.unregister().then((boolean) => {
+            if (boolean) {
+              console.log('✅ 已强制注销旧版 Service Worker，清除缓存');
+              // 注销后强制刷新一次（可选，防止无限刷新，这里仅打印）
+            }
           });
-        })
-        .then((reg) => {
-          // eslint-disable-next-line no-console
-          console.log('✅ Service Worker 注册成功，支持完整的边下边存功能');
-          
-          reg.addEventListener('updatefound', () => {
-            // eslint-disable-next-line no-console
-            console.log('Service Worker 发现更新');
-          });
-        })
-        .catch((err) => {
-          // eslint-disable-next-line no-console
-          console.warn('⚠️ Service Worker 注册失败，将使用降级方案:', err.message);
-        });
-    } else if (cap.method === 'file-system-access') {
-      // eslint-disable-next-line no-console
-      console.log('✅ 支持 File System Access API，可以使用边下边存功能（Chrome/Edge）');
-    } else if (cap.method === 'blob') {
-      // eslint-disable-next-line no-console
-      console.warn(
-        '⚠️ 当前环境使用 Blob 降级方案\n' +
-        `限制: ${cap.limitation}\n` +
-        '建议：使用 Chrome/Edge 浏览器或本地部署版本以获得更好的下载体验'
-      );
+        }
+      });
     }
   }, []);
 
