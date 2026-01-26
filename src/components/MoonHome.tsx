@@ -191,9 +191,9 @@ export default function MoonHome() {
     return (
         <PageLayout>
             <div className='px-2 sm:px-10 py-4 sm:py-8 overflow-visible'>
-                {/* 顶部 Tab 切换 */}
+                {/* 顶部 Tab 切换 - 暂时注释 CapsuleSwitch 以排查错误 */}
                 <div className='mb-8 flex justify-center'>
-                    <CapsuleSwitch
+                    {/* <CapsuleSwitch
                         options={simpleMode ? [
                             { label: '历史', value: 'history' },
                             { label: '收藏夹', value: 'favorites' },
@@ -204,7 +204,10 @@ export default function MoonHome() {
                         ]}
                         active={simpleMode && activeTab === 'home' ? 'history' : activeTab}
                         onChange={(value) => setActiveTab(value as 'home' | 'history' | 'favorites')}
-                    />
+                    /> */}
+                    <div className="text-center text-sm text-gray-500">
+                        Tab 切换暂时禁用 (Debug)
+                    </div>
                 </div>
 
                 <div className='max-w-[95%] mx-auto'>
