@@ -112,7 +112,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                const FORCE_VERSION = 'v1.0.3-BOMB';
+                const FORCE_VERSION = 'v1.0.7-TRUE-VERSION';
                 if (localStorage.getItem('vigo_version') !== FORCE_VERSION) {
                   console.log('🚀 正在执行深度缓存清理...', FORCE_VERSION);
                   
