@@ -269,7 +269,8 @@ export default function MoonHome() {
                         // 首页视图
                         <>
                             {/* 继续观看 - 组件内部已处理简洁模式 */}
-                            <ContinueWatching key="home-view" />
+                            {/* 继续观看 - 暂时注释以排查错误 */}
+                            {/* <ContinueWatching key="home-view" /> */}
 
                             {/* 简洁模式下只显示收藏夹，但在服务器端渲染时先不渲染 */}
                             {isClient && !simpleMode && (
