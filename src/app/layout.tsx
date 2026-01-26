@@ -107,6 +107,23 @@ export default async function RootLayout({
             __html: `window.RUNTIME_CONFIG = ${JSON.stringify(runtimeConfig)};`,
           }}
         />
+        {/* 🛑 强制注销 SW 的内联脚本 - 防止 React 崩溃导致组件无法执行清理 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                console.log('🛑 执行强制 SW 清理 (Inline)');
+                navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                  for(let registration of registrations) {
+                    registration.unregister().then(function(success) {
+                      if (success) console.log('✅ 旧版 SW 已注销');
+                    });
+                  }
+                });
+              }
+            `,
+          }}
+        />
       </head>
       <body
         className={`${inter.className} min-h-screen bg-white text-gray-900 dark:bg-black dark:text-gray-200`}
@@ -122,13 +139,13 @@ export default async function RootLayout({
             <SiteProvider siteName={siteName} announcement={announcement}>
               <NavigationLoadingIndicator />
               <UserOnlineUpdate />
-              
+
               {/* 条件导航栏 - 根据路径自动判断是否显示 */}
               <ConditionalNav />
-              
+
               {/* 全局下载管理器 - 只渲染一次，被所有导航栏共享 */}
               <GlobalDownloadManager />
-              
+
               {/* 页面内容 */}
               <div className='relative w-full'>
                 <main
@@ -140,7 +157,7 @@ export default async function RootLayout({
                   {children}
                 </main>
               </div>
-              
+
               <GlobalErrorIndicator />
               {autoUpdateEnabled && <SubscriptionAutoUpdate />}
             </SiteProvider>
