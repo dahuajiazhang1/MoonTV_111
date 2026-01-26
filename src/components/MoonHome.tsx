@@ -23,7 +23,7 @@ import ScrollableRow from '@/components/ScrollableRow';
 import { useSite } from '@/components/SiteProvider';
 import VideoCard from '@/components/VideoCard';
 
-export default function HomeClientFinal() {
+export default function MoonHome() {
     const [activeTab, setActiveTab] = useState<'home' | 'history' | 'favorites'>('home');
     const [hotMovies, setHotMovies] = useState<DoubanItem[]>([]);
     const [hotTvShows, setHotTvShows] = useState<DoubanItem[]>([]);
@@ -43,7 +43,7 @@ export default function HomeClientFinal() {
 
     useEffect(() => {
         setIsClient(true);
-        console.log('MoonTV HomeClient Final v1.0.3 (Split File) loaded'); // Debug version
+        console.log('MoonTV MoonHome v2.0.0 LOADED (Cache Broken)'); // Debug version
         if (typeof window !== 'undefined') {
             const savedSimpleMode = localStorage.getItem('simpleMode');
             if (savedSimpleMode !== null) {

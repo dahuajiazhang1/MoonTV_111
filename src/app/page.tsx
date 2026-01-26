@@ -1,12 +1,12 @@
 import { Suspense } from 'react';
-import HomeClientFinal from '@/components/HomeClientFinal';
+import MoonHome from '@/components/MoonHome';
 
 export const dynamic = 'force-dynamic';
 
 export default function Home() {
   return (
     <Suspense>
-      <HomeClientFinal />
+      <MoonHome />
     </Suspense>
   );
 }
