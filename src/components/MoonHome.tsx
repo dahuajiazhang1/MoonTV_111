@@ -1,18 +1,57 @@
 'use client';
 
-import { useEffect } from 'react';
+import { Suspense, useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+import PageLayout from '@/components/PageLayout';
+import CapsuleSwitch from '@/components/CapsuleSwitch';
+import { Clock } from 'lucide-react';
+
+// Dynamically import heavy components
+// const ContinueWatching = dynamic(() => import('@/components/ContinueWatching'), {
+//     ssr: false,
+//     loading: () => <div className="h-48 bg-gray-900/50 rounded-xl animate-pulse" />
+// });
+
+// Mock ScrollableRow to avoid complex dependencies for now
+const ScrollableRow = ({ title, icon, children }: { title: string, icon?: React.ReactNode, children: React.ReactNode }) => (
+    <div className="mb-8">
+        <div className="flex items-center gap-2 mb-4 px-4">
+            {icon}
+            <h2 className="text-lg font-bold text-white">{title}</h2>
+        </div>
+        <div className="flex overflow-x-auto gap-4 px-4 pb-4">
+            {children}
+        </div>
+    </div>
+);
 
 export default function MoonHome() {
     useEffect(() => {
-        console.log('MoonTV MoonHome Sanity Check v1.0.0 LOADED');
+        console.log('MoonTV MoonHome v1.0.5-RESTORE-CAPSULE LOADED');
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen text-2xl font-bold">
-            <div>MoonTV Sanity Check</div>
-            <div className="text-sm mt-4 text-gray-500">
-                如果看到此页面，说明 MoonHome 组件本身没有问题，问题在被移除的代码中。
+        <PageLayout>
+            <div className="relative min-h-screen pb-20">
+                {/* Capsule Switch - RESTORED */}
+                <div className="mt-8 mb-4">
+                    <CapsuleSwitch />
+                </div>
+
+                {/* Continue Watching Section - DISABLED */}
+                {/* <ScrollableRow title="继续观看" icon={<Clock className="w-5 h-5 text-purple-400" />}>
+                     <div className="w-[300px] flex-shrink-0 snap-start">
+                         <div className="border border-red-500 p-4 text-white">
+                            Debug: ContinueWatching Placeholder
+                         </div>
+                     </div>
+                </ScrollableRow> */}
+
+                {/* Video Cards Section - DISABLED */}
+                <div className="px-4 text-center text-gray-500 mt-10">
+                    <div>Debugging Mode: Only CapsuleSwitch is active.</div>
+                </div>
             </div>
-        </div>
+        </PageLayout>
     );
 }
