@@ -2,7 +2,8 @@
 
 import { Suspense, useEffect, useState } from 'react';
 import PageLayout from '@/components/PageLayout';
-import CapsuleSwitch from '@/components/CapsuleSwitch';
+import ScrollableRow from '@/components/ScrollableRow';
+import { Clock } from 'lucide-react';
 
 const TABS = [
     { label: '最新', value: 'latest' },
@@ -17,7 +18,7 @@ export default function MoonHome() {
     const [activeTab, setActiveTab] = useState('latest');
 
     useEffect(() => {
-        console.log('MoonTV MoonHome v1.0.9-RESTORE-CAPSULE LOADED');
+        console.log('MoonTV MoonHome v1.0.10-RESTORE-SCROLL LOADED');
     }, []);
 
     return (
@@ -25,17 +26,31 @@ export default function MoonHome() {
             <div className="relative min-h-screen pb-20">
                 {/* Capsule Switch - RESTORED v1.0.9 */}
                 <div className="mt-8 mb-4">
-                    <CapsuleSwitch
+                    <CapsuleSwitch 
                         options={TABS}
                         active={activeTab}
                         onChange={setActiveTab}
                     />
                 </div>
 
+                {/* Continue Watching Section - RESTORED SCROLL v1.0.10 */}
+                <ScrollableRow>
+                     <div className="w-[300px] flex-shrink-0 snap-start">
+                         <div className="h-48 bg-gray-800 rounded-xl flex items-center justify-center border border-green-500 text-green-500">
+                            Debug: Real ScrollableRow Element
+                         </div>
+                     </div>
+                     <div className="w-[300px] flex-shrink-0 snap-start">
+                         <div className="h-48 bg-gray-800 rounded-xl flex items-center justify-center border border-green-500 text-green-500">
+                            Debug: Real ScrollableRow Element 2
+                         </div>
+                     </div>
+                </ScrollableRow>
+
                 {/* Video Cards Section - DISABLED */}
-                <div className="px-4 text-center text-gray-500 mt-10">
-                    <div>Debugging Mode: CapsuleSwitch Active. Other components disabled.</div>
-                </div>
+                 <div className="px-4 text-center text-gray-500 mt-10">
+                    <div>Debugging Mode: ScrollableRow Active. VideoCard disabled.</div>
+                 </div>
             </div>
         </PageLayout>
     );
