@@ -1,25 +1,40 @@
 'use client';
 
-import { useEffect } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import PageLayout from '@/components/PageLayout';
+import CapsuleSwitch from '@/components/CapsuleSwitch';
+
+const TABS = [
+    { label: '最新', value: 'latest' },
+    { label: '电影', value: 'movie' },
+    { label: '剧集', value: 'tv' },
+    { label: '动漫', value: 'comic' },
+    { label: '综艺', value: 'variety' },
+    { label: '直播', value: 'live' }
+];
 
 export default function MoonHome() {
+    const [activeTab, setActiveTab] = useState('latest');
+
     useEffect(() => {
-        console.log('MoonTV MoonHome v1.0.8-BASELINE LOADED');
+        console.log('MoonTV MoonHome v1.0.9-RESTORE-CAPSULE LOADED');
     }, []);
 
     return (
         <PageLayout>
-            <div className="flex flex-col items-center justify-center min-h-screen pb-20 text-center px-4">
-                <div className="text-2xl font-bold mb-4">MoonTV Baseline Check</div>
-                <div className="text-gray-500">
-                    <p>Current Version: v1.0.8-BASELINE</p>
-                    <p className="mt-2 text-sm text-red-500">
-                        If you see this, the layout and page wrapper are working correctly.
-                    </p>
-                    <p className="mt-2 text-xs text-gray-400">
-                        (CapsuleSwitch is DISABLED)
-                    </p>
+            <div className="relative min-h-screen pb-20">
+                {/* Capsule Switch - RESTORED v1.0.9 */}
+                <div className="mt-8 mb-4">
+                    <CapsuleSwitch
+                        options={TABS}
+                        active={activeTab}
+                        onChange={setActiveTab}
+                    />
+                </div>
+
+                {/* Video Cards Section - DISABLED */}
+                <div className="px-4 text-center text-gray-500 mt-10">
+                    <div>Debugging Mode: CapsuleSwitch Active. Other components disabled.</div>
                 </div>
             </div>
         </PageLayout>
