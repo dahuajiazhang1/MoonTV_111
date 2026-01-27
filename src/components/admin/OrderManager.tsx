@@ -66,6 +66,45 @@ export default function OrderManager() {
         }
     };
 
+    const handleRevoke = async (username: string) => {
+        try {
+            const { isConfirmed } = await Swal.fire({
+                title: '确认停止观看?',
+                text: '这将立即取消该用户的当前订阅，用户将无法继续观看会员内容。',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: '确定停止',
+                cancelButtonText: '取消',
+                confirmButtonColor: '#dc2626',
+            });
+
+            if (!isConfirmed) return;
+
+            const res = await fetch('/api/admin/users/revoke-subscription', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username }),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '操作成功',
+                    text: data.message,
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+                // Optional: refresh orders or status
+            } else {
+                Swal.fire('操作失败', data.error || '未知错误', 'error');
+            }
+        } catch (error) {
+            Swal.fire('操作失败', '请重试', 'error');
+        }
+    };
+
     const getStatusBadge = (status: string) => {
         switch (status) {
             case 'approved':
@@ -87,6 +126,7 @@ export default function OrderManager() {
                         <tr>
                             <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">订单号/用户</th>
                             <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">套餐/金额</th>
+                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">期限</th>
                             <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">凭证</th>
                             <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
                             <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
@@ -101,8 +141,18 @@ export default function OrderManager() {
                                     <div className="text-gray-500 text-xs">{order.username}</div>
                                 </td>
                                 <td className="px-4 py-3">
-                                    <div>套餐ID: {order.related_id}</div>
+                                    <div className="font-medium text-blue-600">{order.plan_name || `套餐ID: ${order.related_id}`}</div>
                                     <div className="font-bold">¥{order.amount}</div>
+                                </td>
+                                <td className="px-4 py-3">
+                                    <div className="text-xs text-gray-500">
+                                        {order.plan_duration ? `${order.plan_duration} 天` : '-'}
+                                    </div>
+                                    {order.payment_status === 'approved' && order.verified_at && order.plan_duration && (
+                                        <div className="text-xs text-gray-400 mt-0.5">
+                                            到期: {new Date(new Date(order.verified_at).getTime() + order.plan_duration * 24 * 60 * 60 * 1000).toLocaleDateString()}
+                                        </div>
+                                    )}
                                 </td>
                                 <td className="px-4 py-3">
                                     {order.payment_proof ? (
@@ -141,6 +191,15 @@ export default function OrderManager() {
                                                 拒绝
                                             </button>
                                         </>
+                                    )}
+                                    {order.payment_status === 'approved' && order.order_type === 'subscription' && (
+                                        <button
+                                            onClick={() => handleRevoke(order.username!)}
+                                            className="text-red-600 hover:text-red-800 text-xs font-medium px-2 py-1 border border-red-200 rounded"
+                                            title="停止用户观看权限"
+                                        >
+                                            停止观看
+                                        </button>
                                     )}
                                 </td>
                             </tr>

@@ -748,16 +748,21 @@ export class D1Storage implements IStorage {
     if (!userId) return [];
 
     const result = await this.db.prepare(
-      'SELECT * FROM payment_orders WHERE user_id = ? ORDER BY created_at DESC'
+      `SELECT po.*, sp.name as plan_name, sp.duration_days as plan_duration
+       FROM payment_orders po
+       LEFT JOIN subscription_plans sp ON po.related_id = sp.id AND po.order_type = 'subscription'
+       WHERE po.user_id = ? 
+       ORDER BY po.created_at DESC`
     ).bind(userId).all<PaymentOrder>();
     return result.results || [];
   }
 
   async getPendingOrders(): Promise<PaymentOrder[]> {
     const result = await this.db.prepare(
-      `SELECT po.*, u.username 
+      `SELECT po.*, u.username, sp.name as plan_name, sp.duration_days as plan_duration
        FROM payment_orders po
        LEFT JOIN users u ON po.user_id = u.id
+       LEFT JOIN subscription_plans sp ON po.related_id = sp.id AND po.order_type = 'subscription'
        WHERE po.payment_status = 'pending' 
        ORDER BY po.created_at DESC`
     ).all<PaymentOrder>();
@@ -772,9 +777,10 @@ export class D1Storage implements IStorage {
     ).first<{ count: number }>();
 
     const result = await this.db.prepare(
-      `SELECT po.*, u.username 
+      `SELECT po.*, u.username, sp.name as plan_name, sp.duration_days as plan_duration
        FROM payment_orders po
        LEFT JOIN users u ON po.user_id = u.id
+       LEFT JOIN subscription_plans sp ON po.related_id = sp.id AND po.order_type = 'subscription'
        ORDER BY po.created_at DESC 
        LIMIT ? OFFSET ?`
     ).bind(limit, offset).all<PaymentOrder>();

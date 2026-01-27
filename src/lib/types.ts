@@ -70,6 +70,8 @@ export interface PaymentOrder {
   paid_at?: string;
   expires_at?: string;
   created_at?: string;
+  plan_name?: string;
+  plan_duration?: number;
 }
 
 export interface PaymentSettings {
