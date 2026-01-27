@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import PageLayout from '@/components/PageLayout';
-import CapsuleSwitch from '@/components/CapsuleSwitch';
+// CapsuleSwitch removed as requested
 import ScrollableRow from '@/components/ScrollableRow';
 import { Clock } from 'lucide-react';
 import VideoCard from '@/components/VideoCard';
@@ -15,34 +15,20 @@ const ContinueWatching = dynamic(() => import('@/components/ContinueWatching'), 
     loading: () => <div className="h-48 bg-gray-900/50 rounded-xl animate-pulse" />
 });
 
-const TABS = [
-    { label: '最新', value: 'latest' },
-    { label: '电影', value: 'movie' },
-    { label: '剧集', value: 'tv' },
-    { label: '动漫', value: 'comic' },
-    { label: '综艺', value: 'variety' },
-    { label: '直播', value: 'live' }
-];
-
 export default function MoonHome() {
-    const [activeTab, setActiveTab] = useState('latest');
     const [videos, setVideos] = useState<SearchResult[]>([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        console.log('MoonTV MoonHome v1.1.0-REAL-DATA LOADED');
+        console.log('MoonTV MoonHome v1.1.4-REMOVE-CAPSULE LOADED');
     }, []);
 
     useEffect(() => {
         const fetchVideos = async () => {
             setLoading(true);
             try {
+                // Homepage now only shows latest updates
                 let url = '/api/search?stream=0';
-                // 如果不是"最新"，则用 tab label 作为关键词搜索
-                if (activeTab !== 'latest') {
-                    const label = TABS.find(t => t.value === activeTab)?.label;
-                    if (label) url += `&q=${encodeURIComponent(label)}`;
-                }
 
                 const res = await fetch(url);
                 const data = await res.json();
@@ -60,18 +46,14 @@ export default function MoonHome() {
         };
 
         fetchVideos();
-    }, [activeTab]);
+    }, []);
 
     return (
         <PageLayout>
             <div className="relative min-h-screen pb-20">
-                {/* Capsule Switch - RESTORED v1.0.9 */}
+
                 <div className="mt-8 mb-4">
-                    <CapsuleSwitch
-                        options={TABS}
-                        active={activeTab}
-                        onChange={setActiveTab}
-                    />
+                    {/* Removed CapsuleSwitch */}
                 </div>
 
                 {/* Continue Watching Section - RESTORED v1.0.12 */}
@@ -83,7 +65,7 @@ export default function MoonHome() {
                 <div className="px-4">
                     <div className="text-xl font-bold mb-4 flex items-center gap-2">
                         <Clock className="w-5 h-5" />
-                        {activeTab === 'latest' ? '最近更新' : `${TABS.find(t => t.value === activeTab)?.label}推荐`}
+                        最近更新
                     </div>
 
                     {loading ? (
