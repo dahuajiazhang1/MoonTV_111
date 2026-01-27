@@ -37,7 +37,7 @@ export default function MoonHome() {
         const fetchVideos = async () => {
             setLoading(true);
             try {
-                let url = '/api/search?stream=false';
+                let url = '/api/search?stream=0';
                 // 如果不是"最新"，则用 tab label 作为关键词搜索
                 if (activeTab !== 'latest') {
                     const label = TABS.find(t => t.value === activeTab)?.label;
