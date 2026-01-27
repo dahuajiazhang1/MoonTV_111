@@ -1,6 +1,6 @@
 {
   "name": "moontv",
-  "version": "1.0.11-RESTORE-CONTINUE",
+  "version": "1.0.12-FIX-IMPORT",
   "private": true,
   "scripts": {
     "dev": "pnpm gen:manifest && pnpm gen:runtime && next dev -H 0.0.0.0",
