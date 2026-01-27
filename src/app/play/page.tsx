@@ -204,49 +204,9 @@ function PlayPageClient() {
   }, []);
 
   // 渲染拦截层
-  if (subscriptionStatus === 'inactive') {
-    return (
-      <PageLayout>
-        <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-          <div className="bg-gray-100 dark:bg-gray-900 p-8 rounded-2xl shadow-xl max-w-md w-full">
-            <Lock className="w-16 h-16 mx-auto mb-6 text-yellow-500" />
-            <h1 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-              本片仅限 VIP 会员观看
-            </h1>
-            <p className="text-gray-600 dark:text-gray-400 mb-8">
-              开通会员即可解锁所有海量高清影视内容，享受无广告流畅体验。
-            </p>
-            <div className="flex flex-col gap-4">
-              <button
-                onClick={() => router.push('/vip')}
-                className="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5"
-              >
-                立即开通会员
-              </button>
-              <button
-                onClick={() => router.push('/')}
-                className="w-full py-3 px-6 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium rounded-xl hover:bg-gray-300 dark:hover:bg-gray-700 transition"
-              >
-                返回首页
-              </button>
-            </div>
-          </div>
-        </div>
-      </PageLayout>
-    );
-  }
-
-  // 如果正在检查状态，显示加载中（可选，或者直接渲染播放器等待检查结果）
-  // 这里选择显示简单的加载状态，避免播放器一闪而过
-  if (subscriptionStatus === 'loading') {
-    return (
-      <PageLayout>
-        <div className="flex items-center justify-center min-h-[60vh]">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500"></div>
-        </div>
-      </PageLayout>
-    );
-  }
+  // 移除提前返回，改为在底部统一处理渲染逻辑
+  // if (subscriptionStatus === 'inactive') { ... }
+  // if (subscriptionStatus === 'loading') { ... }
 
   const currentSourceRef = useRef(currentSource);
   const currentIdRef = useRef(currentId);
@@ -2382,6 +2342,49 @@ function PlayPageClient() {
               </button>
             </div>
           </div>
+        </div>
+      </PageLayout>
+    );
+  }
+
+  // 渲染层处理会员拦截
+  if (subscriptionStatus === 'inactive') {
+    return (
+      <PageLayout>
+        <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
+          <div className="bg-gray-100 dark:bg-gray-900 p-8 rounded-2xl shadow-xl max-w-md w-full">
+            <Lock className="w-16 h-16 mx-auto mb-6 text-yellow-500" />
+            <h1 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              本片仅限 VIP 会员观看
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 mb-8">
+              开通会员即可解锁所有海量高清影视内容，享受无广告流畅体验。
+            </p>
+            <div className="flex flex-col gap-4">
+              <button
+                onClick={() => router.push('/vip')}
+                className="w-full py-3 px-6 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5"
+              >
+                立即开通会员
+              </button>
+              <button
+                onClick={() => router.push('/')}
+                className="w-full py-3 px-6 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium rounded-xl hover:bg-gray-300 dark:hover:bg-gray-700 transition"
+              >
+                返回首页
+              </button>
+            </div>
+          </div>
+        </div>
+      </PageLayout>
+    );
+  }
+
+  if (subscriptionStatus === 'loading') {
+    return (
+      <PageLayout>
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500"></div>
         </div>
       </PageLayout>
     );
