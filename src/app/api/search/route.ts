@@ -85,7 +85,7 @@ export async function GET(request: NextRequest) {
       const siteResults: any[] = [];
       let hasResults = false;
       try {
-        const generator = searchFromApiStream(site, query, true, timeout);
+        const generator = searchFromApiStream(site, query || '', true, timeout);
         for await (const pageResults of generator) {
           let filteredResults = pageResults;
           if (filteredResults.length !== 0) {
@@ -160,7 +160,7 @@ export async function GET(request: NextRequest) {
 
     const tasks = apiSites.map(async (site) => {
       try {
-        const generator = searchFromApiStream(site, query, true, timeout);
+        const generator = searchFromApiStream(site, query || '', true, timeout);
         let hasResults = false;
 
         for await (const pageResults of generator) {
