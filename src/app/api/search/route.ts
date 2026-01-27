@@ -13,13 +13,13 @@ export async function GET(request: NextRequest) {
   // 检查是否为本地存储模式
   const storageType = process.env.NEXT_PUBLIC_STORAGE_TYPE || 'localstorage';
   const isLocalStorage = storageType === 'localstorage';
-  
+
   let authInfo = null;
   if (!isLocalStorage) {
     // 非本地存储模式才需要认证
     authInfo = getAuthInfoFromCookie(request);
     if (!authInfo || !authInfo.username) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), { 
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
         status: 401,
         headers: { 'Content-Type': 'application/json' }
       });
@@ -34,10 +34,10 @@ export async function GET(request: NextRequest) {
   const timeout = timeoutParam ? parseInt(timeoutParam, 10) * 1000 : undefined; // 转换为毫秒
 
   const config = await getConfig();
-  
+
   // 获取用户可用的搜索源
   let apiSites = await getAvailableApiSites(authInfo?.username);
-  
+
   // 如果指定了搜索源，只使用选中的搜索源
   const selectedSourcesParam = searchParams.get('sources');
   if (selectedSourcesParam) {
@@ -49,16 +49,9 @@ export async function GET(request: NextRequest) {
   const { readable, writable } = new TransformStream();
   const writer = writable.getWriter();
 
-  if (!query) {
-    // 空查询，明确不缓存
-    return new Response(JSON.stringify({ results: [] }), {
-      headers: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'no-store, no-cache, must-revalidate',
-        Pragma: 'no-cache',
-        Expires: '0',
-      },
-    });
+  if (!query && request.nextUrl.searchParams.get('ac') !== 'detail') {
+    // 允许空查询以获取最新列表，但限制为空字符串
+    // return new Response(JSON.stringify({ results: [] }), { ... });
   }
 
   // 安全写入与断连处理
@@ -115,7 +108,7 @@ export async function GET(request: NextRequest) {
         return { siteResults, failed: null };
       } catch (err: any) {
         let errorMessage = err.message || '未知的错误';
-        
+
         // 根据错误类型提供更具体的错误信息
         if (err.message === '请求超时') {
           errorMessage = '请求超时';
@@ -124,7 +117,7 @@ export async function GET(request: NextRequest) {
         } else if (err.message?.includes('网络错误')) {
           errorMessage = '网络错误';
         }
-        
+
         return {
           siteResults: [],
           failed: { name: site.name, key: site.key, error: errorMessage },
@@ -201,7 +194,7 @@ export async function GET(request: NextRequest) {
       } catch (err: any) {
         console.warn(`搜索失败 ${site.name}:`, err.message);
         let errorMessage = err.message || '未知的错误';
-        
+
         // 根据错误类型提供更具体的错误信息
         if (err.message === '请求超时') {
           errorMessage = '请求超时';
@@ -210,7 +203,7 @@ export async function GET(request: NextRequest) {
         } else if (err.message.includes('网络错误')) {
           errorMessage = '网络错误';
         }
-        
+
         failedSources.push({ name: site.name, key: site.key, error: errorMessage });
         await safeWrite({ failedSources });
       }
