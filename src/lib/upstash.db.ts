@@ -683,6 +683,13 @@ export class UpstashRedisStorage implements IStorage {
     for (const orderNo of orderNos) {
       const order = await this.getOrder(orderNo);
       if (order) {
+        if (order.order_type === 'subscription' && order.related_id) {
+          const plan = await this.getPlanById(order.related_id);
+          if (plan) {
+            order.plan_name = plan.name;
+            order.plan_duration = plan.duration_days;
+          }
+        }
         orders.push(order);
       }
     }
@@ -706,6 +713,13 @@ export class UpstashRedisStorage implements IStorage {
     for (const orderNo of orderNos) {
       const order = await this.getOrder(orderNo);
       if (order) {
+        if (order.order_type === 'subscription' && order.related_id) {
+          const plan = await this.getPlanById(order.related_id);
+          if (plan) {
+            order.plan_name = plan.name;
+            order.plan_duration = plan.duration_days;
+          }
+        }
         orders.push(order);
       }
     }
@@ -733,6 +747,13 @@ export class UpstashRedisStorage implements IStorage {
     for (const orderNo of orderNos) {
       const order = await this.getOrder(orderNo);
       if (order) {
+        if (order.order_type === 'subscription' && order.related_id) {
+          const plan = await this.getPlanById(order.related_id);
+          if (plan) {
+            order.plan_name = plan.name;
+            order.plan_duration = plan.duration_days;
+          }
+        }
         orders.push(order);
       }
     }
