@@ -59,7 +59,7 @@ export async function GET(request: NextRequest) {
     }
 
     const data = await downloadTsSegment(url);
-    
+
     return new NextResponse(data, {
       headers: {
         'Content-Type': 'application/octet-stream',

@@ -6,9 +6,7 @@ interface ScrollableRowProps {
   scrollDistance?: number;
 }
 
-export default function ScrollableRow({
-  children,
-}: ScrollableRowProps) {
+export default function ScrollableRow({ children }: ScrollableRowProps) {
   // 保留 useRef 但不使用复杂逻辑，看看是否还有问题
   const containerRef = useRef<HTMLDivElement>(null);
 

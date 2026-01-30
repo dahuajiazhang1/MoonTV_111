@@ -273,19 +273,19 @@ export async function searchAnime(
 
 export async function matchAnime(fileName: string, signal?: AbortSignal) {
   if (!fileName) {
-    throw new Error("fileName 不能为空");
+    throw new Error('fileName 不能为空');
   }
 
   const baseUrl = getDanmakuApiBaseUrl();
 
   try {
     const response = await fetch(`${baseUrl}/api/v2/match`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ fileName }),
-      signal
+      signal,
     });
 
     if (!response.ok) {
@@ -298,7 +298,7 @@ export async function matchAnime(fileName: string, signal?: AbortSignal) {
     return json.matches || [];
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.error("matchAnime 失败:", err);
+    console.error('matchAnime 失败:', err);
     throw err;
   }
 }

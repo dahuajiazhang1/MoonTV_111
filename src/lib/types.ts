@@ -25,7 +25,15 @@ export interface Favorite {
   search_title: string; // 搜索时使用的标题
 }
 
-
+// 用户数据结构
+export interface User {
+  id: number;
+  username: string;
+  password?: string;
+  role: 'user' | 'admin' | 'owner';
+  banned: boolean;
+  created_at: string;
+}
 
 // ---------- 订阅和支付相关 ----------
 
@@ -109,6 +117,7 @@ export interface IStorage {
   checkUserExist(userName: string): Promise<boolean>;
   changePassword(userName: string, newPassword: string): Promise<void>;
   deleteUser(userName: string): Promise<void>;
+  getUser(userName: string): Promise<User | null>;
 
   // 搜索历史相关
   getSearchHistory(userName: string): Promise<string[]>;
@@ -157,9 +166,17 @@ export interface IStorage {
   getOrder(orderNo: string): Promise<PaymentOrder | null>;
   getOrdersByUser(userName: string): Promise<PaymentOrder[]>;
   getPendingOrders(): Promise<PaymentOrder[]>;
-  getAllOrders(page?: number, limit?: number): Promise<{ orders: PaymentOrder[], total: number }>;
+  getAllOrders(
+    page?: number,
+    limit?: number
+  ): Promise<{ orders: PaymentOrder[]; total: number }>;
   updateOrderProof(orderNo: string, proofPath: string): Promise<void>;
-  updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId?: number, reason?: string): Promise<void>;
+  updateOrderStatus(
+    orderNo: string,
+    status: 'approved' | 'rejected',
+    adminId?: number,
+    reason?: string
+  ): Promise<void>;
 
   // 支付设置
   getPaymentSettings(): Promise<PaymentSettings | null>;

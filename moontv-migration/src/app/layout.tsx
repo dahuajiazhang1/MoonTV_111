@@ -61,9 +61,7 @@ export default async function RootLayout({
   let doubanImageProxy = process.env.NEXT_PUBLIC_DOUBAN_IMAGE_PROXY || '';
   let disableYellowFilter =
     process.env.NEXT_PUBLIC_DISABLE_YELLOW_FILTER === 'true';
-  let danmakuApiBaseUrl =
-    process.env.NEXT_PUBLIC_DANMU_API_BASE_URL ||
-    '';
+  let danmakuApiBaseUrl = process.env.NEXT_PUBLIC_DANMU_API_BASE_URL || '';
   let autoUpdateEnabled = false;
   if (storageType !== 'localstorage') {
     const config = await getConfig();
@@ -122,13 +120,13 @@ export default async function RootLayout({
             <SiteProvider siteName={siteName} announcement={announcement}>
               <NavigationLoadingIndicator />
               <UserOnlineUpdate />
-              
+
               {/* 条件导航栏 - 根据路径自动判断是否显示 */}
               <ConditionalNav />
-              
+
               {/* 全局下载管理器 - 只渲染一次，被所有导航栏共享 */}
               <GlobalDownloadManager />
-              
+
               {/* 页面内容 */}
               <div className='relative w-full'>
                 <main
@@ -140,7 +138,7 @@ export default async function RootLayout({
                   {children}
                 </main>
               </div>
-              
+
               <GlobalErrorIndicator />
               {autoUpdateEnabled && <SubscriptionAutoUpdate />}
             </SiteProvider>

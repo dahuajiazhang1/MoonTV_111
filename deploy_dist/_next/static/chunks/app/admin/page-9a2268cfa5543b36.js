@@ -1,1 +1,4928 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[3],{7091:function(e,r,t){Promise.resolve().then(t.bind(t,7608))},7608:function(e,r,t){"use strict";t.r(r),t.d(r,{default:function(){return es}});var a=t(7569),s=t(7853),n=t(4815),l=t(8981),o=t(6849),i=t(7308),d=t(131),c=t(1210),x=t(4291),g=t(898),u=t(9162),m=t(6280),y=t(7764),p=t(9569),b=t(6584),h=t(3628),f=t(9372),k=t(3584),j=t(5663),w=t(4989),v=t.n(w),N=t(4507),C=t(1111),S=t(73),T=t(4145),E=t(8448),B=t(669),_=t(1260),P=t(3107),D=t(8091);let O=e=>{let{isOpen:r,onClose:t,type:s,title:n,message:l,html:o,confirmText:i="确定",onConfirm:d,showConfirm:c=!1,timer:x}=e,[g,u]=(0,j.useState)(!1);return((0,j.useEffect)(()=>{r?(u(!0),x&&setTimeout(()=>{t()},x)):u(!1)},[r,x,t]),r)?(0,D.createPortal)((0,a.jsx)("div",{className:"fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 transition-opacity duration-200 ".concat(g?"opacity-100":"opacity-0"),onClick:t,children:(0,a.jsx)("div",{className:"bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full border ".concat((()=>{switch(s){case"success":return"bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800";case"error":return"bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800";case"warning":return"bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800";default:return"bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800"}})()," transition-all duration-200 ").concat(g?"scale-100":"scale-95"),onClick:e=>e.stopPropagation(),children:(0,a.jsxs)("div",{className:"p-6 text-center",children:[(0,a.jsx)("div",{className:"flex justify-center mb-4",children:(()=>{switch(s){case"success":return(0,a.jsx)(C.Z,{className:"w-12 h-12 text-green-500"});case"error":return(0,a.jsx)(S.Z,{className:"w-12 h-12 text-red-500"});case"warning":return(0,a.jsx)(T.Z,{className:"w-12 h-12 text-yellow-500"});default:return null}})()}),(0,a.jsx)("h3",{className:"text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2",children:n}),l&&(0,a.jsx)("p",{className:"text-gray-600 dark:text-gray-400 mb-4",children:l}),o&&(0,a.jsx)("div",{className:"text-left text-gray-600 dark:text-gray-400 mb-4",dangerouslySetInnerHTML:{__html:o}}),(0,a.jsx)("div",{className:"flex justify-center space-x-3",children:c&&d?(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("button",{onClick:t,className:"px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors",children:"取消"}),(0,a.jsx)("button",{onClick:()=>{d(),t()},className:"px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors",children:i})]}):(0,a.jsx)("button",{onClick:t,className:"px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors",children:"确定"})})]})})}),document.body):null};var z=e=>{let{onRefreshConfig:r}=e,[t,s]=(0,j.useState)(""),[n,l]=(0,j.useState)(""),[o,i]=(0,j.useState)(null),[d,c]=(0,j.useState)(!1),[x,g]=(0,j.useState)(!1),[u,m]=(0,j.useState)({isOpen:!1,type:"success",title:""}),y=(0,j.useRef)(null),p=e=>{m({...e,isOpen:!0})},b=async()=>{if(!t.trim()){p({type:"error",title:"错误",message:"请输入加密密码"});return}try{c(!0);let e=await fetch("/api/admin/data_migration/export",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({password:t})});if(!e.ok){let r=await e.json().catch(()=>({}));throw Error(r.error||"导出失败: ".concat(e.status))}let r=e.headers.get("content-disposition"),a=null==r?void 0:r.match(/filename="(.+)"/),n=(null==a?void 0:a[1])||"moontv-backup.dat",l=await e.blob(),o=window.URL.createObjectURL(l),i=document.createElement("a");i.href=o,i.download=n,i.style.display="none",i.style.position="fixed",i.style.top="0",i.style.left="0",document.body.appendChild(i),i.click(),window.URL.revokeObjectURL(o),document.body.removeChild(i),p({type:"success",title:"导出成功",message:"数据已成功导出，请妥善保管备份文件和密码",timer:3e3}),s("")}catch(e){p({type:"error",title:"导出失败",message:e instanceof Error?e.message:"导出过程中发生错误"})}finally{c(!1)}},h=async()=>{if(!o){p({type:"error",title:"错误",message:"请选择备份文件"});return}if(!n.trim()){p({type:"error",title:"错误",message:"请输入解密密码"});return}try{g(!0);let e=new FormData;e.append("file",o),e.append("password",n);let t=await fetch("/api/admin/data_migration/import",{method:"POST",body:e}),a=await t.json();if(!t.ok)throw Error(a.error||"导入失败: ".concat(t.status));p({type:"success",title:"导入成功",html:'\n          <div class="text-left">\n            <p><strong>导入完成！</strong></p>\n            <p class="mt-2">导入的用户数量: '.concat(a.importedUsers,"</p>\n            <p>备份时间: ").concat(new Date(a.timestamp).toLocaleString("zh-CN"),"</p>\n            <p>服务器版本: ").concat(a.serverVersion||"未知版本",'</p>\n            <p class="mt-3 text-orange-600">请刷新页面以查看最新数据。</p>\n          </div>\n        '),confirmText:"刷新页面",showConfirm:!0,onConfirm:async()=>{i(null),l(""),y.current&&(y.current.value=""),r&&await r(),window.location.reload()}})}catch(e){p({type:"error",title:"导入失败",message:e instanceof Error?e.message:"导入过程中发生错误"})}finally{g(!1)}};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)("div",{className:"max-w-6xl mx-auto space-y-6",children:[(0,a.jsxs)("div",{className:"flex items-center gap-3 p-4 border border-amber-200 dark:border-amber-700 rounded-lg bg-amber-50/30 dark:bg-amber-900/5",children:[(0,a.jsx)(T.Z,{className:"w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0"}),(0,a.jsx)("p",{className:"text-sm text-amber-800 dark:text-amber-200",children:"数据迁移操作请谨慎，确保已备份重要数据"})]}),(0,a.jsxs)("div",{className:"grid grid-cols-1 lg:grid-cols-2 gap-6",children:[(0,a.jsxs)("div",{className:"border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-800 hover:shadow-sm transition-shadow flex flex-col",children:[(0,a.jsxs)("div",{className:"flex items-center gap-3 mb-6",children:[(0,a.jsx)("div",{className:"w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center",children:(0,a.jsx)(E.Z,{className:"w-4 h-4 text-blue-600 dark:text-blue-400"})}),(0,a.jsxs)("div",{children:[(0,a.jsx)("h3",{className:"font-semibold text-gray-900 dark:text-gray-100",children:"数据导出"}),(0,a.jsx)("p",{className:"text-sm text-gray-600 dark:text-gray-400",children:"创建加密备份文件"})]})]}),(0,a.jsxs)("div",{className:"flex-1 flex flex-col",children:[(0,a.jsxs)("div",{className:"space-y-4",children:[(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:[(0,a.jsx)(B.Z,{className:"w-4 h-4"}),"加密密码"]}),(0,a.jsx)("input",{type:"password",value:t,onChange:e=>s(e.target.value),placeholder:"设置强密码保护备份文件",className:"w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors",disabled:d}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"导入时需要使用相同密码"})]}),(0,a.jsxs)("div",{className:"text-xs text-gray-600 dark:text-gray-400 space-y-1",children:[(0,a.jsx)("p",{className:"font-medium text-gray-700 dark:text-gray-300 mb-2",children:"备份内容："}),(0,a.jsxs)("div",{className:"grid grid-cols-2 gap-1",children:[(0,a.jsx)("div",{children:"• 管理配置"}),(0,a.jsx)("div",{children:"• 用户数据"}),(0,a.jsx)("div",{children:"• 播放记录"}),(0,a.jsx)("div",{children:"• 收藏夹"})]})]})]}),(0,a.jsx)("button",{onClick:b,disabled:d||!t.trim(),className:"w-full px-4 py-2.5 rounded-lg font-medium transition-colors mt-10 ".concat(d||!t.trim()?"bg-gray-100 dark:bg-gray-700 cursor-not-allowed text-gray-500 dark:text-gray-400":"bg-blue-600 hover:bg-blue-700 text-white"),children:d?(0,a.jsxs)("div",{className:"flex items-center justify-center gap-2",children:[(0,a.jsx)("div",{className:"w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"}),"导出中..."]}):(0,a.jsxs)("div",{className:"flex items-center justify-center gap-2",children:[(0,a.jsx)(E.Z,{className:"w-4 h-4"}),"导出数据"]})})]})]}),(0,a.jsxs)("div",{className:"border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-800 hover:shadow-sm transition-shadow flex flex-col",children:[(0,a.jsxs)("div",{className:"flex items-center gap-3 mb-6",children:[(0,a.jsx)("div",{className:"w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center",children:(0,a.jsx)(_.Z,{className:"w-4 h-4 text-red-600 dark:text-red-400"})}),(0,a.jsxs)("div",{children:[(0,a.jsx)("h3",{className:"font-semibold text-gray-900 dark:text-gray-100",children:"数据导入"}),(0,a.jsx)("p",{className:"text-sm text-red-600 dark:text-red-400",children:"⚠️ 将清空现有数据"})]})]}),(0,a.jsxs)("div",{className:"flex-1 flex flex-col",children:[(0,a.jsxs)("div",{className:"space-y-4",children:[(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:[(0,a.jsx)(P.Z,{className:"w-4 h-4"}),"备份文件",o&&(0,a.jsxs)("span",{className:"ml-auto text-xs text-green-600 dark:text-green-400 font-normal",children:[o.name," (",(o.size/1024).toFixed(1)," KB)"]})]}),(0,a.jsx)("input",{ref:y,type:"file",accept:".dat",onChange:e=>{var r;let t=null===(r=e.target.files)||void 0===r?void 0:r[0];t&&i(t)},className:"w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-red-500 focus:border-red-500 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-sm file:font-medium file:bg-gray-50 dark:file:bg-gray-600 file:text-gray-700 dark:file:text-gray-300 hover:file:bg-gray-100 dark:hover:file:bg-gray-500 transition-colors",disabled:x})]}),(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:[(0,a.jsx)(B.Z,{className:"w-4 h-4"}),"解密密码"]}),(0,a.jsx)("input",{type:"password",value:n,onChange:e=>l(e.target.value),placeholder:"输入导出时的加密密码",className:"w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors",disabled:x})]})]}),(0,a.jsx)("button",{onClick:h,disabled:x||!o||!n.trim(),className:"w-full px-4 py-2.5 rounded-lg font-medium transition-colors mt-10 ".concat(!x&&o&&n.trim()?"bg-red-600 hover:bg-red-700 text-white":"bg-gray-100 dark:bg-gray-700 cursor-not-allowed text-gray-500 dark:text-gray-400"),children:x?(0,a.jsxs)("div",{className:"flex items-center justify-center gap-2",children:[(0,a.jsx)("div",{className:"w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"}),"导入中..."]}):(0,a.jsxs)("div",{className:"flex items-center justify-center gap-2",children:[(0,a.jsx)(_.Z,{className:"w-4 h-4"}),"导入数据"]})})]})]})]})]}),(0,a.jsx)(O,{isOpen:u.isOpen,onClose:()=>{m(e=>({...e,isOpen:!1}))},type:u.type,title:u.title,message:u.message,html:u.html,confirmText:u.confirmText,onConfirm:u.onConfirm,showConfirm:u.showConfirm,timer:u.timer})]})},Z=t(5036),I=t(772),U=t(6301),A=t(359);function F(){var e,r,t,s,n;let[l,o]=(0,j.useState)([]),[i,d]=(0,j.useState)(null),[c,x]=(0,j.useState)(!1),[g,u]=(0,j.useState)(!1);(0,j.useEffect)(()=>{m()},[]);let m=async()=>{x(!0);try{let e=await fetch("/api/admin/plans",{cache:"no-store"});if(e.ok){let r=await e.json();o(r)}else throw Error("Failed to fetch plans")}catch(e){console.error("Failed to fetch plans",e),v().fire("加载失败","无法获取套餐列表","error")}finally{x(!1)}},y=e=>e.name&&""!==e.name.trim()?e.name.trim().length>50?"套餐名称不能超过50个字符":"number"!=typeof e.price||e.price<0?"价格必须大于等于0":e.price>999999?"价格不能超过999999":"number"!=typeof e.duration_days||e.duration_days<=0?"天数必须大于0":e.duration_days>3650?"天数不能超过3650天（10年）":e.original_price&&("number"!=typeof e.original_price||e.original_price<0)?"原价必须大于等于0":e.original_price&&e.original_price<e.price?"原价必须大于等于现价":e.description&&e.description.length>200?"描述不能超过200个字符":null:"套餐名称不能为空",p=async e=>{let r=y(e);if(r){await v().fire("数据校验失败",r,"error");return}u(!0);try{let r=e.features;if("string"==typeof e.features)try{JSON.parse(e.features),r=e.features}catch(a){let t=e.features.split("\n").map(e=>e.trim()).filter(Boolean);r=JSON.stringify(t)}else Array.isArray(e.features)&&(r=JSON.stringify(e.features));let t=await fetch("/api/admin/plans",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...e,price:Number(e.price),original_price:e.original_price?Number(e.original_price):void 0,duration_days:Number(e.duration_days),sort_order:Number(e.sort_order||0),is_active:!!e.is_active,features:r})});if(t.ok)await v().fire("保存成功","","success"),d(null),await m();else{let e=await t.json();throw Error(e.error||"Save failed")}}catch(e){await v().fire("保存失败",e.message||"请重试","error")}finally{u(!1)}},b=e=>{e?d(e):d({name:"",description:"",duration_days:30,price:void 0,original_price:void 0,features:"[]",is_active:!0,sort_order:0})};return(0,a.jsxs)("div",{className:"space-y-6",children:[(0,a.jsx)("div",{className:"flex justify-end",children:(0,a.jsxs)("button",{onClick:()=>b(),className:"flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700",children:[(0,a.jsx)(I.Z,{size:18}),"添加套餐"]})}),(0,a.jsx)("div",{className:"grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3",children:l.map(e=>(0,a.jsxs)("div",{className:"p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 shadow-sm relative",children:[(0,a.jsx)("div",{className:"absolute top-4 right-4 flex gap-2",children:(0,a.jsx)("button",{onClick:()=>b(e),className:"p-1.5 text-gray-500 hover:text-blue-600 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20",children:(0,a.jsx)(U.Z,{size:16})})}),(0,a.jsx)("h3",{className:"text-lg font-bold text-gray-900 dark:text-gray-100 mb-1",children:e.name}),(0,a.jsxs)("div",{className:"flex items-baseline gap-2 mb-2",children:[(0,a.jsxs)("span",{className:"text-2xl font-bold text-blue-600",children:["\xa5",e.price]}),e.original_price&&(0,a.jsxs)("span",{className:"text-sm text-gray-400 line-through",children:["\xa5",e.original_price]})]}),(0,a.jsx)("p",{className:"text-sm text-gray-500 dark:text-gray-400 mb-3",children:e.description}),(0,a.jsxs)("div",{className:"text-sm",children:[(0,a.jsx)("span",{className:"font-medium text-gray-700 dark:text-gray-300",children:"时长:"})," ",e.duration_days," 天"]}),(0,a.jsx)("div",{className:"mt-2",children:(0,a.jsx)("span",{className:"px-2 py-0.5 text-xs rounded-full ".concat(e.is_active?"bg-green-100 text-green-800":"bg-gray-100 text-gray-800"),children:e.is_active?"已上架":"已下架"})})]},e.id))}),i&&(0,a.jsx)("div",{className:"fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4",onClick:()=>!g&&d(null),children:(0,a.jsxs)("div",{className:"bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden",onClick:e=>e.stopPropagation(),children:[(0,a.jsx)("div",{className:"flex-shrink-0 px-6 py-4 border-b border-gray-200 dark:border-gray-700",children:(0,a.jsx)("h3",{className:"text-xl font-bold text-gray-900 dark:text-gray-100",children:i.id?"编辑套餐":"添加套餐"})}),(0,a.jsx)("div",{className:"flex-1 overflow-y-auto px-6 py-4",children:(0,a.jsxs)("div",{className:"space-y-4",children:[(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300",children:["套餐名称 ",(0,a.jsx)("span",{className:"text-red-500",children:"*"})]}),(0,a.jsx)("input",{type:"text",value:i.name||"",onChange:e=>d({...i,name:e.target.value}),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500",placeholder:"例如：月度会员",disabled:g})]}),(0,a.jsxs)("div",{className:"grid grid-cols-2 gap-4",children:[(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300",children:["价格 (元) ",(0,a.jsx)("span",{className:"text-red-500",children:"*"})]}),(0,a.jsx)("input",{type:"number",value:null!==(e=i.price)&&void 0!==e?e:"",onChange:e=>d({...i,price:""===e.target.value?void 0:Number(e.target.value)}),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500",placeholder:"19.9",min:"0",step:"0.01",disabled:g})]}),(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300",children:"原价 (元)"}),(0,a.jsx)("input",{type:"number",value:null!==(r=i.original_price)&&void 0!==r?r:"",onChange:e=>d({...i,original_price:""===e.target.value?void 0:Number(e.target.value)}),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500",placeholder:"29.9",min:"0",step:"0.01",disabled:g})]})]}),(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300",children:["有效天数 ",(0,a.jsx)("span",{className:"text-red-500",children:"*"})]}),(0,a.jsx)("input",{type:"number",value:null!==(t=i.duration_days)&&void 0!==t?t:30,onChange:e=>d({...i,duration_days:Number(e.target.value)}),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500",placeholder:"30",min:"1",disabled:g}),(0,a.jsx)("p",{className:"mt-1 text-xs text-gray-500 dark:text-gray-400",children:"购买后的会员有效期"})]}),(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300",children:"套餐描述"}),(0,a.jsx)("input",{type:"text",value:i.description||"",onChange:e=>d({...i,description:e.target.value}),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500",placeholder:"例如：超值月度会员",disabled:g})]}),(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300",children:"会员特权 (每行一个)"}),(0,a.jsx)("textarea",{value:(()=>{if(!i.features)return"";try{let e=JSON.parse(i.features);return Array.isArray(e)?e.join("\n"):i.features}catch(e){return i.features}})(),onChange:e=>{let r=e.target.value.split("\n");d({...i,features:JSON.stringify(r)})},className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 h-24 resize-none",placeholder:"去除广告 高清观看 离线下载",disabled:g})]}),(0,a.jsxs)("div",{className:"flex items-center justify-between gap-4",children:[(0,a.jsxs)("label",{className:"flex items-center gap-2 cursor-pointer",children:[(0,a.jsx)("input",{type:"checkbox",checked:null===(s=i.is_active)||void 0===s||s,onChange:e=>d({...i,is_active:e.target.checked}),className:"rounded border-gray-300 text-blue-600",disabled:g}),(0,a.jsx)("span",{className:"text-sm text-gray-700 dark:text-gray-300",children:"上架销售"})]}),(0,a.jsxs)("div",{className:"flex items-center gap-2",children:[(0,a.jsx)("span",{className:"text-sm text-gray-600 dark:text-gray-400",children:"排序"}),(0,a.jsx)("input",{type:"number",value:null!==(n=i.sort_order)&&void 0!==n?n:0,onChange:e=>d({...i,sort_order:Number(e.target.value)}),className:"w-16 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded dark:bg-gray-700 dark:text-gray-100 text-center focus:ring-2 focus:ring-blue-500",disabled:g})]})]})]})}),(0,a.jsxs)("div",{className:"flex-shrink-0 px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-3 bg-gray-50 dark:bg-gray-900/50",children:[(0,a.jsx)("button",{onClick:()=>d(null),disabled:g,className:"px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 disabled:opacity-50 transition-colors",children:"取消"}),(0,a.jsxs)("button",{onClick:()=>p(i),disabled:g,className:"flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors",children:[g&&(0,a.jsx)(A.Z,{size:16,className:"animate-spin"}),g?"保存中...":"保存"]})]})]})})]})}var q=t(5302),R=t(4378),J=t(5274);function L(){let[e,r]=(0,j.useState)([]),[t,s]=(0,j.useState)(1),[n,l]=(0,j.useState)(!1),[o,i]=(0,j.useState)(null);(0,j.useEffect)(()=>{d()},[t]);let d=async()=>{l(!0);try{let e=await fetch("/api/admin/orders?page=".concat(t,"&limit=20"));if(e.ok){let t=await e.json();r(t.orders||[])}}catch(e){console.error("Failed to fetch orders",e)}finally{l(!1)}},c=async(e,r)=>{try{let{isConfirmed:t,value:a}=await v().fire({title:"approved"===r?"确认通过?":"确认拒绝?",input:"rejected"===r?"text":void 0,inputPlaceholder:"请输入拒绝原因",showCancelButton:!0,confirmButtonText:"确定",cancelButtonText:"取消",confirmButtonColor:"approved"===r?"#16a34a":"#dc2626"});if(!t)return;if((await fetch("/api/admin/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({orderNo:e,status:r,reason:a})})).ok)v().fire({icon:"success",title:"操作成功",timer:1500,showConfirmButton:!1}),d();else throw Error("Operation failed")}catch(e){v().fire("操作失败","请重试","error")}},x=e=>{switch(e){case"approved":return(0,a.jsxs)("span",{className:"flex items-center gap-1 text-green-600 bg-green-50 px-2 py-0.5 rounded text-xs",children:[(0,a.jsx)(C.Z,{size:12})," 已通过"]});case"rejected":return(0,a.jsxs)("span",{className:"flex items-center gap-1 text-red-600 bg-red-50 px-2 py-0.5 rounded text-xs",children:[(0,a.jsx)(q.Z,{size:12})," 已拒绝"]});case"pending":return(0,a.jsxs)("span",{className:"flex items-center gap-1 text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded text-xs",children:[(0,a.jsx)(R.Z,{size:12})," 待审核"]});default:return(0,a.jsx)("span",{className:"text-gray-500 bg-gray-50 px-2 py-0.5 rounded text-xs",children:e})}};return(0,a.jsxs)("div",{className:"space-y-4",children:[(0,a.jsx)("div",{className:"overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700",children:(0,a.jsxs)("table",{className:"min-w-full divide-y divide-gray-200 dark:divide-gray-700",children:[(0,a.jsx)("thead",{className:"bg-gray-50 dark:bg-gray-800",children:(0,a.jsxs)("tr",{children:[(0,a.jsx)("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",children:"订单号/用户"}),(0,a.jsx)("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",children:"套餐/金额"}),(0,a.jsx)("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",children:"凭证"}),(0,a.jsx)("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",children:"状态"}),(0,a.jsx)("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider",children:"时间"}),(0,a.jsx)("th",{className:"px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider",children:"操作"})]})}),(0,a.jsxs)("tbody",{className:"bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700 text-sm",children:[e.map(e=>(0,a.jsxs)("tr",{children:[(0,a.jsxs)("td",{className:"px-4 py-3",children:[(0,a.jsx)("div",{className:"font-medium",children:e.order_no}),(0,a.jsx)("div",{className:"text-gray-500 text-xs",children:e.username})]}),(0,a.jsxs)("td",{className:"px-4 py-3",children:[(0,a.jsxs)("div",{children:["套餐ID: ",e.related_id]}),(0,a.jsxs)("div",{className:"font-bold",children:["\xa5",e.amount]})]}),(0,a.jsx)("td",{className:"px-4 py-3",children:e.payment_proof?(0,a.jsxs)("button",{onClick:()=>i(e.payment_proof),className:"flex items-center gap-1 text-blue-600 hover:text-blue-800",children:[(0,a.jsx)(J.Z,{size:16})," 查看"]}):(0,a.jsx)("span",{className:"text-gray-400 text-xs",children:"未上传"})}),(0,a.jsxs)("td",{className:"px-4 py-3",children:[x(e.payment_status),e.reject_reason&&(0,a.jsx)("div",{className:"text-xs text-red-500 mt-1",children:e.reject_reason})]}),(0,a.jsx)("td",{className:"px-4 py-3 text-xs text-gray-500",children:new Date(e.created_at||"").toLocaleString()}),(0,a.jsx)("td",{className:"px-4 py-3 text-right space-x-2",children:"pending"===e.payment_status&&(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("button",{onClick:()=>c(e.order_no,"approved"),className:"text-green-600 hover:text-green-800 text-xs font-medium px-2 py-1 border border-green-200 rounded",children:"通过"}),(0,a.jsx)("button",{onClick:()=>c(e.order_no,"rejected"),className:"text-red-600 hover:text-red-800 text-xs font-medium px-2 py-1 border border-red-200 rounded",children:"拒绝"})]})})]},e.order_no)),0===e.length&&!n&&(0,a.jsx)("tr",{children:(0,a.jsx)("td",{colSpan:6,className:"px-4 py-8 text-center text-gray-500",children:"暂无订单数据"})})]})]})}),(0,a.jsxs)("div",{className:"flex justify-center gap-2 mt-4",children:[(0,a.jsx)("button",{disabled:1===t||n,onClick:()=>s(t-1),className:"px-3 py-1 border rounded disabled:opacity-50",children:"上一页"}),(0,a.jsx)("span",{className:"px-3 py-1",children:t}),(0,a.jsx)("button",{disabled:e.length<20||n,onClick:()=>s(t+1),className:"px-3 py-1 border rounded disabled:opacity-50",children:"下一页"})]}),o&&(0,a.jsx)("div",{className:"fixed inset-0 z-[100] flex items-center justify-center bg-black/80",onClick:()=>i(null),children:(0,a.jsxs)("div",{className:"relative max-w-4xl max-h-[90vh]",children:[(0,a.jsx)("img",{src:o,alt:"Payment Proof",className:"max-w-full max-h-[90vh] object-contain rounded"}),(0,a.jsx)("button",{className:"absolute top-4 right-4 text-white bg-black/50 p-2 rounded-full hover:bg-black/70",children:(0,a.jsx)(q.Z,{size:24})})]})})]})}var V=t(5267);function M(){let[e,r]=(0,j.useState)({alipay_qr_code:"",alipay_account_name:"",payment_notice:"",auto_approval:!1,order_expire_hours:24}),[t,s]=(0,j.useState)(!1);(0,j.useEffect)(()=>{n()},[]);let n=async()=>{try{let e=await fetch("/api/admin/payment-settings");if(e.ok){let t=await e.json();t&&Object.keys(t).length>0&&r(t)}}catch(e){console.error("Failed to fetch payment settings",e)}},l=async r=>{r.preventDefault(),s(!0);try{if((await fetch("/api/admin/payment-settings",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(e)})).ok)v().fire({icon:"success",title:"保存成功",timer:1500,showConfirmButton:!1});else throw Error("Save failed")}catch(e){v().fire({icon:"error",title:"保存失败",text:"请重试"})}finally{s(!1)}};return(0,a.jsxs)("form",{onSubmit:l,className:"space-y-6 max-w-2xl",children:[(0,a.jsxs)("div",{className:"space-y-2",children:[(0,a.jsx)("label",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"支付宝收款码 URL"}),(0,a.jsx)("input",{type:"text",value:e.alipay_qr_code||"",onChange:t=>r({...e,alipay_qr_code:t.target.value}),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500",placeholder:"https://example.com/qr.jpg"}),(0,a.jsx)("p",{className:"text-xs text-gray-500",children:"可以是图片链接或 Base64"})]}),(0,a.jsxs)("div",{className:"space-y-2",children:[(0,a.jsx)("label",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"收款账户名称"}),(0,a.jsx)("input",{type:"text",value:e.alipay_account_name||"",onChange:t=>r({...e,alipay_account_name:t.target.value}),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500",placeholder:"例如：*某某"})]}),(0,a.jsxs)("div",{className:"space-y-2",children:[(0,a.jsx)("label",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"支付提示信息"}),(0,a.jsx)("textarea",{value:e.payment_notice||"",onChange:t=>r({...e,payment_notice:t.target.value}),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 min-h-[100px]",placeholder:"支付时请备注用户名..."})]}),(0,a.jsx)("div",{className:"flex items-center gap-4",children:(0,a.jsxs)("div",{className:"flex items-center gap-2",children:[(0,a.jsx)("input",{type:"checkbox",id:"auto_approval",checked:e.auto_approval||!1,onChange:t=>r({...e,auto_approval:t.target.checked}),className:"w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"}),(0,a.jsx)("label",{htmlFor:"auto_approval",className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"自动审核 (实验性)"})]})}),(0,a.jsxs)("div",{className:"space-y-2",children:[(0,a.jsx)("label",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"订单过期时间 (小时)"}),(0,a.jsx)("input",{type:"number",value:e.order_expire_hours||24,onChange:t=>r({...e,order_expire_hours:Number(t.target.value)}),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500"})]}),(0,a.jsxs)("button",{type:"submit",disabled:t,className:"flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50",children:[(0,a.jsx)(V.Z,{size:18}),t?"保存中...":"保存设置"]})]})}var G=t(9392);function K(){let[e,r]=(0,j.useState)("plans");return(0,a.jsxs)("div",{className:"space-y-6",children:[(0,a.jsxs)("div",{className:"flex items-center gap-3 mb-4",children:[(0,a.jsx)("span",{className:"px-3 py-1 text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-200 rounded-full",children:"\uD83C\uDD95 新增功能"}),(0,a.jsx)("p",{className:"text-sm text-gray-600 dark:text-gray-400",children:"会员订阅管理系统"})]}),(0,a.jsxs)("div",{className:"flex border-b border-gray-200 dark:border-gray-700",children:[(0,a.jsxs)("button",{onClick:()=>r("plans"),className:"px-4 py-2 border-b-2 flex items-center gap-2 ".concat("plans"===e?"border-blue-600 text-blue-600":"border-transparent text-gray-500 hover:text-gray-700"),children:[(0,a.jsx)(G.Z,{size:18}),"套餐管理"]}),(0,a.jsxs)("button",{onClick:()=>r("orders"),className:"px-4 py-2 border-b-2 flex items-center gap-2 ".concat("orders"===e?"border-blue-600 text-blue-600":"border-transparent text-gray-500 hover:text-gray-700"),children:[(0,a.jsx)(m.Z,{size:18}),"订单审核"]}),(0,a.jsxs)("button",{onClick:()=>r("settings"),className:"px-4 py-2 border-b-2 flex items-center gap-2 ".concat("settings"===e?"border-blue-600 text-blue-600":"border-transparent text-gray-500 hover:text-gray-700"),children:[(0,a.jsx)(y.Z,{size:18}),"支付设置"]})]}),(0,a.jsxs)("div",{className:"pt-2",children:["plans"===e&&(0,a.jsx)(F,{}),"orders"===e&&(0,a.jsx)(L,{}),"settings"===e&&(0,a.jsx)(M,{})]})]})}let Y=e=>v().fire({icon:"error",title:"错误",text:e}),H=e=>v().fire({icon:"success",title:"成功",text:e,timer:2e3,showConfirmButton:!1}),W=e=>{let{title:r,icon:t,isExpanded:s,onToggle:n,children:l}=e;return(0,a.jsxs)("div",{className:"rounded-xl shadow-sm mb-4 overflow-hidden bg-white/80 backdrop-blur-md dark:bg-gray-800/50 dark:ring-1 dark:ring-gray-700",children:[(0,a.jsxs)("button",{onClick:n,className:"w-full px-6 py-4 flex items-center justify-between bg-gray-50/70 dark:bg-gray-800/60 hover:bg-gray-100/80 dark:hover:bg-gray-700/60 transition-colors",children:[(0,a.jsxs)("div",{className:"flex items-center gap-3",children:[t,(0,a.jsx)("h3",{className:"text-lg font-medium text-gray-900 dark:text-gray-100",children:r})]}),(0,a.jsx)("div",{className:"text-gray-500 dark:text-gray-400",children:s?(0,a.jsx)(i.Z,{size:20}):(0,a.jsx)(d.Z,{size:20})})]}),s&&(0,a.jsx)("div",{className:"px-6 py-4",children:l})]})},X=e=>{var r;let{config:t,role:s,refreshConfig:n}=e,[l,o]=(0,j.useState)({enableRegistration:!1}),[i,d]=(0,j.useState)(new Set),[c,x]=(0,j.useState)(""),[g,u]=(0,j.useState)(""),[m,y]=(0,j.useState)(!1),[p,b]=(0,j.useState)(!1),[h,f]=(0,j.useState)({username:"",password:""}),[k,w]=(0,j.useState)({username:"",password:""}),C=(null===(r=(0,N.v)())||void 0===r?void 0:r.username)||null;(0,j.useEffect)(()=>{(null==t?void 0:t.UserConfig)&&o({enableRegistration:t.UserConfig.AllowRegister})},[t]);let S=async e=>{try{o(r=>({...r,enableRegistration:e}));let r=await fetch("/api/admin/user",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"setAllowRegister",allowRegister:e})});if(!r.ok){let e=await r.json().catch(()=>({}));throw Error(e.error||"操作失败: ".concat(r.status))}await n()}catch(r){Y(r instanceof Error?r.message:"操作失败"),o(r=>({...r,enableRegistration:!e}))}},T=async e=>{await L("ban",e)},E=async e=>{await L("unban",e)},B=async e=>{await L("setAdmin",e)},_=async e=>{await L("cancelAdmin",e)},P=async()=>{h.username&&h.password&&(await L("add",h.username,h.password),f({username:"",password:""}),y(!1))},D=async()=>{k.username&&k.password&&(await L("changePassword",k.username,k.password),w({username:"",password:""}),b(!1))},O=e=>{w({username:e,password:""}),b(!0),y(!1)},z=async e=>{let{isConfirmed:r}=await v().fire({title:"确认删除用户",text:"删除用户 ".concat(e," 将同时删除其搜索历史、播放记录和收藏夹，此操作不可恢复！"),icon:"warning",showCancelButton:!0,confirmButtonText:"确认删除",cancelButtonText:"取消",confirmButtonColor:"#dc2626"});r&&await L("deleteUser",e)},Z=e=>{let r=new Set(i);r.has(e)?r.delete(e):r.add(e),d(r)},I=async()=>{let e=(null==t?void 0:t.SourceConfig)||[],r='\n      <div style="text-align:left;max-height:260px;overflow:auto;border:1px solid var(--swal2-border,#e5e7eb);border-radius:8px;padding:8px;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">\n        '.concat(e.map(e=>'\n            <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e5e7eb;border-radius:8px;background:#fafafa;cursor:pointer">\n              <input type="checkbox" name="groupSources" value="'.concat(e.key,'" />\n              <span style="font-size:13px"><strong>').concat(e.name||e.key,'</strong> <span style="opacity:.7">(').concat(e.key,")</span></span>\n            </label>")).join(""),"\n      </div>"),{value:a,isConfirmed:s}=await v().fire({title:"新建分组",width:"800px",html:'<input id="swal-input-group-name" class="swal2-input" placeholder="分组名称" style="width: 100%; max-width: 400px; margin: 0 auto;" /><div style="text-align:left;margin-top:6px;font-size:12px;opacity:.8;display:flex;align-items:center;gap:10px"><span>选择该分组可使用的视频源</span><label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:12px"><input id="swal-group-select-all" type="checkbox" /> 全选</label></div>'+r,didOpen:e=>{let r=e.querySelector("#swal-group-select-all"),t=Array.from(e.querySelectorAll('input[name="groupSources"]'));r&&r.addEventListener("change",()=>{t.forEach(e=>{e.checked=r.checked})})},focusConfirm:!1,showCancelButton:!0,confirmButtonText:"创建",cancelButtonText:"取消",preConfirm:()=>{var e;let r=document.getElementById("swal-input-group-name"),t=null==r?void 0:null===(e=r.value)||void 0===e?void 0:e.trim();return t?{name:t,sourceKeys:Array.from(document.querySelectorAll('input[name="groupSources"]:checked')).map(e=>e.value)}:(v().showValidationMessage("分组名称不能为空"),null)}});if(!s||!a)return;let{name:l,sourceKeys:o}=a;try{let e=await fetch("/api/admin/group",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"create",name:l,sourceKeys:o})});if(!e.ok){let r=await e.json().catch(()=>({}));throw Error(r.error||"创建分组失败")}await n(),x(l),H("分组已创建")}catch(e){Y(e instanceof Error?e.message:"创建分组失败")}},U=async e=>{if(0===i.size){Y("请先选择要分配的用户");return}try{let r=await fetch("/api/admin/group",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"assignUsers",name:e,users:Array.from(i)})});if(!r.ok){let e=await r.json().catch(()=>({}));throw Error(e.error||"批量分组失败")}d(new Set),x(""),await n(),H("批量分组成功")}catch(e){Y(e instanceof Error?e.message:"批量分组失败")}},A=async()=>{if(0!==i.size)try{let e=await fetch("/api/admin/group",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"removeUsers",users:Array.from(i)})});if(!e.ok){let r=await e.json().catch(()=>({}));throw Error(r.error||"批量移出失败")}d(new Set),await n(),H("已将所选用户移出分组")}catch(e){Y(e instanceof Error?e.message:"批量移出失败")}},F=async e=>{try{let r=await fetch("/api/admin/group",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...e})});if(!r.ok){let e=await r.json().catch(()=>({}));throw Error(e.error||"操作失败: ".concat(r.status))}await n(),H("已保存")}catch(e){throw Y(e instanceof Error?e.message:"操作失败"),e}},q=async e=>{let{isConfirmed:r}=await v().fire({title:"确认删除分组",text:"删除分组 ".concat(e," 后，该分组下的用户不会再受限于此分组的视频源。"),icon:"warning",showCancelButton:!0,confirmButtonText:"确认删除",cancelButtonText:"取消",confirmButtonColor:"#dc2626"});r&&(await F({action:"delete",name:e}),c===e&&x(""))},R=async()=>{var e;let r=(null==t?void 0:null===(e=t.UserConfig)||void 0===e?void 0:e.Groups)||[];u(""),await v().fire({title:"分组管理",html:'\n        <div class="text-left">\n          <div class="mb-4">\n            <h4 class="text-sm font-medium text-gray-700 mb-2">已创建的分组</h4>\n            <div class="grid gap-3" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">\n              '.concat(r.map(e=>{var r;return"\n                <div \n                  onclick=\"window.selectGroupInDialog('".concat(e.name,'\')"\n                  class="p-3 rounded-lg border cursor-pointer transition-colors hover:shadow-sm"\n                  style="background-color: var(--selected-group-bg, #f9fafb); border-color: var(--selected-group-border, #e5e7eb);"\n                  id="group-card-').concat(e.name,'"\n                >\n                  <div class="flex items-center justify-between gap-2 mb-2">\n                    <span class="text-sm font-medium text-gray-800">').concat(e.name,'</span>\n                    <div class="flex items-center gap-2">\n                      <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-700">\n                        ').concat((null===(r=e.sourceKeys)||void 0===r?void 0:r.length)||0,' 源\n                      </span>\n                    </div>\n                  </div>\n                  <div class="flex flex-wrap gap-2">\n                    ').concat((e.sourceKeys||[]).map(e=>'\n                      <span class="px-2 py-1 text-xs rounded border bg-gray-50 border-gray-300 text-gray-700">\n                        '.concat(e,"\n                      </span>\n                    ")).join(""),"\n                    ").concat(e.sourceKeys&&0!==e.sourceKeys.length?"":'<span class="text-xs text-gray-500">未配置源</span>',"\n                  </div>\n                </div>\n              ")}).join(""),"\n              ").concat(0===r.length?'<div class="col-span-full text-center text-gray-500 py-4">暂无分组</div>':"",'\n            </div>\n          </div>\n          <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">\n            <div class="text-sm text-blue-800">\n              已选中 ').concat(i.size," 个用户，选择分组和用户后可进行分配操作\n            </div>\n          </div>\n        </div>\n      "),width:"800px",showConfirmButton:!1,showCancelButton:!1,showCloseButton:!0,footer:'\n        <div class="flex items-center justify-between w-full">\n          <div class="text-sm text-gray-600">\n            <span id="selected-group-text">请选择分组</span>\n          </div>\n          <div class="flex gap-2">\n            <button \n              id="edit-group-btn" \n              class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"\n              disabled\n            >\n              编辑\n            </button>\n            <button \n              id="assign-group-btn" \n              class="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed"\n              disabled\n            >\n              分配\n            </button>\n            <button \n              id="delete-group-btn" \n              class="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed"\n              disabled\n            >\n              删除\n            </button>\n          </div>\n        </div>\n      ',didOpen:()=>{window.selectGroupInDialog=e=>{u(e),window.currentSelectedGroup=e,r.forEach(r=>{let t=document.getElementById("group-card-".concat(r.name));t&&(r.name===e?(t.style.setProperty("--selected-group-bg","#dcfce7"),t.style.setProperty("--selected-group-border","#16a34a")):(t.style.setProperty("--selected-group-bg","#f9fafb"),t.style.setProperty("--selected-group-border","#e5e7eb")))});let t=document.getElementById("selected-group-text"),a=document.getElementById("edit-group-btn"),s=document.getElementById("assign-group-btn"),n=document.getElementById("delete-group-btn");t&&(t.textContent="已选择: ".concat(e)),a&&(a.disabled=!1),s&&(s.disabled=0===i.size),n&&(n.disabled=!1)},window.editSelectedGroup=async()=>{let e=window.currentSelectedGroup;if(!e)return;let t=r.find(r=>r.name===e);t&&(await J(e,t.sourceKeys||[]),R())},window.assignToSelectedGroup=async()=>{let e=window.currentSelectedGroup;e&&await U(e)},window.deleteSelectedGroup=async()=>{let e=window.currentSelectedGroup;e&&await q(e)},setTimeout(()=>{let e=document.getElementById("edit-group-btn"),r=document.getElementById("assign-group-btn"),t=document.getElementById("delete-group-btn");e&&(e.onclick=()=>window.editSelectedGroup()),r&&(r.onclick=()=>window.assignToSelectedGroup()),t&&(t.onclick=()=>window.deleteSelectedGroup())},100)}})},J=async(e,r)=>{let a=(null==t?void 0:t.SourceConfig)||[],s='\n      <div style="text-align:left;max-height:260px;overflow:auto;border:1px solid var(--swal2-border,#e5e7eb);border-radius:8px;padding:8px;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">\n        '.concat(a.map(e=>'\n            <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e5e7eb;border-radius:8px;background:#fafafa;cursor:pointer">\n              <input type="checkbox" name="editGroupSources" value="'.concat(e.key,'" ').concat((null==r?void 0:r.includes(e.key))?"checked":"",'/>\n              <span style="font-size:13px"><strong>').concat(e.name||e.key,'</strong> <span style="opacity:.7">(').concat(e.key,")</span></span>\n            </label>")).join(""),"\n      </div>"),{value:n,isConfirmed:l}=await v().fire({title:"编辑分组",width:"800px",html:'<input id="swal-edit-group-name" class="swal2-input" placeholder="分组名称" value="'.concat(e,'" style="width: 100%; max-width: 400px; margin: 0 auto;" />')+'<div style="text-align:left;margin-top:6px;font-size:12px;opacity:.8;display:flex;align-items:center;gap:10px"><span>设置该分组可使用的视频源</span><label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:12px"><input id="swal-edit-group-select-all" type="checkbox" /> 全选</label></div>'+s,focusConfirm:!1,showCancelButton:!0,confirmButtonText:"保存",cancelButtonText:"取消",didOpen:e=>{let r=e.querySelector("#swal-edit-group-select-all"),t=Array.from(e.querySelectorAll('input[name="editGroupSources"]'));r&&r.addEventListener("change",()=>{t.forEach(e=>{e.checked=r.checked})})},preConfirm:()=>{var e;let r=document.getElementById("swal-edit-group-name"),t=null==r?void 0:null===(e=r.value)||void 0===e?void 0:e.trim();return t?{name:t,sourceKeys:Array.from(document.querySelectorAll('input[name="editGroupSources"]:checked')).map(e=>e.value)}:(v().showValidationMessage("分组名称不能为空"),null)}});if(!l||!n)return;let{name:o,sourceKeys:i}=n;o!==e&&await F({action:"rename",name:e,newName:o}),await F({action:"setSources",name:o,sourceKeys:i}),c===e&&x(o)},L=async(e,r,t)=>{try{let a=await fetch("/api/admin/user",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({targetUsername:r,...t?{targetPassword:t}:{},action:e})});if(!a.ok){let e=await a.json().catch(()=>({}));throw Error(e.error||"操作失败: ".concat(a.status))}await n()}catch(e){Y(e instanceof Error?e.message:"操作失败")}};return t?(0,a.jsxs)("div",{className:"space-y-6",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300 mb-3",children:"用户统计"}),(0,a.jsxs)("div",{className:"p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800",children:[(0,a.jsx)("div",{className:"text-2xl font-bold text-green-800 dark:text-green-300",children:t.UserConfig.Users.length}),(0,a.jsx)("div",{className:"text-sm text-green-600 dark:text-green-400",children:"总用户数"})]})]}),(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300 mb-3",children:"注册设置"}),(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsx)("label",{className:"text-gray-700 dark:text-gray-300",children:"允许新用户注册"}),(0,a.jsx)("button",{onClick:()=>S(!l.enableRegistration),className:"relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ".concat(l.enableRegistration?"bg-green-600":"bg-gray-200 dark:bg-gray-700"),children:(0,a.jsx)("span",{className:"inline-block h-4 w-4 transform rounded-full bg-white transition-transform ".concat(l.enableRegistration?"translate-x-6":"translate-x-1")})})]})]}),(0,a.jsxs)("div",{children:[(0,a.jsxs)("div",{className:"flex items-center justify-between mb-3",children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"用户列表"}),(0,a.jsx)("button",{onClick:()=>{y(!m),p&&(b(!1),w({username:"",password:""}))},className:"px-3 py-1 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg transition-colors",children:m?"取消":"添加用户"})]}),(0,a.jsx)("div",{className:"p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700 mb-4",children:(0,a.jsxs)("div",{className:"flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between",children:[(0,a.jsxs)("label",{className:"flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300",children:[(0,a.jsx)("input",{type:"checkbox",checked:i.size===((null==t?void 0:t.UserConfig.Users.length)||0)&&((null==t?void 0:t.UserConfig.Users.length)||0)>0,onChange:()=>{var e;let r=null!==(e=null==t?void 0:t.UserConfig.Users)&&void 0!==e?e:[];i.size===r.length?d(new Set):d(new Set(r.map(e=>e.username)))},className:"w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"}),"全选 (",i.size,"/",(null==t?void 0:t.UserConfig.Users.length)||0,")"]}),(0,a.jsxs)("div",{className:"flex items-center gap-2",children:[(0,a.jsx)("button",{onClick:I,className:"px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white text-sm rounded-lg transition-colors",children:"新建分组"}),(0,a.jsx)("button",{onClick:R,className:"px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors",children:"编辑分组"}),(0,a.jsx)("button",{onClick:A,disabled:0===i.size,className:"px-3 py-1 bg-gray-600 hover:bg-gray-700 disabled:bg-gray-400 text-white text-sm rounded-lg transition-colors",children:"移出分组"})]})]})}),m&&(0,a.jsx)("div",{className:"mb-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700",children:(0,a.jsxs)("div",{className:"flex flex-col sm:flex-row gap-4 sm:gap-3",children:[(0,a.jsx)("input",{type:"text",placeholder:"用户名",value:h.username,onChange:e=>f(r=>({...r,username:e.target.value})),className:"flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent"}),(0,a.jsx)("input",{type:"password",placeholder:"密码",value:h.password,onChange:e=>f(r=>({...r,password:e.target.value})),className:"flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent"}),(0,a.jsx)("button",{onClick:P,disabled:!h.username||!h.password,className:"w-full sm:w-auto px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white rounded-lg transition-colors",children:"添加"})]})}),p&&(0,a.jsxs)("div",{className:"mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700",children:[(0,a.jsx)("h5",{className:"text-sm font-medium text-blue-800 dark:text-blue-300 mb-3",children:"修改用户密码"}),(0,a.jsxs)("div",{className:"flex flex-col sm:flex-row gap-4 sm:gap-3",children:[(0,a.jsx)("input",{type:"text",placeholder:"用户名",value:k.username,disabled:!0,className:"flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"}),(0,a.jsx)("input",{type:"password",placeholder:"新密码",value:k.password,onChange:e=>w(r=>({...r,password:e.target.value})),className:"flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent"}),(0,a.jsx)("button",{onClick:D,disabled:!k.password,className:"w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white rounded-lg transition-colors",children:"修改密码"}),(0,a.jsx)("button",{onClick:()=>{b(!1),w({username:"",password:""})},className:"w-full sm:w-auto px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors",children:"取消"})]})]}),(0,a.jsx)("div",{className:"border border-gray-200 dark:border-gray-700 rounded-lg max-h-[28rem] overflow-y-auto overflow-x-auto",children:(0,a.jsxs)("table",{className:"min-w-full divide-y divide-gray-200 dark:divide-gray-700",children:[(0,a.jsx)("thead",{className:"bg-gray-50 dark:bg-gray-900",children:(0,a.jsxs)("tr",{children:[(0,a.jsx)("th",{className:"w-8"}),(0,a.jsx)("th",{scope:"col",className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"用户名"}),(0,a.jsx)("th",{scope:"col",className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"角色"}),(0,a.jsx)("th",{scope:"col",className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"分组"}),(0,a.jsx)("th",{scope:"col",className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"最后在线"}),(0,a.jsx)("th",{scope:"col",className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"状态"}),(0,a.jsx)("th",{scope:"col",className:"px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"操作"})]})}),(()=>{let e=[...t.UserConfig.Users].sort((e,r)=>{let t=e=>e.username===C?0:"owner"===e.role?1:"admin"===e.role?2:3;return t(e)-t(r)});return(0,a.jsx)("tbody",{className:"divide-y divide-gray-200 dark:divide-gray-700",children:e.map(e=>{let r="owner"!==e.role&&("owner"===s||"admin"===s&&("user"===e.role||e.username===C)),t=e.username!==C&&("owner"===s||"admin"===s&&"user"===e.role),n=e.username!==C&&("owner"===s||"admin"===s&&"user"===e.role);return(0,a.jsxs)("tr",{className:"hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors",children:[(0,a.jsx)("td",{className:"px-2 py-4",children:(0,a.jsx)("input",{type:"checkbox",checked:i.has(e.username),onChange:()=>Z(e.username),className:"w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"})}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100",children:e.username}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap",children:(0,a.jsx)("span",{className:"px-2 py-1 text-xs rounded-full ".concat("owner"===e.role?"bg-yellow-100 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-300":"admin"===e.role?"bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-300":"bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"),children:"owner"===e.role?"站长":"admin"===e.role?"管理员":"普通用户"})}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100",children:e.group||"-"}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100",children:e.lastOnline?new Date(e.lastOnline).toLocaleString("zh-CN",{hour12:!1}):"-"}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap",children:(0,a.jsx)("span",{className:"px-2 py-1 text-xs rounded-full ".concat(e.banned?"bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-300":"bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-300"),children:e.banned?"已封禁":"正常"})}),(0,a.jsxs)("td",{className:"px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2",children:[r&&(0,a.jsx)("button",{onClick:()=>O(e.username),className:"inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 dark:bg-blue-900/40 dark:hover:bg-blue-900/60 dark:text-blue-200 transition-colors",children:"修改密码"}),n&&(0,a.jsxs)(a.Fragment,{children:["user"===e.role&&(0,a.jsx)("button",{onClick:()=>B(e.username),className:"inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 hover:bg-purple-200 dark:bg-purple-900/40 dark:hover:bg-purple-900/60 dark:text-purple-200 transition-colors",children:"设为管理"}),"admin"===e.role&&(0,a.jsx)("button",{onClick:()=>_(e.username),className:"inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:hover:bg-gray-700/60 dark:text-gray-200 transition-colors",children:"取消管理"}),"owner"!==e.role&&(e.banned?(0,a.jsx)("button",{onClick:()=>E(e.username),className:"inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-green-100 text-green-800 hover:bg-green-200 dark:bg-green-900/40 dark:hover:bg-green-900/60 dark:text-green-300 transition-colors",children:"解封"}):(0,a.jsx)("button",{onClick:()=>T(e.username),className:"inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-red-100 text-red-800 hover:bg-red-200 dark:bg-red-900/40 dark:hover:bg-red-900/60 dark:text-red-300 transition-colors",children:"封禁"}))]}),t&&(0,a.jsx)("button",{onClick:()=>z(e.username),className:"inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-red-600 text-white hover:bg-red-700 dark:bg-red-600 dark:hover:bg-red-700 transition-colors",children:"删除用户"})]})]},e.username)})})})()]})})]})]}):(0,a.jsx)("div",{className:"text-center text-gray-500 dark:text-gray-400",children:"加载中..."})},Q=e=>{let{config:r,refreshConfig:t}=e,[i,g]=(0,j.useState)([]),[u,m]=(0,j.useState)(!1),[y,p]=(0,j.useState)(!1),[b,h]=(0,j.useState)({name:"",key:"",api:"",detail:"",disabled:!1,from:"config"}),[f,w]=(0,j.useState)(new Set),N=(0,s.Dy)((0,s.VT)(s.we,{activationConstraint:{distance:5}}),(0,s.VT)(s.LO,{activationConstraint:{delay:150,tolerance:5}}));(0,j.useEffect)(()=>{(null==r?void 0:r.SourceConfig)&&(g(r.SourceConfig),p(!1))},[r]);let C=async e=>{try{let r=await fetch("/api/admin/source",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...e})});if(!r.ok){let e=await r.json().catch(()=>({}));throw Error(e.error||"操作失败: ".concat(r.status))}await t()}catch(e){throw Y(e instanceof Error?e.message:"操作失败"),e}},S=e=>{let r=i.find(r=>r.key===e);if(!r)return;let t=r.disabled?"enable":"disable";C({action:t,key:e}).catch(()=>{console.error("操作失败",t,e)})},T=e=>{C({action:"delete",key:e}).catch(()=>{console.error("操作失败","delete",e)})},E=e=>{let r=new Set(f);r.has(e)?r.delete(e):r.add(e),w(r)},B=async()=>{if(0===f.size)return;let{isConfirmed:e}=await v().fire({title:"确认批量禁用",text:"确定要禁用选中的 ".concat(f.size," 个视频源吗？"),icon:"warning",showCancelButton:!0,confirmButtonText:"确认禁用",cancelButtonText:"取消",confirmButtonColor:"#dc2626"});if(e)try{await C({action:"batchDisable",keys:Array.from(f)})}catch(e){console.error("批量禁用失败",e)}},_=async()=>{if(0===f.size)return;let{isConfirmed:e}=await v().fire({title:"确认批量启用",text:"确定要启用选中的 ".concat(f.size," 个视频源吗？"),icon:"warning",showCancelButton:!0,confirmButtonText:"确认启用",cancelButtonText:"取消",confirmButtonColor:"#16a34a"});if(e)try{await C({action:"batchEnable",keys:Array.from(f)})}catch(e){console.error("批量启用失败",e)}},P=async()=>{if(0===f.size)return;let e=i.filter(e=>f.has(e.key)&&"config"!==e.from),r=f.size-e.length,t="确定要删除选中的 ".concat(e.length," 个自定义视频源吗？");r>0&&(t+="\n注意：有 ".concat(r," 个系统默认源无法删除，将被跳过。"));let{isConfirmed:a}=await v().fire({title:"确认批量删除",text:t,icon:"warning",showCancelButton:!0,confirmButtonText:"确认删除",cancelButtonText:"取消",confirmButtonColor:"#dc2626"});if(a)try{await C({action:"batchDelete",keys:e.map(e=>e.key)}),w(new Set)}catch(e){console.error("批量删除失败",e)}},D=e=>{let{source:r}=e,{attributes:t,listeners:s,setNodeRef:n,transform:i,transition:d}=(0,l.nB)({id:r.key}),c={transform:o.ux.Transform.toString(i),transition:d};return(0,a.jsxs)("tr",{ref:n,style:c,className:"hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors select-none",children:[(0,a.jsx)("td",{className:"px-2 py-4 cursor-grab text-gray-400",style:{touchAction:"none"},...t,...s,children:(0,a.jsx)(k.Z,{size:16})}),(0,a.jsx)("td",{className:"px-2 py-4",children:(0,a.jsx)("input",{type:"checkbox",checked:f.has(r.key),onChange:()=>E(r.key),className:"w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"})}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100",children:r.name}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100",children:r.key}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100 max-w-[12rem] truncate",title:r.api,children:r.api}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100 max-w-[8rem] truncate",title:r.detail||"-",children:r.detail||"-"}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap max-w-[1rem]",children:(0,a.jsx)("span",{className:"px-2 py-1 text-xs rounded-full ".concat(r.disabled?"bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-300":"bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-300"),children:r.disabled?"已禁用":"启用中"})}),(0,a.jsxs)("td",{className:"px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2",children:[(0,a.jsx)("button",{onClick:()=>S(r.key),className:"inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium ".concat(r.disabled?"bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-900/60":"bg-red-100 dark:bg-red-900/40 text-red-800 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/60"," transition-colors"),children:r.disabled?"启用":"禁用"}),"config"!==r.from&&(0,a.jsx)("button",{onClick:()=>T(r.key),className:"inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:hover:bg-gray-700/60 dark:text-gray-200 transition-colors",children:"删除"})]})]})};return r?(0,a.jsxs)("div",{className:"space-y-6",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"视频源列表"}),(0,a.jsx)("button",{onClick:()=>m(!u),className:"px-3 py-1 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg transition-colors",children:u?"取消":"添加视频源"})]}),i.length>0&&(0,a.jsx)("div",{className:"p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700 mb-4",children:(0,a.jsxs)("div",{className:"flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between",children:[(0,a.jsx)("div",{className:"flex items-center gap-2",children:(0,a.jsxs)("label",{className:"flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300",children:[(0,a.jsx)("input",{type:"checkbox",checked:f.size===i.length&&i.length>0,onChange:()=>{f.size===i.length?w(new Set):w(new Set(i.map(e=>e.key)))},className:"w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"}),"全选 (",f.size,"/",i.length,")"]})}),(0,a.jsxs)("div",{className:"flex items-center gap-2",children:[(0,a.jsxs)("button",{onClick:_,disabled:0===f.size,className:"px-3 py-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white text-sm rounded-lg transition-colors flex items-center gap-1",children:[(0,a.jsx)(c.Z,{size:14}),"批量启用"]}),(0,a.jsxs)("button",{onClick:B,disabled:0===f.size,className:"px-3 py-1 bg-red-600 hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white text-sm rounded-lg transition-colors flex items-center gap-1",children:[(0,a.jsx)(d.Z,{size:14}),"批量禁用"]}),(0,a.jsxs)("button",{onClick:P,disabled:0===f.size,className:"px-3 py-1 bg-gray-600 hover:bg-gray-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white text-sm rounded-lg transition-colors flex items-center gap-1",children:[(0,a.jsx)(x.Z,{size:14}),"批量删除"]})]})]})}),u&&(0,a.jsxs)("div",{className:"p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 space-y-4",children:[(0,a.jsxs)("div",{className:"grid grid-cols-1 sm:grid-cols-2 gap-4",children:[(0,a.jsx)("input",{type:"text",placeholder:"名称",value:b.name,onChange:e=>h(r=>({...r,name:e.target.value})),className:"px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"}),(0,a.jsx)("input",{type:"text",placeholder:"Key",value:b.key,onChange:e=>h(r=>({...r,key:e.target.value})),className:"px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"}),(0,a.jsx)("input",{type:"text",placeholder:"API 地址",value:b.api,onChange:e=>h(r=>({...r,api:e.target.value})),className:"px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"}),(0,a.jsx)("input",{type:"text",placeholder:"Detail 地址（选填）",value:b.detail,onChange:e=>h(r=>({...r,detail:e.target.value})),className:"px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"})]}),(0,a.jsx)("div",{className:"flex justify-end",children:(0,a.jsx)("button",{onClick:()=>{b.name&&b.key&&b.api&&C({action:"add",key:b.key,name:b.name,api:b.api,detail:b.detail}).then(()=>{h({name:"",key:"",api:"",detail:"",disabled:!1,from:"custom"}),m(!1)}).catch(()=>{console.error("操作失败","add",b)})},disabled:!b.name||!b.key||!b.api,className:"w-full sm:w-auto px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white rounded-lg transition-colors",children:"添加"})})]}),(0,a.jsx)("div",{className:"border border-gray-200 dark:border-gray-700 rounded-lg max-h-[28rem] overflow-y-auto overflow-x-auto",children:(0,a.jsx)(s.LB,{sensors:N,collisionDetection:s.pE,onDragEnd:e=>{let{active:r,over:t}=e;if(!t||r.id===t.id)return;let a=i.findIndex(e=>e.key===r.id),s=i.findIndex(e=>e.key===t.id);g(e=>(0,l.Rp)(e,a,s)),p(!0)},autoScroll:!1,modifiers:[n.DL,n.F4],children:(0,a.jsxs)("table",{className:"min-w-full divide-y divide-gray-200 dark:divide-gray-700",children:[(0,a.jsx)("thead",{className:"bg-gray-50 dark:bg-gray-900",children:(0,a.jsxs)("tr",{children:[(0,a.jsx)("th",{className:"w-8"}),(0,a.jsx)("th",{className:"w-8"}),(0,a.jsx)("th",{className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"名称"}),(0,a.jsx)("th",{className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"Key"}),(0,a.jsx)("th",{className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"API 地址"}),(0,a.jsx)("th",{className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"Detail 地址"}),(0,a.jsx)("th",{className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"状态"}),(0,a.jsx)("th",{className:"px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"操作"})]})}),(0,a.jsx)(l.Fo,{items:i.map(e=>e.key),strategy:l.qw,children:(0,a.jsx)("tbody",{className:"divide-y divide-gray-200 dark:divide-gray-700",children:i.map(e=>(0,a.jsx)(D,{source:e},e.key))})})]})})}),y&&(0,a.jsx)("div",{className:"flex justify-end",children:(0,a.jsx)("button",{onClick:()=>{let e=i.map(e=>e.key);C({action:"sort",order:e}).then(()=>{p(!1)}).catch(()=>{console.error("操作失败","sort",e)})},className:"px-3 py-1.5 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors",children:"保存排序"})})]}):(0,a.jsx)("div",{className:"text-center text-gray-500 dark:text-gray-400",children:"加载中..."})},$=e=>{let{config:r,refreshConfig:t}=e,[i,d]=(0,j.useState)([]),[c,x]=(0,j.useState)(!1),[g,u]=(0,j.useState)(!1),[m,y]=(0,j.useState)({name:"",type:"movie",query:"",disabled:!1,from:"config"}),p=(0,s.Dy)((0,s.VT)(s.we,{activationConstraint:{distance:5}}),(0,s.VT)(s.LO,{activationConstraint:{delay:150,tolerance:5}}));(0,j.useEffect)(()=>{(null==r?void 0:r.CustomCategories)&&(d(r.CustomCategories),u(!1))},[r]);let b=async e=>{try{let r=await fetch("/api/admin/category",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...e})});if(!r.ok){let e=await r.json().catch(()=>({}));throw Error(e.error||"操作失败: ".concat(r.status))}await t()}catch(e){throw Y(e instanceof Error?e.message:"操作失败"),e}},h=(e,r)=>{let t=i.find(t=>t.query===e&&t.type===r);if(!t)return;let a=t.disabled?"enable":"disable";b({action:a,query:e,type:r}).catch(()=>{console.error("操作失败",a,e,r)})},f=(e,r)=>{b({action:"delete",query:e,type:r}).catch(()=>{console.error("操作失败","delete",e,r)})},w=e=>{let{category:r}=e,{attributes:t,listeners:s,setNodeRef:n,transform:i,transition:d}=(0,l.nB)({id:"".concat(r.query,":").concat(r.type)}),c={transform:o.ux.Transform.toString(i),transition:d};return(0,a.jsxs)("tr",{ref:n,style:c,className:"hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors select-none",children:[(0,a.jsx)("td",{className:"px-2 py-4 cursor-grab text-gray-400",style:{touchAction:"none"},...t,...s,children:(0,a.jsx)(k.Z,{size:16})}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100",children:r.name||"-"}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100",children:(0,a.jsx)("span",{className:"px-2 py-1 text-xs rounded-full ".concat("movie"===r.type?"bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-300":"bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-300"),children:"movie"===r.type?"电影":"电视剧"})}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100 max-w-[12rem] truncate",title:r.query,children:r.query}),(0,a.jsx)("td",{className:"px-6 py-4 whitespace-nowrap max-w-[1rem]",children:(0,a.jsx)("span",{className:"px-2 py-1 text-xs rounded-full ".concat(r.disabled?"bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-300":"bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-300"),children:r.disabled?"已禁用":"启用中"})}),(0,a.jsxs)("td",{className:"px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2",children:[(0,a.jsx)("button",{onClick:()=>h(r.query,r.type),className:"inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium ".concat(r.disabled?"bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-900/60":"bg-red-100 dark:bg-red-900/40 text-red-800 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/60"," transition-colors"),children:r.disabled?"启用":"禁用"}),"config"!==r.from&&(0,a.jsx)("button",{onClick:()=>f(r.query,r.type),className:"inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:hover:bg-gray-700/60 dark:text-gray-200 transition-colors",children:"删除"})]})]})};return r?(0,a.jsxs)("div",{className:"space-y-6",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsxs)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:["自定义分类列表",!1]}),(0,a.jsx)("button",{onClick:()=>x(!c),className:"px-3 py-1 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg transition-colors",children:c?"取消":"添加分类"})]}),c&&(0,a.jsxs)("div",{className:"p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 space-y-4",children:[(0,a.jsxs)("div",{className:"grid grid-cols-1 sm:grid-cols-2 gap-4",children:[(0,a.jsx)("input",{type:"text",placeholder:"分类名称",value:m.name,onChange:e=>y(r=>({...r,name:e.target.value})),className:"px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"}),(0,a.jsxs)("select",{value:m.type,onChange:e=>y(r=>({...r,type:e.target.value})),className:"px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100",children:[(0,a.jsx)("option",{value:"movie",children:"电影"}),(0,a.jsx)("option",{value:"tv",children:"电视剧"})]}),(0,a.jsx)("input",{type:"text",placeholder:"搜索关键词",value:m.query,onChange:e=>y(r=>({...r,query:e.target.value})),className:"px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"})]}),(0,a.jsx)("div",{className:"flex justify-end",children:(0,a.jsx)("button",{onClick:()=>{m.name&&m.query&&b({action:"add",name:m.name,type:m.type,query:m.query}).then(()=>{y({name:"",type:"movie",query:"",disabled:!1,from:"custom"}),x(!1)}).catch(()=>{console.error("操作失败","add",m)})},disabled:!m.name||!m.query,className:"w-full sm:w-auto px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white rounded-lg transition-colors",children:"添加"})})]}),(0,a.jsx)("div",{className:"border border-gray-200 dark:border-gray-700 rounded-lg max-h-[28rem] overflow-y-auto overflow-x-auto",children:(0,a.jsx)(s.LB,{sensors:p,collisionDetection:s.pE,onDragEnd:e=>{let{active:r,over:t}=e;if(!t||r.id===t.id)return;let a=i.findIndex(e=>"".concat(e.query,":").concat(e.type)===r.id),s=i.findIndex(e=>"".concat(e.query,":").concat(e.type)===t.id);d(e=>(0,l.Rp)(e,a,s)),u(!0)},autoScroll:!1,modifiers:[n.DL,n.F4],children:(0,a.jsxs)("table",{className:"min-w-full divide-y divide-gray-200 dark:divide-gray-700",children:[(0,a.jsx)("thead",{className:"bg-gray-50 dark:bg-gray-900",children:(0,a.jsxs)("tr",{children:[(0,a.jsx)("th",{className:"w-8"}),(0,a.jsx)("th",{className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"分类名称"}),(0,a.jsx)("th",{className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"类型"}),(0,a.jsx)("th",{className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"搜索关键词"}),(0,a.jsx)("th",{className:"px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"状态"}),(0,a.jsx)("th",{className:"px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"操作"})]})}),(0,a.jsx)(l.Fo,{items:i.map(e=>"".concat(e.query,":").concat(e.type)),strategy:l.qw,children:(0,a.jsx)("tbody",{className:"divide-y divide-gray-200 dark:divide-gray-700",children:i.map(e=>(0,a.jsx)(w,{category:e},"".concat(e.query,":").concat(e.type)))})})]})})}),g&&(0,a.jsx)("div",{className:"flex justify-end",children:(0,a.jsx)("button",{onClick:()=>{let e=i.map(e=>"".concat(e.query,":").concat(e.type));b({action:"sort",order:e}).then(()=>{u(!1)}).catch(()=>{console.error("操作失败","sort",e)})},className:"px-3 py-1.5 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors",children:"保存排序"})})]}):(0,a.jsx)("div",{className:"text-center text-gray-500 dark:text-gray-400",children:"加载中..."})},ee=e=>{let{config:r,refreshConfig:t}=e,[s,n]=(0,j.useState)(""),[l,o]=(0,j.useState)(!1);(0,j.useEffect)(()=>{if(null==r?void 0:r.ConfigFile)try{let e=JSON.parse(r.ConfigFile);n(JSON.stringify(e,null,2))}catch(e){n(r.ConfigFile)}},[r]);let i=async()=>{try{let e;o(!0);try{let r=JSON.parse(s);e=JSON.stringify(r,null,2)}catch(e){throw Error("配置文件格式错误，请检查 JSON 语法")}let r=await fetch("/api/admin/config_file",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({configFile:e})});if(!r.ok){let e=await r.json().catch(()=>({}));throw Error(e.error||"保存失败: ".concat(r.status))}H("配置文件保存成功"),await t()}catch(e){Y(e instanceof Error?e.message:"保存失败")}finally{o(!1)}};return r?(0,a.jsx)("div",{className:"space-y-4",children:(0,a.jsxs)("div",{className:"space-y-4",children:[(0,a.jsx)("div",{className:"relative",children:(0,a.jsx)("textarea",{value:s,onChange:e=>n(e.target.value),rows:20,placeholder:"请输入配置文件内容（JSON 格式）...",className:"w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-mono text-sm leading-relaxed resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500",style:{fontFamily:'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace'},spellCheck:!1,"data-gramm":!1})}),(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsx)("div",{className:"text-xs text-gray-500 dark:text-gray-400",children:"支持 JSON 格式，用于配置视频源和自定义分类"}),(0,a.jsx)("button",{onClick:i,disabled:l,className:"px-4 py-2 rounded-lg transition-colors ".concat(l?"bg-gray-400 cursor-not-allowed text-white":"bg-green-600 hover:bg-green-700 text-white"),children:l?"保存中…":"保存配置文件"})]})]})}):(0,a.jsx)("div",{className:"text-center text-gray-500 dark:text-gray-400",children:"加载中..."})},er=e=>{let{config:r,refreshConfig:t}=e,[s,n]=(0,j.useState)(""),[l,o]=(0,j.useState)(!1),[i,d]=(0,j.useState)(86400),[c,x]=(0,j.useState)("merge"),[g,u]=(0,j.useState)(null),[m,y]=(0,j.useState)(!1),[p,b]=(0,j.useState)(!1);(0,j.useEffect)(()=>{if(null==r?void 0:r.SubscriptionConfig){let e=r.SubscriptionConfig;n(e.subscriptionUrl||""),o(e.autoUpdate||!1),d(e.updateInterval||86400),x(e.importMode||"merge"),u(e.lastUpdated||null)}},[r]);let h=async()=>{try{y(!0);let e=await fetch("/api/admin/subscription",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"update",subscriptionUrl:s,autoUpdate:l,updateInterval:i,importMode:c})});if(!e.ok){let r=await e.json().catch(()=>({}));throw Error(r.error||"保存失败")}H("订阅配置已保存"),await t()}catch(e){Y(e instanceof Error?e.message:"保存失败")}finally{y(!1)}},f=async()=>{try{b(!0);let e=await fetch("/api/admin/subscription",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"import",subscriptionUrl:s||void 0,importMode:c})});if(!e.ok){let r=await e.json().catch(()=>({}));throw Error(r.error||"导入失败")}H("订阅数据导入成功"),await t()}catch(e){Y(e instanceof Error?e.message:"导入失败")}finally{b(!1)}};return(0,a.jsxs)("div",{className:"space-y-6",children:[(0,a.jsxs)("div",{className:"space-y-4",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",children:"订阅地址 URL"}),(0,a.jsx)("input",{type:"text",value:s,onChange:e=>n(e.target.value),placeholder:"https://example.com/subscription.json",className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"订阅地址返回的数据应为 JSON 格式，支持 Base58 编码。"})]}),(0,a.jsxs)("div",{children:[(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsx)("label",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"自动更新"}),(0,a.jsx)("button",{onClick:()=>o(!l),className:"relative inline-flex h-6 w-11 items-center rounded-full ".concat(l?"bg-blue-600":"bg-gray-300 dark:bg-gray-600"),children:(0,a.jsx)("span",{className:"inline-block h-4 w-4 transform rounded-full bg-white transition ".concat(l?"translate-x-6":"translate-x-1")})})]}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"用户/管理员登录时检查更新，若超过更新周期则自动导入。"})]}),(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",children:"更新周期（秒）"}),(0,a.jsx)("input",{type:"number",value:i,onChange:e=>d(Number(e.target.value)),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100",min:"60"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"例如：86400 秒 = 1 天"})]}),(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1",children:"导入模式"}),(0,a.jsxs)("div",{className:"flex space-x-4",children:[(0,a.jsxs)("label",{className:"inline-flex items-center",children:[(0,a.jsx)("input",{type:"radio",checked:"merge"===c,onChange:()=>x("merge"),className:"form-radio"}),(0,a.jsx)("span",{className:"ml-2",children:"合并（根据key值合并）"})]}),(0,a.jsxs)("label",{className:"inline-flex items-center",children:[(0,a.jsx)("input",{type:"radio",checked:"overwrite"===c,onChange:()=>x("overwrite"),className:"form-radio"}),(0,a.jsx)("span",{className:"ml-2",children:"覆盖（清空现有源）"})]})]})]}),g&&(0,a.jsxs)("div",{className:"text-sm text-gray-600 dark:text-gray-400",children:["最后更新时间：",new Date(1e3*g).toLocaleString("zh-CN")]})]}),(0,a.jsxs)("div",{className:"flex space-x-4",children:[(0,a.jsx)("button",{onClick:h,disabled:m,className:"px-4 py-2 rounded-lg transition-colors ".concat(m?"bg-gray-400 cursor-not-allowed":"bg-blue-600 hover:bg-blue-700"," text-white"),children:m?"保存中...":"保存配置"}),(0,a.jsx)("button",{onClick:f,disabled:p||!s,className:"px-4 py-2 rounded-lg transition-colors ".concat(p||!s?"bg-gray-400 cursor-not-allowed":"bg-green-600 hover:bg-green-700"," text-white"),children:p?"导入中...":"立即导入"})]})]})},et=e=>{var r,t,s;let{config:n}=e,[l,o]=(0,j.useState)({SiteName:"",Announcement:"",SearchDownstreamMaxPage:1,SiteInterfaceCacheTime:7200,DoubanProxyType:"direct",DoubanProxy:"",DoubanImageProxyType:"direct",DoubanImageProxy:"",DisableYellowFilter:!1,TVBoxEnabled:!1,TVBoxPassword:"",DanmakuApiBaseUrl:""}),[i,x]=(0,j.useState)(!1),u=()=>{let e="ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789";return Array.from({length:16}).map(()=>e[Math.floor(Math.random()*e.length)]).join("")},[m,y]=(0,j.useState)(!1),[p,b]=(0,j.useState)(!1),h=[{value:"direct",label:"直连（服务器直接请求豆瓣）"},{value:"cors-proxy-zwei",label:"Cors Proxy By Zwei"},{value:"cmliussss-cdn-tencent",label:"豆瓣 CDN By CMLiussss（腾讯云）"},{value:"cmliussss-cdn-ali",label:"豆瓣 CDN By CMLiussss（阿里云）"},{value:"custom",label:"自定义代理"}],f=[{value:"direct",label:"直连（浏览器直接请求豆瓣）"},{value:"server",label:"服务器代理（由服务器代理请求豆瓣）"},{value:"img3",label:"豆瓣精品 CDN（阿里云）"},{value:"cmliussss-cdn-tencent",label:"豆瓣 CDN By CMLiussss（腾讯云）"},{value:"cmliussss-cdn-ali",label:"豆瓣 CDN By CMLiussss（阿里云）"},{value:"custom",label:"自定义代理"}],k=e=>{switch(e){case"cors-proxy-zwei":return{text:"Thanks to @Zwei",url:"https://github.com/bestzwei"};case"cmliussss-cdn-tencent":case"cmliussss-cdn-ali":return{text:"Thanks to @CMLiussss",url:"https://github.com/cmliu"};default:return null}},w=(null===(r=window.RUNTIME_CONFIG)||void 0===r?void 0:r.STORAGE_TYPE)==="localstorage";(0,j.useEffect)(()=>{(null==n?void 0:n.SiteConfig)&&o({...n.SiteConfig,DoubanProxyType:n.SiteConfig.DoubanProxyType||"direct",DoubanProxy:n.SiteConfig.DoubanProxy||"",DoubanImageProxyType:n.SiteConfig.DoubanImageProxyType||"direct",DoubanImageProxy:n.SiteConfig.DoubanImageProxy||"",DisableYellowFilter:n.SiteConfig.DisableYellowFilter||!1,TVBoxEnabled:n.SiteConfig.TVBoxEnabled||!1,TVBoxPassword:n.SiteConfig.TVBoxPassword||"",DanmakuApiBaseUrl:n.SiteConfig.DanmakuApiBaseUrl||""})},[n]),(0,j.useEffect)(()=>{let e=e=>{m&&!e.target.closest('[data-dropdown="douban-datasource"]')&&y(!1)};if(m)return document.addEventListener("mousedown",e),()=>document.removeEventListener("mousedown",e)},[m]),(0,j.useEffect)(()=>{let e=e=>{p&&!e.target.closest('[data-dropdown="douban-image-proxy"]')&&b(!1)};if(p)return document.addEventListener("mousedown",e),()=>document.removeEventListener("mousedown",e)},[p]);let v=e=>{w||o(r=>({...r,DoubanProxyType:e}))},C=e=>{w||o(r=>({...r,DoubanImageProxyType:e}))},S=async()=>{try{x(!0);let e=await fetch("/api/admin/site",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...l})});if(!e.ok){let r=await e.json().catch(()=>({}));throw Error(r.error||"保存失败: ".concat(e.status))}H("保存成功, 请刷新页面")}catch(e){Y(e instanceof Error?e.message:"保存失败")}finally{x(!1)}};return n?(0,a.jsxs)("div",{className:"space-y-6",children:[(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ".concat(w?"opacity-50":""),children:["站点名称",w&&(0,a.jsx)("span",{className:"ml-2 text-xs text-gray-500 dark:text-gray-400",children:"(本地存储下请通过环境变量修改)"})]}),(0,a.jsx)("input",{type:"text",value:l.SiteName,onChange:e=>!w&&o(r=>({...r,SiteName:e.target.value})),disabled:w,className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent ".concat(w?"opacity-50 cursor-not-allowed":"")})]}),(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ".concat(w?"opacity-50":""),children:["站点公告",w&&(0,a.jsx)("span",{className:"ml-2 text-xs text-gray-500 dark:text-gray-400",children:"(本地存储下请通过环境变量修改)"})]}),(0,a.jsx)("textarea",{value:l.Announcement,onChange:e=>!w&&o(r=>({...r,Announcement:e.target.value})),disabled:w,rows:3,className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent ".concat(w?"opacity-50 cursor-not-allowed":"")})]}),(0,a.jsxs)("div",{className:"space-y-3",children:[(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ".concat(w?"opacity-50":""),children:["豆瓣数据代理",w&&(0,a.jsx)("span",{className:"ml-2 text-xs text-gray-500 dark:text-gray-400",children:"(本地存储下请通过环境变量修改)"})]}),(0,a.jsxs)("div",{className:"relative","data-dropdown":"douban-datasource",children:[(0,a.jsx)("button",{type:"button",onClick:()=>y(!m),disabled:w,className:"w-full px-3 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 text-left ".concat(w?"opacity-50 cursor-not-allowed":""),children:null===(t=h.find(e=>e.value===l.DoubanProxyType))||void 0===t?void 0:t.label}),(0,a.jsx)("div",{className:"absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none",children:(0,a.jsx)(d.Z,{className:"w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 ".concat(m?"rotate-180":"")})}),m&&!w&&(0,a.jsx)("div",{className:"absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto",children:h.map(e=>(0,a.jsxs)("button",{type:"button",onClick:()=>{v(e.value),y(!1)},className:"w-full px-3 py-2.5 text-left text-sm transition-colors duration-150 flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 ".concat(l.DoubanProxyType===e.value?"bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400":"text-gray-900 dark:text-gray-100"),children:[(0,a.jsx)("span",{className:"truncate",children:e.label}),l.DoubanProxyType===e.value&&(0,a.jsx)(c.Z,{className:"w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 ml-2"})]},e.value))})]}),(0,a.jsx)("p",{className:"mt-1 text-xs text-gray-500 dark:text-gray-400",children:"选择获取豆瓣数据的方式"}),k(l.DoubanProxyType)&&(0,a.jsx)("div",{className:"mt-3",children:(0,a.jsxs)("button",{type:"button",onClick:()=>window.open(k(l.DoubanProxyType).url,"_blank"),className:"flex items-center justify-center gap-1.5 w-full px-3 text-xs text-gray-500 dark:text-gray-400 cursor-pointer",children:[(0,a.jsx)("span",{className:"font-medium",children:k(l.DoubanProxyType).text}),(0,a.jsx)(g.Z,{className:"w-3.5 opacity-70"})]})})]}),"custom"===l.DoubanProxyType&&(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ".concat(w?"opacity-50":""),children:"豆瓣代理地址"}),(0,a.jsx)("input",{type:"text",placeholder:"例如: https://proxy.example.com/fetch?url=",value:l.DoubanProxy,onChange:e=>!w&&o(r=>({...r,DoubanProxy:e.target.value})),disabled:w,className:"w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 ".concat(w?"opacity-50 cursor-not-allowed":"")}),(0,a.jsx)("p",{className:"mt-1 text-xs text-gray-500 dark:text-gray-400",children:"自定义代理服务器地址"})]})]}),(0,a.jsx)("div",{className:"space-y-3",children:(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:["弹幕接口基础地址",(0,a.jsx)("span",{className:"ml-2 text-xs text-gray-500 dark:text-gray-400",children:"（如使用第三方弹幕服务，可在此填写其 API 根地址）"})]}),(0,a.jsx)("input",{type:"text",value:l.DanmakuApiBaseUrl||"",onChange:e=>o(r=>({...r,DanmakuApiBaseUrl:e.target.value})),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent",placeholder:""})]})}),(0,a.jsxs)("div",{className:"space-y-3",children:[(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:["豆瓣图片代理",!1]}),(0,a.jsxs)("div",{className:"relative","data-dropdown":"douban-image-proxy",children:[(0,a.jsx)("button",{type:"button",onClick:()=>b(!p),className:"w-full px-3 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 text-left",children:null===(s=f.find(e=>e.value===l.DoubanImageProxyType))||void 0===s?void 0:s.label}),(0,a.jsx)("div",{className:"absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none",children:(0,a.jsx)(d.Z,{className:"w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 ".concat(p?"rotate-180":"")})}),p&&(0,a.jsx)("div",{className:"absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto",children:f.map(e=>(0,a.jsxs)("button",{type:"button",onClick:()=>{C(e.value),b(!1)},className:"w-full px-3 py-2.5 text-left text-sm transition-colors duration-150 flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 ".concat(l.DoubanImageProxyType===e.value?"bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400":"text-gray-900 dark:text-gray-100"),children:[(0,a.jsx)("span",{className:"truncate",children:e.label}),l.DoubanImageProxyType===e.value&&(0,a.jsx)(c.Z,{className:"w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 ml-2"})]},e.value))})]}),(0,a.jsx)("p",{className:"mt-1 text-xs text-gray-500 dark:text-gray-400",children:"选择获取豆瓣图片的方式"}),k(l.DoubanImageProxyType)&&(0,a.jsx)("div",{className:"mt-3",children:(0,a.jsxs)("button",{type:"button",onClick:()=>window.open(k(l.DoubanImageProxyType).url,"_blank"),className:"flex items-center justify-center gap-1.5 w-full px-3 text-xs text-gray-500 dark:text-gray-400 cursor-pointer",children:[(0,a.jsx)("span",{className:"font-medium",children:k(l.DoubanImageProxyType).text}),(0,a.jsx)(g.Z,{className:"w-3.5 opacity-70"})]})})]}),"custom"===l.DoubanImageProxyType&&(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:"豆瓣图片代理地址"}),(0,a.jsx)("input",{type:"text",placeholder:"例如: https://proxy.example.com/fetch?url=",value:l.DoubanImageProxy,onChange:e=>o(r=>({...r,DoubanImageProxy:e.target.value})),className:"w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm hover:border-gray-400 dark:hover:border-gray-500"}),(0,a.jsx)("p",{className:"mt-1 text-xs text-gray-500 dark:text-gray-400",children:"自定义图片代理服务器地址"})]})]}),(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:"搜索接口可拉取最大页数"}),(0,a.jsx)("input",{type:"number",min:1,value:l.SearchDownstreamMaxPage,onChange:e=>o(r=>({...r,SearchDownstreamMaxPage:Number(e.target.value)})),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent"})]}),(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:"站点接口缓存时间（秒）"}),(0,a.jsx)("input",{type:"number",min:1,value:l.SiteInterfaceCacheTime,onChange:e=>o(r=>({...r,SiteInterfaceCacheTime:Number(e.target.value)})),className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent"})]}),(0,a.jsxs)("div",{children:[(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsxs)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:["禁用黄色过滤器",!1]}),(0,a.jsx)("button",{type:"button",onClick:()=>o(e=>({...e,DisableYellowFilter:!e.DisableYellowFilter})),className:"relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ".concat(l.DisableYellowFilter?"bg-green-600":"bg-gray-200 dark:bg-gray-700"),children:(0,a.jsx)("span",{className:"inline-block h-4 w-4 transform rounded-full bg-white transition-transform ".concat(l.DisableYellowFilter?"translate-x-6":"translate-x-1")})})]}),(0,a.jsx)("p",{className:"mt-1 text-xs text-gray-500 dark:text-gray-400",children:"禁用黄色内容的过滤功能，允许显示所有内容。"})]}),(0,a.jsxs)("div",{className:"space-y-4 pt-4 border-t border-gray-200 dark:border-gray-700",children:[(0,a.jsx)("h3",{className:"text-base font-semibold text-gray-900 dark:text-gray-100",children:"TVBox 接口配置"}),(0,a.jsxs)("div",{children:[(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsxs)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ".concat(w?"opacity-50":""),children:["启用 TVBox 接口",w&&(0,a.jsx)("span",{className:"ml-2 text-xs text-gray-500 dark:text-gray-400",children:"(本地模式由环境变量 TVBOX_ENABLED 控制)"})]}),(0,a.jsx)("button",{type:"button",onClick:()=>!w&&o(e=>({...e,TVBoxEnabled:!e.TVBoxEnabled})),disabled:w,className:"relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ".concat(w?"opacity-50 cursor-not-allowed":""," ").concat(l.TVBoxEnabled?"bg-green-600":"bg-gray-200 dark:bg-gray-700"),children:(0,a.jsx)("span",{className:"inline-block h-4 w-4 transform rounded-full bg-white transition-transform ".concat(l.TVBoxEnabled?"translate-x-6":"translate-x-1")})})]}),(0,a.jsx)("p",{className:"mt-1 text-xs text-gray-500 dark:text-gray-400",children:"开启后可在 TVBox 中使用本站数据，访问需携带密码。"})]}),(0,a.jsxs)("div",{className:"grid grid-cols-1 md:grid-cols-2 gap-4",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:"接口地址"}),(0,a.jsxs)("div",{className:"flex gap-2",children:[(0,a.jsx)("input",{type:"text",value:(()=>{var e;let r=(null===(e=(0,N.v)())||void 0===e?void 0:e.username)||"",t=(()=>{if(!r)return"";let e=new TextEncoder().encode(r),t="";for(let r=0;r<e.length;r++)t+=String.fromCharCode(e[r]);return btoa(t)})();return"".concat(window.location.origin,"/api/tvbox/config?pwd=").concat(encodeURIComponent(l.TVBoxPassword||"")).concat(t?"&un=".concat(encodeURIComponent(t)):"")})(),readOnly:!0,className:"flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm"}),(0,a.jsx)("button",{type:"button",onClick:()=>{{var e;let r=(null===(e=(0,N.v)())||void 0===e?void 0:e.username)||"",t=(()=>{if(!r)return"";let e=new TextEncoder().encode(r),t="";for(let r=0;r<e.length;r++)t+=String.fromCharCode(e[r]);return btoa(t)})();navigator.clipboard.writeText("".concat(window.location.origin,"/api/tvbox/config?pwd=").concat(encodeURIComponent(l.TVBoxPassword||"")).concat(t?"&un=".concat(encodeURIComponent(t)):""))}},className:"px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm",children:"复制"})]}),(0,a.jsx)("p",{className:"mt-1 text-xs text-gray-500 dark:text-gray-400",children:"将该地址填入 TVBox 的订阅/配置接口"})]}),(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ".concat(w?"opacity-50":""),children:["访问密码",w&&(0,a.jsx)("span",{className:"ml-2 text-xs text-gray-500 dark:text-gray-400",children:"(本地模式口令为环境变量 PASSWORD)"})]}),(0,a.jsxs)("div",{className:"flex gap-2",children:[(0,a.jsx)("input",{type:"text",placeholder:"设置访问密码",value:l.TVBoxPassword,onChange:e=>!w&&o(r=>({...r,TVBoxPassword:e.target.value})),disabled:w,className:"flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm focus:ring-2 focus:ring-green-500 focus:border-transparent ".concat(w?"opacity-50 cursor-not-allowed":"")}),(0,a.jsx)("button",{type:"button",onClick:()=>!w&&o(e=>({...e,TVBoxPassword:u()})),disabled:w,className:"px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm ".concat(w?"opacity-50 cursor-not-allowed":""),children:"生成"})]}),(0,a.jsx)("p",{className:"mt-1 text-xs text-gray-500 dark:text-gray-400",children:"建议使用随机生成的密码"})]})]})]}),(0,a.jsx)("div",{className:"flex justify-end",children:(0,a.jsx)("button",{onClick:S,disabled:i,className:"px-4 py-2 ".concat(i?"bg-gray-400 cursor-not-allowed":"bg-green-600 hover:bg-green-700"," text-white rounded-lg transition-colors"),children:i?"保存中…":"保存"})})]}):(0,a.jsx)("div",{className:"text-center text-gray-500 dark:text-gray-400",children:"加载中..."})};function ea(){let[e,r]=(0,j.useState)(null),[t,s]=(0,j.useState)(!0),[n,l]=(0,j.useState)(null),[o,i]=(0,j.useState)(null),[d,c]=(0,j.useState)({userConfig:!1,videoSource:!1,siteConfig:!1,categoryConfig:!1,configFile:!1,subscriptionConfig:!1,membershipConfig:!1}),g=(0,j.useCallback)(async function(){let e=arguments.length>0&&void 0!==arguments[0]&&arguments[0];try{e&&s(!0);let t=await fetch("/api/admin/config");if(!t.ok){let e=await t.json();throw Error("获取配置失败: ".concat(e.error))}let a=await t.json();r(a.Config),i(a.Role)}catch(r){let e=r instanceof Error?r.message:"获取配置失败";Y(e),l(e)}finally{e&&s(!1)}},[]);(0,j.useEffect)(()=>{g(!0)},[g]);let k=e=>{c(r=>({...r,[e]:!r[e]}))},w=async()=>{let{isConfirmed:e}=await v().fire({title:"确认重置配置",text:"此操作将重置用户封禁和管理员设置、自定义视频源，站点配置将重置为默认值，是否继续？",icon:"warning",showCancelButton:!0,confirmButtonText:"确认",cancelButtonText:"取消"});if(e)try{let e=await fetch("/api/admin/reset");if(!e.ok)throw Error("重置失败: ".concat(e.status));H("重置成功，请刷新页面！")}catch(e){Y(e instanceof Error?e.message:"重置失败")}};return t?(0,a.jsx)(Z.Z,{activePath:"/admin",children:(0,a.jsx)("div",{className:"px-2 sm:px-10 py-4 sm:py-8",children:(0,a.jsxs)("div",{className:"max-w-[95%] mx-auto",children:[(0,a.jsx)("h1",{className:"text-2xl font-bold text-gray-900 dark:text-gray-100 mb-8",children:"管理员设置"}),(0,a.jsx)("div",{className:"space-y-4",children:Array.from({length:3}).map((e,r)=>(0,a.jsx)("div",{className:"h-20 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"},r))})]})})}):n?null:(0,a.jsx)(Z.Z,{activePath:"/admin",children:(0,a.jsx)("div",{className:"px-2 sm:px-10 py-4 sm:py-8",children:(0,a.jsxs)("div",{className:"max-w-[95%] mx-auto",children:[(0,a.jsxs)("div",{className:"flex items-center gap-2 mb-8",children:[(0,a.jsx)("h1",{className:"text-2xl font-bold text-gray-900 dark:text-gray-100",children:"管理员设置"}),(0,a.jsx)("button",{onClick:()=>{v().fire({title:"提示",text:"视频源配置和分类配置中的修改需要清理浏览缓存才会在UI上彻底生效，否则需等待站点配置中的接口缓存时间后才生效",icon:"info",confirmButtonText:"我知道了",confirmButtonColor:"#3b82f6"})},className:"w-8 h-8 p-1.5 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200/50 dark:text-gray-300 dark:hover:bg-gray-700/50 transition-colors","aria-label":"缓存提示",children:(0,a.jsx)(u.Z,{className:"w-full h-full"})}),e&&"owner"===o&&(0,a.jsx)("button",{onClick:w,className:"px-3 py-1 bg-red-600 hover:bg-red-700 text-white text-xs rounded-md transition-colors",children:"重置配置"})]}),(0,a.jsx)(W,{title:"会员订阅管理",icon:(0,a.jsx)(m.Z,{size:20,className:"text-gray-600 dark:text-gray-400"}),isExpanded:d.membershipConfig,onToggle:()=>k("membershipConfig"),children:(0,a.jsx)(K,{})}),(0,a.jsx)(W,{title:"订阅配置",icon:(0,a.jsx)(u.Z,{size:20,className:"text-gray-600 dark:text-gray-400"}),isExpanded:d.subscriptionConfig,onToggle:()=>k("subscriptionConfig"),children:(0,a.jsx)(er,{config:e,refreshConfig:g})}),(0,a.jsx)(W,{title:"配置文件",icon:(0,a.jsx)(x.Z,{size:20,className:"text-gray-600 dark:text-gray-400"}),isExpanded:d.configFile,onToggle:()=>k("configFile"),children:(0,a.jsx)(ee,{config:e,refreshConfig:g})}),(0,a.jsx)(W,{title:"站点配置",icon:(0,a.jsx)(y.Z,{size:20,className:"text-gray-600 dark:text-gray-400"}),isExpanded:d.siteConfig,onToggle:()=>k("siteConfig"),children:(0,a.jsx)(et,{config:e})}),(0,a.jsxs)("div",{className:"space-y-4",children:[(0,a.jsx)(W,{title:"用户配置",icon:(0,a.jsx)(p.Z,{size:20,className:"text-gray-600 dark:text-gray-400"}),isExpanded:d.userConfig,onToggle:()=>k("userConfig"),children:(0,a.jsx)(X,{config:e,role:o,refreshConfig:g})}),(0,a.jsx)(W,{title:"视频源配置",icon:(0,a.jsx)(b.Z,{size:20,className:"text-gray-600 dark:text-gray-400"}),isExpanded:d.videoSource,onToggle:()=>k("videoSource"),children:(0,a.jsx)(Q,{config:e,refreshConfig:g})}),(0,a.jsx)(W,{title:"分类配置",icon:(0,a.jsx)(h.Z,{size:20,className:"text-gray-600 dark:text-gray-400"}),isExpanded:d.categoryConfig,onToggle:()=>k("categoryConfig"),children:(0,a.jsx)($,{config:e,refreshConfig:g})}),"owner"===o&&(0,a.jsx)(W,{title:"数据迁移",icon:(0,a.jsx)(f.Z,{size:20,className:"text-gray-600 dark:text-gray-400"}),isExpanded:d.dataMigration,onToggle:()=>k("dataMigration"),children:(0,a.jsx)(z,{onRefreshConfig:g})})]})]})})})}function es(){return(0,a.jsx)(j.Suspense,{children:(0,a.jsx)(ea,{})})}},5036:function(e,r,t){"use strict";var a=t(7569);r.Z=e=>{let{children:r}=e;return(0,a.jsx)(a.Fragment,{children:r})}},4507:function(e,r,t){"use strict";function a(){try{let e=document.cookie.split(";").reduce((e,r)=>{let t=r.trim(),a=t.indexOf("=");if(a>0){let r=t.substring(0,a),s=t.substring(a+1);r&&s&&(e[r]=s)}return e},{}).auth;if(!e)return null;let r=decodeURIComponent(e);return r.includes("%")&&(r=decodeURIComponent(r)),JSON.parse(r)}catch(e){return null}}t.d(r,{v:function(){return a}})}},function(e){e.O(0,[886,878,314,133,744],function(){return e(e.s=7091)}),_N_E=e.O()}]);
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+  [3],
+  {
+    7091: function (e, r, t) {
+      Promise.resolve().then(t.bind(t, 7608));
+    },
+    7608: function (e, r, t) {
+      'use strict';
+      t.r(r),
+        t.d(r, {
+          default: function () {
+            return es;
+          },
+        });
+      var a = t(7569),
+        s = t(7853),
+        n = t(4815),
+        l = t(8981),
+        o = t(6849),
+        i = t(7308),
+        d = t(131),
+        c = t(1210),
+        x = t(4291),
+        g = t(898),
+        u = t(9162),
+        m = t(6280),
+        y = t(7764),
+        p = t(9569),
+        b = t(6584),
+        h = t(3628),
+        f = t(9372),
+        k = t(3584),
+        j = t(5663),
+        w = t(4989),
+        v = t.n(w),
+        N = t(4507),
+        C = t(1111),
+        S = t(73),
+        T = t(4145),
+        E = t(8448),
+        B = t(669),
+        _ = t(1260),
+        P = t(3107),
+        D = t(8091);
+      let O = (e) => {
+        let {
+            isOpen: r,
+            onClose: t,
+            type: s,
+            title: n,
+            message: l,
+            html: o,
+            confirmText: i = '确定',
+            onConfirm: d,
+            showConfirm: c = !1,
+            timer: x,
+          } = e,
+          [g, u] = (0, j.useState)(!1);
+        return ((0, j.useEffect)(() => {
+          r
+            ? (u(!0),
+              x &&
+                setTimeout(() => {
+                  t();
+                }, x))
+            : u(!1);
+        }, [r, x, t]),
+        r)
+          ? (0, D.createPortal)(
+              (0, a.jsx)('div', {
+                className:
+                  'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 transition-opacity duration-200 '.concat(
+                    g ? 'opacity-100' : 'opacity-0'
+                  ),
+                onClick: t,
+                children: (0, a.jsx)('div', {
+                  className:
+                    'bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full border '
+                      .concat(
+                        (() => {
+                          switch (s) {
+                            case 'success':
+                              return 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800';
+                            case 'error':
+                              return 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800';
+                            case 'warning':
+                              return 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800';
+                            default:
+                              return 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800';
+                          }
+                        })(),
+                        ' transition-all duration-200 '
+                      )
+                      .concat(g ? 'scale-100' : 'scale-95'),
+                  onClick: (e) => e.stopPropagation(),
+                  children: (0, a.jsxs)('div', {
+                    className: 'p-6 text-center',
+                    children: [
+                      (0, a.jsx)('div', {
+                        className: 'flex justify-center mb-4',
+                        children: (() => {
+                          switch (s) {
+                            case 'success':
+                              return (0, a.jsx)(C.Z, {
+                                className: 'w-12 h-12 text-green-500',
+                              });
+                            case 'error':
+                              return (0, a.jsx)(S.Z, {
+                                className: 'w-12 h-12 text-red-500',
+                              });
+                            case 'warning':
+                              return (0, a.jsx)(T.Z, {
+                                className: 'w-12 h-12 text-yellow-500',
+                              });
+                            default:
+                              return null;
+                          }
+                        })(),
+                      }),
+                      (0, a.jsx)('h3', {
+                        className:
+                          'text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2',
+                        children: n,
+                      }),
+                      l &&
+                        (0, a.jsx)('p', {
+                          className: 'text-gray-600 dark:text-gray-400 mb-4',
+                          children: l,
+                        }),
+                      o &&
+                        (0, a.jsx)('div', {
+                          className:
+                            'text-left text-gray-600 dark:text-gray-400 mb-4',
+                          dangerouslySetInnerHTML: { __html: o },
+                        }),
+                      (0, a.jsx)('div', {
+                        className: 'flex justify-center space-x-3',
+                        children:
+                          c && d
+                            ? (0, a.jsxs)(a.Fragment, {
+                                children: [
+                                  (0, a.jsx)('button', {
+                                    onClick: t,
+                                    className:
+                                      'px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors',
+                                    children: '取消',
+                                  }),
+                                  (0, a.jsx)('button', {
+                                    onClick: () => {
+                                      d(), t();
+                                    },
+                                    className:
+                                      'px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors',
+                                    children: i,
+                                  }),
+                                ],
+                              })
+                            : (0, a.jsx)('button', {
+                                onClick: t,
+                                className:
+                                  'px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors',
+                                children: '确定',
+                              }),
+                      }),
+                    ],
+                  }),
+                }),
+              }),
+              document.body
+            )
+          : null;
+      };
+      var z = (e) => {
+          let { onRefreshConfig: r } = e,
+            [t, s] = (0, j.useState)(''),
+            [n, l] = (0, j.useState)(''),
+            [o, i] = (0, j.useState)(null),
+            [d, c] = (0, j.useState)(!1),
+            [x, g] = (0, j.useState)(!1),
+            [u, m] = (0, j.useState)({
+              isOpen: !1,
+              type: 'success',
+              title: '',
+            }),
+            y = (0, j.useRef)(null),
+            p = (e) => {
+              m({ ...e, isOpen: !0 });
+            },
+            b = async () => {
+              if (!t.trim()) {
+                p({ type: 'error', title: '错误', message: '请输入加密密码' });
+                return;
+              }
+              try {
+                c(!0);
+                let e = await fetch('/api/admin/data_migration/export', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ password: t }),
+                });
+                if (!e.ok) {
+                  let r = await e.json().catch(() => ({}));
+                  throw Error(r.error || '导出失败: '.concat(e.status));
+                }
+                let r = e.headers.get('content-disposition'),
+                  a = null == r ? void 0 : r.match(/filename="(.+)"/),
+                  n = (null == a ? void 0 : a[1]) || 'moontv-backup.dat',
+                  l = await e.blob(),
+                  o = window.URL.createObjectURL(l),
+                  i = document.createElement('a');
+                (i.href = o),
+                  (i.download = n),
+                  (i.style.display = 'none'),
+                  (i.style.position = 'fixed'),
+                  (i.style.top = '0'),
+                  (i.style.left = '0'),
+                  document.body.appendChild(i),
+                  i.click(),
+                  window.URL.revokeObjectURL(o),
+                  document.body.removeChild(i),
+                  p({
+                    type: 'success',
+                    title: '导出成功',
+                    message: '数据已成功导出，请妥善保管备份文件和密码',
+                    timer: 3e3,
+                  }),
+                  s('');
+              } catch (e) {
+                p({
+                  type: 'error',
+                  title: '导出失败',
+                  message:
+                    e instanceof Error ? e.message : '导出过程中发生错误',
+                });
+              } finally {
+                c(!1);
+              }
+            },
+            h = async () => {
+              if (!o) {
+                p({ type: 'error', title: '错误', message: '请选择备份文件' });
+                return;
+              }
+              if (!n.trim()) {
+                p({ type: 'error', title: '错误', message: '请输入解密密码' });
+                return;
+              }
+              try {
+                g(!0);
+                let e = new FormData();
+                e.append('file', o), e.append('password', n);
+                let t = await fetch('/api/admin/data_migration/import', {
+                    method: 'POST',
+                    body: e,
+                  }),
+                  a = await t.json();
+                if (!t.ok)
+                  throw Error(a.error || '导入失败: '.concat(t.status));
+                p({
+                  type: 'success',
+                  title: '导入成功',
+                  html: '\n          <div class="text-left">\n            <p><strong>导入完成！</strong></p>\n            <p class="mt-2">导入的用户数量: '
+                    .concat(a.importedUsers, '</p>\n            <p>备份时间: ')
+                    .concat(
+                      new Date(a.timestamp).toLocaleString('zh-CN'),
+                      '</p>\n            <p>服务器版本: '
+                    )
+                    .concat(
+                      a.serverVersion || '未知版本',
+                      '</p>\n            <p class="mt-3 text-orange-600">请刷新页面以查看最新数据。</p>\n          </div>\n        '
+                    ),
+                  confirmText: '刷新页面',
+                  showConfirm: !0,
+                  onConfirm: async () => {
+                    i(null),
+                      l(''),
+                      y.current && (y.current.value = ''),
+                      r && (await r()),
+                      window.location.reload();
+                  },
+                });
+              } catch (e) {
+                p({
+                  type: 'error',
+                  title: '导入失败',
+                  message:
+                    e instanceof Error ? e.message : '导入过程中发生错误',
+                });
+              } finally {
+                g(!1);
+              }
+            };
+          return (0, a.jsxs)(a.Fragment, {
+            children: [
+              (0, a.jsxs)('div', {
+                className: 'max-w-6xl mx-auto space-y-6',
+                children: [
+                  (0, a.jsxs)('div', {
+                    className:
+                      'flex items-center gap-3 p-4 border border-amber-200 dark:border-amber-700 rounded-lg bg-amber-50/30 dark:bg-amber-900/5',
+                    children: [
+                      (0, a.jsx)(T.Z, {
+                        className:
+                          'w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0',
+                      }),
+                      (0, a.jsx)('p', {
+                        className: 'text-sm text-amber-800 dark:text-amber-200',
+                        children: '数据迁移操作请谨慎，确保已备份重要数据',
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    className: 'grid grid-cols-1 lg:grid-cols-2 gap-6',
+                    children: [
+                      (0, a.jsxs)('div', {
+                        className:
+                          'border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-800 hover:shadow-sm transition-shadow flex flex-col',
+                        children: [
+                          (0, a.jsxs)('div', {
+                            className: 'flex items-center gap-3 mb-6',
+                            children: [
+                              (0, a.jsx)('div', {
+                                className:
+                                  'w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center',
+                                children: (0, a.jsx)(E.Z, {
+                                  className:
+                                    'w-4 h-4 text-blue-600 dark:text-blue-400',
+                                }),
+                              }),
+                              (0, a.jsxs)('div', {
+                                children: [
+                                  (0, a.jsx)('h3', {
+                                    className:
+                                      'font-semibold text-gray-900 dark:text-gray-100',
+                                    children: '数据导出',
+                                  }),
+                                  (0, a.jsx)('p', {
+                                    className:
+                                      'text-sm text-gray-600 dark:text-gray-400',
+                                    children: '创建加密备份文件',
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          (0, a.jsxs)('div', {
+                            className: 'flex-1 flex flex-col',
+                            children: [
+                              (0, a.jsxs)('div', {
+                                className: 'space-y-4',
+                                children: [
+                                  (0, a.jsxs)('div', {
+                                    children: [
+                                      (0, a.jsxs)('label', {
+                                        className:
+                                          'flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                                        children: [
+                                          (0, a.jsx)(B.Z, {
+                                            className: 'w-4 h-4',
+                                          }),
+                                          '加密密码',
+                                        ],
+                                      }),
+                                      (0, a.jsx)('input', {
+                                        type: 'password',
+                                        value: t,
+                                        onChange: (e) => s(e.target.value),
+                                        placeholder: '设置强密码保护备份文件',
+                                        className:
+                                          'w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors',
+                                        disabled: d,
+                                      }),
+                                      (0, a.jsx)('p', {
+                                        className:
+                                          'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                        children: '导入时需要使用相同密码',
+                                      }),
+                                    ],
+                                  }),
+                                  (0, a.jsxs)('div', {
+                                    className:
+                                      'text-xs text-gray-600 dark:text-gray-400 space-y-1',
+                                    children: [
+                                      (0, a.jsx)('p', {
+                                        className:
+                                          'font-medium text-gray-700 dark:text-gray-300 mb-2',
+                                        children: '备份内容：',
+                                      }),
+                                      (0, a.jsxs)('div', {
+                                        className: 'grid grid-cols-2 gap-1',
+                                        children: [
+                                          (0, a.jsx)('div', {
+                                            children: '• 管理配置',
+                                          }),
+                                          (0, a.jsx)('div', {
+                                            children: '• 用户数据',
+                                          }),
+                                          (0, a.jsx)('div', {
+                                            children: '• 播放记录',
+                                          }),
+                                          (0, a.jsx)('div', {
+                                            children: '• 收藏夹',
+                                          }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                ],
+                              }),
+                              (0, a.jsx)('button', {
+                                onClick: b,
+                                disabled: d || !t.trim(),
+                                className:
+                                  'w-full px-4 py-2.5 rounded-lg font-medium transition-colors mt-10 '.concat(
+                                    d || !t.trim()
+                                      ? 'bg-gray-100 dark:bg-gray-700 cursor-not-allowed text-gray-500 dark:text-gray-400'
+                                      : 'bg-blue-600 hover:bg-blue-700 text-white'
+                                  ),
+                                children: d
+                                  ? (0, a.jsxs)('div', {
+                                      className:
+                                        'flex items-center justify-center gap-2',
+                                      children: [
+                                        (0, a.jsx)('div', {
+                                          className:
+                                            'w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin',
+                                        }),
+                                        '导出中...',
+                                      ],
+                                    })
+                                  : (0, a.jsxs)('div', {
+                                      className:
+                                        'flex items-center justify-center gap-2',
+                                      children: [
+                                        (0, a.jsx)(E.Z, {
+                                          className: 'w-4 h-4',
+                                        }),
+                                        '导出数据',
+                                      ],
+                                    }),
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                      (0, a.jsxs)('div', {
+                        className:
+                          'border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-800 hover:shadow-sm transition-shadow flex flex-col',
+                        children: [
+                          (0, a.jsxs)('div', {
+                            className: 'flex items-center gap-3 mb-6',
+                            children: [
+                              (0, a.jsx)('div', {
+                                className:
+                                  'w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center',
+                                children: (0, a.jsx)(_.Z, {
+                                  className:
+                                    'w-4 h-4 text-red-600 dark:text-red-400',
+                                }),
+                              }),
+                              (0, a.jsxs)('div', {
+                                children: [
+                                  (0, a.jsx)('h3', {
+                                    className:
+                                      'font-semibold text-gray-900 dark:text-gray-100',
+                                    children: '数据导入',
+                                  }),
+                                  (0, a.jsx)('p', {
+                                    className:
+                                      'text-sm text-red-600 dark:text-red-400',
+                                    children: '⚠️ 将清空现有数据',
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          (0, a.jsxs)('div', {
+                            className: 'flex-1 flex flex-col',
+                            children: [
+                              (0, a.jsxs)('div', {
+                                className: 'space-y-4',
+                                children: [
+                                  (0, a.jsxs)('div', {
+                                    children: [
+                                      (0, a.jsxs)('label', {
+                                        className:
+                                          'flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                                        children: [
+                                          (0, a.jsx)(P.Z, {
+                                            className: 'w-4 h-4',
+                                          }),
+                                          '备份文件',
+                                          o &&
+                                            (0, a.jsxs)('span', {
+                                              className:
+                                                'ml-auto text-xs text-green-600 dark:text-green-400 font-normal',
+                                              children: [
+                                                o.name,
+                                                ' (',
+                                                (o.size / 1024).toFixed(1),
+                                                ' KB)',
+                                              ],
+                                            }),
+                                        ],
+                                      }),
+                                      (0, a.jsx)('input', {
+                                        ref: y,
+                                        type: 'file',
+                                        accept: '.dat',
+                                        onChange: (e) => {
+                                          var r;
+                                          let t =
+                                            null === (r = e.target.files) ||
+                                            void 0 === r
+                                              ? void 0
+                                              : r[0];
+                                          t && i(t);
+                                        },
+                                        className:
+                                          'w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-red-500 focus:border-red-500 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-sm file:font-medium file:bg-gray-50 dark:file:bg-gray-600 file:text-gray-700 dark:file:text-gray-300 hover:file:bg-gray-100 dark:hover:file:bg-gray-500 transition-colors',
+                                        disabled: x,
+                                      }),
+                                    ],
+                                  }),
+                                  (0, a.jsxs)('div', {
+                                    children: [
+                                      (0, a.jsxs)('label', {
+                                        className:
+                                          'flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                                        children: [
+                                          (0, a.jsx)(B.Z, {
+                                            className: 'w-4 h-4',
+                                          }),
+                                          '解密密码',
+                                        ],
+                                      }),
+                                      (0, a.jsx)('input', {
+                                        type: 'password',
+                                        value: n,
+                                        onChange: (e) => l(e.target.value),
+                                        placeholder: '输入导出时的加密密码',
+                                        className:
+                                          'w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors',
+                                        disabled: x,
+                                      }),
+                                    ],
+                                  }),
+                                ],
+                              }),
+                              (0, a.jsx)('button', {
+                                onClick: h,
+                                disabled: x || !o || !n.trim(),
+                                className:
+                                  'w-full px-4 py-2.5 rounded-lg font-medium transition-colors mt-10 '.concat(
+                                    !x && o && n.trim()
+                                      ? 'bg-red-600 hover:bg-red-700 text-white'
+                                      : 'bg-gray-100 dark:bg-gray-700 cursor-not-allowed text-gray-500 dark:text-gray-400'
+                                  ),
+                                children: x
+                                  ? (0, a.jsxs)('div', {
+                                      className:
+                                        'flex items-center justify-center gap-2',
+                                      children: [
+                                        (0, a.jsx)('div', {
+                                          className:
+                                            'w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin',
+                                        }),
+                                        '导入中...',
+                                      ],
+                                    })
+                                  : (0, a.jsxs)('div', {
+                                      className:
+                                        'flex items-center justify-center gap-2',
+                                      children: [
+                                        (0, a.jsx)(_.Z, {
+                                          className: 'w-4 h-4',
+                                        }),
+                                        '导入数据',
+                                      ],
+                                    }),
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              (0, a.jsx)(O, {
+                isOpen: u.isOpen,
+                onClose: () => {
+                  m((e) => ({ ...e, isOpen: !1 }));
+                },
+                type: u.type,
+                title: u.title,
+                message: u.message,
+                html: u.html,
+                confirmText: u.confirmText,
+                onConfirm: u.onConfirm,
+                showConfirm: u.showConfirm,
+                timer: u.timer,
+              }),
+            ],
+          });
+        },
+        Z = t(5036),
+        I = t(772),
+        U = t(6301),
+        A = t(359);
+      function F() {
+        var e, r, t, s, n;
+        let [l, o] = (0, j.useState)([]),
+          [i, d] = (0, j.useState)(null),
+          [c, x] = (0, j.useState)(!1),
+          [g, u] = (0, j.useState)(!1);
+        (0, j.useEffect)(() => {
+          m();
+        }, []);
+        let m = async () => {
+            x(!0);
+            try {
+              let e = await fetch('/api/admin/plans', { cache: 'no-store' });
+              if (e.ok) {
+                let r = await e.json();
+                o(r);
+              } else throw Error('Failed to fetch plans');
+            } catch (e) {
+              console.error('Failed to fetch plans', e),
+                v().fire('加载失败', '无法获取套餐列表', 'error');
+            } finally {
+              x(!1);
+            }
+          },
+          y = (e) =>
+            e.name && '' !== e.name.trim()
+              ? e.name.trim().length > 50
+                ? '套餐名称不能超过50个字符'
+                : 'number' != typeof e.price || e.price < 0
+                ? '价格必须大于等于0'
+                : e.price > 999999
+                ? '价格不能超过999999'
+                : 'number' != typeof e.duration_days || e.duration_days <= 0
+                ? '天数必须大于0'
+                : e.duration_days > 3650
+                ? '天数不能超过3650天（10年）'
+                : e.original_price &&
+                  ('number' != typeof e.original_price || e.original_price < 0)
+                ? '原价必须大于等于0'
+                : e.original_price && e.original_price < e.price
+                ? '原价必须大于等于现价'
+                : e.description && e.description.length > 200
+                ? '描述不能超过200个字符'
+                : null
+              : '套餐名称不能为空',
+          p = async (e) => {
+            let r = y(e);
+            if (r) {
+              await v().fire('数据校验失败', r, 'error');
+              return;
+            }
+            u(!0);
+            try {
+              let r = e.features;
+              if ('string' == typeof e.features)
+                try {
+                  JSON.parse(e.features), (r = e.features);
+                } catch (a) {
+                  let t = e.features
+                    .split('\n')
+                    .map((e) => e.trim())
+                    .filter(Boolean);
+                  r = JSON.stringify(t);
+                }
+              else
+                Array.isArray(e.features) && (r = JSON.stringify(e.features));
+              let t = await fetch('/api/admin/plans', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  ...e,
+                  price: Number(e.price),
+                  original_price: e.original_price
+                    ? Number(e.original_price)
+                    : void 0,
+                  duration_days: Number(e.duration_days),
+                  sort_order: Number(e.sort_order || 0),
+                  is_active: !!e.is_active,
+                  features: r,
+                }),
+              });
+              if (t.ok)
+                await v().fire('保存成功', '', 'success'), d(null), await m();
+              else {
+                let e = await t.json();
+                throw Error(e.error || 'Save failed');
+              }
+            } catch (e) {
+              await v().fire('保存失败', e.message || '请重试', 'error');
+            } finally {
+              u(!1);
+            }
+          },
+          b = (e) => {
+            e
+              ? d(e)
+              : d({
+                  name: '',
+                  description: '',
+                  duration_days: 30,
+                  price: void 0,
+                  original_price: void 0,
+                  features: '[]',
+                  is_active: !0,
+                  sort_order: 0,
+                });
+          };
+        return (0, a.jsxs)('div', {
+          className: 'space-y-6',
+          children: [
+            (0, a.jsx)('div', {
+              className: 'flex justify-end',
+              children: (0, a.jsxs)('button', {
+                onClick: () => b(),
+                className:
+                  'flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700',
+                children: [(0, a.jsx)(I.Z, { size: 18 }), '添加套餐'],
+              }),
+            }),
+            (0, a.jsx)('div', {
+              className: 'grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+              children: l.map((e) =>
+                (0, a.jsxs)(
+                  'div',
+                  {
+                    className:
+                      'p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 shadow-sm relative',
+                    children: [
+                      (0, a.jsx)('div', {
+                        className: 'absolute top-4 right-4 flex gap-2',
+                        children: (0, a.jsx)('button', {
+                          onClick: () => b(e),
+                          className:
+                            'p-1.5 text-gray-500 hover:text-blue-600 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20',
+                          children: (0, a.jsx)(U.Z, { size: 16 }),
+                        }),
+                      }),
+                      (0, a.jsx)('h3', {
+                        className:
+                          'text-lg font-bold text-gray-900 dark:text-gray-100 mb-1',
+                        children: e.name,
+                      }),
+                      (0, a.jsxs)('div', {
+                        className: 'flex items-baseline gap-2 mb-2',
+                        children: [
+                          (0, a.jsxs)('span', {
+                            className: 'text-2xl font-bold text-blue-600',
+                            children: ['\xa5', e.price],
+                          }),
+                          e.original_price &&
+                            (0, a.jsxs)('span', {
+                              className: 'text-sm text-gray-400 line-through',
+                              children: ['\xa5', e.original_price],
+                            }),
+                        ],
+                      }),
+                      (0, a.jsx)('p', {
+                        className:
+                          'text-sm text-gray-500 dark:text-gray-400 mb-3',
+                        children: e.description,
+                      }),
+                      (0, a.jsxs)('div', {
+                        className: 'text-sm',
+                        children: [
+                          (0, a.jsx)('span', {
+                            className:
+                              'font-medium text-gray-700 dark:text-gray-300',
+                            children: '时长:',
+                          }),
+                          ' ',
+                          e.duration_days,
+                          ' 天',
+                        ],
+                      }),
+                      (0, a.jsx)('div', {
+                        className: 'mt-2',
+                        children: (0, a.jsx)('span', {
+                          className: 'px-2 py-0.5 text-xs rounded-full '.concat(
+                            e.is_active
+                              ? 'bg-green-100 text-green-800'
+                              : 'bg-gray-100 text-gray-800'
+                          ),
+                          children: e.is_active ? '已上架' : '已下架',
+                        }),
+                      }),
+                    ],
+                  },
+                  e.id
+                )
+              ),
+            }),
+            i &&
+              (0, a.jsx)('div', {
+                className:
+                  'fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4',
+                onClick: () => !g && d(null),
+                children: (0, a.jsxs)('div', {
+                  className:
+                    'bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden',
+                  onClick: (e) => e.stopPropagation(),
+                  children: [
+                    (0, a.jsx)('div', {
+                      className:
+                        'flex-shrink-0 px-6 py-4 border-b border-gray-200 dark:border-gray-700',
+                      children: (0, a.jsx)('h3', {
+                        className:
+                          'text-xl font-bold text-gray-900 dark:text-gray-100',
+                        children: i.id ? '编辑套餐' : '添加套餐',
+                      }),
+                    }),
+                    (0, a.jsx)('div', {
+                      className: 'flex-1 overflow-y-auto px-6 py-4',
+                      children: (0, a.jsxs)('div', {
+                        className: 'space-y-4',
+                        children: [
+                          (0, a.jsxs)('div', {
+                            children: [
+                              (0, a.jsxs)('label', {
+                                className:
+                                  'block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300',
+                                children: [
+                                  '套餐名称 ',
+                                  (0, a.jsx)('span', {
+                                    className: 'text-red-500',
+                                    children: '*',
+                                  }),
+                                ],
+                              }),
+                              (0, a.jsx)('input', {
+                                type: 'text',
+                                value: i.name || '',
+                                onChange: (e) =>
+                                  d({ ...i, name: e.target.value }),
+                                className:
+                                  'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500',
+                                placeholder: '例如：月度会员',
+                                disabled: g,
+                              }),
+                            ],
+                          }),
+                          (0, a.jsxs)('div', {
+                            className: 'grid grid-cols-2 gap-4',
+                            children: [
+                              (0, a.jsxs)('div', {
+                                children: [
+                                  (0, a.jsxs)('label', {
+                                    className:
+                                      'block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300',
+                                    children: [
+                                      '价格 (元) ',
+                                      (0, a.jsx)('span', {
+                                        className: 'text-red-500',
+                                        children: '*',
+                                      }),
+                                    ],
+                                  }),
+                                  (0, a.jsx)('input', {
+                                    type: 'number',
+                                    value:
+                                      null !== (e = i.price) && void 0 !== e
+                                        ? e
+                                        : '',
+                                    onChange: (e) =>
+                                      d({
+                                        ...i,
+                                        price:
+                                          '' === e.target.value
+                                            ? void 0
+                                            : Number(e.target.value),
+                                      }),
+                                    className:
+                                      'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500',
+                                    placeholder: '19.9',
+                                    min: '0',
+                                    step: '0.01',
+                                    disabled: g,
+                                  }),
+                                ],
+                              }),
+                              (0, a.jsxs)('div', {
+                                children: [
+                                  (0, a.jsx)('label', {
+                                    className:
+                                      'block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300',
+                                    children: '原价 (元)',
+                                  }),
+                                  (0, a.jsx)('input', {
+                                    type: 'number',
+                                    value:
+                                      null !== (r = i.original_price) &&
+                                      void 0 !== r
+                                        ? r
+                                        : '',
+                                    onChange: (e) =>
+                                      d({
+                                        ...i,
+                                        original_price:
+                                          '' === e.target.value
+                                            ? void 0
+                                            : Number(e.target.value),
+                                      }),
+                                    className:
+                                      'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500',
+                                    placeholder: '29.9',
+                                    min: '0',
+                                    step: '0.01',
+                                    disabled: g,
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          (0, a.jsxs)('div', {
+                            children: [
+                              (0, a.jsxs)('label', {
+                                className:
+                                  'block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300',
+                                children: [
+                                  '有效天数 ',
+                                  (0, a.jsx)('span', {
+                                    className: 'text-red-500',
+                                    children: '*',
+                                  }),
+                                ],
+                              }),
+                              (0, a.jsx)('input', {
+                                type: 'number',
+                                value:
+                                  null !== (t = i.duration_days) && void 0 !== t
+                                    ? t
+                                    : 30,
+                                onChange: (e) =>
+                                  d({
+                                    ...i,
+                                    duration_days: Number(e.target.value),
+                                  }),
+                                className:
+                                  'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500',
+                                placeholder: '30',
+                                min: '1',
+                                disabled: g,
+                              }),
+                              (0, a.jsx)('p', {
+                                className:
+                                  'mt-1 text-xs text-gray-500 dark:text-gray-400',
+                                children: '购买后的会员有效期',
+                              }),
+                            ],
+                          }),
+                          (0, a.jsxs)('div', {
+                            children: [
+                              (0, a.jsx)('label', {
+                                className:
+                                  'block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300',
+                                children: '套餐描述',
+                              }),
+                              (0, a.jsx)('input', {
+                                type: 'text',
+                                value: i.description || '',
+                                onChange: (e) =>
+                                  d({ ...i, description: e.target.value }),
+                                className:
+                                  'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500',
+                                placeholder: '例如：超值月度会员',
+                                disabled: g,
+                              }),
+                            ],
+                          }),
+                          (0, a.jsxs)('div', {
+                            children: [
+                              (0, a.jsx)('label', {
+                                className:
+                                  'block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300',
+                                children: '会员特权 (每行一个)',
+                              }),
+                              (0, a.jsx)('textarea', {
+                                value: (() => {
+                                  if (!i.features) return '';
+                                  try {
+                                    let e = JSON.parse(i.features);
+                                    return Array.isArray(e)
+                                      ? e.join('\n')
+                                      : i.features;
+                                  } catch (e) {
+                                    return i.features;
+                                  }
+                                })(),
+                                onChange: (e) => {
+                                  let r = e.target.value.split('\n');
+                                  d({ ...i, features: JSON.stringify(r) });
+                                },
+                                className:
+                                  'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 h-24 resize-none',
+                                placeholder: '去除广告 高清观看 离线下载',
+                                disabled: g,
+                              }),
+                            ],
+                          }),
+                          (0, a.jsxs)('div', {
+                            className:
+                              'flex items-center justify-between gap-4',
+                            children: [
+                              (0, a.jsxs)('label', {
+                                className:
+                                  'flex items-center gap-2 cursor-pointer',
+                                children: [
+                                  (0, a.jsx)('input', {
+                                    type: 'checkbox',
+                                    checked:
+                                      null === (s = i.is_active) ||
+                                      void 0 === s ||
+                                      s,
+                                    onChange: (e) =>
+                                      d({ ...i, is_active: e.target.checked }),
+                                    className:
+                                      'rounded border-gray-300 text-blue-600',
+                                    disabled: g,
+                                  }),
+                                  (0, a.jsx)('span', {
+                                    className:
+                                      'text-sm text-gray-700 dark:text-gray-300',
+                                    children: '上架销售',
+                                  }),
+                                ],
+                              }),
+                              (0, a.jsxs)('div', {
+                                className: 'flex items-center gap-2',
+                                children: [
+                                  (0, a.jsx)('span', {
+                                    className:
+                                      'text-sm text-gray-600 dark:text-gray-400',
+                                    children: '排序',
+                                  }),
+                                  (0, a.jsx)('input', {
+                                    type: 'number',
+                                    value:
+                                      null !== (n = i.sort_order) &&
+                                      void 0 !== n
+                                        ? n
+                                        : 0,
+                                    onChange: (e) =>
+                                      d({
+                                        ...i,
+                                        sort_order: Number(e.target.value),
+                                      }),
+                                    className:
+                                      'w-16 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded dark:bg-gray-700 dark:text-gray-100 text-center focus:ring-2 focus:ring-blue-500',
+                                    disabled: g,
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    }),
+                    (0, a.jsxs)('div', {
+                      className:
+                        'flex-shrink-0 px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-3 bg-gray-50 dark:bg-gray-900/50',
+                      children: [
+                        (0, a.jsx)('button', {
+                          onClick: () => d(null),
+                          disabled: g,
+                          className:
+                            'px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 disabled:opacity-50 transition-colors',
+                          children: '取消',
+                        }),
+                        (0, a.jsxs)('button', {
+                          onClick: () => p(i),
+                          disabled: g,
+                          className:
+                            'flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors',
+                          children: [
+                            g &&
+                              (0, a.jsx)(A.Z, {
+                                size: 16,
+                                className: 'animate-spin',
+                              }),
+                            g ? '保存中...' : '保存',
+                          ],
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+          ],
+        });
+      }
+      var q = t(5302),
+        R = t(4378),
+        J = t(5274);
+      function L() {
+        let [e, r] = (0, j.useState)([]),
+          [t, s] = (0, j.useState)(1),
+          [n, l] = (0, j.useState)(!1),
+          [o, i] = (0, j.useState)(null);
+        (0, j.useEffect)(() => {
+          d();
+        }, [t]);
+        let d = async () => {
+            l(!0);
+            try {
+              let e = await fetch(
+                '/api/admin/orders?page='.concat(t, '&limit=20')
+              );
+              if (e.ok) {
+                let t = await e.json();
+                r(t.orders || []);
+              }
+            } catch (e) {
+              console.error('Failed to fetch orders', e);
+            } finally {
+              l(!1);
+            }
+          },
+          c = async (e, r) => {
+            try {
+              let { isConfirmed: t, value: a } = await v().fire({
+                title: 'approved' === r ? '确认通过?' : '确认拒绝?',
+                input: 'rejected' === r ? 'text' : void 0,
+                inputPlaceholder: '请输入拒绝原因',
+                showCancelButton: !0,
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                confirmButtonColor: 'approved' === r ? '#16a34a' : '#dc2626',
+              });
+              if (!t) return;
+              if (
+                (
+                  await fetch('/api/admin/orders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ orderNo: e, status: r, reason: a }),
+                  })
+                ).ok
+              )
+                v().fire({
+                  icon: 'success',
+                  title: '操作成功',
+                  timer: 1500,
+                  showConfirmButton: !1,
+                }),
+                  d();
+              else throw Error('Operation failed');
+            } catch (e) {
+              v().fire('操作失败', '请重试', 'error');
+            }
+          },
+          x = (e) => {
+            switch (e) {
+              case 'approved':
+                return (0, a.jsxs)('span', {
+                  className:
+                    'flex items-center gap-1 text-green-600 bg-green-50 px-2 py-0.5 rounded text-xs',
+                  children: [(0, a.jsx)(C.Z, { size: 12 }), ' 已通过'],
+                });
+              case 'rejected':
+                return (0, a.jsxs)('span', {
+                  className:
+                    'flex items-center gap-1 text-red-600 bg-red-50 px-2 py-0.5 rounded text-xs',
+                  children: [(0, a.jsx)(q.Z, { size: 12 }), ' 已拒绝'],
+                });
+              case 'pending':
+                return (0, a.jsxs)('span', {
+                  className:
+                    'flex items-center gap-1 text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded text-xs',
+                  children: [(0, a.jsx)(R.Z, { size: 12 }), ' 待审核'],
+                });
+              default:
+                return (0, a.jsx)('span', {
+                  className:
+                    'text-gray-500 bg-gray-50 px-2 py-0.5 rounded text-xs',
+                  children: e,
+                });
+            }
+          };
+        return (0, a.jsxs)('div', {
+          className: 'space-y-4',
+          children: [
+            (0, a.jsx)('div', {
+              className:
+                'overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700',
+              children: (0, a.jsxs)('table', {
+                className:
+                  'min-w-full divide-y divide-gray-200 dark:divide-gray-700',
+                children: [
+                  (0, a.jsx)('thead', {
+                    className: 'bg-gray-50 dark:bg-gray-800',
+                    children: (0, a.jsxs)('tr', {
+                      children: [
+                        (0, a.jsx)('th', {
+                          className:
+                            'px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider',
+                          children: '订单号/用户',
+                        }),
+                        (0, a.jsx)('th', {
+                          className:
+                            'px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider',
+                          children: '套餐/金额',
+                        }),
+                        (0, a.jsx)('th', {
+                          className:
+                            'px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider',
+                          children: '凭证',
+                        }),
+                        (0, a.jsx)('th', {
+                          className:
+                            'px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider',
+                          children: '状态',
+                        }),
+                        (0, a.jsx)('th', {
+                          className:
+                            'px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider',
+                          children: '时间',
+                        }),
+                        (0, a.jsx)('th', {
+                          className:
+                            'px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider',
+                          children: '操作',
+                        }),
+                      ],
+                    }),
+                  }),
+                  (0, a.jsxs)('tbody', {
+                    className:
+                      'bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700 text-sm',
+                    children: [
+                      e.map((e) =>
+                        (0, a.jsxs)(
+                          'tr',
+                          {
+                            children: [
+                              (0, a.jsxs)('td', {
+                                className: 'px-4 py-3',
+                                children: [
+                                  (0, a.jsx)('div', {
+                                    className: 'font-medium',
+                                    children: e.order_no,
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className: 'text-gray-500 text-xs',
+                                    children: e.username,
+                                  }),
+                                ],
+                              }),
+                              (0, a.jsxs)('td', {
+                                className: 'px-4 py-3',
+                                children: [
+                                  (0, a.jsxs)('div', {
+                                    children: ['套餐ID: ', e.related_id],
+                                  }),
+                                  (0, a.jsxs)('div', {
+                                    className: 'font-bold',
+                                    children: ['\xa5', e.amount],
+                                  }),
+                                ],
+                              }),
+                              (0, a.jsx)('td', {
+                                className: 'px-4 py-3',
+                                children: e.payment_proof
+                                  ? (0, a.jsxs)('button', {
+                                      onClick: () => i(e.payment_proof),
+                                      className:
+                                        'flex items-center gap-1 text-blue-600 hover:text-blue-800',
+                                      children: [
+                                        (0, a.jsx)(J.Z, { size: 16 }),
+                                        ' 查看',
+                                      ],
+                                    })
+                                  : (0, a.jsx)('span', {
+                                      className: 'text-gray-400 text-xs',
+                                      children: '未上传',
+                                    }),
+                              }),
+                              (0, a.jsxs)('td', {
+                                className: 'px-4 py-3',
+                                children: [
+                                  x(e.payment_status),
+                                  e.reject_reason &&
+                                    (0, a.jsx)('div', {
+                                      className: 'text-xs text-red-500 mt-1',
+                                      children: e.reject_reason,
+                                    }),
+                                ],
+                              }),
+                              (0, a.jsx)('td', {
+                                className: 'px-4 py-3 text-xs text-gray-500',
+                                children: new Date(
+                                  e.created_at || ''
+                                ).toLocaleString(),
+                              }),
+                              (0, a.jsx)('td', {
+                                className: 'px-4 py-3 text-right space-x-2',
+                                children:
+                                  'pending' === e.payment_status &&
+                                  (0, a.jsxs)(a.Fragment, {
+                                    children: [
+                                      (0, a.jsx)('button', {
+                                        onClick: () =>
+                                          c(e.order_no, 'approved'),
+                                        className:
+                                          'text-green-600 hover:text-green-800 text-xs font-medium px-2 py-1 border border-green-200 rounded',
+                                        children: '通过',
+                                      }),
+                                      (0, a.jsx)('button', {
+                                        onClick: () =>
+                                          c(e.order_no, 'rejected'),
+                                        className:
+                                          'text-red-600 hover:text-red-800 text-xs font-medium px-2 py-1 border border-red-200 rounded',
+                                        children: '拒绝',
+                                      }),
+                                    ],
+                                  }),
+                              }),
+                            ],
+                          },
+                          e.order_no
+                        )
+                      ),
+                      0 === e.length &&
+                        !n &&
+                        (0, a.jsx)('tr', {
+                          children: (0, a.jsx)('td', {
+                            colSpan: 6,
+                            className: 'px-4 py-8 text-center text-gray-500',
+                            children: '暂无订单数据',
+                          }),
+                        }),
+                    ],
+                  }),
+                ],
+              }),
+            }),
+            (0, a.jsxs)('div', {
+              className: 'flex justify-center gap-2 mt-4',
+              children: [
+                (0, a.jsx)('button', {
+                  disabled: 1 === t || n,
+                  onClick: () => s(t - 1),
+                  className: 'px-3 py-1 border rounded disabled:opacity-50',
+                  children: '上一页',
+                }),
+                (0, a.jsx)('span', { className: 'px-3 py-1', children: t }),
+                (0, a.jsx)('button', {
+                  disabled: e.length < 20 || n,
+                  onClick: () => s(t + 1),
+                  className: 'px-3 py-1 border rounded disabled:opacity-50',
+                  children: '下一页',
+                }),
+              ],
+            }),
+            o &&
+              (0, a.jsx)('div', {
+                className:
+                  'fixed inset-0 z-[100] flex items-center justify-center bg-black/80',
+                onClick: () => i(null),
+                children: (0, a.jsxs)('div', {
+                  className: 'relative max-w-4xl max-h-[90vh]',
+                  children: [
+                    (0, a.jsx)('img', {
+                      src: o,
+                      alt: 'Payment Proof',
+                      className:
+                        'max-w-full max-h-[90vh] object-contain rounded',
+                    }),
+                    (0, a.jsx)('button', {
+                      className:
+                        'absolute top-4 right-4 text-white bg-black/50 p-2 rounded-full hover:bg-black/70',
+                      children: (0, a.jsx)(q.Z, { size: 24 }),
+                    }),
+                  ],
+                }),
+              }),
+          ],
+        });
+      }
+      var V = t(5267);
+      function M() {
+        let [e, r] = (0, j.useState)({
+            alipay_qr_code: '',
+            alipay_account_name: '',
+            payment_notice: '',
+            auto_approval: !1,
+            order_expire_hours: 24,
+          }),
+          [t, s] = (0, j.useState)(!1);
+        (0, j.useEffect)(() => {
+          n();
+        }, []);
+        let n = async () => {
+            try {
+              let e = await fetch('/api/admin/payment-settings');
+              if (e.ok) {
+                let t = await e.json();
+                t && Object.keys(t).length > 0 && r(t);
+              }
+            } catch (e) {
+              console.error('Failed to fetch payment settings', e);
+            }
+          },
+          l = async (r) => {
+            r.preventDefault(), s(!0);
+            try {
+              if (
+                (
+                  await fetch('/api/admin/payment-settings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(e),
+                  })
+                ).ok
+              )
+                v().fire({
+                  icon: 'success',
+                  title: '保存成功',
+                  timer: 1500,
+                  showConfirmButton: !1,
+                });
+              else throw Error('Save failed');
+            } catch (e) {
+              v().fire({ icon: 'error', title: '保存失败', text: '请重试' });
+            } finally {
+              s(!1);
+            }
+          };
+        return (0, a.jsxs)('form', {
+          onSubmit: l,
+          className: 'space-y-6 max-w-2xl',
+          children: [
+            (0, a.jsxs)('div', {
+              className: 'space-y-2',
+              children: [
+                (0, a.jsx)('label', {
+                  className:
+                    'text-sm font-medium text-gray-700 dark:text-gray-300',
+                  children: '支付宝收款码 URL',
+                }),
+                (0, a.jsx)('input', {
+                  type: 'text',
+                  value: e.alipay_qr_code || '',
+                  onChange: (t) => r({ ...e, alipay_qr_code: t.target.value }),
+                  className:
+                    'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500',
+                  placeholder: 'https://example.com/qr.jpg',
+                }),
+                (0, a.jsx)('p', {
+                  className: 'text-xs text-gray-500',
+                  children: '可以是图片链接或 Base64',
+                }),
+              ],
+            }),
+            (0, a.jsxs)('div', {
+              className: 'space-y-2',
+              children: [
+                (0, a.jsx)('label', {
+                  className:
+                    'text-sm font-medium text-gray-700 dark:text-gray-300',
+                  children: '收款账户名称',
+                }),
+                (0, a.jsx)('input', {
+                  type: 'text',
+                  value: e.alipay_account_name || '',
+                  onChange: (t) =>
+                    r({ ...e, alipay_account_name: t.target.value }),
+                  className:
+                    'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500',
+                  placeholder: '例如：*某某',
+                }),
+              ],
+            }),
+            (0, a.jsxs)('div', {
+              className: 'space-y-2',
+              children: [
+                (0, a.jsx)('label', {
+                  className:
+                    'text-sm font-medium text-gray-700 dark:text-gray-300',
+                  children: '支付提示信息',
+                }),
+                (0, a.jsx)('textarea', {
+                  value: e.payment_notice || '',
+                  onChange: (t) => r({ ...e, payment_notice: t.target.value }),
+                  className:
+                    'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 min-h-[100px]',
+                  placeholder: '支付时请备注用户名...',
+                }),
+              ],
+            }),
+            (0, a.jsx)('div', {
+              className: 'flex items-center gap-4',
+              children: (0, a.jsxs)('div', {
+                className: 'flex items-center gap-2',
+                children: [
+                  (0, a.jsx)('input', {
+                    type: 'checkbox',
+                    id: 'auto_approval',
+                    checked: e.auto_approval || !1,
+                    onChange: (t) =>
+                      r({ ...e, auto_approval: t.target.checked }),
+                    className:
+                      'w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500',
+                  }),
+                  (0, a.jsx)('label', {
+                    htmlFor: 'auto_approval',
+                    className:
+                      'text-sm font-medium text-gray-700 dark:text-gray-300',
+                    children: '自动审核 (实验性)',
+                  }),
+                ],
+              }),
+            }),
+            (0, a.jsxs)('div', {
+              className: 'space-y-2',
+              children: [
+                (0, a.jsx)('label', {
+                  className:
+                    'text-sm font-medium text-gray-700 dark:text-gray-300',
+                  children: '订单过期时间 (小时)',
+                }),
+                (0, a.jsx)('input', {
+                  type: 'number',
+                  value: e.order_expire_hours || 24,
+                  onChange: (t) =>
+                    r({ ...e, order_expire_hours: Number(t.target.value) }),
+                  className:
+                    'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500',
+                }),
+              ],
+            }),
+            (0, a.jsxs)('button', {
+              type: 'submit',
+              disabled: t,
+              className:
+                'flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50',
+              children: [
+                (0, a.jsx)(V.Z, { size: 18 }),
+                t ? '保存中...' : '保存设置',
+              ],
+            }),
+          ],
+        });
+      }
+      var G = t(9392);
+      function K() {
+        let [e, r] = (0, j.useState)('plans');
+        return (0, a.jsxs)('div', {
+          className: 'space-y-6',
+          children: [
+            (0, a.jsxs)('div', {
+              className: 'flex items-center gap-3 mb-4',
+              children: [
+                (0, a.jsx)('span', {
+                  className:
+                    'px-3 py-1 text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-200 rounded-full',
+                  children: '\uD83C\uDD95 新增功能',
+                }),
+                (0, a.jsx)('p', {
+                  className: 'text-sm text-gray-600 dark:text-gray-400',
+                  children: '会员订阅管理系统',
+                }),
+              ],
+            }),
+            (0, a.jsxs)('div', {
+              className: 'flex border-b border-gray-200 dark:border-gray-700',
+              children: [
+                (0, a.jsxs)('button', {
+                  onClick: () => r('plans'),
+                  className:
+                    'px-4 py-2 border-b-2 flex items-center gap-2 '.concat(
+                      'plans' === e
+                        ? 'border-blue-600 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700'
+                    ),
+                  children: [(0, a.jsx)(G.Z, { size: 18 }), '套餐管理'],
+                }),
+                (0, a.jsxs)('button', {
+                  onClick: () => r('orders'),
+                  className:
+                    'px-4 py-2 border-b-2 flex items-center gap-2 '.concat(
+                      'orders' === e
+                        ? 'border-blue-600 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700'
+                    ),
+                  children: [(0, a.jsx)(m.Z, { size: 18 }), '订单审核'],
+                }),
+                (0, a.jsxs)('button', {
+                  onClick: () => r('settings'),
+                  className:
+                    'px-4 py-2 border-b-2 flex items-center gap-2 '.concat(
+                      'settings' === e
+                        ? 'border-blue-600 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700'
+                    ),
+                  children: [(0, a.jsx)(y.Z, { size: 18 }), '支付设置'],
+                }),
+              ],
+            }),
+            (0, a.jsxs)('div', {
+              className: 'pt-2',
+              children: [
+                'plans' === e && (0, a.jsx)(F, {}),
+                'orders' === e && (0, a.jsx)(L, {}),
+                'settings' === e && (0, a.jsx)(M, {}),
+              ],
+            }),
+          ],
+        });
+      }
+      let Y = (e) => v().fire({ icon: 'error', title: '错误', text: e }),
+        H = (e) =>
+          v().fire({
+            icon: 'success',
+            title: '成功',
+            text: e,
+            timer: 2e3,
+            showConfirmButton: !1,
+          }),
+        W = (e) => {
+          let {
+            title: r,
+            icon: t,
+            isExpanded: s,
+            onToggle: n,
+            children: l,
+          } = e;
+          return (0, a.jsxs)('div', {
+            className:
+              'rounded-xl shadow-sm mb-4 overflow-hidden bg-white/80 backdrop-blur-md dark:bg-gray-800/50 dark:ring-1 dark:ring-gray-700',
+            children: [
+              (0, a.jsxs)('button', {
+                onClick: n,
+                className:
+                  'w-full px-6 py-4 flex items-center justify-between bg-gray-50/70 dark:bg-gray-800/60 hover:bg-gray-100/80 dark:hover:bg-gray-700/60 transition-colors',
+                children: [
+                  (0, a.jsxs)('div', {
+                    className: 'flex items-center gap-3',
+                    children: [
+                      t,
+                      (0, a.jsx)('h3', {
+                        className:
+                          'text-lg font-medium text-gray-900 dark:text-gray-100',
+                        children: r,
+                      }),
+                    ],
+                  }),
+                  (0, a.jsx)('div', {
+                    className: 'text-gray-500 dark:text-gray-400',
+                    children: s
+                      ? (0, a.jsx)(i.Z, { size: 20 })
+                      : (0, a.jsx)(d.Z, { size: 20 }),
+                  }),
+                ],
+              }),
+              s && (0, a.jsx)('div', { className: 'px-6 py-4', children: l }),
+            ],
+          });
+        },
+        X = (e) => {
+          var r;
+          let { config: t, role: s, refreshConfig: n } = e,
+            [l, o] = (0, j.useState)({ enableRegistration: !1 }),
+            [i, d] = (0, j.useState)(new Set()),
+            [c, x] = (0, j.useState)(''),
+            [g, u] = (0, j.useState)(''),
+            [m, y] = (0, j.useState)(!1),
+            [p, b] = (0, j.useState)(!1),
+            [h, f] = (0, j.useState)({ username: '', password: '' }),
+            [k, w] = (0, j.useState)({ username: '', password: '' }),
+            C =
+              (null === (r = (0, N.v)()) || void 0 === r
+                ? void 0
+                : r.username) || null;
+          (0, j.useEffect)(() => {
+            (null == t ? void 0 : t.UserConfig) &&
+              o({ enableRegistration: t.UserConfig.AllowRegister });
+          }, [t]);
+          let S = async (e) => {
+              try {
+                o((r) => ({ ...r, enableRegistration: e }));
+                let r = await fetch('/api/admin/user', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    action: 'setAllowRegister',
+                    allowRegister: e,
+                  }),
+                });
+                if (!r.ok) {
+                  let e = await r.json().catch(() => ({}));
+                  throw Error(e.error || '操作失败: '.concat(r.status));
+                }
+                await n();
+              } catch (r) {
+                Y(r instanceof Error ? r.message : '操作失败'),
+                  o((r) => ({ ...r, enableRegistration: !e }));
+              }
+            },
+            T = async (e) => {
+              await L('ban', e);
+            },
+            E = async (e) => {
+              await L('unban', e);
+            },
+            B = async (e) => {
+              await L('setAdmin', e);
+            },
+            _ = async (e) => {
+              await L('cancelAdmin', e);
+            },
+            P = async () => {
+              h.username &&
+                h.password &&
+                (await L('add', h.username, h.password),
+                f({ username: '', password: '' }),
+                y(!1));
+            },
+            D = async () => {
+              k.username &&
+                k.password &&
+                (await L('changePassword', k.username, k.password),
+                w({ username: '', password: '' }),
+                b(!1));
+            },
+            O = (e) => {
+              w({ username: e, password: '' }), b(!0), y(!1);
+            },
+            z = async (e) => {
+              let { isConfirmed: r } = await v().fire({
+                title: '确认删除用户',
+                text: '删除用户 '.concat(
+                  e,
+                  ' 将同时删除其搜索历史、播放记录和收藏夹，此操作不可恢复！'
+                ),
+                icon: 'warning',
+                showCancelButton: !0,
+                confirmButtonText: '确认删除',
+                cancelButtonText: '取消',
+                confirmButtonColor: '#dc2626',
+              });
+              r && (await L('deleteUser', e));
+            },
+            Z = (e) => {
+              let r = new Set(i);
+              r.has(e) ? r.delete(e) : r.add(e), d(r);
+            },
+            I = async () => {
+              let e = (null == t ? void 0 : t.SourceConfig) || [],
+                r =
+                  '\n      <div style="text-align:left;max-height:260px;overflow:auto;border:1px solid var(--swal2-border,#e5e7eb);border-radius:8px;padding:8px;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">\n        '.concat(
+                    e
+                      .map((e) =>
+                        '\n            <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e5e7eb;border-radius:8px;background:#fafafa;cursor:pointer">\n              <input type="checkbox" name="groupSources" value="'
+                          .concat(
+                            e.key,
+                            '" />\n              <span style="font-size:13px"><strong>'
+                          )
+                          .concat(
+                            e.name || e.key,
+                            '</strong> <span style="opacity:.7">('
+                          )
+                          .concat(
+                            e.key,
+                            ')</span></span>\n            </label>'
+                          )
+                      )
+                      .join(''),
+                    '\n      </div>'
+                  ),
+                { value: a, isConfirmed: s } = await v().fire({
+                  title: '新建分组',
+                  width: '800px',
+                  html:
+                    '<input id="swal-input-group-name" class="swal2-input" placeholder="分组名称" style="width: 100%; max-width: 400px; margin: 0 auto;" /><div style="text-align:left;margin-top:6px;font-size:12px;opacity:.8;display:flex;align-items:center;gap:10px"><span>选择该分组可使用的视频源</span><label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:12px"><input id="swal-group-select-all" type="checkbox" /> 全选</label></div>' +
+                    r,
+                  didOpen: (e) => {
+                    let r = e.querySelector('#swal-group-select-all'),
+                      t = Array.from(
+                        e.querySelectorAll('input[name="groupSources"]')
+                      );
+                    r &&
+                      r.addEventListener('change', () => {
+                        t.forEach((e) => {
+                          e.checked = r.checked;
+                        });
+                      });
+                  },
+                  focusConfirm: !1,
+                  showCancelButton: !0,
+                  confirmButtonText: '创建',
+                  cancelButtonText: '取消',
+                  preConfirm: () => {
+                    var e;
+                    let r = document.getElementById('swal-input-group-name'),
+                      t =
+                        null == r
+                          ? void 0
+                          : null === (e = r.value) || void 0 === e
+                          ? void 0
+                          : e.trim();
+                    return t
+                      ? {
+                          name: t,
+                          sourceKeys: Array.from(
+                            document.querySelectorAll(
+                              'input[name="groupSources"]:checked'
+                            )
+                          ).map((e) => e.value),
+                        }
+                      : (v().showValidationMessage('分组名称不能为空'), null);
+                  },
+                });
+              if (!s || !a) return;
+              let { name: l, sourceKeys: o } = a;
+              try {
+                let e = await fetch('/api/admin/group', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    action: 'create',
+                    name: l,
+                    sourceKeys: o,
+                  }),
+                });
+                if (!e.ok) {
+                  let r = await e.json().catch(() => ({}));
+                  throw Error(r.error || '创建分组失败');
+                }
+                await n(), x(l), H('分组已创建');
+              } catch (e) {
+                Y(e instanceof Error ? e.message : '创建分组失败');
+              }
+            },
+            U = async (e) => {
+              if (0 === i.size) {
+                Y('请先选择要分配的用户');
+                return;
+              }
+              try {
+                let r = await fetch('/api/admin/group', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    action: 'assignUsers',
+                    name: e,
+                    users: Array.from(i),
+                  }),
+                });
+                if (!r.ok) {
+                  let e = await r.json().catch(() => ({}));
+                  throw Error(e.error || '批量分组失败');
+                }
+                d(new Set()), x(''), await n(), H('批量分组成功');
+              } catch (e) {
+                Y(e instanceof Error ? e.message : '批量分组失败');
+              }
+            },
+            A = async () => {
+              if (0 !== i.size)
+                try {
+                  let e = await fetch('/api/admin/group', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      action: 'removeUsers',
+                      users: Array.from(i),
+                    }),
+                  });
+                  if (!e.ok) {
+                    let r = await e.json().catch(() => ({}));
+                    throw Error(r.error || '批量移出失败');
+                  }
+                  d(new Set()), await n(), H('已将所选用户移出分组');
+                } catch (e) {
+                  Y(e instanceof Error ? e.message : '批量移出失败');
+                }
+            },
+            F = async (e) => {
+              try {
+                let r = await fetch('/api/admin/group', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ ...e }),
+                });
+                if (!r.ok) {
+                  let e = await r.json().catch(() => ({}));
+                  throw Error(e.error || '操作失败: '.concat(r.status));
+                }
+                await n(), H('已保存');
+              } catch (e) {
+                throw (Y(e instanceof Error ? e.message : '操作失败'), e);
+              }
+            },
+            q = async (e) => {
+              let { isConfirmed: r } = await v().fire({
+                title: '确认删除分组',
+                text: '删除分组 '.concat(
+                  e,
+                  ' 后，该分组下的用户不会再受限于此分组的视频源。'
+                ),
+                icon: 'warning',
+                showCancelButton: !0,
+                confirmButtonText: '确认删除',
+                cancelButtonText: '取消',
+                confirmButtonColor: '#dc2626',
+              });
+              r && (await F({ action: 'delete', name: e }), c === e && x(''));
+            },
+            R = async () => {
+              var e;
+              let r =
+                (null == t
+                  ? void 0
+                  : null === (e = t.UserConfig) || void 0 === e
+                  ? void 0
+                  : e.Groups) || [];
+              u(''),
+                await v().fire({
+                  title: '分组管理',
+                  html: '\n        <div class="text-left">\n          <div class="mb-4">\n            <h4 class="text-sm font-medium text-gray-700 mb-2">已创建的分组</h4>\n            <div class="grid gap-3" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">\n              '
+                    .concat(
+                      r
+                        .map((e) => {
+                          var r;
+                          return '\n                <div \n                  onclick="window.selectGroupInDialog(\''
+                            .concat(
+                              e.name,
+                              '\')"\n                  class="p-3 rounded-lg border cursor-pointer transition-colors hover:shadow-sm"\n                  style="background-color: var(--selected-group-bg, #f9fafb); border-color: var(--selected-group-border, #e5e7eb);"\n                  id="group-card-'
+                            )
+                            .concat(
+                              e.name,
+                              '"\n                >\n                  <div class="flex items-center justify-between gap-2 mb-2">\n                    <span class="text-sm font-medium text-gray-800">'
+                            )
+                            .concat(
+                              e.name,
+                              '</span>\n                    <div class="flex items-center gap-2">\n                      <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-700">\n                        '
+                            )
+                            .concat(
+                              (null === (r = e.sourceKeys) || void 0 === r
+                                ? void 0
+                                : r.length) || 0,
+                              ' 源\n                      </span>\n                    </div>\n                  </div>\n                  <div class="flex flex-wrap gap-2">\n                    '
+                            )
+                            .concat(
+                              (e.sourceKeys || [])
+                                .map((e) =>
+                                  '\n                      <span class="px-2 py-1 text-xs rounded border bg-gray-50 border-gray-300 text-gray-700">\n                        '.concat(
+                                    e,
+                                    '\n                      </span>\n                    '
+                                  )
+                                )
+                                .join(''),
+                              '\n                    '
+                            )
+                            .concat(
+                              e.sourceKeys && 0 !== e.sourceKeys.length
+                                ? ''
+                                : '<span class="text-xs text-gray-500">未配置源</span>',
+                              '\n                  </div>\n                </div>\n              '
+                            );
+                        })
+                        .join(''),
+                      '\n              '
+                    )
+                    .concat(
+                      0 === r.length
+                        ? '<div class="col-span-full text-center text-gray-500 py-4">暂无分组</div>'
+                        : '',
+                      '\n            </div>\n          </div>\n          <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">\n            <div class="text-sm text-blue-800">\n              已选中 '
+                    )
+                    .concat(
+                      i.size,
+                      ' 个用户，选择分组和用户后可进行分配操作\n            </div>\n          </div>\n        </div>\n      '
+                    ),
+                  width: '800px',
+                  showConfirmButton: !1,
+                  showCancelButton: !1,
+                  showCloseButton: !0,
+                  footer:
+                    '\n        <div class="flex items-center justify-between w-full">\n          <div class="text-sm text-gray-600">\n            <span id="selected-group-text">请选择分组</span>\n          </div>\n          <div class="flex gap-2">\n            <button \n              id="edit-group-btn" \n              class="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"\n              disabled\n            >\n              编辑\n            </button>\n            <button \n              id="assign-group-btn" \n              class="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed"\n              disabled\n            >\n              分配\n            </button>\n            <button \n              id="delete-group-btn" \n              class="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed"\n              disabled\n            >\n              删除\n            </button>\n          </div>\n        </div>\n      ',
+                  didOpen: () => {
+                    (window.selectGroupInDialog = (e) => {
+                      u(e),
+                        (window.currentSelectedGroup = e),
+                        r.forEach((r) => {
+                          let t = document.getElementById(
+                            'group-card-'.concat(r.name)
+                          );
+                          t &&
+                            (r.name === e
+                              ? (t.style.setProperty(
+                                  '--selected-group-bg',
+                                  '#dcfce7'
+                                ),
+                                t.style.setProperty(
+                                  '--selected-group-border',
+                                  '#16a34a'
+                                ))
+                              : (t.style.setProperty(
+                                  '--selected-group-bg',
+                                  '#f9fafb'
+                                ),
+                                t.style.setProperty(
+                                  '--selected-group-border',
+                                  '#e5e7eb'
+                                )));
+                        });
+                      let t = document.getElementById('selected-group-text'),
+                        a = document.getElementById('edit-group-btn'),
+                        s = document.getElementById('assign-group-btn'),
+                        n = document.getElementById('delete-group-btn');
+                      t && (t.textContent = '已选择: '.concat(e)),
+                        a && (a.disabled = !1),
+                        s && (s.disabled = 0 === i.size),
+                        n && (n.disabled = !1);
+                    }),
+                      (window.editSelectedGroup = async () => {
+                        let e = window.currentSelectedGroup;
+                        if (!e) return;
+                        let t = r.find((r) => r.name === e);
+                        t && (await J(e, t.sourceKeys || []), R());
+                      }),
+                      (window.assignToSelectedGroup = async () => {
+                        let e = window.currentSelectedGroup;
+                        e && (await U(e));
+                      }),
+                      (window.deleteSelectedGroup = async () => {
+                        let e = window.currentSelectedGroup;
+                        e && (await q(e));
+                      }),
+                      setTimeout(() => {
+                        let e = document.getElementById('edit-group-btn'),
+                          r = document.getElementById('assign-group-btn'),
+                          t = document.getElementById('delete-group-btn');
+                        e && (e.onclick = () => window.editSelectedGroup()),
+                          r &&
+                            (r.onclick = () => window.assignToSelectedGroup()),
+                          t && (t.onclick = () => window.deleteSelectedGroup());
+                      }, 100);
+                  },
+                });
+            },
+            J = async (e, r) => {
+              let a = (null == t ? void 0 : t.SourceConfig) || [],
+                s =
+                  '\n      <div style="text-align:left;max-height:260px;overflow:auto;border:1px solid var(--swal2-border,#e5e7eb);border-radius:8px;padding:8px;margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">\n        '.concat(
+                    a
+                      .map((e) =>
+                        '\n            <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e5e7eb;border-radius:8px;background:#fafafa;cursor:pointer">\n              <input type="checkbox" name="editGroupSources" value="'
+                          .concat(e.key, '" ')
+                          .concat(
+                            (null == r ? void 0 : r.includes(e.key))
+                              ? 'checked'
+                              : '',
+                            '/>\n              <span style="font-size:13px"><strong>'
+                          )
+                          .concat(
+                            e.name || e.key,
+                            '</strong> <span style="opacity:.7">('
+                          )
+                          .concat(
+                            e.key,
+                            ')</span></span>\n            </label>'
+                          )
+                      )
+                      .join(''),
+                    '\n      </div>'
+                  ),
+                { value: n, isConfirmed: l } = await v().fire({
+                  title: '编辑分组',
+                  width: '800px',
+                  html:
+                    '<input id="swal-edit-group-name" class="swal2-input" placeholder="分组名称" value="'.concat(
+                      e,
+                      '" style="width: 100%; max-width: 400px; margin: 0 auto;" />'
+                    ) +
+                    '<div style="text-align:left;margin-top:6px;font-size:12px;opacity:.8;display:flex;align-items:center;gap:10px"><span>设置该分组可使用的视频源</span><label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:12px"><input id="swal-edit-group-select-all" type="checkbox" /> 全选</label></div>' +
+                    s,
+                  focusConfirm: !1,
+                  showCancelButton: !0,
+                  confirmButtonText: '保存',
+                  cancelButtonText: '取消',
+                  didOpen: (e) => {
+                    let r = e.querySelector('#swal-edit-group-select-all'),
+                      t = Array.from(
+                        e.querySelectorAll('input[name="editGroupSources"]')
+                      );
+                    r &&
+                      r.addEventListener('change', () => {
+                        t.forEach((e) => {
+                          e.checked = r.checked;
+                        });
+                      });
+                  },
+                  preConfirm: () => {
+                    var e;
+                    let r = document.getElementById('swal-edit-group-name'),
+                      t =
+                        null == r
+                          ? void 0
+                          : null === (e = r.value) || void 0 === e
+                          ? void 0
+                          : e.trim();
+                    return t
+                      ? {
+                          name: t,
+                          sourceKeys: Array.from(
+                            document.querySelectorAll(
+                              'input[name="editGroupSources"]:checked'
+                            )
+                          ).map((e) => e.value),
+                        }
+                      : (v().showValidationMessage('分组名称不能为空'), null);
+                  },
+                });
+              if (!l || !n) return;
+              let { name: o, sourceKeys: i } = n;
+              o !== e && (await F({ action: 'rename', name: e, newName: o })),
+                await F({ action: 'setSources', name: o, sourceKeys: i }),
+                c === e && x(o);
+            },
+            L = async (e, r, t) => {
+              try {
+                let a = await fetch('/api/admin/user', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    targetUsername: r,
+                    ...(t ? { targetPassword: t } : {}),
+                    action: e,
+                  }),
+                });
+                if (!a.ok) {
+                  let e = await a.json().catch(() => ({}));
+                  throw Error(e.error || '操作失败: '.concat(a.status));
+                }
+                await n();
+              } catch (e) {
+                Y(e instanceof Error ? e.message : '操作失败');
+              }
+            };
+          return t
+            ? (0, a.jsxs)('div', {
+                className: 'space-y-6',
+                children: [
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsx)('h4', {
+                        className:
+                          'text-sm font-medium text-gray-700 dark:text-gray-300 mb-3',
+                        children: '用户统计',
+                      }),
+                      (0, a.jsxs)('div', {
+                        className:
+                          'p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800',
+                        children: [
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-2xl font-bold text-green-800 dark:text-green-300',
+                            children: t.UserConfig.Users.length,
+                          }),
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-sm text-green-600 dark:text-green-400',
+                            children: '总用户数',
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsx)('h4', {
+                        className:
+                          'text-sm font-medium text-gray-700 dark:text-gray-300 mb-3',
+                        children: '注册设置',
+                      }),
+                      (0, a.jsxs)('div', {
+                        className: 'flex items-center justify-between',
+                        children: [
+                          (0, a.jsx)('label', {
+                            className: 'text-gray-700 dark:text-gray-300',
+                            children: '允许新用户注册',
+                          }),
+                          (0, a.jsx)('button', {
+                            onClick: () => S(!l.enableRegistration),
+                            className:
+                              'relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 '.concat(
+                                l.enableRegistration
+                                  ? 'bg-green-600'
+                                  : 'bg-gray-200 dark:bg-gray-700'
+                              ),
+                            children: (0, a.jsx)('span', {
+                              className:
+                                'inline-block h-4 w-4 transform rounded-full bg-white transition-transform '.concat(
+                                  l.enableRegistration
+                                    ? 'translate-x-6'
+                                    : 'translate-x-1'
+                                ),
+                            }),
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsxs)('div', {
+                        className: 'flex items-center justify-between mb-3',
+                        children: [
+                          (0, a.jsx)('h4', {
+                            className:
+                              'text-sm font-medium text-gray-700 dark:text-gray-300',
+                            children: '用户列表',
+                          }),
+                          (0, a.jsx)('button', {
+                            onClick: () => {
+                              y(!m),
+                                p && (b(!1), w({ username: '', password: '' }));
+                            },
+                            className:
+                              'px-3 py-1 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg transition-colors',
+                            children: m ? '取消' : '添加用户',
+                          }),
+                        ],
+                      }),
+                      (0, a.jsx)('div', {
+                        className:
+                          'p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700 mb-4',
+                        children: (0, a.jsxs)('div', {
+                          className:
+                            'flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between',
+                          children: [
+                            (0, a.jsxs)('label', {
+                              className:
+                                'flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300',
+                              children: [
+                                (0, a.jsx)('input', {
+                                  type: 'checkbox',
+                                  checked:
+                                    i.size ===
+                                      ((null == t
+                                        ? void 0
+                                        : t.UserConfig.Users.length) || 0) &&
+                                    ((null == t
+                                      ? void 0
+                                      : t.UserConfig.Users.length) || 0) > 0,
+                                  onChange: () => {
+                                    var e;
+                                    let r =
+                                      null !==
+                                        (e =
+                                          null == t
+                                            ? void 0
+                                            : t.UserConfig.Users) &&
+                                      void 0 !== e
+                                        ? e
+                                        : [];
+                                    i.size === r.length
+                                      ? d(new Set())
+                                      : d(new Set(r.map((e) => e.username)));
+                                  },
+                                  className:
+                                    'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600',
+                                }),
+                                '全选 (',
+                                i.size,
+                                '/',
+                                (null == t
+                                  ? void 0
+                                  : t.UserConfig.Users.length) || 0,
+                                ')',
+                              ],
+                            }),
+                            (0, a.jsxs)('div', {
+                              className: 'flex items-center gap-2',
+                              children: [
+                                (0, a.jsx)('button', {
+                                  onClick: I,
+                                  className:
+                                    'px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white text-sm rounded-lg transition-colors',
+                                  children: '新建分组',
+                                }),
+                                (0, a.jsx)('button', {
+                                  onClick: R,
+                                  className:
+                                    'px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition-colors',
+                                  children: '编辑分组',
+                                }),
+                                (0, a.jsx)('button', {
+                                  onClick: A,
+                                  disabled: 0 === i.size,
+                                  className:
+                                    'px-3 py-1 bg-gray-600 hover:bg-gray-700 disabled:bg-gray-400 text-white text-sm rounded-lg transition-colors',
+                                  children: '移出分组',
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                      }),
+                      m &&
+                        (0, a.jsx)('div', {
+                          className:
+                            'mb-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700',
+                          children: (0, a.jsxs)('div', {
+                            className:
+                              'flex flex-col sm:flex-row gap-4 sm:gap-3',
+                            children: [
+                              (0, a.jsx)('input', {
+                                type: 'text',
+                                placeholder: '用户名',
+                                value: h.username,
+                                onChange: (e) =>
+                                  f((r) => ({
+                                    ...r,
+                                    username: e.target.value,
+                                  })),
+                                className:
+                                  'flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent',
+                              }),
+                              (0, a.jsx)('input', {
+                                type: 'password',
+                                placeholder: '密码',
+                                value: h.password,
+                                onChange: (e) =>
+                                  f((r) => ({
+                                    ...r,
+                                    password: e.target.value,
+                                  })),
+                                className:
+                                  'flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent',
+                              }),
+                              (0, a.jsx)('button', {
+                                onClick: P,
+                                disabled: !h.username || !h.password,
+                                className:
+                                  'w-full sm:w-auto px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white rounded-lg transition-colors',
+                                children: '添加',
+                              }),
+                            ],
+                          }),
+                        }),
+                      p &&
+                        (0, a.jsxs)('div', {
+                          className:
+                            'mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700',
+                          children: [
+                            (0, a.jsx)('h5', {
+                              className:
+                                'text-sm font-medium text-blue-800 dark:text-blue-300 mb-3',
+                              children: '修改用户密码',
+                            }),
+                            (0, a.jsxs)('div', {
+                              className:
+                                'flex flex-col sm:flex-row gap-4 sm:gap-3',
+                              children: [
+                                (0, a.jsx)('input', {
+                                  type: 'text',
+                                  placeholder: '用户名',
+                                  value: k.username,
+                                  disabled: !0,
+                                  className:
+                                    'flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed',
+                                }),
+                                (0, a.jsx)('input', {
+                                  type: 'password',
+                                  placeholder: '新密码',
+                                  value: k.password,
+                                  onChange: (e) =>
+                                    w((r) => ({
+                                      ...r,
+                                      password: e.target.value,
+                                    })),
+                                  className:
+                                    'flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent',
+                                }),
+                                (0, a.jsx)('button', {
+                                  onClick: D,
+                                  disabled: !k.password,
+                                  className:
+                                    'w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white rounded-lg transition-colors',
+                                  children: '修改密码',
+                                }),
+                                (0, a.jsx)('button', {
+                                  onClick: () => {
+                                    b(!1), w({ username: '', password: '' });
+                                  },
+                                  className:
+                                    'w-full sm:w-auto px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors',
+                                  children: '取消',
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                      (0, a.jsx)('div', {
+                        className:
+                          'border border-gray-200 dark:border-gray-700 rounded-lg max-h-[28rem] overflow-y-auto overflow-x-auto',
+                        children: (0, a.jsxs)('table', {
+                          className:
+                            'min-w-full divide-y divide-gray-200 dark:divide-gray-700',
+                          children: [
+                            (0, a.jsx)('thead', {
+                              className: 'bg-gray-50 dark:bg-gray-900',
+                              children: (0, a.jsxs)('tr', {
+                                children: [
+                                  (0, a.jsx)('th', { className: 'w-8' }),
+                                  (0, a.jsx)('th', {
+                                    scope: 'col',
+                                    className:
+                                      'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                    children: '用户名',
+                                  }),
+                                  (0, a.jsx)('th', {
+                                    scope: 'col',
+                                    className:
+                                      'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                    children: '角色',
+                                  }),
+                                  (0, a.jsx)('th', {
+                                    scope: 'col',
+                                    className:
+                                      'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                    children: '分组',
+                                  }),
+                                  (0, a.jsx)('th', {
+                                    scope: 'col',
+                                    className:
+                                      'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                    children: '最后在线',
+                                  }),
+                                  (0, a.jsx)('th', {
+                                    scope: 'col',
+                                    className:
+                                      'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                    children: '状态',
+                                  }),
+                                  (0, a.jsx)('th', {
+                                    scope: 'col',
+                                    className:
+                                      'px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                    children: '操作',
+                                  }),
+                                ],
+                              }),
+                            }),
+                            (() => {
+                              let e = [...t.UserConfig.Users].sort((e, r) => {
+                                let t = (e) =>
+                                  e.username === C
+                                    ? 0
+                                    : 'owner' === e.role
+                                    ? 1
+                                    : 'admin' === e.role
+                                    ? 2
+                                    : 3;
+                                return t(e) - t(r);
+                              });
+                              return (0, a.jsx)('tbody', {
+                                className:
+                                  'divide-y divide-gray-200 dark:divide-gray-700',
+                                children: e.map((e) => {
+                                  let r =
+                                      'owner' !== e.role &&
+                                      ('owner' === s ||
+                                        ('admin' === s &&
+                                          ('user' === e.role ||
+                                            e.username === C))),
+                                    t =
+                                      e.username !== C &&
+                                      ('owner' === s ||
+                                        ('admin' === s && 'user' === e.role)),
+                                    n =
+                                      e.username !== C &&
+                                      ('owner' === s ||
+                                        ('admin' === s && 'user' === e.role));
+                                  return (0, a.jsxs)(
+                                    'tr',
+                                    {
+                                      className:
+                                        'hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors',
+                                      children: [
+                                        (0, a.jsx)('td', {
+                                          className: 'px-2 py-4',
+                                          children: (0, a.jsx)('input', {
+                                            type: 'checkbox',
+                                            checked: i.has(e.username),
+                                            onChange: () => Z(e.username),
+                                            className:
+                                              'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600',
+                                          }),
+                                        }),
+                                        (0, a.jsx)('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100',
+                                          children: e.username,
+                                        }),
+                                        (0, a.jsx)('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap',
+                                          children: (0, a.jsx)('span', {
+                                            className:
+                                              'px-2 py-1 text-xs rounded-full '.concat(
+                                                'owner' === e.role
+                                                  ? 'bg-yellow-100 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-300'
+                                                  : 'admin' === e.role
+                                                  ? 'bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-300'
+                                                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                                              ),
+                                            children:
+                                              'owner' === e.role
+                                                ? '站长'
+                                                : 'admin' === e.role
+                                                ? '管理员'
+                                                : '普通用户',
+                                          }),
+                                        }),
+                                        (0, a.jsx)('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100',
+                                          children: e.group || '-',
+                                        }),
+                                        (0, a.jsx)('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100',
+                                          children: e.lastOnline
+                                            ? new Date(
+                                                e.lastOnline
+                                              ).toLocaleString('zh-CN', {
+                                                hour12: !1,
+                                              })
+                                            : '-',
+                                        }),
+                                        (0, a.jsx)('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap',
+                                          children: (0, a.jsx)('span', {
+                                            className:
+                                              'px-2 py-1 text-xs rounded-full '.concat(
+                                                e.banned
+                                                  ? 'bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-300'
+                                                  : 'bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-300'
+                                              ),
+                                            children: e.banned
+                                              ? '已封禁'
+                                              : '正常',
+                                          }),
+                                        }),
+                                        (0, a.jsxs)('td', {
+                                          className:
+                                            'px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2',
+                                          children: [
+                                            r &&
+                                              (0, a.jsx)('button', {
+                                                onClick: () => O(e.username),
+                                                className:
+                                                  'inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 dark:bg-blue-900/40 dark:hover:bg-blue-900/60 dark:text-blue-200 transition-colors',
+                                                children: '修改密码',
+                                              }),
+                                            n &&
+                                              (0, a.jsxs)(a.Fragment, {
+                                                children: [
+                                                  'user' === e.role &&
+                                                    (0, a.jsx)('button', {
+                                                      onClick: () =>
+                                                        B(e.username),
+                                                      className:
+                                                        'inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 hover:bg-purple-200 dark:bg-purple-900/40 dark:hover:bg-purple-900/60 dark:text-purple-200 transition-colors',
+                                                      children: '设为管理',
+                                                    }),
+                                                  'admin' === e.role &&
+                                                    (0, a.jsx)('button', {
+                                                      onClick: () =>
+                                                        _(e.username),
+                                                      className:
+                                                        'inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:hover:bg-gray-700/60 dark:text-gray-200 transition-colors',
+                                                      children: '取消管理',
+                                                    }),
+                                                  'owner' !== e.role &&
+                                                    (e.banned
+                                                      ? (0, a.jsx)('button', {
+                                                          onClick: () =>
+                                                            E(e.username),
+                                                          className:
+                                                            'inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-green-100 text-green-800 hover:bg-green-200 dark:bg-green-900/40 dark:hover:bg-green-900/60 dark:text-green-300 transition-colors',
+                                                          children: '解封',
+                                                        })
+                                                      : (0, a.jsx)('button', {
+                                                          onClick: () =>
+                                                            T(e.username),
+                                                          className:
+                                                            'inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-red-100 text-red-800 hover:bg-red-200 dark:bg-red-900/40 dark:hover:bg-red-900/60 dark:text-red-300 transition-colors',
+                                                          children: '封禁',
+                                                        })),
+                                                ],
+                                              }),
+                                            t &&
+                                              (0, a.jsx)('button', {
+                                                onClick: () => z(e.username),
+                                                className:
+                                                  'inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-red-600 text-white hover:bg-red-700 dark:bg-red-600 dark:hover:bg-red-700 transition-colors',
+                                                children: '删除用户',
+                                              }),
+                                          ],
+                                        }),
+                                      ],
+                                    },
+                                    e.username
+                                  );
+                                }),
+                              });
+                            })(),
+                          ],
+                        }),
+                      }),
+                    ],
+                  }),
+                ],
+              })
+            : (0, a.jsx)('div', {
+                className: 'text-center text-gray-500 dark:text-gray-400',
+                children: '加载中...',
+              });
+        },
+        Q = (e) => {
+          let { config: r, refreshConfig: t } = e,
+            [i, g] = (0, j.useState)([]),
+            [u, m] = (0, j.useState)(!1),
+            [y, p] = (0, j.useState)(!1),
+            [b, h] = (0, j.useState)({
+              name: '',
+              key: '',
+              api: '',
+              detail: '',
+              disabled: !1,
+              from: 'config',
+            }),
+            [f, w] = (0, j.useState)(new Set()),
+            N = (0, s.Dy)(
+              (0, s.VT)(s.we, { activationConstraint: { distance: 5 } }),
+              (0, s.VT)(s.LO, {
+                activationConstraint: { delay: 150, tolerance: 5 },
+              })
+            );
+          (0, j.useEffect)(() => {
+            (null == r ? void 0 : r.SourceConfig) && (g(r.SourceConfig), p(!1));
+          }, [r]);
+          let C = async (e) => {
+              try {
+                let r = await fetch('/api/admin/source', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ ...e }),
+                });
+                if (!r.ok) {
+                  let e = await r.json().catch(() => ({}));
+                  throw Error(e.error || '操作失败: '.concat(r.status));
+                }
+                await t();
+              } catch (e) {
+                throw (Y(e instanceof Error ? e.message : '操作失败'), e);
+              }
+            },
+            S = (e) => {
+              let r = i.find((r) => r.key === e);
+              if (!r) return;
+              let t = r.disabled ? 'enable' : 'disable';
+              C({ action: t, key: e }).catch(() => {
+                console.error('操作失败', t, e);
+              });
+            },
+            T = (e) => {
+              C({ action: 'delete', key: e }).catch(() => {
+                console.error('操作失败', 'delete', e);
+              });
+            },
+            E = (e) => {
+              let r = new Set(f);
+              r.has(e) ? r.delete(e) : r.add(e), w(r);
+            },
+            B = async () => {
+              if (0 === f.size) return;
+              let { isConfirmed: e } = await v().fire({
+                title: '确认批量禁用',
+                text: '确定要禁用选中的 '.concat(f.size, ' 个视频源吗？'),
+                icon: 'warning',
+                showCancelButton: !0,
+                confirmButtonText: '确认禁用',
+                cancelButtonText: '取消',
+                confirmButtonColor: '#dc2626',
+              });
+              if (e)
+                try {
+                  await C({ action: 'batchDisable', keys: Array.from(f) });
+                } catch (e) {
+                  console.error('批量禁用失败', e);
+                }
+            },
+            _ = async () => {
+              if (0 === f.size) return;
+              let { isConfirmed: e } = await v().fire({
+                title: '确认批量启用',
+                text: '确定要启用选中的 '.concat(f.size, ' 个视频源吗？'),
+                icon: 'warning',
+                showCancelButton: !0,
+                confirmButtonText: '确认启用',
+                cancelButtonText: '取消',
+                confirmButtonColor: '#16a34a',
+              });
+              if (e)
+                try {
+                  await C({ action: 'batchEnable', keys: Array.from(f) });
+                } catch (e) {
+                  console.error('批量启用失败', e);
+                }
+            },
+            P = async () => {
+              if (0 === f.size) return;
+              let e = i.filter((e) => f.has(e.key) && 'config' !== e.from),
+                r = f.size - e.length,
+                t = '确定要删除选中的 '.concat(e.length, ' 个自定义视频源吗？');
+              r > 0 &&
+                (t += '\n注意：有 '.concat(
+                  r,
+                  ' 个系统默认源无法删除，将被跳过。'
+                ));
+              let { isConfirmed: a } = await v().fire({
+                title: '确认批量删除',
+                text: t,
+                icon: 'warning',
+                showCancelButton: !0,
+                confirmButtonText: '确认删除',
+                cancelButtonText: '取消',
+                confirmButtonColor: '#dc2626',
+              });
+              if (a)
+                try {
+                  await C({ action: 'batchDelete', keys: e.map((e) => e.key) }),
+                    w(new Set());
+                } catch (e) {
+                  console.error('批量删除失败', e);
+                }
+            },
+            D = (e) => {
+              let { source: r } = e,
+                {
+                  attributes: t,
+                  listeners: s,
+                  setNodeRef: n,
+                  transform: i,
+                  transition: d,
+                } = (0, l.nB)({ id: r.key }),
+                c = { transform: o.ux.Transform.toString(i), transition: d };
+              return (0, a.jsxs)('tr', {
+                ref: n,
+                style: c,
+                className:
+                  'hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors select-none',
+                children: [
+                  (0, a.jsx)('td', {
+                    className: 'px-2 py-4 cursor-grab text-gray-400',
+                    style: { touchAction: 'none' },
+                    ...t,
+                    ...s,
+                    children: (0, a.jsx)(k.Z, { size: 16 }),
+                  }),
+                  (0, a.jsx)('td', {
+                    className: 'px-2 py-4',
+                    children: (0, a.jsx)('input', {
+                      type: 'checkbox',
+                      checked: f.has(r.key),
+                      onChange: () => E(r.key),
+                      className:
+                        'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600',
+                    }),
+                  }),
+                  (0, a.jsx)('td', {
+                    className:
+                      'px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100',
+                    children: r.name,
+                  }),
+                  (0, a.jsx)('td', {
+                    className:
+                      'px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100',
+                    children: r.key,
+                  }),
+                  (0, a.jsx)('td', {
+                    className:
+                      'px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100 max-w-[12rem] truncate',
+                    title: r.api,
+                    children: r.api,
+                  }),
+                  (0, a.jsx)('td', {
+                    className:
+                      'px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100 max-w-[8rem] truncate',
+                    title: r.detail || '-',
+                    children: r.detail || '-',
+                  }),
+                  (0, a.jsx)('td', {
+                    className: 'px-6 py-4 whitespace-nowrap max-w-[1rem]',
+                    children: (0, a.jsx)('span', {
+                      className: 'px-2 py-1 text-xs rounded-full '.concat(
+                        r.disabled
+                          ? 'bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-300'
+                          : 'bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-300'
+                      ),
+                      children: r.disabled ? '已禁用' : '启用中',
+                    }),
+                  }),
+                  (0, a.jsxs)('td', {
+                    className:
+                      'px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2',
+                    children: [
+                      (0, a.jsx)('button', {
+                        onClick: () => S(r.key),
+                        className:
+                          'inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium '.concat(
+                            r.disabled
+                              ? 'bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-900/60'
+                              : 'bg-red-100 dark:bg-red-900/40 text-red-800 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/60',
+                            ' transition-colors'
+                          ),
+                        children: r.disabled ? '启用' : '禁用',
+                      }),
+                      'config' !== r.from &&
+                        (0, a.jsx)('button', {
+                          onClick: () => T(r.key),
+                          className:
+                            'inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:hover:bg-gray-700/60 dark:text-gray-200 transition-colors',
+                          children: '删除',
+                        }),
+                    ],
+                  }),
+                ],
+              });
+            };
+          return r
+            ? (0, a.jsxs)('div', {
+                className: 'space-y-6',
+                children: [
+                  (0, a.jsxs)('div', {
+                    className: 'flex items-center justify-between',
+                    children: [
+                      (0, a.jsx)('h4', {
+                        className:
+                          'text-sm font-medium text-gray-700 dark:text-gray-300',
+                        children: '视频源列表',
+                      }),
+                      (0, a.jsx)('button', {
+                        onClick: () => m(!u),
+                        className:
+                          'px-3 py-1 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg transition-colors',
+                        children: u ? '取消' : '添加视频源',
+                      }),
+                    ],
+                  }),
+                  i.length > 0 &&
+                    (0, a.jsx)('div', {
+                      className:
+                        'p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700 mb-4',
+                      children: (0, a.jsxs)('div', {
+                        className:
+                          'flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between',
+                        children: [
+                          (0, a.jsx)('div', {
+                            className: 'flex items-center gap-2',
+                            children: (0, a.jsxs)('label', {
+                              className:
+                                'flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300',
+                              children: [
+                                (0, a.jsx)('input', {
+                                  type: 'checkbox',
+                                  checked: f.size === i.length && i.length > 0,
+                                  onChange: () => {
+                                    f.size === i.length
+                                      ? w(new Set())
+                                      : w(new Set(i.map((e) => e.key)));
+                                  },
+                                  className:
+                                    'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600',
+                                }),
+                                '全选 (',
+                                f.size,
+                                '/',
+                                i.length,
+                                ')',
+                              ],
+                            }),
+                          }),
+                          (0, a.jsxs)('div', {
+                            className: 'flex items-center gap-2',
+                            children: [
+                              (0, a.jsxs)('button', {
+                                onClick: _,
+                                disabled: 0 === f.size,
+                                className:
+                                  'px-3 py-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white text-sm rounded-lg transition-colors flex items-center gap-1',
+                                children: [
+                                  (0, a.jsx)(c.Z, { size: 14 }),
+                                  '批量启用',
+                                ],
+                              }),
+                              (0, a.jsxs)('button', {
+                                onClick: B,
+                                disabled: 0 === f.size,
+                                className:
+                                  'px-3 py-1 bg-red-600 hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white text-sm rounded-lg transition-colors flex items-center gap-1',
+                                children: [
+                                  (0, a.jsx)(d.Z, { size: 14 }),
+                                  '批量禁用',
+                                ],
+                              }),
+                              (0, a.jsxs)('button', {
+                                onClick: P,
+                                disabled: 0 === f.size,
+                                className:
+                                  'px-3 py-1 bg-gray-600 hover:bg-gray-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white text-sm rounded-lg transition-colors flex items-center gap-1',
+                                children: [
+                                  (0, a.jsx)(x.Z, { size: 14 }),
+                                  '批量删除',
+                                ],
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    }),
+                  u &&
+                    (0, a.jsxs)('div', {
+                      className:
+                        'p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 space-y-4',
+                      children: [
+                        (0, a.jsxs)('div', {
+                          className: 'grid grid-cols-1 sm:grid-cols-2 gap-4',
+                          children: [
+                            (0, a.jsx)('input', {
+                              type: 'text',
+                              placeholder: '名称',
+                              value: b.name,
+                              onChange: (e) =>
+                                h((r) => ({ ...r, name: e.target.value })),
+                              className:
+                                'px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                            }),
+                            (0, a.jsx)('input', {
+                              type: 'text',
+                              placeholder: 'Key',
+                              value: b.key,
+                              onChange: (e) =>
+                                h((r) => ({ ...r, key: e.target.value })),
+                              className:
+                                'px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                            }),
+                            (0, a.jsx)('input', {
+                              type: 'text',
+                              placeholder: 'API 地址',
+                              value: b.api,
+                              onChange: (e) =>
+                                h((r) => ({ ...r, api: e.target.value })),
+                              className:
+                                'px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                            }),
+                            (0, a.jsx)('input', {
+                              type: 'text',
+                              placeholder: 'Detail 地址（选填）',
+                              value: b.detail,
+                              onChange: (e) =>
+                                h((r) => ({ ...r, detail: e.target.value })),
+                              className:
+                                'px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                            }),
+                          ],
+                        }),
+                        (0, a.jsx)('div', {
+                          className: 'flex justify-end',
+                          children: (0, a.jsx)('button', {
+                            onClick: () => {
+                              b.name &&
+                                b.key &&
+                                b.api &&
+                                C({
+                                  action: 'add',
+                                  key: b.key,
+                                  name: b.name,
+                                  api: b.api,
+                                  detail: b.detail,
+                                })
+                                  .then(() => {
+                                    h({
+                                      name: '',
+                                      key: '',
+                                      api: '',
+                                      detail: '',
+                                      disabled: !1,
+                                      from: 'custom',
+                                    }),
+                                      m(!1);
+                                  })
+                                  .catch(() => {
+                                    console.error('操作失败', 'add', b);
+                                  });
+                            },
+                            disabled: !b.name || !b.key || !b.api,
+                            className:
+                              'w-full sm:w-auto px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white rounded-lg transition-colors',
+                            children: '添加',
+                          }),
+                        }),
+                      ],
+                    }),
+                  (0, a.jsx)('div', {
+                    className:
+                      'border border-gray-200 dark:border-gray-700 rounded-lg max-h-[28rem] overflow-y-auto overflow-x-auto',
+                    children: (0, a.jsx)(s.LB, {
+                      sensors: N,
+                      collisionDetection: s.pE,
+                      onDragEnd: (e) => {
+                        let { active: r, over: t } = e;
+                        if (!t || r.id === t.id) return;
+                        let a = i.findIndex((e) => e.key === r.id),
+                          s = i.findIndex((e) => e.key === t.id);
+                        g((e) => (0, l.Rp)(e, a, s)), p(!0);
+                      },
+                      autoScroll: !1,
+                      modifiers: [n.DL, n.F4],
+                      children: (0, a.jsxs)('table', {
+                        className:
+                          'min-w-full divide-y divide-gray-200 dark:divide-gray-700',
+                        children: [
+                          (0, a.jsx)('thead', {
+                            className: 'bg-gray-50 dark:bg-gray-900',
+                            children: (0, a.jsxs)('tr', {
+                              children: [
+                                (0, a.jsx)('th', { className: 'w-8' }),
+                                (0, a.jsx)('th', { className: 'w-8' }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: '名称',
+                                }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: 'Key',
+                                }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: 'API 地址',
+                                }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: 'Detail 地址',
+                                }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: '状态',
+                                }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: '操作',
+                                }),
+                              ],
+                            }),
+                          }),
+                          (0, a.jsx)(l.Fo, {
+                            items: i.map((e) => e.key),
+                            strategy: l.qw,
+                            children: (0, a.jsx)('tbody', {
+                              className:
+                                'divide-y divide-gray-200 dark:divide-gray-700',
+                              children: i.map((e) =>
+                                (0, a.jsx)(D, { source: e }, e.key)
+                              ),
+                            }),
+                          }),
+                        ],
+                      }),
+                    }),
+                  }),
+                  y &&
+                    (0, a.jsx)('div', {
+                      className: 'flex justify-end',
+                      children: (0, a.jsx)('button', {
+                        onClick: () => {
+                          let e = i.map((e) => e.key);
+                          C({ action: 'sort', order: e })
+                            .then(() => {
+                              p(!1);
+                            })
+                            .catch(() => {
+                              console.error('操作失败', 'sort', e);
+                            });
+                        },
+                        className:
+                          'px-3 py-1.5 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors',
+                        children: '保存排序',
+                      }),
+                    }),
+                ],
+              })
+            : (0, a.jsx)('div', {
+                className: 'text-center text-gray-500 dark:text-gray-400',
+                children: '加载中...',
+              });
+        },
+        $ = (e) => {
+          let { config: r, refreshConfig: t } = e,
+            [i, d] = (0, j.useState)([]),
+            [c, x] = (0, j.useState)(!1),
+            [g, u] = (0, j.useState)(!1),
+            [m, y] = (0, j.useState)({
+              name: '',
+              type: 'movie',
+              query: '',
+              disabled: !1,
+              from: 'config',
+            }),
+            p = (0, s.Dy)(
+              (0, s.VT)(s.we, { activationConstraint: { distance: 5 } }),
+              (0, s.VT)(s.LO, {
+                activationConstraint: { delay: 150, tolerance: 5 },
+              })
+            );
+          (0, j.useEffect)(() => {
+            (null == r ? void 0 : r.CustomCategories) &&
+              (d(r.CustomCategories), u(!1));
+          }, [r]);
+          let b = async (e) => {
+              try {
+                let r = await fetch('/api/admin/category', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ ...e }),
+                });
+                if (!r.ok) {
+                  let e = await r.json().catch(() => ({}));
+                  throw Error(e.error || '操作失败: '.concat(r.status));
+                }
+                await t();
+              } catch (e) {
+                throw (Y(e instanceof Error ? e.message : '操作失败'), e);
+              }
+            },
+            h = (e, r) => {
+              let t = i.find((t) => t.query === e && t.type === r);
+              if (!t) return;
+              let a = t.disabled ? 'enable' : 'disable';
+              b({ action: a, query: e, type: r }).catch(() => {
+                console.error('操作失败', a, e, r);
+              });
+            },
+            f = (e, r) => {
+              b({ action: 'delete', query: e, type: r }).catch(() => {
+                console.error('操作失败', 'delete', e, r);
+              });
+            },
+            w = (e) => {
+              let { category: r } = e,
+                {
+                  attributes: t,
+                  listeners: s,
+                  setNodeRef: n,
+                  transform: i,
+                  transition: d,
+                } = (0, l.nB)({ id: ''.concat(r.query, ':').concat(r.type) }),
+                c = { transform: o.ux.Transform.toString(i), transition: d };
+              return (0, a.jsxs)('tr', {
+                ref: n,
+                style: c,
+                className:
+                  'hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors select-none',
+                children: [
+                  (0, a.jsx)('td', {
+                    className: 'px-2 py-4 cursor-grab text-gray-400',
+                    style: { touchAction: 'none' },
+                    ...t,
+                    ...s,
+                    children: (0, a.jsx)(k.Z, { size: 16 }),
+                  }),
+                  (0, a.jsx)('td', {
+                    className:
+                      'px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100',
+                    children: r.name || '-',
+                  }),
+                  (0, a.jsx)('td', {
+                    className:
+                      'px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100',
+                    children: (0, a.jsx)('span', {
+                      className: 'px-2 py-1 text-xs rounded-full '.concat(
+                        'movie' === r.type
+                          ? 'bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-300'
+                          : 'bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-300'
+                      ),
+                      children: 'movie' === r.type ? '电影' : '电视剧',
+                    }),
+                  }),
+                  (0, a.jsx)('td', {
+                    className:
+                      'px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100 max-w-[12rem] truncate',
+                    title: r.query,
+                    children: r.query,
+                  }),
+                  (0, a.jsx)('td', {
+                    className: 'px-6 py-4 whitespace-nowrap max-w-[1rem]',
+                    children: (0, a.jsx)('span', {
+                      className: 'px-2 py-1 text-xs rounded-full '.concat(
+                        r.disabled
+                          ? 'bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-300'
+                          : 'bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-300'
+                      ),
+                      children: r.disabled ? '已禁用' : '启用中',
+                    }),
+                  }),
+                  (0, a.jsxs)('td', {
+                    className:
+                      'px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2',
+                    children: [
+                      (0, a.jsx)('button', {
+                        onClick: () => h(r.query, r.type),
+                        className:
+                          'inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium '.concat(
+                            r.disabled
+                              ? 'bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-900/60'
+                              : 'bg-red-100 dark:bg-red-900/40 text-red-800 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/60',
+                            ' transition-colors'
+                          ),
+                        children: r.disabled ? '启用' : '禁用',
+                      }),
+                      'config' !== r.from &&
+                        (0, a.jsx)('button', {
+                          onClick: () => f(r.query, r.type),
+                          className:
+                            'inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:hover:bg-gray-700/60 dark:text-gray-200 transition-colors',
+                          children: '删除',
+                        }),
+                    ],
+                  }),
+                ],
+              });
+            };
+          return r
+            ? (0, a.jsxs)('div', {
+                className: 'space-y-6',
+                children: [
+                  (0, a.jsxs)('div', {
+                    className: 'flex items-center justify-between',
+                    children: [
+                      (0, a.jsxs)('h4', {
+                        className:
+                          'text-sm font-medium text-gray-700 dark:text-gray-300',
+                        children: ['自定义分类列表', !1],
+                      }),
+                      (0, a.jsx)('button', {
+                        onClick: () => x(!c),
+                        className:
+                          'px-3 py-1 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg transition-colors',
+                        children: c ? '取消' : '添加分类',
+                      }),
+                    ],
+                  }),
+                  c &&
+                    (0, a.jsxs)('div', {
+                      className:
+                        'p-4 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 space-y-4',
+                      children: [
+                        (0, a.jsxs)('div', {
+                          className: 'grid grid-cols-1 sm:grid-cols-2 gap-4',
+                          children: [
+                            (0, a.jsx)('input', {
+                              type: 'text',
+                              placeholder: '分类名称',
+                              value: m.name,
+                              onChange: (e) =>
+                                y((r) => ({ ...r, name: e.target.value })),
+                              className:
+                                'px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                            }),
+                            (0, a.jsxs)('select', {
+                              value: m.type,
+                              onChange: (e) =>
+                                y((r) => ({ ...r, type: e.target.value })),
+                              className:
+                                'px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                              children: [
+                                (0, a.jsx)('option', {
+                                  value: 'movie',
+                                  children: '电影',
+                                }),
+                                (0, a.jsx)('option', {
+                                  value: 'tv',
+                                  children: '电视剧',
+                                }),
+                              ],
+                            }),
+                            (0, a.jsx)('input', {
+                              type: 'text',
+                              placeholder: '搜索关键词',
+                              value: m.query,
+                              onChange: (e) =>
+                                y((r) => ({ ...r, query: e.target.value })),
+                              className:
+                                'px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                            }),
+                          ],
+                        }),
+                        (0, a.jsx)('div', {
+                          className: 'flex justify-end',
+                          children: (0, a.jsx)('button', {
+                            onClick: () => {
+                              m.name &&
+                                m.query &&
+                                b({
+                                  action: 'add',
+                                  name: m.name,
+                                  type: m.type,
+                                  query: m.query,
+                                })
+                                  .then(() => {
+                                    y({
+                                      name: '',
+                                      type: 'movie',
+                                      query: '',
+                                      disabled: !1,
+                                      from: 'custom',
+                                    }),
+                                      x(!1);
+                                  })
+                                  .catch(() => {
+                                    console.error('操作失败', 'add', m);
+                                  });
+                            },
+                            disabled: !m.name || !m.query,
+                            className:
+                              'w-full sm:w-auto px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white rounded-lg transition-colors',
+                            children: '添加',
+                          }),
+                        }),
+                      ],
+                    }),
+                  (0, a.jsx)('div', {
+                    className:
+                      'border border-gray-200 dark:border-gray-700 rounded-lg max-h-[28rem] overflow-y-auto overflow-x-auto',
+                    children: (0, a.jsx)(s.LB, {
+                      sensors: p,
+                      collisionDetection: s.pE,
+                      onDragEnd: (e) => {
+                        let { active: r, over: t } = e;
+                        if (!t || r.id === t.id) return;
+                        let a = i.findIndex(
+                            (e) =>
+                              ''.concat(e.query, ':').concat(e.type) === r.id
+                          ),
+                          s = i.findIndex(
+                            (e) =>
+                              ''.concat(e.query, ':').concat(e.type) === t.id
+                          );
+                        d((e) => (0, l.Rp)(e, a, s)), u(!0);
+                      },
+                      autoScroll: !1,
+                      modifiers: [n.DL, n.F4],
+                      children: (0, a.jsxs)('table', {
+                        className:
+                          'min-w-full divide-y divide-gray-200 dark:divide-gray-700',
+                        children: [
+                          (0, a.jsx)('thead', {
+                            className: 'bg-gray-50 dark:bg-gray-900',
+                            children: (0, a.jsxs)('tr', {
+                              children: [
+                                (0, a.jsx)('th', { className: 'w-8' }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: '分类名称',
+                                }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: '类型',
+                                }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: '搜索关键词',
+                                }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: '状态',
+                                }),
+                                (0, a.jsx)('th', {
+                                  className:
+                                    'px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                  children: '操作',
+                                }),
+                              ],
+                            }),
+                          }),
+                          (0, a.jsx)(l.Fo, {
+                            items: i.map((e) =>
+                              ''.concat(e.query, ':').concat(e.type)
+                            ),
+                            strategy: l.qw,
+                            children: (0, a.jsx)('tbody', {
+                              className:
+                                'divide-y divide-gray-200 dark:divide-gray-700',
+                              children: i.map((e) =>
+                                (0, a.jsx)(
+                                  w,
+                                  { category: e },
+                                  ''.concat(e.query, ':').concat(e.type)
+                                )
+                              ),
+                            }),
+                          }),
+                        ],
+                      }),
+                    }),
+                  }),
+                  g &&
+                    (0, a.jsx)('div', {
+                      className: 'flex justify-end',
+                      children: (0, a.jsx)('button', {
+                        onClick: () => {
+                          let e = i.map((e) =>
+                            ''.concat(e.query, ':').concat(e.type)
+                          );
+                          b({ action: 'sort', order: e })
+                            .then(() => {
+                              u(!1);
+                            })
+                            .catch(() => {
+                              console.error('操作失败', 'sort', e);
+                            });
+                        },
+                        className:
+                          'px-3 py-1.5 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors',
+                        children: '保存排序',
+                      }),
+                    }),
+                ],
+              })
+            : (0, a.jsx)('div', {
+                className: 'text-center text-gray-500 dark:text-gray-400',
+                children: '加载中...',
+              });
+        },
+        ee = (e) => {
+          let { config: r, refreshConfig: t } = e,
+            [s, n] = (0, j.useState)(''),
+            [l, o] = (0, j.useState)(!1);
+          (0, j.useEffect)(() => {
+            if (null == r ? void 0 : r.ConfigFile)
+              try {
+                let e = JSON.parse(r.ConfigFile);
+                n(JSON.stringify(e, null, 2));
+              } catch (e) {
+                n(r.ConfigFile);
+              }
+          }, [r]);
+          let i = async () => {
+            try {
+              let e;
+              o(!0);
+              try {
+                let r = JSON.parse(s);
+                e = JSON.stringify(r, null, 2);
+              } catch (e) {
+                throw Error('配置文件格式错误，请检查 JSON 语法');
+              }
+              let r = await fetch('/api/admin/config_file', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ configFile: e }),
+              });
+              if (!r.ok) {
+                let e = await r.json().catch(() => ({}));
+                throw Error(e.error || '保存失败: '.concat(r.status));
+              }
+              H('配置文件保存成功'), await t();
+            } catch (e) {
+              Y(e instanceof Error ? e.message : '保存失败');
+            } finally {
+              o(!1);
+            }
+          };
+          return r
+            ? (0, a.jsx)('div', {
+                className: 'space-y-4',
+                children: (0, a.jsxs)('div', {
+                  className: 'space-y-4',
+                  children: [
+                    (0, a.jsx)('div', {
+                      className: 'relative',
+                      children: (0, a.jsx)('textarea', {
+                        value: s,
+                        onChange: (e) => n(e.target.value),
+                        rows: 20,
+                        placeholder: '请输入配置文件内容（JSON 格式）...',
+                        className:
+                          'w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-mono text-sm leading-relaxed resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-400 dark:hover:border-gray-500',
+                        style: {
+                          fontFamily:
+                            'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace',
+                        },
+                        spellCheck: !1,
+                        'data-gramm': !1,
+                      }),
+                    }),
+                    (0, a.jsxs)('div', {
+                      className: 'flex items-center justify-between',
+                      children: [
+                        (0, a.jsx)('div', {
+                          className: 'text-xs text-gray-500 dark:text-gray-400',
+                          children:
+                            '支持 JSON 格式，用于配置视频源和自定义分类',
+                        }),
+                        (0, a.jsx)('button', {
+                          onClick: i,
+                          disabled: l,
+                          className:
+                            'px-4 py-2 rounded-lg transition-colors '.concat(
+                              l
+                                ? 'bg-gray-400 cursor-not-allowed text-white'
+                                : 'bg-green-600 hover:bg-green-700 text-white'
+                            ),
+                          children: l ? '保存中…' : '保存配置文件',
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              })
+            : (0, a.jsx)('div', {
+                className: 'text-center text-gray-500 dark:text-gray-400',
+                children: '加载中...',
+              });
+        },
+        er = (e) => {
+          let { config: r, refreshConfig: t } = e,
+            [s, n] = (0, j.useState)(''),
+            [l, o] = (0, j.useState)(!1),
+            [i, d] = (0, j.useState)(86400),
+            [c, x] = (0, j.useState)('merge'),
+            [g, u] = (0, j.useState)(null),
+            [m, y] = (0, j.useState)(!1),
+            [p, b] = (0, j.useState)(!1);
+          (0, j.useEffect)(() => {
+            if (null == r ? void 0 : r.SubscriptionConfig) {
+              let e = r.SubscriptionConfig;
+              n(e.subscriptionUrl || ''),
+                o(e.autoUpdate || !1),
+                d(e.updateInterval || 86400),
+                x(e.importMode || 'merge'),
+                u(e.lastUpdated || null);
+            }
+          }, [r]);
+          let h = async () => {
+              try {
+                y(!0);
+                let e = await fetch('/api/admin/subscription', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    action: 'update',
+                    subscriptionUrl: s,
+                    autoUpdate: l,
+                    updateInterval: i,
+                    importMode: c,
+                  }),
+                });
+                if (!e.ok) {
+                  let r = await e.json().catch(() => ({}));
+                  throw Error(r.error || '保存失败');
+                }
+                H('订阅配置已保存'), await t();
+              } catch (e) {
+                Y(e instanceof Error ? e.message : '保存失败');
+              } finally {
+                y(!1);
+              }
+            },
+            f = async () => {
+              try {
+                b(!0);
+                let e = await fetch('/api/admin/subscription', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    action: 'import',
+                    subscriptionUrl: s || void 0,
+                    importMode: c,
+                  }),
+                });
+                if (!e.ok) {
+                  let r = await e.json().catch(() => ({}));
+                  throw Error(r.error || '导入失败');
+                }
+                H('订阅数据导入成功'), await t();
+              } catch (e) {
+                Y(e instanceof Error ? e.message : '导入失败');
+              } finally {
+                b(!1);
+              }
+            };
+          return (0, a.jsxs)('div', {
+            className: 'space-y-6',
+            children: [
+              (0, a.jsxs)('div', {
+                className: 'space-y-4',
+                children: [
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsx)('label', {
+                        className:
+                          'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1',
+                        children: '订阅地址 URL',
+                      }),
+                      (0, a.jsx)('input', {
+                        type: 'text',
+                        value: s,
+                        onChange: (e) => n(e.target.value),
+                        placeholder: 'https://example.com/subscription.json',
+                        className:
+                          'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                      }),
+                      (0, a.jsx)('p', {
+                        className:
+                          'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                        children:
+                          '订阅地址返回的数据应为 JSON 格式，支持 Base58 编码。',
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsxs)('div', {
+                        className: 'flex items-center justify-between',
+                        children: [
+                          (0, a.jsx)('label', {
+                            className:
+                              'text-sm font-medium text-gray-700 dark:text-gray-300',
+                            children: '自动更新',
+                          }),
+                          (0, a.jsx)('button', {
+                            onClick: () => o(!l),
+                            className:
+                              'relative inline-flex h-6 w-11 items-center rounded-full '.concat(
+                                l
+                                  ? 'bg-blue-600'
+                                  : 'bg-gray-300 dark:bg-gray-600'
+                              ),
+                            children: (0, a.jsx)('span', {
+                              className:
+                                'inline-block h-4 w-4 transform rounded-full bg-white transition '.concat(
+                                  l ? 'translate-x-6' : 'translate-x-1'
+                                ),
+                            }),
+                          }),
+                        ],
+                      }),
+                      (0, a.jsx)('p', {
+                        className:
+                          'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                        children:
+                          '用户/管理员登录时检查更新，若超过更新周期则自动导入。',
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsx)('label', {
+                        className:
+                          'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1',
+                        children: '更新周期（秒）',
+                      }),
+                      (0, a.jsx)('input', {
+                        type: 'number',
+                        value: i,
+                        onChange: (e) => d(Number(e.target.value)),
+                        className:
+                          'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                        min: '60',
+                      }),
+                      (0, a.jsx)('p', {
+                        className:
+                          'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                        children: '例如：86400 秒 = 1 天',
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsx)('label', {
+                        className:
+                          'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1',
+                        children: '导入模式',
+                      }),
+                      (0, a.jsxs)('div', {
+                        className: 'flex space-x-4',
+                        children: [
+                          (0, a.jsxs)('label', {
+                            className: 'inline-flex items-center',
+                            children: [
+                              (0, a.jsx)('input', {
+                                type: 'radio',
+                                checked: 'merge' === c,
+                                onChange: () => x('merge'),
+                                className: 'form-radio',
+                              }),
+                              (0, a.jsx)('span', {
+                                className: 'ml-2',
+                                children: '合并（根据key值合并）',
+                              }),
+                            ],
+                          }),
+                          (0, a.jsxs)('label', {
+                            className: 'inline-flex items-center',
+                            children: [
+                              (0, a.jsx)('input', {
+                                type: 'radio',
+                                checked: 'overwrite' === c,
+                                onChange: () => x('overwrite'),
+                                className: 'form-radio',
+                              }),
+                              (0, a.jsx)('span', {
+                                className: 'ml-2',
+                                children: '覆盖（清空现有源）',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  g &&
+                    (0, a.jsxs)('div', {
+                      className: 'text-sm text-gray-600 dark:text-gray-400',
+                      children: [
+                        '最后更新时间：',
+                        new Date(1e3 * g).toLocaleString('zh-CN'),
+                      ],
+                    }),
+                ],
+              }),
+              (0, a.jsxs)('div', {
+                className: 'flex space-x-4',
+                children: [
+                  (0, a.jsx)('button', {
+                    onClick: h,
+                    disabled: m,
+                    className: 'px-4 py-2 rounded-lg transition-colors '.concat(
+                      m
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : 'bg-blue-600 hover:bg-blue-700',
+                      ' text-white'
+                    ),
+                    children: m ? '保存中...' : '保存配置',
+                  }),
+                  (0, a.jsx)('button', {
+                    onClick: f,
+                    disabled: p || !s,
+                    className: 'px-4 py-2 rounded-lg transition-colors '.concat(
+                      p || !s
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : 'bg-green-600 hover:bg-green-700',
+                      ' text-white'
+                    ),
+                    children: p ? '导入中...' : '立即导入',
+                  }),
+                ],
+              }),
+            ],
+          });
+        },
+        et = (e) => {
+          var r, t, s;
+          let { config: n } = e,
+            [l, o] = (0, j.useState)({
+              SiteName: '',
+              Announcement: '',
+              SearchDownstreamMaxPage: 1,
+              SiteInterfaceCacheTime: 7200,
+              DoubanProxyType: 'direct',
+              DoubanProxy: '',
+              DoubanImageProxyType: 'direct',
+              DoubanImageProxy: '',
+              DisableYellowFilter: !1,
+              TVBoxEnabled: !1,
+              TVBoxPassword: '',
+              DanmakuApiBaseUrl: '',
+            }),
+            [i, x] = (0, j.useState)(!1),
+            u = () => {
+              let e =
+                'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789';
+              return Array.from({ length: 16 })
+                .map(() => e[Math.floor(Math.random() * e.length)])
+                .join('');
+            },
+            [m, y] = (0, j.useState)(!1),
+            [p, b] = (0, j.useState)(!1),
+            h = [
+              { value: 'direct', label: '直连（服务器直接请求豆瓣）' },
+              { value: 'cors-proxy-zwei', label: 'Cors Proxy By Zwei' },
+              {
+                value: 'cmliussss-cdn-tencent',
+                label: '豆瓣 CDN By CMLiussss（腾讯云）',
+              },
+              {
+                value: 'cmliussss-cdn-ali',
+                label: '豆瓣 CDN By CMLiussss（阿里云）',
+              },
+              { value: 'custom', label: '自定义代理' },
+            ],
+            f = [
+              { value: 'direct', label: '直连（浏览器直接请求豆瓣）' },
+              { value: 'server', label: '服务器代理（由服务器代理请求豆瓣）' },
+              { value: 'img3', label: '豆瓣精品 CDN（阿里云）' },
+              {
+                value: 'cmliussss-cdn-tencent',
+                label: '豆瓣 CDN By CMLiussss（腾讯云）',
+              },
+              {
+                value: 'cmliussss-cdn-ali',
+                label: '豆瓣 CDN By CMLiussss（阿里云）',
+              },
+              { value: 'custom', label: '自定义代理' },
+            ],
+            k = (e) => {
+              switch (e) {
+                case 'cors-proxy-zwei':
+                  return {
+                    text: 'Thanks to @Zwei',
+                    url: 'https://github.com/bestzwei',
+                  };
+                case 'cmliussss-cdn-tencent':
+                case 'cmliussss-cdn-ali':
+                  return {
+                    text: 'Thanks to @CMLiussss',
+                    url: 'https://github.com/cmliu',
+                  };
+                default:
+                  return null;
+              }
+            },
+            w =
+              (null === (r = window.RUNTIME_CONFIG) || void 0 === r
+                ? void 0
+                : r.STORAGE_TYPE) === 'localstorage';
+          (0, j.useEffect)(() => {
+            (null == n ? void 0 : n.SiteConfig) &&
+              o({
+                ...n.SiteConfig,
+                DoubanProxyType: n.SiteConfig.DoubanProxyType || 'direct',
+                DoubanProxy: n.SiteConfig.DoubanProxy || '',
+                DoubanImageProxyType:
+                  n.SiteConfig.DoubanImageProxyType || 'direct',
+                DoubanImageProxy: n.SiteConfig.DoubanImageProxy || '',
+                DisableYellowFilter: n.SiteConfig.DisableYellowFilter || !1,
+                TVBoxEnabled: n.SiteConfig.TVBoxEnabled || !1,
+                TVBoxPassword: n.SiteConfig.TVBoxPassword || '',
+                DanmakuApiBaseUrl: n.SiteConfig.DanmakuApiBaseUrl || '',
+              });
+          }, [n]),
+            (0, j.useEffect)(() => {
+              let e = (e) => {
+                m &&
+                  !e.target.closest('[data-dropdown="douban-datasource"]') &&
+                  y(!1);
+              };
+              if (m)
+                return (
+                  document.addEventListener('mousedown', e),
+                  () => document.removeEventListener('mousedown', e)
+                );
+            }, [m]),
+            (0, j.useEffect)(() => {
+              let e = (e) => {
+                p &&
+                  !e.target.closest('[data-dropdown="douban-image-proxy"]') &&
+                  b(!1);
+              };
+              if (p)
+                return (
+                  document.addEventListener('mousedown', e),
+                  () => document.removeEventListener('mousedown', e)
+                );
+            }, [p]);
+          let v = (e) => {
+              w || o((r) => ({ ...r, DoubanProxyType: e }));
+            },
+            C = (e) => {
+              w || o((r) => ({ ...r, DoubanImageProxyType: e }));
+            },
+            S = async () => {
+              try {
+                x(!0);
+                let e = await fetch('/api/admin/site', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ ...l }),
+                });
+                if (!e.ok) {
+                  let r = await e.json().catch(() => ({}));
+                  throw Error(r.error || '保存失败: '.concat(e.status));
+                }
+                H('保存成功, 请刷新页面');
+              } catch (e) {
+                Y(e instanceof Error ? e.message : '保存失败');
+              } finally {
+                x(!1);
+              }
+            };
+          return n
+            ? (0, a.jsxs)('div', {
+                className: 'space-y-6',
+                children: [
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsxs)('label', {
+                        className:
+                          'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 '.concat(
+                            w ? 'opacity-50' : ''
+                          ),
+                        children: [
+                          '站点名称',
+                          w &&
+                            (0, a.jsx)('span', {
+                              className:
+                                'ml-2 text-xs text-gray-500 dark:text-gray-400',
+                              children: '(本地存储下请通过环境变量修改)',
+                            }),
+                        ],
+                      }),
+                      (0, a.jsx)('input', {
+                        type: 'text',
+                        value: l.SiteName,
+                        onChange: (e) =>
+                          !w && o((r) => ({ ...r, SiteName: e.target.value })),
+                        disabled: w,
+                        className:
+                          'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent '.concat(
+                            w ? 'opacity-50 cursor-not-allowed' : ''
+                          ),
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsxs)('label', {
+                        className:
+                          'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 '.concat(
+                            w ? 'opacity-50' : ''
+                          ),
+                        children: [
+                          '站点公告',
+                          w &&
+                            (0, a.jsx)('span', {
+                              className:
+                                'ml-2 text-xs text-gray-500 dark:text-gray-400',
+                              children: '(本地存储下请通过环境变量修改)',
+                            }),
+                        ],
+                      }),
+                      (0, a.jsx)('textarea', {
+                        value: l.Announcement,
+                        onChange: (e) =>
+                          !w &&
+                          o((r) => ({ ...r, Announcement: e.target.value })),
+                        disabled: w,
+                        rows: 3,
+                        className:
+                          'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent '.concat(
+                            w ? 'opacity-50 cursor-not-allowed' : ''
+                          ),
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    className: 'space-y-3',
+                    children: [
+                      (0, a.jsxs)('div', {
+                        children: [
+                          (0, a.jsxs)('label', {
+                            className:
+                              'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 '.concat(
+                                w ? 'opacity-50' : ''
+                              ),
+                            children: [
+                              '豆瓣数据代理',
+                              w &&
+                                (0, a.jsx)('span', {
+                                  className:
+                                    'ml-2 text-xs text-gray-500 dark:text-gray-400',
+                                  children: '(本地存储下请通过环境变量修改)',
+                                }),
+                            ],
+                          }),
+                          (0, a.jsxs)('div', {
+                            className: 'relative',
+                            'data-dropdown': 'douban-datasource',
+                            children: [
+                              (0, a.jsx)('button', {
+                                type: 'button',
+                                onClick: () => y(!m),
+                                disabled: w,
+                                className:
+                                  'w-full px-3 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 text-left '.concat(
+                                    w ? 'opacity-50 cursor-not-allowed' : ''
+                                  ),
+                                children:
+                                  null ===
+                                    (t = h.find(
+                                      (e) => e.value === l.DoubanProxyType
+                                    )) || void 0 === t
+                                    ? void 0
+                                    : t.label,
+                              }),
+                              (0, a.jsx)('div', {
+                                className:
+                                  'absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none',
+                                children: (0, a.jsx)(d.Z, {
+                                  className:
+                                    'w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 '.concat(
+                                      m ? 'rotate-180' : ''
+                                    ),
+                                }),
+                              }),
+                              m &&
+                                !w &&
+                                (0, a.jsx)('div', {
+                                  className:
+                                    'absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto',
+                                  children: h.map((e) =>
+                                    (0, a.jsxs)(
+                                      'button',
+                                      {
+                                        type: 'button',
+                                        onClick: () => {
+                                          v(e.value), y(!1);
+                                        },
+                                        className:
+                                          'w-full px-3 py-2.5 text-left text-sm transition-colors duration-150 flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 '.concat(
+                                            l.DoubanProxyType === e.value
+                                              ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400'
+                                              : 'text-gray-900 dark:text-gray-100'
+                                          ),
+                                        children: [
+                                          (0, a.jsx)('span', {
+                                            className: 'truncate',
+                                            children: e.label,
+                                          }),
+                                          l.DoubanProxyType === e.value &&
+                                            (0, a.jsx)(c.Z, {
+                                              className:
+                                                'w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 ml-2',
+                                            }),
+                                        ],
+                                      },
+                                      e.value
+                                    )
+                                  ),
+                                }),
+                            ],
+                          }),
+                          (0, a.jsx)('p', {
+                            className:
+                              'mt-1 text-xs text-gray-500 dark:text-gray-400',
+                            children: '选择获取豆瓣数据的方式',
+                          }),
+                          k(l.DoubanProxyType) &&
+                            (0, a.jsx)('div', {
+                              className: 'mt-3',
+                              children: (0, a.jsxs)('button', {
+                                type: 'button',
+                                onClick: () =>
+                                  window.open(
+                                    k(l.DoubanProxyType).url,
+                                    '_blank'
+                                  ),
+                                className:
+                                  'flex items-center justify-center gap-1.5 w-full px-3 text-xs text-gray-500 dark:text-gray-400 cursor-pointer',
+                                children: [
+                                  (0, a.jsx)('span', {
+                                    className: 'font-medium',
+                                    children: k(l.DoubanProxyType).text,
+                                  }),
+                                  (0, a.jsx)(g.Z, {
+                                    className: 'w-3.5 opacity-70',
+                                  }),
+                                ],
+                              }),
+                            }),
+                        ],
+                      }),
+                      'custom' === l.DoubanProxyType &&
+                        (0, a.jsxs)('div', {
+                          children: [
+                            (0, a.jsx)('label', {
+                              className:
+                                'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 '.concat(
+                                  w ? 'opacity-50' : ''
+                                ),
+                              children: '豆瓣代理地址',
+                            }),
+                            (0, a.jsx)('input', {
+                              type: 'text',
+                              placeholder:
+                                '例如: https://proxy.example.com/fetch?url=',
+                              value: l.DoubanProxy,
+                              onChange: (e) =>
+                                !w &&
+                                o((r) => ({
+                                  ...r,
+                                  DoubanProxy: e.target.value,
+                                })),
+                              disabled: w,
+                              className:
+                                'w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 '.concat(
+                                  w ? 'opacity-50 cursor-not-allowed' : ''
+                                ),
+                            }),
+                            (0, a.jsx)('p', {
+                              className:
+                                'mt-1 text-xs text-gray-500 dark:text-gray-400',
+                              children: '自定义代理服务器地址',
+                            }),
+                          ],
+                        }),
+                    ],
+                  }),
+                  (0, a.jsx)('div', {
+                    className: 'space-y-3',
+                    children: (0, a.jsxs)('div', {
+                      children: [
+                        (0, a.jsxs)('label', {
+                          className:
+                            'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                          children: [
+                            '弹幕接口基础地址',
+                            (0, a.jsx)('span', {
+                              className:
+                                'ml-2 text-xs text-gray-500 dark:text-gray-400',
+                              children:
+                                '（如使用第三方弹幕服务，可在此填写其 API 根地址）',
+                            }),
+                          ],
+                        }),
+                        (0, a.jsx)('input', {
+                          type: 'text',
+                          value: l.DanmakuApiBaseUrl || '',
+                          onChange: (e) =>
+                            o((r) => ({
+                              ...r,
+                              DanmakuApiBaseUrl: e.target.value,
+                            })),
+                          className:
+                            'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent',
+                          placeholder: '',
+                        }),
+                      ],
+                    }),
+                  }),
+                  (0, a.jsxs)('div', {
+                    className: 'space-y-3',
+                    children: [
+                      (0, a.jsxs)('div', {
+                        children: [
+                          (0, a.jsxs)('label', {
+                            className:
+                              'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                            children: ['豆瓣图片代理', !1],
+                          }),
+                          (0, a.jsxs)('div', {
+                            className: 'relative',
+                            'data-dropdown': 'douban-image-proxy',
+                            children: [
+                              (0, a.jsx)('button', {
+                                type: 'button',
+                                onClick: () => b(!p),
+                                className:
+                                  'w-full px-3 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 text-left',
+                                children:
+                                  null ===
+                                    (s = f.find(
+                                      (e) => e.value === l.DoubanImageProxyType
+                                    )) || void 0 === s
+                                    ? void 0
+                                    : s.label,
+                              }),
+                              (0, a.jsx)('div', {
+                                className:
+                                  'absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none',
+                                children: (0, a.jsx)(d.Z, {
+                                  className:
+                                    'w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 '.concat(
+                                      p ? 'rotate-180' : ''
+                                    ),
+                                }),
+                              }),
+                              p &&
+                                (0, a.jsx)('div', {
+                                  className:
+                                    'absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto',
+                                  children: f.map((e) =>
+                                    (0, a.jsxs)(
+                                      'button',
+                                      {
+                                        type: 'button',
+                                        onClick: () => {
+                                          C(e.value), b(!1);
+                                        },
+                                        className:
+                                          'w-full px-3 py-2.5 text-left text-sm transition-colors duration-150 flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 '.concat(
+                                            l.DoubanImageProxyType === e.value
+                                              ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400'
+                                              : 'text-gray-900 dark:text-gray-100'
+                                          ),
+                                        children: [
+                                          (0, a.jsx)('span', {
+                                            className: 'truncate',
+                                            children: e.label,
+                                          }),
+                                          l.DoubanImageProxyType === e.value &&
+                                            (0, a.jsx)(c.Z, {
+                                              className:
+                                                'w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 ml-2',
+                                            }),
+                                        ],
+                                      },
+                                      e.value
+                                    )
+                                  ),
+                                }),
+                            ],
+                          }),
+                          (0, a.jsx)('p', {
+                            className:
+                              'mt-1 text-xs text-gray-500 dark:text-gray-400',
+                            children: '选择获取豆瓣图片的方式',
+                          }),
+                          k(l.DoubanImageProxyType) &&
+                            (0, a.jsx)('div', {
+                              className: 'mt-3',
+                              children: (0, a.jsxs)('button', {
+                                type: 'button',
+                                onClick: () =>
+                                  window.open(
+                                    k(l.DoubanImageProxyType).url,
+                                    '_blank'
+                                  ),
+                                className:
+                                  'flex items-center justify-center gap-1.5 w-full px-3 text-xs text-gray-500 dark:text-gray-400 cursor-pointer',
+                                children: [
+                                  (0, a.jsx)('span', {
+                                    className: 'font-medium',
+                                    children: k(l.DoubanImageProxyType).text,
+                                  }),
+                                  (0, a.jsx)(g.Z, {
+                                    className: 'w-3.5 opacity-70',
+                                  }),
+                                ],
+                              }),
+                            }),
+                        ],
+                      }),
+                      'custom' === l.DoubanImageProxyType &&
+                        (0, a.jsxs)('div', {
+                          children: [
+                            (0, a.jsx)('label', {
+                              className:
+                                'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                              children: '豆瓣图片代理地址',
+                            }),
+                            (0, a.jsx)('input', {
+                              type: 'text',
+                              placeholder:
+                                '例如: https://proxy.example.com/fetch?url=',
+                              value: l.DoubanImageProxy,
+                              onChange: (e) =>
+                                o((r) => ({
+                                  ...r,
+                                  DoubanImageProxy: e.target.value,
+                                })),
+                              className:
+                                'w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm hover:border-gray-400 dark:hover:border-gray-500',
+                            }),
+                            (0, a.jsx)('p', {
+                              className:
+                                'mt-1 text-xs text-gray-500 dark:text-gray-400',
+                              children: '自定义图片代理服务器地址',
+                            }),
+                          ],
+                        }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsx)('label', {
+                        className:
+                          'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                        children: '搜索接口可拉取最大页数',
+                      }),
+                      (0, a.jsx)('input', {
+                        type: 'number',
+                        min: 1,
+                        value: l.SearchDownstreamMaxPage,
+                        onChange: (e) =>
+                          o((r) => ({
+                            ...r,
+                            SearchDownstreamMaxPage: Number(e.target.value),
+                          })),
+                        className:
+                          'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent',
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsx)('label', {
+                        className:
+                          'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                        children: '站点接口缓存时间（秒）',
+                      }),
+                      (0, a.jsx)('input', {
+                        type: 'number',
+                        min: 1,
+                        value: l.SiteInterfaceCacheTime,
+                        onChange: (e) =>
+                          o((r) => ({
+                            ...r,
+                            SiteInterfaceCacheTime: Number(e.target.value),
+                          })),
+                        className:
+                          'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-green-500 focus:border-transparent',
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    children: [
+                      (0, a.jsxs)('div', {
+                        className: 'flex items-center justify-between',
+                        children: [
+                          (0, a.jsxs)('label', {
+                            className:
+                              'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                            children: ['禁用黄色过滤器', !1],
+                          }),
+                          (0, a.jsx)('button', {
+                            type: 'button',
+                            onClick: () =>
+                              o((e) => ({
+                                ...e,
+                                DisableYellowFilter: !e.DisableYellowFilter,
+                              })),
+                            className:
+                              'relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 '.concat(
+                                l.DisableYellowFilter
+                                  ? 'bg-green-600'
+                                  : 'bg-gray-200 dark:bg-gray-700'
+                              ),
+                            children: (0, a.jsx)('span', {
+                              className:
+                                'inline-block h-4 w-4 transform rounded-full bg-white transition-transform '.concat(
+                                  l.DisableYellowFilter
+                                    ? 'translate-x-6'
+                                    : 'translate-x-1'
+                                ),
+                            }),
+                          }),
+                        ],
+                      }),
+                      (0, a.jsx)('p', {
+                        className:
+                          'mt-1 text-xs text-gray-500 dark:text-gray-400',
+                        children: '禁用黄色内容的过滤功能，允许显示所有内容。',
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    className:
+                      'space-y-4 pt-4 border-t border-gray-200 dark:border-gray-700',
+                    children: [
+                      (0, a.jsx)('h3', {
+                        className:
+                          'text-base font-semibold text-gray-900 dark:text-gray-100',
+                        children: 'TVBox 接口配置',
+                      }),
+                      (0, a.jsxs)('div', {
+                        children: [
+                          (0, a.jsxs)('div', {
+                            className: 'flex items-center justify-between',
+                            children: [
+                              (0, a.jsxs)('label', {
+                                className:
+                                  'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 '.concat(
+                                    w ? 'opacity-50' : ''
+                                  ),
+                                children: [
+                                  '启用 TVBox 接口',
+                                  w &&
+                                    (0, a.jsx)('span', {
+                                      className:
+                                        'ml-2 text-xs text-gray-500 dark:text-gray-400',
+                                      children:
+                                        '(本地模式由环境变量 TVBOX_ENABLED 控制)',
+                                    }),
+                                ],
+                              }),
+                              (0, a.jsx)('button', {
+                                type: 'button',
+                                onClick: () =>
+                                  !w &&
+                                  o((e) => ({
+                                    ...e,
+                                    TVBoxEnabled: !e.TVBoxEnabled,
+                                  })),
+                                disabled: w,
+                                className:
+                                  'relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 '
+                                    .concat(
+                                      w ? 'opacity-50 cursor-not-allowed' : '',
+                                      ' '
+                                    )
+                                    .concat(
+                                      l.TVBoxEnabled
+                                        ? 'bg-green-600'
+                                        : 'bg-gray-200 dark:bg-gray-700'
+                                    ),
+                                children: (0, a.jsx)('span', {
+                                  className:
+                                    'inline-block h-4 w-4 transform rounded-full bg-white transition-transform '.concat(
+                                      l.TVBoxEnabled
+                                        ? 'translate-x-6'
+                                        : 'translate-x-1'
+                                    ),
+                                }),
+                              }),
+                            ],
+                          }),
+                          (0, a.jsx)('p', {
+                            className:
+                              'mt-1 text-xs text-gray-500 dark:text-gray-400',
+                            children:
+                              '开启后可在 TVBox 中使用本站数据，访问需携带密码。',
+                          }),
+                        ],
+                      }),
+                      (0, a.jsxs)('div', {
+                        className: 'grid grid-cols-1 md:grid-cols-2 gap-4',
+                        children: [
+                          (0, a.jsxs)('div', {
+                            children: [
+                              (0, a.jsx)('label', {
+                                className:
+                                  'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                                children: '接口地址',
+                              }),
+                              (0, a.jsxs)('div', {
+                                className: 'flex gap-2',
+                                children: [
+                                  (0, a.jsx)('input', {
+                                    type: 'text',
+                                    value: (() => {
+                                      var e;
+                                      let r =
+                                          (null === (e = (0, N.v)()) ||
+                                          void 0 === e
+                                            ? void 0
+                                            : e.username) || '',
+                                        t = (() => {
+                                          if (!r) return '';
+                                          let e = new TextEncoder().encode(r),
+                                            t = '';
+                                          for (let r = 0; r < e.length; r++)
+                                            t += String.fromCharCode(e[r]);
+                                          return btoa(t);
+                                        })();
+                                      return ''
+                                        .concat(
+                                          window.location.origin,
+                                          '/api/tvbox/config?pwd='
+                                        )
+                                        .concat(
+                                          encodeURIComponent(
+                                            l.TVBoxPassword || ''
+                                          )
+                                        )
+                                        .concat(
+                                          t
+                                            ? '&un='.concat(
+                                                encodeURIComponent(t)
+                                              )
+                                            : ''
+                                        );
+                                    })(),
+                                    readOnly: !0,
+                                    className:
+                                      'flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm',
+                                  }),
+                                  (0, a.jsx)('button', {
+                                    type: 'button',
+                                    onClick: () => {
+                                      {
+                                        var e;
+                                        let r =
+                                            (null === (e = (0, N.v)()) ||
+                                            void 0 === e
+                                              ? void 0
+                                              : e.username) || '',
+                                          t = (() => {
+                                            if (!r) return '';
+                                            let e = new TextEncoder().encode(r),
+                                              t = '';
+                                            for (let r = 0; r < e.length; r++)
+                                              t += String.fromCharCode(e[r]);
+                                            return btoa(t);
+                                          })();
+                                        navigator.clipboard.writeText(
+                                          ''
+                                            .concat(
+                                              window.location.origin,
+                                              '/api/tvbox/config?pwd='
+                                            )
+                                            .concat(
+                                              encodeURIComponent(
+                                                l.TVBoxPassword || ''
+                                              )
+                                            )
+                                            .concat(
+                                              t
+                                                ? '&un='.concat(
+                                                    encodeURIComponent(t)
+                                                  )
+                                                : ''
+                                            )
+                                        );
+                                      }
+                                    },
+                                    className:
+                                      'px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm',
+                                    children: '复制',
+                                  }),
+                                ],
+                              }),
+                              (0, a.jsx)('p', {
+                                className:
+                                  'mt-1 text-xs text-gray-500 dark:text-gray-400',
+                                children: '将该地址填入 TVBox 的订阅/配置接口',
+                              }),
+                            ],
+                          }),
+                          (0, a.jsxs)('div', {
+                            children: [
+                              (0, a.jsxs)('label', {
+                                className:
+                                  'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 '.concat(
+                                    w ? 'opacity-50' : ''
+                                  ),
+                                children: [
+                                  '访问密码',
+                                  w &&
+                                    (0, a.jsx)('span', {
+                                      className:
+                                        'ml-2 text-xs text-gray-500 dark:text-gray-400',
+                                      children:
+                                        '(本地模式口令为环境变量 PASSWORD)',
+                                    }),
+                                ],
+                              }),
+                              (0, a.jsxs)('div', {
+                                className: 'flex gap-2',
+                                children: [
+                                  (0, a.jsx)('input', {
+                                    type: 'text',
+                                    placeholder: '设置访问密码',
+                                    value: l.TVBoxPassword,
+                                    onChange: (e) =>
+                                      !w &&
+                                      o((r) => ({
+                                        ...r,
+                                        TVBoxPassword: e.target.value,
+                                      })),
+                                    disabled: w,
+                                    className:
+                                      'flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm focus:ring-2 focus:ring-green-500 focus:border-transparent '.concat(
+                                        w ? 'opacity-50 cursor-not-allowed' : ''
+                                      ),
+                                  }),
+                                  (0, a.jsx)('button', {
+                                    type: 'button',
+                                    onClick: () =>
+                                      !w &&
+                                      o((e) => ({ ...e, TVBoxPassword: u() })),
+                                    disabled: w,
+                                    className:
+                                      'px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm '.concat(
+                                        w ? 'opacity-50 cursor-not-allowed' : ''
+                                      ),
+                                    children: '生成',
+                                  }),
+                                ],
+                              }),
+                              (0, a.jsx)('p', {
+                                className:
+                                  'mt-1 text-xs text-gray-500 dark:text-gray-400',
+                                children: '建议使用随机生成的密码',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  (0, a.jsx)('div', {
+                    className: 'flex justify-end',
+                    children: (0, a.jsx)('button', {
+                      onClick: S,
+                      disabled: i,
+                      className: 'px-4 py-2 '.concat(
+                        i
+                          ? 'bg-gray-400 cursor-not-allowed'
+                          : 'bg-green-600 hover:bg-green-700',
+                        ' text-white rounded-lg transition-colors'
+                      ),
+                      children: i ? '保存中…' : '保存',
+                    }),
+                  }),
+                ],
+              })
+            : (0, a.jsx)('div', {
+                className: 'text-center text-gray-500 dark:text-gray-400',
+                children: '加载中...',
+              });
+        };
+      function ea() {
+        let [e, r] = (0, j.useState)(null),
+          [t, s] = (0, j.useState)(!0),
+          [n, l] = (0, j.useState)(null),
+          [o, i] = (0, j.useState)(null),
+          [d, c] = (0, j.useState)({
+            userConfig: !1,
+            videoSource: !1,
+            siteConfig: !1,
+            categoryConfig: !1,
+            configFile: !1,
+            subscriptionConfig: !1,
+            membershipConfig: !1,
+          }),
+          g = (0, j.useCallback)(async function () {
+            let e =
+              arguments.length > 0 && void 0 !== arguments[0] && arguments[0];
+            try {
+              e && s(!0);
+              let t = await fetch('/api/admin/config');
+              if (!t.ok) {
+                let e = await t.json();
+                throw Error('获取配置失败: '.concat(e.error));
+              }
+              let a = await t.json();
+              r(a.Config), i(a.Role);
+            } catch (r) {
+              let e = r instanceof Error ? r.message : '获取配置失败';
+              Y(e), l(e);
+            } finally {
+              e && s(!1);
+            }
+          }, []);
+        (0, j.useEffect)(() => {
+          g(!0);
+        }, [g]);
+        let k = (e) => {
+            c((r) => ({ ...r, [e]: !r[e] }));
+          },
+          w = async () => {
+            let { isConfirmed: e } = await v().fire({
+              title: '确认重置配置',
+              text: '此操作将重置用户封禁和管理员设置、自定义视频源，站点配置将重置为默认值，是否继续？',
+              icon: 'warning',
+              showCancelButton: !0,
+              confirmButtonText: '确认',
+              cancelButtonText: '取消',
+            });
+            if (e)
+              try {
+                let e = await fetch('/api/admin/reset');
+                if (!e.ok) throw Error('重置失败: '.concat(e.status));
+                H('重置成功，请刷新页面！');
+              } catch (e) {
+                Y(e instanceof Error ? e.message : '重置失败');
+              }
+          };
+        return t
+          ? (0, a.jsx)(Z.Z, {
+              activePath: '/admin',
+              children: (0, a.jsx)('div', {
+                className: 'px-2 sm:px-10 py-4 sm:py-8',
+                children: (0, a.jsxs)('div', {
+                  className: 'max-w-[95%] mx-auto',
+                  children: [
+                    (0, a.jsx)('h1', {
+                      className:
+                        'text-2xl font-bold text-gray-900 dark:text-gray-100 mb-8',
+                      children: '管理员设置',
+                    }),
+                    (0, a.jsx)('div', {
+                      className: 'space-y-4',
+                      children: Array.from({ length: 3 }).map((e, r) =>
+                        (0, a.jsx)(
+                          'div',
+                          {
+                            className:
+                              'h-20 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse',
+                          },
+                          r
+                        )
+                      ),
+                    }),
+                  ],
+                }),
+              }),
+            })
+          : n
+          ? null
+          : (0, a.jsx)(Z.Z, {
+              activePath: '/admin',
+              children: (0, a.jsx)('div', {
+                className: 'px-2 sm:px-10 py-4 sm:py-8',
+                children: (0, a.jsxs)('div', {
+                  className: 'max-w-[95%] mx-auto',
+                  children: [
+                    (0, a.jsxs)('div', {
+                      className: 'flex items-center gap-2 mb-8',
+                      children: [
+                        (0, a.jsx)('h1', {
+                          className:
+                            'text-2xl font-bold text-gray-900 dark:text-gray-100',
+                          children: '管理员设置',
+                        }),
+                        (0, a.jsx)('button', {
+                          onClick: () => {
+                            v().fire({
+                              title: '提示',
+                              text: '视频源配置和分类配置中的修改需要清理浏览缓存才会在UI上彻底生效，否则需等待站点配置中的接口缓存时间后才生效',
+                              icon: 'info',
+                              confirmButtonText: '我知道了',
+                              confirmButtonColor: '#3b82f6',
+                            });
+                          },
+                          className:
+                            'w-8 h-8 p-1.5 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200/50 dark:text-gray-300 dark:hover:bg-gray-700/50 transition-colors',
+                          'aria-label': '缓存提示',
+                          children: (0, a.jsx)(u.Z, {
+                            className: 'w-full h-full',
+                          }),
+                        }),
+                        e &&
+                          'owner' === o &&
+                          (0, a.jsx)('button', {
+                            onClick: w,
+                            className:
+                              'px-3 py-1 bg-red-600 hover:bg-red-700 text-white text-xs rounded-md transition-colors',
+                            children: '重置配置',
+                          }),
+                      ],
+                    }),
+                    (0, a.jsx)(W, {
+                      title: '会员订阅管理',
+                      icon: (0, a.jsx)(m.Z, {
+                        size: 20,
+                        className: 'text-gray-600 dark:text-gray-400',
+                      }),
+                      isExpanded: d.membershipConfig,
+                      onToggle: () => k('membershipConfig'),
+                      children: (0, a.jsx)(K, {}),
+                    }),
+                    (0, a.jsx)(W, {
+                      title: '订阅配置',
+                      icon: (0, a.jsx)(u.Z, {
+                        size: 20,
+                        className: 'text-gray-600 dark:text-gray-400',
+                      }),
+                      isExpanded: d.subscriptionConfig,
+                      onToggle: () => k('subscriptionConfig'),
+                      children: (0, a.jsx)(er, { config: e, refreshConfig: g }),
+                    }),
+                    (0, a.jsx)(W, {
+                      title: '配置文件',
+                      icon: (0, a.jsx)(x.Z, {
+                        size: 20,
+                        className: 'text-gray-600 dark:text-gray-400',
+                      }),
+                      isExpanded: d.configFile,
+                      onToggle: () => k('configFile'),
+                      children: (0, a.jsx)(ee, { config: e, refreshConfig: g }),
+                    }),
+                    (0, a.jsx)(W, {
+                      title: '站点配置',
+                      icon: (0, a.jsx)(y.Z, {
+                        size: 20,
+                        className: 'text-gray-600 dark:text-gray-400',
+                      }),
+                      isExpanded: d.siteConfig,
+                      onToggle: () => k('siteConfig'),
+                      children: (0, a.jsx)(et, { config: e }),
+                    }),
+                    (0, a.jsxs)('div', {
+                      className: 'space-y-4',
+                      children: [
+                        (0, a.jsx)(W, {
+                          title: '用户配置',
+                          icon: (0, a.jsx)(p.Z, {
+                            size: 20,
+                            className: 'text-gray-600 dark:text-gray-400',
+                          }),
+                          isExpanded: d.userConfig,
+                          onToggle: () => k('userConfig'),
+                          children: (0, a.jsx)(X, {
+                            config: e,
+                            role: o,
+                            refreshConfig: g,
+                          }),
+                        }),
+                        (0, a.jsx)(W, {
+                          title: '视频源配置',
+                          icon: (0, a.jsx)(b.Z, {
+                            size: 20,
+                            className: 'text-gray-600 dark:text-gray-400',
+                          }),
+                          isExpanded: d.videoSource,
+                          onToggle: () => k('videoSource'),
+                          children: (0, a.jsx)(Q, {
+                            config: e,
+                            refreshConfig: g,
+                          }),
+                        }),
+                        (0, a.jsx)(W, {
+                          title: '分类配置',
+                          icon: (0, a.jsx)(h.Z, {
+                            size: 20,
+                            className: 'text-gray-600 dark:text-gray-400',
+                          }),
+                          isExpanded: d.categoryConfig,
+                          onToggle: () => k('categoryConfig'),
+                          children: (0, a.jsx)($, {
+                            config: e,
+                            refreshConfig: g,
+                          }),
+                        }),
+                        'owner' === o &&
+                          (0, a.jsx)(W, {
+                            title: '数据迁移',
+                            icon: (0, a.jsx)(f.Z, {
+                              size: 20,
+                              className: 'text-gray-600 dark:text-gray-400',
+                            }),
+                            isExpanded: d.dataMigration,
+                            onToggle: () => k('dataMigration'),
+                            children: (0, a.jsx)(z, { onRefreshConfig: g }),
+                          }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+            });
+      }
+      function es() {
+        return (0, a.jsx)(j.Suspense, { children: (0, a.jsx)(ea, {}) });
+      }
+    },
+    5036: function (e, r, t) {
+      'use strict';
+      var a = t(7569);
+      r.Z = (e) => {
+        let { children: r } = e;
+        return (0, a.jsx)(a.Fragment, { children: r });
+      };
+    },
+    4507: function (e, r, t) {
+      'use strict';
+      function a() {
+        try {
+          let e = document.cookie.split(';').reduce((e, r) => {
+            let t = r.trim(),
+              a = t.indexOf('=');
+            if (a > 0) {
+              let r = t.substring(0, a),
+                s = t.substring(a + 1);
+              r && s && (e[r] = s);
+            }
+            return e;
+          }, {}).auth;
+          if (!e) return null;
+          let r = decodeURIComponent(e);
+          return r.includes('%') && (r = decodeURIComponent(r)), JSON.parse(r);
+        } catch (e) {
+          return null;
+        }
+      }
+      t.d(r, {
+        v: function () {
+          return a;
+        },
+      });
+    },
+  },
+  function (e) {
+    e.O(0, [886, 878, 314, 133, 744], function () {
+      return e((e.s = 7091));
+    }),
+      (_N_E = e.O());
+  },
+]);

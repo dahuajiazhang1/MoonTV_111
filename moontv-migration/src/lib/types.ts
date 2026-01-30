@@ -25,8 +25,6 @@ export interface Favorite {
   search_title: string; // 搜索时使用的标题
 }
 
-
-
 // ---------- 订阅和支付相关 ----------
 
 export interface SubscriptionPlan {
@@ -155,9 +153,17 @@ export interface IStorage {
   getOrder(orderNo: string): Promise<PaymentOrder | null>;
   getOrdersByUser(userName: string): Promise<PaymentOrder[]>;
   getPendingOrders(): Promise<PaymentOrder[]>;
-  getAllOrders(page?: number, limit?: number): Promise<{ orders: PaymentOrder[], total: number }>;
+  getAllOrders(
+    page?: number,
+    limit?: number
+  ): Promise<{ orders: PaymentOrder[]; total: number }>;
   updateOrderProof(orderNo: string, proofPath: string): Promise<void>;
-  updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId?: number, reason?: string): Promise<void>;
+  updateOrderStatus(
+    orderNo: string,
+    status: 'approved' | 'rejected',
+    adminId?: number,
+    reason?: string
+  ): Promise<void>;
 
   // 支付设置
   getPaymentSettings(): Promise<PaymentSettings | null>;

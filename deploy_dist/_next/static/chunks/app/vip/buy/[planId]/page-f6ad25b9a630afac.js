@@ -1,1 +1,603 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[296],{8960:function(e,t,r){Promise.resolve().then(r.bind(r,8547))},9818:function(e,t,r){"use strict";r.d(t,{Z:function(){return d}});var a=r(5663);let s=e=>e.replace(/([a-z0-9])([A-Z])/g,"$1-$2").toLowerCase(),l=function(){for(var e=arguments.length,t=Array(e),r=0;r<e;r++)t[r]=arguments[r];return t.filter((e,t,r)=>!!e&&r.indexOf(e)===t).join(" ")};var n={xmlns:"http://www.w3.org/2000/svg",width:24,height:24,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"};let i=(0,a.forwardRef)((e,t)=>{let{color:r="currentColor",size:s=24,strokeWidth:i=2,absoluteStrokeWidth:d,className:c="",children:o,iconNode:x,...u}=e;return(0,a.createElement)("svg",{ref:t,...n,width:s,height:s,stroke:r,strokeWidth:d?24*Number(i)/Number(s):i,className:l("lucide",c),...u},[...x.map(e=>{let[t,r]=e;return(0,a.createElement)(t,r)}),...Array.isArray(o)?o:[o]])}),d=(e,t)=>{let r=(0,a.forwardRef)((r,n)=>{let{className:d,...c}=r;return(0,a.createElement)(i,{ref:n,iconNode:t,className:l("lucide-".concat(s(e)),d),...c})});return r.displayName="".concat(e),r}},7818:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});let a=(0,r(9818).Z)("ArrowLeft",[["path",{d:"m12 19-7-7 7-7",key:"1l729n"}],["path",{d:"M19 12H5",key:"x3x0zl"}]])},73:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});let a=(0,r(9818).Z)("CircleAlert",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["line",{x1:"12",x2:"12",y1:"8",y2:"12",key:"1pkeuh"}],["line",{x1:"12",x2:"12.01",y1:"16",y2:"16",key:"4dfq90"}]])},1111:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});let a=(0,r(9818).Z)("CircleCheckBig",[["path",{d:"M21.801 10A10 10 0 1 1 17 3.335",key:"yps3ct"}],["path",{d:"m9 11 3 3L22 4",key:"1pflzl"}]])},1260:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});let a=(0,r(9818).Z)("Upload",[["path",{d:"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",key:"ih7n3h"}],["polyline",{points:"17 8 12 3 7 8",key:"t8dd8p"}],["line",{x1:"12",x2:"12",y1:"3",y2:"15",key:"widbto"}]])},1383:function(e,t,r){"use strict";var a=r(3423);r.o(a,"useParams")&&r.d(t,{useParams:function(){return a.useParams}}),r.o(a,"usePathname")&&r.d(t,{usePathname:function(){return a.usePathname}}),r.o(a,"useRouter")&&r.d(t,{useRouter:function(){return a.useRouter}}),r.o(a,"useSearchParams")&&r.d(t,{useSearchParams:function(){return a.useSearchParams}})},8547:function(e,t,r){"use strict";r.r(t),r.d(t,{default:function(){return u}});var a=r(7569),s=r(5663),l=r(1383),n=r(73),i=r(1111),d=r(7818),c=r(1260),o=r(4989),x=r.n(o);function u(){let e=(0,l.useRouter)(),t=(0,l.useParams)().planId,[r,o]=(0,s.useState)(null),[u,m]=(0,s.useState)(null),[h,p]=(0,s.useState)(!0),[g,y]=(0,s.useState)(!1),[f,b]=(0,s.useState)(null),[j,k]=(0,s.useState)(!1),[N,v]=(0,s.useState)(null);(0,s.useEffect)(()=>{w()},[t]);let w=async()=>{try{let e=await fetch("/api/user/plans"),r=await e.json();if(r.success){let e=r.plans.find(e=>e.id===Number(t));o(e||null)}let a=await fetch("/api/user/payment-settings"),s=await a.json();s.success&&m(s.settings)}catch(e){console.error("获取数据失败:",e)}finally{p(!1)}},_=async()=>{if(!f){x().fire("请上传凭证","请先上传支付凭证","warning");return}if(!r){x().fire("错误","套餐信息加载失败","error");return}k(!0);try{let t=await fetch("/api/user/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({planId:r.id,paymentProof:f})}),a=await t.json();a.success?(v(a.orderNo),setTimeout(()=>{e.push("/orders")},3e3)):x().fire("提交失败",a.error||"提交订单失败","error")}catch(e){console.error("提交订单失败:",e),x().fire("提交失败","提交订单失败，请重试","error")}finally{k(!1)}};return h?(0,a.jsx)("div",{className:"min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800",children:(0,a.jsxs)("div",{className:"text-center",children:[(0,a.jsx)("div",{className:"animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"}),(0,a.jsx)("p",{className:"mt-4 text-gray-600 dark:text-gray-400",children:"加载中..."})]})}):r?N?(0,a.jsx)("div",{className:"min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800",children:(0,a.jsxs)("div",{className:"text-center max-w-md",children:[(0,a.jsx)(i.Z,{className:"w-20 h-20 text-green-500 mx-auto mb-4"}),(0,a.jsx)("h2",{className:"text-2xl font-bold text-gray-900 dark:text-white mb-2",children:"订单提交成功！"}),(0,a.jsxs)("p",{className:"text-gray-600 dark:text-gray-400 mb-4",children:["订单号：",N]}),(0,a.jsx)("p",{className:"text-gray-600 dark:text-gray-400 mb-6",children:"管理员将在 24 小时内审核您的订单，请耐心等待。"}),(0,a.jsx)("button",{onClick:()=>e.push("/orders"),className:"px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition",children:"查看我的订单"})]})}):(0,a.jsx)("div",{className:"min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8",children:(0,a.jsxs)("div",{className:"max-w-3xl mx-auto",children:[(0,a.jsxs)("button",{onClick:()=>e.back(),className:"flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-6 transition",children:[(0,a.jsx)(d.Z,{className:"w-5 h-5"}),"返回"]}),(0,a.jsxs)("div",{className:"bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-6",children:[(0,a.jsx)("h1",{className:"text-2xl font-bold text-gray-900 dark:text-white mb-4",children:"订单确认"}),(0,a.jsxs)("div",{className:"border-t border-gray-200 dark:border-gray-700 pt-4",children:[(0,a.jsxs)("div",{className:"flex justify-between items-start mb-4",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h2",{className:"text-xl font-semibold text-gray-900 dark:text-white",children:r.name}),(0,a.jsx)("p",{className:"text-gray-600 dark:text-gray-400 mt-1",children:r.description}),(0,a.jsxs)("p",{className:"text-sm text-gray-500 dark:text-gray-500 mt-2",children:["有效期：",r.duration_days," 天"]})]}),(0,a.jsxs)("div",{className:"text-right",children:[(0,a.jsxs)("div",{className:"text-3xl font-bold text-purple-600 dark:text-purple-400",children:["\xa5",r.price]}),r.original_price&&r.original_price>r.price&&(0,a.jsxs)("div",{className:"text-sm text-gray-400 line-through mt-1",children:["\xa5",r.original_price]})]})]}),r.features&&Array.isArray(r.features)&&r.features.length>0&&(0,a.jsxs)("div",{className:"mt-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4",children:[(0,a.jsx)("p",{className:"text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:"套餐特权："}),(0,a.jsx)("ul",{className:"space-y-1",children:r.features.map((e,t)=>(0,a.jsxs)("li",{className:"text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2",children:[(0,a.jsx)("span",{className:"text-green-500 mt-0.5",children:"✓"}),(0,a.jsx)("span",{children:e})]},t))})]})]})]}),(0,a.jsxs)("div",{className:"bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-6",children:[(0,a.jsx)("h2",{className:"text-xl font-bold text-gray-900 dark:text-white mb-4",children:"支付信息"}),(null==u?void 0:u.alipay_qr_code)&&(0,a.jsxs)("div",{className:"mb-6",children:[(0,a.jsx)("p",{className:"text-sm text-gray-600 dark:text-gray-400 mb-3",children:"请使用支付宝扫描下方二维码完成支付："}),(0,a.jsx)("div",{className:"flex justify-center bg-gray-50 dark:bg-gray-700/50 rounded-lg p-6",children:(0,a.jsx)("img",{src:u.alipay_qr_code,alt:"支付宝收款码",className:"w-64 h-64 object-contain"})}),u.alipay_account_name&&(0,a.jsxs)("p",{className:"text-center text-sm text-gray-600 dark:text-gray-400 mt-3",children:["收款方：",u.alipay_account_name]})]}),(null==u?void 0:u.payment_notice)&&(0,a.jsx)("div",{className:"bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-6",children:(0,a.jsx)("p",{className:"text-sm text-blue-800 dark:text-blue-200",children:u.payment_notice})}),(0,a.jsxs)("div",{children:[(0,a.jsxs)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:["上传支付凭证 ",(0,a.jsx)("span",{className:"text-red-500",children:"*"})]}),(0,a.jsxs)("div",{className:"border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center",children:[(0,a.jsx)("input",{type:"file",accept:"image/*",onChange:e=>{var t;let r=null===(t=e.target.files)||void 0===t?void 0:t[0];if(!r)return;if(r.size>5242880){x().fire("文件过大","图片大小不能超过 5MB","error");return}if(!r.type.startsWith("image/")){x().fire("格式错误","请上传图片文件","error");return}y(!0);let a=new FileReader;a.onload=()=>{b(a.result),y(!1)},a.onerror=()=>{x().fire("读取失败","图片读取失败，请重试","error"),y(!1)},a.readAsDataURL(r)},className:"hidden",id:"proof-upload",disabled:g||j}),f?(0,a.jsxs)("div",{className:"space-y-4",children:[(0,a.jsx)("img",{src:f,alt:"支付凭证",className:"max-w-full max-h-64 mx-auto rounded-lg"}),(0,a.jsx)("button",{onClick:()=>b(null),className:"text-sm text-red-600 hover:text-red-700",disabled:j,children:"重新上传"})]}):(0,a.jsxs)("label",{htmlFor:"proof-upload",className:"cursor-pointer block",children:[(0,a.jsx)(c.Z,{className:"w-12 h-12 text-gray-400 mx-auto mb-3"}),(0,a.jsx)("p",{className:"text-gray-600 dark:text-gray-400 mb-1",children:g?"上传中...":"点击上传支付截图"}),(0,a.jsx)("p",{className:"text-xs text-gray-500",children:"支持 JPG、PNG 格式，最大 5MB"})]})]})]})]}),(0,a.jsx)("button",{onClick:_,disabled:!f||j,className:"w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed",children:j?"提交中...":"提交订单"}),(0,a.jsx)("p",{className:"text-center text-sm text-gray-500 dark:text-gray-400 mt-4",children:"提交后请等待管理员审核，审核通过后将自动开通会员"})]})}):(0,a.jsx)("div",{className:"min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800",children:(0,a.jsxs)("div",{className:"text-center",children:[(0,a.jsx)(n.Z,{className:"w-16 h-16 text-red-500 mx-auto mb-4"}),(0,a.jsx)("p",{className:"text-xl text-gray-700 dark:text-gray-300 mb-4",children:"套餐不存在"}),(0,a.jsx)("button",{onClick:()=>e.push("/vip"),className:"px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700",children:"返回选择套餐"})]})})}}},function(e){e.O(0,[886,314,133,744],function(){return e(e.s=8960)}),_N_E=e.O()}]);
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+  [296],
+  {
+    8960: function (e, t, r) {
+      Promise.resolve().then(r.bind(r, 8547));
+    },
+    9818: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return d;
+        },
+      });
+      var a = r(5663);
+      let s = (e) => e.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase(),
+        l = function () {
+          for (var e = arguments.length, t = Array(e), r = 0; r < e; r++)
+            t[r] = arguments[r];
+          return t.filter((e, t, r) => !!e && r.indexOf(e) === t).join(' ');
+        };
+      var n = {
+        xmlns: 'http://www.w3.org/2000/svg',
+        width: 24,
+        height: 24,
+        viewBox: '0 0 24 24',
+        fill: 'none',
+        stroke: 'currentColor',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      };
+      let i = (0, a.forwardRef)((e, t) => {
+          let {
+            color: r = 'currentColor',
+            size: s = 24,
+            strokeWidth: i = 2,
+            absoluteStrokeWidth: d,
+            className: c = '',
+            children: o,
+            iconNode: x,
+            ...u
+          } = e;
+          return (0, a.createElement)(
+            'svg',
+            {
+              ref: t,
+              ...n,
+              width: s,
+              height: s,
+              stroke: r,
+              strokeWidth: d ? (24 * Number(i)) / Number(s) : i,
+              className: l('lucide', c),
+              ...u,
+            },
+            [
+              ...x.map((e) => {
+                let [t, r] = e;
+                return (0, a.createElement)(t, r);
+              }),
+              ...(Array.isArray(o) ? o : [o]),
+            ]
+          );
+        }),
+        d = (e, t) => {
+          let r = (0, a.forwardRef)((r, n) => {
+            let { className: d, ...c } = r;
+            return (0, a.createElement)(i, {
+              ref: n,
+              iconNode: t,
+              className: l('lucide-'.concat(s(e)), d),
+              ...c,
+            });
+          });
+          return (r.displayName = ''.concat(e)), r;
+        };
+    },
+    7818: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, r(9818).Z)('ArrowLeft', [
+        ['path', { d: 'm12 19-7-7 7-7', key: '1l729n' }],
+        ['path', { d: 'M19 12H5', key: 'x3x0zl' }],
+      ]);
+    },
+    73: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, r(9818).Z)('CircleAlert', [
+        ['circle', { cx: '12', cy: '12', r: '10', key: '1mglay' }],
+        ['line', { x1: '12', x2: '12', y1: '8', y2: '12', key: '1pkeuh' }],
+        ['line', { x1: '12', x2: '12.01', y1: '16', y2: '16', key: '4dfq90' }],
+      ]);
+    },
+    1111: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, r(9818).Z)('CircleCheckBig', [
+        ['path', { d: 'M21.801 10A10 10 0 1 1 17 3.335', key: 'yps3ct' }],
+        ['path', { d: 'm9 11 3 3L22 4', key: '1pflzl' }],
+      ]);
+    },
+    1260: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, r(9818).Z)('Upload', [
+        [
+          'path',
+          { d: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4', key: 'ih7n3h' },
+        ],
+        ['polyline', { points: '17 8 12 3 7 8', key: 't8dd8p' }],
+        ['line', { x1: '12', x2: '12', y1: '3', y2: '15', key: 'widbto' }],
+      ]);
+    },
+    1383: function (e, t, r) {
+      'use strict';
+      var a = r(3423);
+      r.o(a, 'useParams') &&
+        r.d(t, {
+          useParams: function () {
+            return a.useParams;
+          },
+        }),
+        r.o(a, 'usePathname') &&
+          r.d(t, {
+            usePathname: function () {
+              return a.usePathname;
+            },
+          }),
+        r.o(a, 'useRouter') &&
+          r.d(t, {
+            useRouter: function () {
+              return a.useRouter;
+            },
+          }),
+        r.o(a, 'useSearchParams') &&
+          r.d(t, {
+            useSearchParams: function () {
+              return a.useSearchParams;
+            },
+          });
+    },
+    8547: function (e, t, r) {
+      'use strict';
+      r.r(t),
+        r.d(t, {
+          default: function () {
+            return u;
+          },
+        });
+      var a = r(7569),
+        s = r(5663),
+        l = r(1383),
+        n = r(73),
+        i = r(1111),
+        d = r(7818),
+        c = r(1260),
+        o = r(4989),
+        x = r.n(o);
+      function u() {
+        let e = (0, l.useRouter)(),
+          t = (0, l.useParams)().planId,
+          [r, o] = (0, s.useState)(null),
+          [u, m] = (0, s.useState)(null),
+          [h, p] = (0, s.useState)(!0),
+          [g, y] = (0, s.useState)(!1),
+          [f, b] = (0, s.useState)(null),
+          [j, k] = (0, s.useState)(!1),
+          [N, v] = (0, s.useState)(null);
+        (0, s.useEffect)(() => {
+          w();
+        }, [t]);
+        let w = async () => {
+            try {
+              let e = await fetch('/api/user/plans'),
+                r = await e.json();
+              if (r.success) {
+                let e = r.plans.find((e) => e.id === Number(t));
+                o(e || null);
+              }
+              let a = await fetch('/api/user/payment-settings'),
+                s = await a.json();
+              s.success && m(s.settings);
+            } catch (e) {
+              console.error('获取数据失败:', e);
+            } finally {
+              p(!1);
+            }
+          },
+          _ = async () => {
+            if (!f) {
+              x().fire('请上传凭证', '请先上传支付凭证', 'warning');
+              return;
+            }
+            if (!r) {
+              x().fire('错误', '套餐信息加载失败', 'error');
+              return;
+            }
+            k(!0);
+            try {
+              let t = await fetch('/api/user/orders', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ planId: r.id, paymentProof: f }),
+                }),
+                a = await t.json();
+              a.success
+                ? (v(a.orderNo),
+                  setTimeout(() => {
+                    e.push('/orders');
+                  }, 3e3))
+                : x().fire('提交失败', a.error || '提交订单失败', 'error');
+            } catch (e) {
+              console.error('提交订单失败:', e),
+                x().fire('提交失败', '提交订单失败，请重试', 'error');
+            } finally {
+              k(!1);
+            }
+          };
+        return h
+          ? (0, a.jsx)('div', {
+              className:
+                'min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800',
+              children: (0, a.jsxs)('div', {
+                className: 'text-center',
+                children: [
+                  (0, a.jsx)('div', {
+                    className:
+                      'animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto',
+                  }),
+                  (0, a.jsx)('p', {
+                    className: 'mt-4 text-gray-600 dark:text-gray-400',
+                    children: '加载中...',
+                  }),
+                ],
+              }),
+            })
+          : r
+          ? N
+            ? (0, a.jsx)('div', {
+                className:
+                  'min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800',
+                children: (0, a.jsxs)('div', {
+                  className: 'text-center max-w-md',
+                  children: [
+                    (0, a.jsx)(i.Z, {
+                      className: 'w-20 h-20 text-green-500 mx-auto mb-4',
+                    }),
+                    (0, a.jsx)('h2', {
+                      className:
+                        'text-2xl font-bold text-gray-900 dark:text-white mb-2',
+                      children: '订单提交成功！',
+                    }),
+                    (0, a.jsxs)('p', {
+                      className: 'text-gray-600 dark:text-gray-400 mb-4',
+                      children: ['订单号：', N],
+                    }),
+                    (0, a.jsx)('p', {
+                      className: 'text-gray-600 dark:text-gray-400 mb-6',
+                      children:
+                        '管理员将在 24 小时内审核您的订单，请耐心等待。',
+                    }),
+                    (0, a.jsx)('button', {
+                      onClick: () => e.push('/orders'),
+                      className:
+                        'px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition',
+                      children: '查看我的订单',
+                    }),
+                  ],
+                }),
+              })
+            : (0, a.jsx)('div', {
+                className:
+                  'min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8',
+                children: (0, a.jsxs)('div', {
+                  className: 'max-w-3xl mx-auto',
+                  children: [
+                    (0, a.jsxs)('button', {
+                      onClick: () => e.back(),
+                      className:
+                        'flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-6 transition',
+                      children: [
+                        (0, a.jsx)(d.Z, { className: 'w-5 h-5' }),
+                        '返回',
+                      ],
+                    }),
+                    (0, a.jsxs)('div', {
+                      className:
+                        'bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-6',
+                      children: [
+                        (0, a.jsx)('h1', {
+                          className:
+                            'text-2xl font-bold text-gray-900 dark:text-white mb-4',
+                          children: '订单确认',
+                        }),
+                        (0, a.jsxs)('div', {
+                          className:
+                            'border-t border-gray-200 dark:border-gray-700 pt-4',
+                          children: [
+                            (0, a.jsxs)('div', {
+                              className:
+                                'flex justify-between items-start mb-4',
+                              children: [
+                                (0, a.jsxs)('div', {
+                                  children: [
+                                    (0, a.jsx)('h2', {
+                                      className:
+                                        'text-xl font-semibold text-gray-900 dark:text-white',
+                                      children: r.name,
+                                    }),
+                                    (0, a.jsx)('p', {
+                                      className:
+                                        'text-gray-600 dark:text-gray-400 mt-1',
+                                      children: r.description,
+                                    }),
+                                    (0, a.jsxs)('p', {
+                                      className:
+                                        'text-sm text-gray-500 dark:text-gray-500 mt-2',
+                                      children: [
+                                        '有效期：',
+                                        r.duration_days,
+                                        ' 天',
+                                      ],
+                                    }),
+                                  ],
+                                }),
+                                (0, a.jsxs)('div', {
+                                  className: 'text-right',
+                                  children: [
+                                    (0, a.jsxs)('div', {
+                                      className:
+                                        'text-3xl font-bold text-purple-600 dark:text-purple-400',
+                                      children: ['\xa5', r.price],
+                                    }),
+                                    r.original_price &&
+                                      r.original_price > r.price &&
+                                      (0, a.jsxs)('div', {
+                                        className:
+                                          'text-sm text-gray-400 line-through mt-1',
+                                        children: ['\xa5', r.original_price],
+                                      }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                            r.features &&
+                              Array.isArray(r.features) &&
+                              r.features.length > 0 &&
+                              (0, a.jsxs)('div', {
+                                className:
+                                  'mt-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4',
+                                children: [
+                                  (0, a.jsx)('p', {
+                                    className:
+                                      'text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                                    children: '套餐特权：',
+                                  }),
+                                  (0, a.jsx)('ul', {
+                                    className: 'space-y-1',
+                                    children: r.features.map((e, t) =>
+                                      (0, a.jsxs)(
+                                        'li',
+                                        {
+                                          className:
+                                            'text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2',
+                                          children: [
+                                            (0, a.jsx)('span', {
+                                              className:
+                                                'text-green-500 mt-0.5',
+                                              children: '✓',
+                                            }),
+                                            (0, a.jsx)('span', { children: e }),
+                                          ],
+                                        },
+                                        t
+                                      )
+                                    ),
+                                  }),
+                                ],
+                              }),
+                          ],
+                        }),
+                      ],
+                    }),
+                    (0, a.jsxs)('div', {
+                      className:
+                        'bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-6',
+                      children: [
+                        (0, a.jsx)('h2', {
+                          className:
+                            'text-xl font-bold text-gray-900 dark:text-white mb-4',
+                          children: '支付信息',
+                        }),
+                        (null == u ? void 0 : u.alipay_qr_code) &&
+                          (0, a.jsxs)('div', {
+                            className: 'mb-6',
+                            children: [
+                              (0, a.jsx)('p', {
+                                className:
+                                  'text-sm text-gray-600 dark:text-gray-400 mb-3',
+                                children:
+                                  '请使用支付宝扫描下方二维码完成支付：',
+                              }),
+                              (0, a.jsx)('div', {
+                                className:
+                                  'flex justify-center bg-gray-50 dark:bg-gray-700/50 rounded-lg p-6',
+                                children: (0, a.jsx)('img', {
+                                  src: u.alipay_qr_code,
+                                  alt: '支付宝收款码',
+                                  className: 'w-64 h-64 object-contain',
+                                }),
+                              }),
+                              u.alipay_account_name &&
+                                (0, a.jsxs)('p', {
+                                  className:
+                                    'text-center text-sm text-gray-600 dark:text-gray-400 mt-3',
+                                  children: ['收款方：', u.alipay_account_name],
+                                }),
+                            ],
+                          }),
+                        (null == u ? void 0 : u.payment_notice) &&
+                          (0, a.jsx)('div', {
+                            className:
+                              'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-6',
+                            children: (0, a.jsx)('p', {
+                              className:
+                                'text-sm text-blue-800 dark:text-blue-200',
+                              children: u.payment_notice,
+                            }),
+                          }),
+                        (0, a.jsxs)('div', {
+                          children: [
+                            (0, a.jsxs)('label', {
+                              className:
+                                'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                              children: [
+                                '上传支付凭证 ',
+                                (0, a.jsx)('span', {
+                                  className: 'text-red-500',
+                                  children: '*',
+                                }),
+                              ],
+                            }),
+                            (0, a.jsxs)('div', {
+                              className:
+                                'border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center',
+                              children: [
+                                (0, a.jsx)('input', {
+                                  type: 'file',
+                                  accept: 'image/*',
+                                  onChange: (e) => {
+                                    var t;
+                                    let r =
+                                      null === (t = e.target.files) ||
+                                      void 0 === t
+                                        ? void 0
+                                        : t[0];
+                                    if (!r) return;
+                                    if (r.size > 5242880) {
+                                      x().fire(
+                                        '文件过大',
+                                        '图片大小不能超过 5MB',
+                                        'error'
+                                      );
+                                      return;
+                                    }
+                                    if (!r.type.startsWith('image/')) {
+                                      x().fire(
+                                        '格式错误',
+                                        '请上传图片文件',
+                                        'error'
+                                      );
+                                      return;
+                                    }
+                                    y(!0);
+                                    let a = new FileReader();
+                                    (a.onload = () => {
+                                      b(a.result), y(!1);
+                                    }),
+                                      (a.onerror = () => {
+                                        x().fire(
+                                          '读取失败',
+                                          '图片读取失败，请重试',
+                                          'error'
+                                        ),
+                                          y(!1);
+                                      }),
+                                      a.readAsDataURL(r);
+                                  },
+                                  className: 'hidden',
+                                  id: 'proof-upload',
+                                  disabled: g || j,
+                                }),
+                                f
+                                  ? (0, a.jsxs)('div', {
+                                      className: 'space-y-4',
+                                      children: [
+                                        (0, a.jsx)('img', {
+                                          src: f,
+                                          alt: '支付凭证',
+                                          className:
+                                            'max-w-full max-h-64 mx-auto rounded-lg',
+                                        }),
+                                        (0, a.jsx)('button', {
+                                          onClick: () => b(null),
+                                          className:
+                                            'text-sm text-red-600 hover:text-red-700',
+                                          disabled: j,
+                                          children: '重新上传',
+                                        }),
+                                      ],
+                                    })
+                                  : (0, a.jsxs)('label', {
+                                      htmlFor: 'proof-upload',
+                                      className: 'cursor-pointer block',
+                                      children: [
+                                        (0, a.jsx)(c.Z, {
+                                          className:
+                                            'w-12 h-12 text-gray-400 mx-auto mb-3',
+                                        }),
+                                        (0, a.jsx)('p', {
+                                          className:
+                                            'text-gray-600 dark:text-gray-400 mb-1',
+                                          children: g
+                                            ? '上传中...'
+                                            : '点击上传支付截图',
+                                        }),
+                                        (0, a.jsx)('p', {
+                                          className: 'text-xs text-gray-500',
+                                          children:
+                                            '支持 JPG、PNG 格式，最大 5MB',
+                                        }),
+                                      ],
+                                    }),
+                              ],
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                    (0, a.jsx)('button', {
+                      onClick: _,
+                      disabled: !f || j,
+                      className:
+                        'w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed',
+                      children: j ? '提交中...' : '提交订单',
+                    }),
+                    (0, a.jsx)('p', {
+                      className:
+                        'text-center text-sm text-gray-500 dark:text-gray-400 mt-4',
+                      children:
+                        '提交后请等待管理员审核，审核通过后将自动开通会员',
+                    }),
+                  ],
+                }),
+              })
+          : (0, a.jsx)('div', {
+              className:
+                'min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800',
+              children: (0, a.jsxs)('div', {
+                className: 'text-center',
+                children: [
+                  (0, a.jsx)(n.Z, {
+                    className: 'w-16 h-16 text-red-500 mx-auto mb-4',
+                  }),
+                  (0, a.jsx)('p', {
+                    className: 'text-xl text-gray-700 dark:text-gray-300 mb-4',
+                    children: '套餐不存在',
+                  }),
+                  (0, a.jsx)('button', {
+                    onClick: () => e.push('/vip'),
+                    className:
+                      'px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700',
+                    children: '返回选择套餐',
+                  }),
+                ],
+              }),
+            });
+      }
+    },
+  },
+  function (e) {
+    e.O(0, [886, 314, 133, 744], function () {
+      return e((e.s = 8960));
+    }),
+      (_N_E = e.O());
+  },
+]);

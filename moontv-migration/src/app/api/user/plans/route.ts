@@ -8,25 +8,27 @@ export const runtime = 'edge';
  * GET /api/user/plans
  */
 export async function GET(request: NextRequest) {
-    try {
-        // 只返回激活的套餐，按排序字段排序
-        const plans = await db.getSubscriptionPlans(false); // false = 只获取激活的
+  try {
+    // 只返回激活的套餐，按排序字段排序
+    const plans = await db.getSubscriptionPlans(false); // false = 只获取激活的
 
-        // 按 sort_order 排序
-        const sortedPlans = plans.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
+    // 按 sort_order 排序
+    const sortedPlans = plans.sort(
+      (a, b) => (a.sort_order || 0) - (b.sort_order || 0)
+    );
 
-        return NextResponse.json({
-            success: true,
-            plans: sortedPlans,
-        });
-    } catch (error) {
-        console.error('获取套餐列表失败:', error);
-        return NextResponse.json(
-            {
-                success: false,
-                error: '获取套餐列表失败',
-            },
-            { status: 500 }
-        );
-    }
+    return NextResponse.json({
+      success: true,
+      plans: sortedPlans,
+    });
+  } catch (error) {
+    console.error('获取套餐列表失败:', error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: '获取套餐列表失败',
+      },
+      { status: 500 }
+    );
+  }
 }

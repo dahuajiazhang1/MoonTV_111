@@ -30,7 +30,9 @@ import { useSite } from '@/components/SiteProvider';
 import VideoCard from '@/components/VideoCard';
 
 function HomeClient() {
-  const [activeTab, setActiveTab] = useState<'home' | 'history' | 'favorites'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'history' | 'favorites'>(
+    'home'
+  );
   const [hotMovies, setHotMovies] = useState<DoubanItem[]>([]);
   const [hotTvShows, setHotTvShows] = useState<DoubanItem[]>([]);
   const [hotVarietyShows, setHotVarietyShows] = useState<DoubanItem[]>([]);
@@ -42,7 +44,7 @@ function HomeClient() {
   const { startLoading } = useNavigationLoading();
 
   const [showAnnouncement, setShowAnnouncement] = useState(false);
-  
+
   // 检查是否启用简洁模式
   const [simpleMode, setSimpleMode] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -90,7 +92,9 @@ function HomeClient() {
 
         // 检查是否启用简洁模式
         const savedSimpleMode = localStorage.getItem('simpleMode');
-        const isSimpleMode = savedSimpleMode ? JSON.parse(savedSimpleMode) : false;
+        const isSimpleMode = savedSimpleMode
+          ? JSON.parse(savedSimpleMode)
+          : false;
 
         if (isSimpleMode) {
           // 简洁模式下跳过豆瓣数据获取
@@ -198,16 +202,22 @@ function HomeClient() {
         {/* 顶部 Tab 切换 */}
         <div className='mb-8 flex justify-center'>
           <CapsuleSwitch
-            options={simpleMode ? [
-              { label: '历史', value: 'history' },
-              { label: '收藏夹', value: 'favorites' },
-            ] : [
-              { label: '首页', value: 'home' },
-              { label: '历史', value: 'history' },
-              { label: '收藏夹', value: 'favorites' },
-            ]}
+            options={
+              simpleMode
+                ? [
+                    { label: '历史', value: 'history' },
+                    { label: '收藏夹', value: 'favorites' },
+                  ]
+                : [
+                    { label: '首页', value: 'home' },
+                    { label: '历史', value: 'history' },
+                    { label: '收藏夹', value: 'favorites' },
+                  ]
+            }
             active={simpleMode && activeTab === 'home' ? 'history' : activeTab}
-            onChange={(value) => setActiveTab(value as 'home' | 'history' | 'favorites')}
+            onChange={(value) =>
+              setActiveTab(value as 'home' | 'history' | 'favorites')
+            }
           />
         </div>
 

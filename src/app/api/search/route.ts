@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     if (!authInfo || !authInfo.username) {
       return new Response(JSON.stringify({ error: 'Unauthorized' }), {
         status: 401,
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json' },
       });
     }
   }
@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
   const selectedSourcesParam = searchParams.get('sources');
   if (selectedSourcesParam) {
     const selectedSources = selectedSourcesParam.split(',');
-    apiSites = apiSites.filter(site => selectedSources.includes(site.key));
+    apiSites = apiSites.filter((site) => selectedSources.includes(site.key));
   }
 
   const encoder = new TextEncoder();
@@ -176,19 +176,29 @@ export async function GET(request: NextRequest) {
           }
 
           if (hasResults && filteredResults.length === 0) {
-            failedSources.push({ name: site.name, key: site.key, error: '结果被过滤' });
+            failedSources.push({
+              name: site.name,
+              key: site.key,
+              error: '结果被过滤',
+            });
             await safeWrite({ failedSources });
             return;
           }
 
           aggregatedResults.push(...filteredResults);
-          if (!(await safeWrite({ site: site.key, pageResults: filteredResults }))) {
+          if (
+            !(await safeWrite({ site: site.key, pageResults: filteredResults }))
+          ) {
             return;
           }
         }
 
         if (!hasResults) {
-          failedSources.push({ name: site.name, key: site.key, error: '无搜索结果' });
+          failedSources.push({
+            name: site.name,
+            key: site.key,
+            error: '无搜索结果',
+          });
           await safeWrite({ failedSources });
         }
       } catch (err: any) {
@@ -204,7 +214,11 @@ export async function GET(request: NextRequest) {
           errorMessage = '网络错误';
         }
 
-        failedSources.push({ name: site.name, key: site.key, error: errorMessage });
+        failedSources.push({
+          name: site.name,
+          key: site.key,
+          error: errorMessage,
+        });
         await safeWrite({ failedSources });
       }
     });

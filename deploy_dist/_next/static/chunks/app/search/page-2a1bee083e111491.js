@@ -1,1 +1,1364 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[797],{4915:function(e,t,r){Promise.resolve().then(r.bind(r,2537))},131:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});let a=(0,r(9818).Z)("ChevronDown",[["path",{d:"m6 9 6 6 6-6",key:"qrunsl"}]])},7308:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});let a=(0,r(9818).Z)("ChevronUp",[["path",{d:"m18 15-6-6-6 6",key:"153udz"}]])},5267:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});let a=(0,r(9818).Z)("Save",[["path",{d:"M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z",key:"1c8476"}],["path",{d:"M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7",key:"1ydtos"}],["path",{d:"M7 3v4a1 1 0 0 0 1 1h7",key:"t51u73"}]])},9477:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});let a=(0,r(9818).Z)("Search",[["circle",{cx:"11",cy:"11",r:"8",key:"4ej97u"}],["path",{d:"m21 21-4.3-4.3",key:"1qie3q"}]])},7764:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});let a=(0,r(9818).Z)("Settings",[["path",{d:"M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z",key:"1qme2f"}],["circle",{cx:"12",cy:"12",r:"3",key:"1v7zrd"}]])},4145:function(e,t,r){"use strict";r.d(t,{Z:function(){return a}});let a=(0,r(9818).Z)("TriangleAlert",[["path",{d:"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3",key:"wmoenq"}],["path",{d:"M12 9v4",key:"juzpu7"}],["path",{d:"M12 17h.01",key:"p32p05"}]])},9276:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),Object.defineProperty(t,"RouterContext",{enumerable:!0,get:function(){return a}});let a=r(9180)._(r(5663)).default.createContext(null)},2537:function(e,t,r){"use strict";r.r(t),r.d(t,{default:function(){return k}});var a=r(7569),s=r(9477),l=r(4819),n=r(7308),o=r(1383),c=r(5663),i=r(4090),d=r(5941),u=r(4145),g=r(131);function m(e){let{failedSources:t}=e,[r,s]=(0,c.useState)(!1),l=(0,c.useRef)(null),o=e=>{switch(e){case"结果被过滤":return"text-green-600 dark:text-green-400";case"无搜索结果":return"text-red-600 dark:text-red-400";case"请求超时":return"text-orange-600 dark:text-orange-400";case"请求失败":case"网络错误":return"text-purple-600 dark:text-purple-400";case"未知的错误":return"text-gray-600 dark:text-gray-400";default:return"text-amber-700 dark:text-amber-300"}};return((0,c.useEffect)(()=>{let e=e=>{l.current&&!l.current.contains(e.target)&&s(!1)};return r&&document.addEventListener("mousedown",e),()=>{document.removeEventListener("mousedown",e)}},[r]),0===t.length)?null:(0,a.jsxs)("div",{className:"relative",ref:l,children:[(0,a.jsxs)("button",{className:"flex items-center gap-2 hover:bg-amber-50 dark:hover:bg-amber-900/20 px-2 py-1 rounded transition-colors",onClick:()=>s(!r),children:[(0,a.jsx)(u.Z,{className:"w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0"}),(0,a.jsxs)("span",{className:"text-sm text-amber-700 dark:text-amber-300 whitespace-nowrap",children:["失败源 (",t.length,")"]}),r?(0,a.jsx)(n.Z,{className:"w-3 h-3 text-amber-600 dark:text-amber-400"}):(0,a.jsx)(g.Z,{className:"w-3 h-3 text-amber-600 dark:text-amber-400"})]}),r&&(0,a.jsxs)("div",{className:"absolute top-full left-1/2 transform -translate-x-1/2 mt-2 z-10 min-w-[190px] max-w-[300px] bg-white dark:bg-gray-800 border border-amber-200 dark:border-amber-700/30 rounded-lg shadow-lg p-4",children:[(0,a.jsx)("h3",{className:"text-sm font-medium text-amber-800 dark:text-amber-200 mb-3",children:"搜索失败的数据源详情"}),(0,a.jsx)("div",{className:"space-y-2 max-h-60 overflow-y-auto",children:t.map((e,t)=>(0,a.jsxs)("div",{className:"p-3 bg-amber-50 dark:bg-amber-900/20 rounded border border-amber-100 dark:border-amber-800/30",children:[(0,a.jsxs)("div",{className:"flex items-center gap-2 mb-1",children:[(0,a.jsx)("span",{className:"font-medium text-amber-800 dark:text-amber-200 text-sm",children:e.name}),(0,a.jsx)("span",{className:"text-xs text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-800/50 px-2 py-0.5 rounded",children:e.key})]}),(0,a.jsxs)("p",{className:"text-xs break-words ".concat(o(e.error)),children:["错误信息: ",e.error]})]},"".concat(e.key,"-").concat(t)))})]})]})}let x=(0,r(9818).Z)("ArrowUpDown",[["path",{d:"m21 16-4 4-4-4",key:"f6ql7i"}],["path",{d:"M17 20V4",key:"1ejh1v"}],["path",{d:"m3 8 4-4 4 4",key:"11wl7u"}],["path",{d:"M7 4v16",key:"1glfcx"}]]);var h=e=>{let{openFilter:t,setOpenFilter:r,sourceOptions:s,filterSources:l,setFilterSources:o,titleOptions:i,selectedTitles:d,setSelectedTitles:u,yearOptions:m,selectedYears:h,setSelectedYears:p,sortField:b,onSortFieldChange:f,sortOrder:y,onSortOrderChange:v,sortOptions:k}=e,[j,N]=(0,c.useState)(!0),[w,S]=(0,c.useState)("筛选"),C=e=>{r(t===e?null:e)},Z=(e,t)=>{"来源"===e?o(l.includes(t)?l.filter(e=>e!==t):[...l,t]):"标题"===e?u(d.includes(t)?d.filter(e=>e!==t):[...d,t]):"年份"===e&&p(h.includes(t)?h.filter(e=>e!==t):[...h,t])};return(0,a.jsxs)("div",{className:"flex w-full border rounded-lg overflow-hidden shadow-sm dark:border-gray-700 flex-col",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between px-4 py-2 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800",children:[(0,a.jsxs)("div",{className:"flex gap-4",children:[(0,a.jsx)("button",{className:"px-3 py-1 font-semibold rounded ".concat("筛选"===w?"bg-green-500 text-white":"text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"),onClick:()=>S("筛选"),children:"筛选"}),(0,a.jsx)("button",{className:"px-3 py-1 font-semibold rounded ".concat("排序"===w?"bg-green-500 text-white":"text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"),onClick:()=>S("排序"),children:"排序"})]}),(0,a.jsxs)("div",{className:"flex items-center gap-2",children:["筛选"===w&&(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("button",{onClick:()=>{o([]),u([]),p([])},className:"text-sm text-blue-600 hover:underline dark:text-blue-400",children:"清空筛选"}),(0,a.jsx)("button",{onClick:()=>N(!j),className:"p-1 border rounded hover:bg-gray-200 dark:hover:bg-gray-700",children:j?(0,a.jsx)(g.Z,{className:"w-4 h-4"}):(0,a.jsx)(n.Z,{className:"w-4 h-4"})})]}),"排序"===w&&(0,a.jsxs)("button",{onClick:()=>v("asc"===y?"desc":"asc"),className:"px-3 py-2 text-sm flex items-center gap-1 border rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700",children:[(0,a.jsx)(x,{className:"w-4 h-4"}),"asc"===y?"升序":"降序"]})]})]}),(0,a.jsxs)("div",{className:"flex w-full",children:["筛选"===w&&!j&&(0,a.jsx)("div",{className:"w-28 bg-gray-100 dark:bg-gray-800 flex flex-col",children:[{key:"来源",label:"来源"},{key:"标题",label:"标题"},{key:"年份",label:"年份"}].map(e=>(0,a.jsx)("button",{onClick:()=>C(e.key),className:"px-4 py-3 text-left border-b border-gray-200 dark:border-gray-700 transition-colors ".concat(t===e.key?"bg-green-500 text-white font-semibold":"text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"),children:e.label},e.key))}),(0,a.jsx)("div",{className:"flex-1 max-h-[60vh] overflow-y-auto bg-white dark:bg-gray-900 p-4",children:"筛选"===w?(()=>{if(j)return l.length||d.length||h.length?(0,a.jsxs)("div",{className:"space-y-2 text-sm text-gray-500 dark:text-gray-400",children:[l.length>0&&(0,a.jsxs)("div",{children:["已选来源: ",l.join("、")]}),d.length>0&&(0,a.jsxs)("div",{children:["已选标题: ",d.join("、")]}),h.length>0&&(0,a.jsxs)("div",{children:["已选年份: ",h.join("、")]})]}):(0,a.jsx)("div",{className:"text-gray-400",children:"请展开选择筛选条件"});if(!t)return(0,a.jsx)("div",{className:"text-gray-400",children:"请选择一个筛选分类"});switch(t){case"来源":return(0,a.jsx)("div",{className:"grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4",children:s.map(e=>(0,a.jsx)("button",{onClick:()=>Z("来源",e),className:"px-3 py-2 text-sm rounded-lg border transition-all duration-200 ".concat(l.includes(e)?"bg-green-100 text-green-700 border-green-300 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700":"text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80 border-transparent"),children:e},e))});case"标题":return(0,a.jsx)("div",{className:"grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4",children:i.map(e=>(0,a.jsx)("button",{onClick:()=>Z("标题",e),className:"px-3 py-2 text-sm rounded-lg border transition-all duration-200 ".concat(d.includes(e)?"bg-green-100 text-green-700 border-green-300 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700":"text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80 border-transparent"),children:e},e))});case"年份":return(0,a.jsx)("div",{className:"grid gap-2 grid-cols-3 sm:grid-cols-4 md:grid-cols-6",children:m.map(e=>(0,a.jsx)("button",{onClick:()=>Z("年份",e),className:"px-3 py-2 text-sm rounded-lg border transition-all duration-200 ".concat(h.includes(e)?"bg-green-100 text-green-700 border-green-300 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700":"text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80 border-transparent"),children:e},e))});default:return null}})():(0,a.jsx)("div",{className:"flex flex-wrap gap-2 items-center",children:k.map(e=>(0,a.jsx)("button",{onClick:()=>f(e.value),className:"px-3 py-2 text-sm rounded-lg border transition-all duration-200 ".concat(b===e.value?"bg-green-100 text-green-700 border-green-300 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700":"text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80 border-gray-300 dark:border-gray-600"),children:e.label},e.value))})})]})]})},p=r(5036),b=r(4855),f=r(3563),y=r(4801);function v(){let[e,t]=(0,c.useState)([]),[r,u]=(0,c.useState)(!1),g=(0,o.useSearchParams)(),[x,v]=(0,c.useState)(""),[k,j]=(0,c.useState)(!1),[N,w]=(0,c.useState)(!1),[S,C]=(0,c.useState)([]),[Z,_]=(0,c.useState)(!1),[E,q]=(0,c.useState)([]),[M,R]=(0,c.useState)(null),O=(0,c.useRef)(null),[L,A]=(0,c.useState)(!0),[F,P]=(0,c.useState)(20),[I,z]=(0,c.useState)(20),T=(0,c.useRef)(null),U=(0,c.useRef)(null),D=(0,c.useRef)(null),J=(0,c.useRef)(null),[V,H]=(0,c.useState)(()=>{let e=g.get("sources");if(e)return e.split(",");{let e=localStorage.getItem("savedSources");if(e)try{return JSON.parse(e)}catch(e){console.error("Failed to parse saved sources:",e)}}return[]}),[Y,B]=(0,c.useState)(()=>{let e=g.get("titles");return e?e.split(","):[]}),[G,K]=(0,c.useState)(()=>{let e=g.get("years");return e?e.split(","):[]}),[Q,W]=(0,c.useState)(()=>{let e=g.get("filter_sources");return e?e.split(","):[]}),[X,$]=(0,c.useState)(null),[ee,et]=(0,c.useState)(()=>{let e=g.get("sort");return"sources"===e||"episodes"===e||"year"===e?e:"sources"}),[er,ea]=(0,c.useState)(()=>"asc"===g.get("order")?"asc":"desc"),[es,el]=(0,c.useState)(()=>{{let e=localStorage.getItem("defaultAggregateSearch");return null===e||"true"===e}}),[en,eo]=(0,c.useState)(()=>{{let e=localStorage.getItem("defaultStreamSearch");return null===e||"true"===e}}),ec=(0,c.useMemo)(()=>{let e=new Map;return S.forEach(t=>{let r=t.title.trim().replace(/\s+/g," "),a="".concat(r,"-").concat(t.year||"unknown","-").concat(1===t.episodes.length?"movie":"tv"),s=e.get(a)||[];s.push(t),e.set(a,s)}),Array.from(e.entries()).sort((e,t)=>{let r=e[1][0].title.toLowerCase().includes(x.trim().toLowerCase()),a=t[1][0].title.toLowerCase().includes(x.trim().toLowerCase());if(r&&!a)return -1;if(!r&&a)return 1;let s=e[1][0].year,l=t[1][0].year;return s===l?e[1][0].title.localeCompare(t[1][0].title):"unknown"===s||"unknown"===l?1:s>l?-1:1})},[S]),ei=(0,c.useMemo)(()=>ec.filter(e=>{let[t,r]=e,a=0===Q.length||r.some(e=>Q.includes(e.source_name)),s=0===Y.length||Y.includes(r[0].title),l=0===G.length||G.includes(r[0].year);return a&&s&&l}).map(e=>{let[t,r]=e;return[t,r.filter(e=>{let t=0===Y.length||Y.includes(e.title),r=0===G.length||G.includes(e.year);return t&&r})]}).filter(e=>{let[t,r]=e;return r.length>0}),[ec,Q,Y,G]),ed=(0,c.useMemo)(()=>{var e;let t=es?ei:S.map(e=>["".concat(e.title,"-").concat(e.year,"-").concat(e.source_name),[e]]),r=(null!==(e=g.get("q"))&&void 0!==e?e:"").trim().toLowerCase(),a=e=>e[0].title.toLowerCase().includes(r),s=e=>{let t=e[0].year;if(!t||"unknown"===t)return null;let r=Number(t);return Number.isNaN(r)?null:r},l=e=>e.length,n=e=>{let t=0;for(let r of e){let e=Array.isArray(r.episodes)?r.episodes.length:0;e>t&&(t=e)}return t},o=e=>{switch(ee){case"sources":return l(e);case"episodes":return n(e);default:return s(e)}},c=(e,t)=>{let r=o(e[1]),a=o(t[1]),s=null==r,l=null==a;return s&&!l?1:!s&&l?-1:s&&l?0:r<a?"asc"===er?-1:1:r>a?"asc"===er?1:-1:e[1][0].title.localeCompare(t[1][0].title)},i=[],d=[];for(let e of t)(a(e[1])?i:d).push(e);return i.sort(c),d.sort(c),{exact:i,others:d}},[ei,S,ee,er,x,es]),eu=(0,c.useMemo)(()=>ed.exact.slice(0,F),[ed.exact,F]),eg=(0,c.useMemo)(()=>ed.others.slice(0,I),[ed.others,I]),em=ed.exact.length>F,ex=ed.others.length>I,eh=(0,c.useRef)(null),ep=async e=>{var t,r;null===(t=eh.current)||void 0===t||t.abort();let a=new AbortController;eh.current=a;try{j(!0),C([]),q([]),w(!0);let t=new URLSearchParams({q:e.trim()});t.set("stream",en?"1":"0"),V.length>0&&t.set("sources",V.join(","));let s=(0,d.Jy)();t.set("timeout",s.toString());let l=await fetch("/api/search?".concat(t.toString()),{signal:a.signal});if(en){if(!l.body)return;let e=l.body.getReader(),t=new TextDecoder,a=!1,s="",n=!0;for(;!a;){let{value:l,done:o}=await e.read();if(a=o,l){let e=(s+=t.decode(l,{stream:!0})).split("\n");for(let t of(s=e.pop()||"",e))if(t.trim())try{let e=JSON.parse(t);(null===(r=e.pageResults)||void 0===r?void 0:r.length)&&(C(t=>[...t,...e.pageResults]),n&&(j(!1),n=!1)),e.failedSources&&q(e.failedSources)}catch(e){}}}if(s.trim())try{let e=JSON.parse(s);e.pageResults&&C(t=>[...t,...e.pageResults]),e.failedSources&&q(e.failedSources)}catch(e){}j(!1)}else{let e=await l.json();C(e.results||[]),q(e.failedSources||[]),j(!1)}}catch(e){if("AbortError"===e.name)return;console.error("搜索失败",e),C([])}};(0,c.useEffect)(()=>{(0,i.nO)().then(t);let e=(0,i.rq)("searchHistoryUpdated",t),r=()=>{u((document.body.scrollTop||0)>300)};return document.body.addEventListener("scroll",r,{passive:!0}),()=>{e(),document.body.removeEventListener("scroll",r)}},[]),(0,c.useEffect)(()=>{if(!T.current||k||!em)return;D.current&&D.current.disconnect();let e=new IntersectionObserver(e=>{e[0].isIntersecting&&em&&P(e=>e+20)},{threshold:.1,rootMargin:"200px"});return e.observe(T.current),D.current=e,()=>{D.current&&D.current.disconnect()}},[em,k]),(0,c.useEffect)(()=>{if(!U.current||k||!ex||em)return;J.current&&J.current.disconnect();let e=new IntersectionObserver(e=>{e[0].isIntersecting&&ex&&!em&&z(e=>e+20)},{threshold:.1,rootMargin:"200px"});return e.observe(U.current),J.current=e,()=>{J.current&&J.current.disconnect()}},[em,ex,k]);let eb=(0,c.useMemo)(()=>g.get("q"),[g]),ef=(0,c.useMemo)(()=>g.get("sources"),[g]);(0,c.useEffect)(()=>{eb&&(P(20),z(20))},[eb]),(0,c.useEffect)(()=>{ef&&H(ef.split(","))},[ef]),(0,c.useEffect)(()=>{if(eb)v(eb),j(!0),w(!0),ep(eb),(0,i.F0)(eb);else{var e;null===(e=document.getElementById("searchInput"))||void 0===e||e.focus()}},[eb]),(0,c.useEffect)(()=>{let e=g.get("q");e||L?e&&A(!1):(w(!1),A(!0))},[g,L]),(0,c.useEffect)(()=>{let e=e=>{O.current&&!O.current.contains(e.target)&&R(null)};return document.addEventListener("click",e),()=>document.removeEventListener("click",e)},[]),(0,c.useEffect)(()=>{let e=new URLSearchParams(g);V.length>0?e.set("sources",V.join(",")):e.delete("sources"),Q.length>0?e.set("filter_sources",Q.join(",")):e.delete("filter_sources"),Y.length>0?e.set("titles",Y.join(",")):e.delete("titles"),G.length>0?e.set("years",G.join(",")):e.delete("years"),ee?e.set("sort",ee):e.delete("sort"),er?e.set("order",er):e.delete("order"),g.get("q")&&window.history.replaceState({},"","/search?".concat(e.toString()))},[Q,Y,G,ee,er,g]);let ey=(e,t)=>{e&&e.preventDefault();let r=(null!=t?t:x).trim().replace(/\s+/g," ");if(!r)return;_(!1);let a=new URLSearchParams;a.set("q",r),V.length>0&&a.set("sources",V.join(","));let s=(0,d.Jy)();a.set("timeout",s.toString()),window.history.pushState({},"","/search?".concat(a.toString()))},ev=Array.from(new Set(S.map(e=>e.source_name))).sort(),ek=Array.from(new Set(S.map(e=>e.title))).sort(),ej=Array.from(new Set(S.map(e=>e.year))).sort();return(0,a.jsxs)(p.Z,{activePath:"/search",children:[(0,a.jsxs)("div",{className:"px-4 sm:px-10 py-4 sm:py-8 overflow-visible mb-10",children:[(0,a.jsx)("div",{className:"mb-7 max-w-2xl mx-auto md:hidden",children:(0,a.jsxs)("div",{className:"flex items-center",children:[(0,a.jsx)("div",{className:"flex-shrink-0",children:(0,a.jsx)(f.Z,{selectedSources:V,onChange:H,openFilter:X,setOpenFilter:$})}),(0,a.jsxs)("form",{onSubmit:ey,className:"flex-1 relative",children:[(0,a.jsx)(s.Z,{className:"absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 dark:text-gray-500"}),(0,a.jsx)("input",{id:"searchInput",type:"text",value:x,onChange:e=>{let t=e.target.value;v(t),_(!!t.trim())},onFocus:()=>{x.trim()&&_(!0)},placeholder:"搜索电影、电视剧...",className:"w-full h-12 rounded-r-lg rounded-l-none bg-gray-50/80 py-3 pl-10 pr-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white border border-gray-200/50 border-l-0 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:bg-gray-700 dark:border-gray-700 dark:border-l-0"}),(0,a.jsx)(b.Z,{query:x,isVisible:Z,onSelect:e=>{_(!1);let t=new URLSearchParams;t.set("q",e),V.length>0&&t.set("sources",V.join(","));let r=(0,d.Jy)();t.set("timeout",r.toString()),window.history.pushState({},"","/search?".concat(t.toString()))},onClose:()=>_(!1)})]})]})}),(0,a.jsx)("div",{className:"max-w-[95%] mx-auto overflow-visible",children:k?(0,a.jsx)("div",{className:"flex justify-center items-center h-40",children:(0,a.jsx)("div",{className:"animate-spin rounded-full h-8 w-8 border-b-2 border-green-500"})}):N?(0,a.jsxs)("section",{className:"mb-12",children:[(0,a.jsxs)("div",{className:"mb-3 flex items-center justify-between",children:[(0,a.jsxs)("div",{className:"flex items-center gap-4",children:[(0,a.jsx)("h2",{className:"text-xl font-bold text-gray-800 dark:text-gray-200",children:"搜索结果"}),(0,a.jsx)(m,{failedSources:E})]}),(0,a.jsxs)("div",{className:"flex items-center gap-4",children:[(0,a.jsxs)("label",{className:"flex items-center gap-2 cursor-pointer select-none",children:[(0,a.jsx)("span",{className:"text-sm text-gray-700 dark:text-gray-300",children:"流式"}),(0,a.jsxs)("div",{className:"relative",children:[(0,a.jsx)("input",{type:"checkbox",className:"sr-only peer",checked:en,onChange:()=>eo(!en)}),(0,a.jsx)("div",{className:"w-9 h-5 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600"}),(0,a.jsx)("div",{className:"absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-4"})]})]}),(0,a.jsxs)("label",{className:"flex items-center gap-2 cursor-pointer select-none",children:[(0,a.jsx)("span",{className:"text-sm text-gray-700 dark:text-gray-300",children:"聚合"}),(0,a.jsxs)("div",{className:"relative",children:[(0,a.jsx)("input",{type:"checkbox",className:"sr-only peer",checked:es,onChange:()=>el(!es)}),(0,a.jsx)("div",{className:"w-9 h-5 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600"}),(0,a.jsx)("div",{className:"absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-4"})]})]})]})]}),N&&S.length>0&&(0,a.jsx)("div",{className:"flex gap-3 flex-wrap mb-7 max-w-[100%] mx-auto",children:(0,a.jsx)(h,{openFilter:X,setOpenFilter:$,sourceOptions:ev,filterSources:Q,setFilterSources:W,titleOptions:ek,selectedTitles:Y,setSelectedTitles:B,yearOptions:ej,selectedYears:G,setSelectedYears:K,sortField:ee,onSortFieldChange:e=>{et(e)},sortOrder:er,onSortOrderChange:ea,sortOptions:[{value:"sources",label:"按源数量"},{value:"year",label:"按年份"},{value:"episodes",label:"按集数"}]})}),(0,a.jsxs)("div",{className:"justify-start grid grid-cols-3 gap-x-2 gap-y-14 sm:gap-y-20 px-0 sm:px-2 sm:grid-cols-[repeat(auto-fill,_minmax(11rem,_1fr))] sm:gap-x-8",children:[eu.map((e,t)=>{let[r,s]=e;if(es)return(0,a.jsx)("div",{className:"w-full",children:(0,a.jsx)(y.Z,{from:"search",items:s,query:x.trim()!==s[0].title?x.trim():""})},"agg-".concat(r,"-").concat(t));{let e=s[0];return(0,a.jsx)("div",{className:"w-full",children:(0,a.jsx)(y.Z,{id:e.id,title:e.title||"",poster:e.poster,episodes:e.episodes?e.episodes.length:0,source:e.source,source_name:e.source_name,douban_id:e.douban_id,query:x.trim()!==e.title?x.trim():"",year:e.year,from:"search",type:e.episodes&&e.episodes.length>1?"tv":"movie"})},"all-".concat(r,"-").concat(t))}}),0===ed.exact.length&&0===ed.others.length&&(0,a.jsx)("div",{className:"col-span-full text-center text-gray-500 py-8 dark:text-gray-400",children:"未找到相关结果"}),em&&(0,a.jsx)("div",{ref:T,className:"col-span-full flex justify-center py-8",children:(0,a.jsxs)("div",{className:"flex items-center gap-2 text-gray-500 dark:text-gray-400",children:[(0,a.jsx)("div",{className:"animate-spin rounded-full h-5 w-5 border-b-2 border-green-500"}),(0,a.jsx)("span",{className:"text-sm",children:"加载中..."})]})})]},"search-results-".concat(es)),ed.others.length>0&&(0,a.jsxs)("div",{className:"mt-8",children:[(0,a.jsx)("h2",{className:"text-xl font-bold text-gray-800 dark:text-gray-200 mb-7",children:"更多结果"}),(0,a.jsxs)("div",{className:"justify-start grid grid-cols-3 gap-x-2 gap-y-14 sm:gap-y-20 px-0 sm:px-2 sm:grid-cols-[repeat(auto-fill,_minmax(11rem,_1fr))] sm:gap-x-8",children:[eg.map((e,t)=>{let[r,s]=e;if(es)return(0,a.jsx)("div",{className:"w-full",children:(0,a.jsx)(y.Z,{from:"search",items:s,query:x.trim()!==s[0].title?x.trim():""})},"agg-others-".concat(r,"-").concat(t));{let e=s[0];return(0,a.jsx)("div",{className:"w-full",children:(0,a.jsx)(y.Z,{id:e.id,title:e.title||"",poster:e.poster,episodes:e.episodes?e.episodes.length:0,source:e.source,source_name:e.source_name,douban_id:e.douban_id,query:x.trim()!==e.title?x.trim():"",year:e.year,from:"search",type:e.episodes&&e.episodes.length>1?"tv":"movie"})},"all-others-".concat(r,"-").concat(t))}}),ex&&!em&&(0,a.jsx)("div",{ref:U,className:"col-span-full flex justify-center py-8",children:(0,a.jsxs)("div",{className:"flex items-center gap-2 text-gray-500 dark:text-gray-400",children:[(0,a.jsx)("div",{className:"animate-spin rounded-full h-5 w-5 border-b-2 border-green-500"}),(0,a.jsx)("span",{className:"text-sm",children:"加载中..."})]})})]})]})]}):e.length>0?(0,a.jsxs)("section",{className:"mb-12",children:[(0,a.jsxs)("h2",{className:"mb-4 text-xl font-bold text-gray-800 text-left dark:text-gray-200",children:["搜索历史",e.length>0&&(0,a.jsx)("button",{onClick:()=>(0,i.Ev)(),className:"ml-3 text-sm text-gray-500 hover:text-red-500 transition-colors dark:text-gray-400 dark:hover:text-red-500",children:"清空"})]}),(0,a.jsx)("div",{ref:O,className:"flex flex-wrap gap-2",children:e.map((e,t)=>(0,a.jsxs)("div",{className:"relative group",children:[(0,a.jsx)("button",{onClick:()=>{M===e?ey(void 0,e):(v(e),R(e))},className:"px-4 py-2 rounded-full text-sm transition-colors duration-200 ".concat(M===e?"bg-green-500/20 text-green-600 dark:bg-green-600/30 dark:text-green-300":"bg-gray-500/10 hover:bg-gray-300 text-gray-700 dark:bg-gray-700/50 dark:hover:bg-gray-600 dark:text-gray-300"),children:e}),M===e?(0,a.jsx)("button",{"aria-label":"删除搜索历史",onClick:t=>{t.stopPropagation(),t.preventDefault(),(0,i.Rw)(e),M===e&&R(null)},className:"absolute -top-1 -right-1 w-4 h-4 bg-gray-400 hover:bg-red-500 text-white rounded-full flex items-center justify-center text-[10px] transition-colors",children:(0,a.jsx)(l.Z,{className:"w-3 h-3"})}):(0,a.jsx)("button",{"aria-label":"删除搜索历史",onClick:t=>{t.stopPropagation(),t.preventDefault(),(0,i.Rw)(e)},className:"absolute -top-1 -right-1 w-4 h-4 opacity-0 group-hover:opacity-100 bg-gray-400 hover:bg-red-500 text-white rounded-full flex items-center justify-center text-[10px] transition-colors",children:(0,a.jsx)(l.Z,{className:"w-3 h-3"})})]},"history-".concat(e,"-").concat(t)))})]}):null})]}),(0,a.jsx)("button",{onClick:()=>{try{document.body.scrollTo({top:0,behavior:"smooth"})}catch(e){document.body.scrollTop=0}},className:"fixed bottom-20 md:bottom-6 right-6 z-[500] w-12 h-12 bg-green-500/90 hover:bg-green-500 text-white rounded-full shadow-lg backdrop-blur-sm transition-all duration-300 ease-in-out flex items-center justify-center group ".concat(r?"opacity-100 translate-y-0 pointer-events-auto":"opacity-0 translate-y-4 pointer-events-none"),"aria-label":"返回顶部",children:(0,a.jsx)(n.Z,{className:"w-6 h-6 transition-transform group-hover:scale-110"})})]})}function k(){return(0,a.jsx)(c.Suspense,{children:(0,a.jsx)(v,{})})}}},function(e){e.O(0,[11,886,108,914,669,455,333,314,133,744],function(){return e(e.s=4915)}),_N_E=e.O()}]);
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+  [797],
+  {
+    4915: function (e, t, r) {
+      Promise.resolve().then(r.bind(r, 2537));
+    },
+    131: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, r(9818).Z)('ChevronDown', [
+        ['path', { d: 'm6 9 6 6 6-6', key: 'qrunsl' }],
+      ]);
+    },
+    7308: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, r(9818).Z)('ChevronUp', [
+        ['path', { d: 'm18 15-6-6-6 6', key: '153udz' }],
+      ]);
+    },
+    5267: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, r(9818).Z)('Save', [
+        [
+          'path',
+          {
+            d: 'M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z',
+            key: '1c8476',
+          },
+        ],
+        [
+          'path',
+          { d: 'M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7', key: '1ydtos' },
+        ],
+        ['path', { d: 'M7 3v4a1 1 0 0 0 1 1h7', key: 't51u73' }],
+      ]);
+    },
+    9477: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, r(9818).Z)('Search', [
+        ['circle', { cx: '11', cy: '11', r: '8', key: '4ej97u' }],
+        ['path', { d: 'm21 21-4.3-4.3', key: '1qie3q' }],
+      ]);
+    },
+    7764: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, r(9818).Z)('Settings', [
+        [
+          'path',
+          {
+            d: 'M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z',
+            key: '1qme2f',
+          },
+        ],
+        ['circle', { cx: '12', cy: '12', r: '3', key: '1v7zrd' }],
+      ]);
+    },
+    4145: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, r(9818).Z)('TriangleAlert', [
+        [
+          'path',
+          {
+            d: 'm21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3',
+            key: 'wmoenq',
+          },
+        ],
+        ['path', { d: 'M12 9v4', key: 'juzpu7' }],
+        ['path', { d: 'M12 17h.01', key: 'p32p05' }],
+      ]);
+    },
+    9276: function (e, t, r) {
+      'use strict';
+      Object.defineProperty(t, '__esModule', { value: !0 }),
+        Object.defineProperty(t, 'RouterContext', {
+          enumerable: !0,
+          get: function () {
+            return a;
+          },
+        });
+      let a = r(9180)._(r(5663)).default.createContext(null);
+    },
+    2537: function (e, t, r) {
+      'use strict';
+      r.r(t),
+        r.d(t, {
+          default: function () {
+            return k;
+          },
+        });
+      var a = r(7569),
+        s = r(9477),
+        l = r(4819),
+        n = r(7308),
+        o = r(1383),
+        c = r(5663),
+        i = r(4090),
+        d = r(5941),
+        u = r(4145),
+        g = r(131);
+      function m(e) {
+        let { failedSources: t } = e,
+          [r, s] = (0, c.useState)(!1),
+          l = (0, c.useRef)(null),
+          o = (e) => {
+            switch (e) {
+              case '结果被过滤':
+                return 'text-green-600 dark:text-green-400';
+              case '无搜索结果':
+                return 'text-red-600 dark:text-red-400';
+              case '请求超时':
+                return 'text-orange-600 dark:text-orange-400';
+              case '请求失败':
+              case '网络错误':
+                return 'text-purple-600 dark:text-purple-400';
+              case '未知的错误':
+                return 'text-gray-600 dark:text-gray-400';
+              default:
+                return 'text-amber-700 dark:text-amber-300';
+            }
+          };
+        return ((0, c.useEffect)(() => {
+          let e = (e) => {
+            l.current && !l.current.contains(e.target) && s(!1);
+          };
+          return (
+            r && document.addEventListener('mousedown', e),
+            () => {
+              document.removeEventListener('mousedown', e);
+            }
+          );
+        }, [r]),
+        0 === t.length)
+          ? null
+          : (0, a.jsxs)('div', {
+              className: 'relative',
+              ref: l,
+              children: [
+                (0, a.jsxs)('button', {
+                  className:
+                    'flex items-center gap-2 hover:bg-amber-50 dark:hover:bg-amber-900/20 px-2 py-1 rounded transition-colors',
+                  onClick: () => s(!r),
+                  children: [
+                    (0, a.jsx)(u.Z, {
+                      className:
+                        'w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0',
+                    }),
+                    (0, a.jsxs)('span', {
+                      className:
+                        'text-sm text-amber-700 dark:text-amber-300 whitespace-nowrap',
+                      children: ['失败源 (', t.length, ')'],
+                    }),
+                    r
+                      ? (0, a.jsx)(n.Z, {
+                          className:
+                            'w-3 h-3 text-amber-600 dark:text-amber-400',
+                        })
+                      : (0, a.jsx)(g.Z, {
+                          className:
+                            'w-3 h-3 text-amber-600 dark:text-amber-400',
+                        }),
+                  ],
+                }),
+                r &&
+                  (0, a.jsxs)('div', {
+                    className:
+                      'absolute top-full left-1/2 transform -translate-x-1/2 mt-2 z-10 min-w-[190px] max-w-[300px] bg-white dark:bg-gray-800 border border-amber-200 dark:border-amber-700/30 rounded-lg shadow-lg p-4',
+                    children: [
+                      (0, a.jsx)('h3', {
+                        className:
+                          'text-sm font-medium text-amber-800 dark:text-amber-200 mb-3',
+                        children: '搜索失败的数据源详情',
+                      }),
+                      (0, a.jsx)('div', {
+                        className: 'space-y-2 max-h-60 overflow-y-auto',
+                        children: t.map((e, t) =>
+                          (0, a.jsxs)(
+                            'div',
+                            {
+                              className:
+                                'p-3 bg-amber-50 dark:bg-amber-900/20 rounded border border-amber-100 dark:border-amber-800/30',
+                              children: [
+                                (0, a.jsxs)('div', {
+                                  className: 'flex items-center gap-2 mb-1',
+                                  children: [
+                                    (0, a.jsx)('span', {
+                                      className:
+                                        'font-medium text-amber-800 dark:text-amber-200 text-sm',
+                                      children: e.name,
+                                    }),
+                                    (0, a.jsx)('span', {
+                                      className:
+                                        'text-xs text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-800/50 px-2 py-0.5 rounded',
+                                      children: e.key,
+                                    }),
+                                  ],
+                                }),
+                                (0, a.jsxs)('p', {
+                                  className: 'text-xs break-words '.concat(
+                                    o(e.error)
+                                  ),
+                                  children: ['错误信息: ', e.error],
+                                }),
+                              ],
+                            },
+                            ''.concat(e.key, '-').concat(t)
+                          )
+                        ),
+                      }),
+                    ],
+                  }),
+              ],
+            });
+      }
+      let x = (0, r(9818).Z)('ArrowUpDown', [
+        ['path', { d: 'm21 16-4 4-4-4', key: 'f6ql7i' }],
+        ['path', { d: 'M17 20V4', key: '1ejh1v' }],
+        ['path', { d: 'm3 8 4-4 4 4', key: '11wl7u' }],
+        ['path', { d: 'M7 4v16', key: '1glfcx' }],
+      ]);
+      var h = (e) => {
+          let {
+              openFilter: t,
+              setOpenFilter: r,
+              sourceOptions: s,
+              filterSources: l,
+              setFilterSources: o,
+              titleOptions: i,
+              selectedTitles: d,
+              setSelectedTitles: u,
+              yearOptions: m,
+              selectedYears: h,
+              setSelectedYears: p,
+              sortField: b,
+              onSortFieldChange: f,
+              sortOrder: y,
+              onSortOrderChange: v,
+              sortOptions: k,
+            } = e,
+            [j, N] = (0, c.useState)(!0),
+            [w, S] = (0, c.useState)('筛选'),
+            C = (e) => {
+              r(t === e ? null : e);
+            },
+            Z = (e, t) => {
+              '来源' === e
+                ? o(l.includes(t) ? l.filter((e) => e !== t) : [...l, t])
+                : '标题' === e
+                ? u(d.includes(t) ? d.filter((e) => e !== t) : [...d, t])
+                : '年份' === e &&
+                  p(h.includes(t) ? h.filter((e) => e !== t) : [...h, t]);
+            };
+          return (0, a.jsxs)('div', {
+            className:
+              'flex w-full border rounded-lg overflow-hidden shadow-sm dark:border-gray-700 flex-col',
+            children: [
+              (0, a.jsxs)('div', {
+                className:
+                  'flex items-center justify-between px-4 py-2 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800',
+                children: [
+                  (0, a.jsxs)('div', {
+                    className: 'flex gap-4',
+                    children: [
+                      (0, a.jsx)('button', {
+                        className: 'px-3 py-1 font-semibold rounded '.concat(
+                          '筛选' === w
+                            ? 'bg-green-500 text-white'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                        ),
+                        onClick: () => S('筛选'),
+                        children: '筛选',
+                      }),
+                      (0, a.jsx)('button', {
+                        className: 'px-3 py-1 font-semibold rounded '.concat(
+                          '排序' === w
+                            ? 'bg-green-500 text-white'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                        ),
+                        onClick: () => S('排序'),
+                        children: '排序',
+                      }),
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    className: 'flex items-center gap-2',
+                    children: [
+                      '筛选' === w &&
+                        (0, a.jsxs)(a.Fragment, {
+                          children: [
+                            (0, a.jsx)('button', {
+                              onClick: () => {
+                                o([]), u([]), p([]);
+                              },
+                              className:
+                                'text-sm text-blue-600 hover:underline dark:text-blue-400',
+                              children: '清空筛选',
+                            }),
+                            (0, a.jsx)('button', {
+                              onClick: () => N(!j),
+                              className:
+                                'p-1 border rounded hover:bg-gray-200 dark:hover:bg-gray-700',
+                              children: j
+                                ? (0, a.jsx)(g.Z, { className: 'w-4 h-4' })
+                                : (0, a.jsx)(n.Z, { className: 'w-4 h-4' }),
+                            }),
+                          ],
+                        }),
+                      '排序' === w &&
+                        (0, a.jsxs)('button', {
+                          onClick: () => v('asc' === y ? 'desc' : 'asc'),
+                          className:
+                            'px-3 py-2 text-sm flex items-center gap-1 border rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700',
+                          children: [
+                            (0, a.jsx)(x, { className: 'w-4 h-4' }),
+                            'asc' === y ? '升序' : '降序',
+                          ],
+                        }),
+                    ],
+                  }),
+                ],
+              }),
+              (0, a.jsxs)('div', {
+                className: 'flex w-full',
+                children: [
+                  '筛选' === w &&
+                    !j &&
+                    (0, a.jsx)('div', {
+                      className:
+                        'w-28 bg-gray-100 dark:bg-gray-800 flex flex-col',
+                      children: [
+                        { key: '来源', label: '来源' },
+                        { key: '标题', label: '标题' },
+                        { key: '年份', label: '年份' },
+                      ].map((e) =>
+                        (0, a.jsx)(
+                          'button',
+                          {
+                            onClick: () => C(e.key),
+                            className:
+                              'px-4 py-3 text-left border-b border-gray-200 dark:border-gray-700 transition-colors '.concat(
+                                t === e.key
+                                  ? 'bg-green-500 text-white font-semibold'
+                                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                              ),
+                            children: e.label,
+                          },
+                          e.key
+                        )
+                      ),
+                    }),
+                  (0, a.jsx)('div', {
+                    className:
+                      'flex-1 max-h-[60vh] overflow-y-auto bg-white dark:bg-gray-900 p-4',
+                    children:
+                      '筛选' === w
+                        ? (() => {
+                            if (j)
+                              return l.length || d.length || h.length
+                                ? (0, a.jsxs)('div', {
+                                    className:
+                                      'space-y-2 text-sm text-gray-500 dark:text-gray-400',
+                                    children: [
+                                      l.length > 0 &&
+                                        (0, a.jsxs)('div', {
+                                          children: [
+                                            '已选来源: ',
+                                            l.join('、'),
+                                          ],
+                                        }),
+                                      d.length > 0 &&
+                                        (0, a.jsxs)('div', {
+                                          children: [
+                                            '已选标题: ',
+                                            d.join('、'),
+                                          ],
+                                        }),
+                                      h.length > 0 &&
+                                        (0, a.jsxs)('div', {
+                                          children: [
+                                            '已选年份: ',
+                                            h.join('、'),
+                                          ],
+                                        }),
+                                    ],
+                                  })
+                                : (0, a.jsx)('div', {
+                                    className: 'text-gray-400',
+                                    children: '请展开选择筛选条件',
+                                  });
+                            if (!t)
+                              return (0, a.jsx)('div', {
+                                className: 'text-gray-400',
+                                children: '请选择一个筛选分类',
+                              });
+                            switch (t) {
+                              case '来源':
+                                return (0, a.jsx)('div', {
+                                  className:
+                                    'grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4',
+                                  children: s.map((e) =>
+                                    (0, a.jsx)(
+                                      'button',
+                                      {
+                                        onClick: () => Z('来源', e),
+                                        className:
+                                          'px-3 py-2 text-sm rounded-lg border transition-all duration-200 '.concat(
+                                            l.includes(e)
+                                              ? 'bg-green-100 text-green-700 border-green-300 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700'
+                                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80 border-transparent'
+                                          ),
+                                        children: e,
+                                      },
+                                      e
+                                    )
+                                  ),
+                                });
+                              case '标题':
+                                return (0, a.jsx)('div', {
+                                  className:
+                                    'grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4',
+                                  children: i.map((e) =>
+                                    (0, a.jsx)(
+                                      'button',
+                                      {
+                                        onClick: () => Z('标题', e),
+                                        className:
+                                          'px-3 py-2 text-sm rounded-lg border transition-all duration-200 '.concat(
+                                            d.includes(e)
+                                              ? 'bg-green-100 text-green-700 border-green-300 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700'
+                                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80 border-transparent'
+                                          ),
+                                        children: e,
+                                      },
+                                      e
+                                    )
+                                  ),
+                                });
+                              case '年份':
+                                return (0, a.jsx)('div', {
+                                  className:
+                                    'grid gap-2 grid-cols-3 sm:grid-cols-4 md:grid-cols-6',
+                                  children: m.map((e) =>
+                                    (0, a.jsx)(
+                                      'button',
+                                      {
+                                        onClick: () => Z('年份', e),
+                                        className:
+                                          'px-3 py-2 text-sm rounded-lg border transition-all duration-200 '.concat(
+                                            h.includes(e)
+                                              ? 'bg-green-100 text-green-700 border-green-300 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700'
+                                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80 border-transparent'
+                                          ),
+                                        children: e,
+                                      },
+                                      e
+                                    )
+                                  ),
+                                });
+                              default:
+                                return null;
+                            }
+                          })()
+                        : (0, a.jsx)('div', {
+                            className: 'flex flex-wrap gap-2 items-center',
+                            children: k.map((e) =>
+                              (0, a.jsx)(
+                                'button',
+                                {
+                                  onClick: () => f(e.value),
+                                  className:
+                                    'px-3 py-2 text-sm rounded-lg border transition-all duration-200 '.concat(
+                                      b === e.value
+                                        ? 'bg-green-100 text-green-700 border-green-300 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700'
+                                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80 border-gray-300 dark:border-gray-600'
+                                    ),
+                                  children: e.label,
+                                },
+                                e.value
+                              )
+                            ),
+                          }),
+                  }),
+                ],
+              }),
+            ],
+          });
+        },
+        p = r(5036),
+        b = r(4855),
+        f = r(3563),
+        y = r(4801);
+      function v() {
+        let [e, t] = (0, c.useState)([]),
+          [r, u] = (0, c.useState)(!1),
+          g = (0, o.useSearchParams)(),
+          [x, v] = (0, c.useState)(''),
+          [k, j] = (0, c.useState)(!1),
+          [N, w] = (0, c.useState)(!1),
+          [S, C] = (0, c.useState)([]),
+          [Z, _] = (0, c.useState)(!1),
+          [E, q] = (0, c.useState)([]),
+          [M, R] = (0, c.useState)(null),
+          O = (0, c.useRef)(null),
+          [L, A] = (0, c.useState)(!0),
+          [F, P] = (0, c.useState)(20),
+          [I, z] = (0, c.useState)(20),
+          T = (0, c.useRef)(null),
+          U = (0, c.useRef)(null),
+          D = (0, c.useRef)(null),
+          J = (0, c.useRef)(null),
+          [V, H] = (0, c.useState)(() => {
+            let e = g.get('sources');
+            if (e) return e.split(',');
+            {
+              let e = localStorage.getItem('savedSources');
+              if (e)
+                try {
+                  return JSON.parse(e);
+                } catch (e) {
+                  console.error('Failed to parse saved sources:', e);
+                }
+            }
+            return [];
+          }),
+          [Y, B] = (0, c.useState)(() => {
+            let e = g.get('titles');
+            return e ? e.split(',') : [];
+          }),
+          [G, K] = (0, c.useState)(() => {
+            let e = g.get('years');
+            return e ? e.split(',') : [];
+          }),
+          [Q, W] = (0, c.useState)(() => {
+            let e = g.get('filter_sources');
+            return e ? e.split(',') : [];
+          }),
+          [X, $] = (0, c.useState)(null),
+          [ee, et] = (0, c.useState)(() => {
+            let e = g.get('sort');
+            return 'sources' === e || 'episodes' === e || 'year' === e
+              ? e
+              : 'sources';
+          }),
+          [er, ea] = (0, c.useState)(() =>
+            'asc' === g.get('order') ? 'asc' : 'desc'
+          ),
+          [es, el] = (0, c.useState)(() => {
+            {
+              let e = localStorage.getItem('defaultAggregateSearch');
+              return null === e || 'true' === e;
+            }
+          }),
+          [en, eo] = (0, c.useState)(() => {
+            {
+              let e = localStorage.getItem('defaultStreamSearch');
+              return null === e || 'true' === e;
+            }
+          }),
+          ec = (0, c.useMemo)(() => {
+            let e = new Map();
+            return (
+              S.forEach((t) => {
+                let r = t.title.trim().replace(/\s+/g, ' '),
+                  a = ''
+                    .concat(r, '-')
+                    .concat(t.year || 'unknown', '-')
+                    .concat(1 === t.episodes.length ? 'movie' : 'tv'),
+                  s = e.get(a) || [];
+                s.push(t), e.set(a, s);
+              }),
+              Array.from(e.entries()).sort((e, t) => {
+                let r = e[1][0].title
+                    .toLowerCase()
+                    .includes(x.trim().toLowerCase()),
+                  a = t[1][0].title
+                    .toLowerCase()
+                    .includes(x.trim().toLowerCase());
+                if (r && !a) return -1;
+                if (!r && a) return 1;
+                let s = e[1][0].year,
+                  l = t[1][0].year;
+                return s === l
+                  ? e[1][0].title.localeCompare(t[1][0].title)
+                  : 'unknown' === s || 'unknown' === l
+                  ? 1
+                  : s > l
+                  ? -1
+                  : 1;
+              })
+            );
+          }, [S]),
+          ei = (0, c.useMemo)(
+            () =>
+              ec
+                .filter((e) => {
+                  let [t, r] = e,
+                    a =
+                      0 === Q.length ||
+                      r.some((e) => Q.includes(e.source_name)),
+                    s = 0 === Y.length || Y.includes(r[0].title),
+                    l = 0 === G.length || G.includes(r[0].year);
+                  return a && s && l;
+                })
+                .map((e) => {
+                  let [t, r] = e;
+                  return [
+                    t,
+                    r.filter((e) => {
+                      let t = 0 === Y.length || Y.includes(e.title),
+                        r = 0 === G.length || G.includes(e.year);
+                      return t && r;
+                    }),
+                  ];
+                })
+                .filter((e) => {
+                  let [t, r] = e;
+                  return r.length > 0;
+                }),
+            [ec, Q, Y, G]
+          ),
+          ed = (0, c.useMemo)(() => {
+            var e;
+            let t = es
+                ? ei
+                : S.map((e) => [
+                    ''
+                      .concat(e.title, '-')
+                      .concat(e.year, '-')
+                      .concat(e.source_name),
+                    [e],
+                  ]),
+              r = (null !== (e = g.get('q')) && void 0 !== e ? e : '')
+                .trim()
+                .toLowerCase(),
+              a = (e) => e[0].title.toLowerCase().includes(r),
+              s = (e) => {
+                let t = e[0].year;
+                if (!t || 'unknown' === t) return null;
+                let r = Number(t);
+                return Number.isNaN(r) ? null : r;
+              },
+              l = (e) => e.length,
+              n = (e) => {
+                let t = 0;
+                for (let r of e) {
+                  let e = Array.isArray(r.episodes) ? r.episodes.length : 0;
+                  e > t && (t = e);
+                }
+                return t;
+              },
+              o = (e) => {
+                switch (ee) {
+                  case 'sources':
+                    return l(e);
+                  case 'episodes':
+                    return n(e);
+                  default:
+                    return s(e);
+                }
+              },
+              c = (e, t) => {
+                let r = o(e[1]),
+                  a = o(t[1]),
+                  s = null == r,
+                  l = null == a;
+                return s && !l
+                  ? 1
+                  : !s && l
+                  ? -1
+                  : s && l
+                  ? 0
+                  : r < a
+                  ? 'asc' === er
+                    ? -1
+                    : 1
+                  : r > a
+                  ? 'asc' === er
+                    ? 1
+                    : -1
+                  : e[1][0].title.localeCompare(t[1][0].title);
+              },
+              i = [],
+              d = [];
+            for (let e of t) (a(e[1]) ? i : d).push(e);
+            return i.sort(c), d.sort(c), { exact: i, others: d };
+          }, [ei, S, ee, er, x, es]),
+          eu = (0, c.useMemo)(() => ed.exact.slice(0, F), [ed.exact, F]),
+          eg = (0, c.useMemo)(() => ed.others.slice(0, I), [ed.others, I]),
+          em = ed.exact.length > F,
+          ex = ed.others.length > I,
+          eh = (0, c.useRef)(null),
+          ep = async (e) => {
+            var t, r;
+            null === (t = eh.current) || void 0 === t || t.abort();
+            let a = new AbortController();
+            eh.current = a;
+            try {
+              j(!0), C([]), q([]), w(!0);
+              let t = new URLSearchParams({ q: e.trim() });
+              t.set('stream', en ? '1' : '0'),
+                V.length > 0 && t.set('sources', V.join(','));
+              let s = (0, d.Jy)();
+              t.set('timeout', s.toString());
+              let l = await fetch('/api/search?'.concat(t.toString()), {
+                signal: a.signal,
+              });
+              if (en) {
+                if (!l.body) return;
+                let e = l.body.getReader(),
+                  t = new TextDecoder(),
+                  a = !1,
+                  s = '',
+                  n = !0;
+                for (; !a; ) {
+                  let { value: l, done: o } = await e.read();
+                  if (((a = o), l)) {
+                    let e = (s += t.decode(l, { stream: !0 })).split('\n');
+                    for (let t of ((s = e.pop() || ''), e))
+                      if (t.trim())
+                        try {
+                          let e = JSON.parse(t);
+                          (null === (r = e.pageResults) || void 0 === r
+                            ? void 0
+                            : r.length) &&
+                            (C((t) => [...t, ...e.pageResults]),
+                            n && (j(!1), (n = !1))),
+                            e.failedSources && q(e.failedSources);
+                        } catch (e) {}
+                  }
+                }
+                if (s.trim())
+                  try {
+                    let e = JSON.parse(s);
+                    e.pageResults && C((t) => [...t, ...e.pageResults]),
+                      e.failedSources && q(e.failedSources);
+                  } catch (e) {}
+                j(!1);
+              } else {
+                let e = await l.json();
+                C(e.results || []), q(e.failedSources || []), j(!1);
+              }
+            } catch (e) {
+              if ('AbortError' === e.name) return;
+              console.error('搜索失败', e), C([]);
+            }
+          };
+        (0, c.useEffect)(() => {
+          (0, i.nO)().then(t);
+          let e = (0, i.rq)('searchHistoryUpdated', t),
+            r = () => {
+              u((document.body.scrollTop || 0) > 300);
+            };
+          return (
+            document.body.addEventListener('scroll', r, { passive: !0 }),
+            () => {
+              e(), document.body.removeEventListener('scroll', r);
+            }
+          );
+        }, []),
+          (0, c.useEffect)(() => {
+            if (!T.current || k || !em) return;
+            D.current && D.current.disconnect();
+            let e = new IntersectionObserver(
+              (e) => {
+                e[0].isIntersecting && em && P((e) => e + 20);
+              },
+              { threshold: 0.1, rootMargin: '200px' }
+            );
+            return (
+              e.observe(T.current),
+              (D.current = e),
+              () => {
+                D.current && D.current.disconnect();
+              }
+            );
+          }, [em, k]),
+          (0, c.useEffect)(() => {
+            if (!U.current || k || !ex || em) return;
+            J.current && J.current.disconnect();
+            let e = new IntersectionObserver(
+              (e) => {
+                e[0].isIntersecting && ex && !em && z((e) => e + 20);
+              },
+              { threshold: 0.1, rootMargin: '200px' }
+            );
+            return (
+              e.observe(U.current),
+              (J.current = e),
+              () => {
+                J.current && J.current.disconnect();
+              }
+            );
+          }, [em, ex, k]);
+        let eb = (0, c.useMemo)(() => g.get('q'), [g]),
+          ef = (0, c.useMemo)(() => g.get('sources'), [g]);
+        (0, c.useEffect)(() => {
+          eb && (P(20), z(20));
+        }, [eb]),
+          (0, c.useEffect)(() => {
+            ef && H(ef.split(','));
+          }, [ef]),
+          (0, c.useEffect)(() => {
+            if (eb) v(eb), j(!0), w(!0), ep(eb), (0, i.F0)(eb);
+            else {
+              var e;
+              null === (e = document.getElementById('searchInput')) ||
+                void 0 === e ||
+                e.focus();
+            }
+          }, [eb]),
+          (0, c.useEffect)(() => {
+            let e = g.get('q');
+            e || L ? e && A(!1) : (w(!1), A(!0));
+          }, [g, L]),
+          (0, c.useEffect)(() => {
+            let e = (e) => {
+              O.current && !O.current.contains(e.target) && R(null);
+            };
+            return (
+              document.addEventListener('click', e),
+              () => document.removeEventListener('click', e)
+            );
+          }, []),
+          (0, c.useEffect)(() => {
+            let e = new URLSearchParams(g);
+            V.length > 0 ? e.set('sources', V.join(',')) : e.delete('sources'),
+              Q.length > 0
+                ? e.set('filter_sources', Q.join(','))
+                : e.delete('filter_sources'),
+              Y.length > 0 ? e.set('titles', Y.join(',')) : e.delete('titles'),
+              G.length > 0 ? e.set('years', G.join(',')) : e.delete('years'),
+              ee ? e.set('sort', ee) : e.delete('sort'),
+              er ? e.set('order', er) : e.delete('order'),
+              g.get('q') &&
+                window.history.replaceState(
+                  {},
+                  '',
+                  '/search?'.concat(e.toString())
+                );
+          }, [Q, Y, G, ee, er, g]);
+        let ey = (e, t) => {
+            e && e.preventDefault();
+            let r = (null != t ? t : x).trim().replace(/\s+/g, ' ');
+            if (!r) return;
+            _(!1);
+            let a = new URLSearchParams();
+            a.set('q', r), V.length > 0 && a.set('sources', V.join(','));
+            let s = (0, d.Jy)();
+            a.set('timeout', s.toString()),
+              window.history.pushState({}, '', '/search?'.concat(a.toString()));
+          },
+          ev = Array.from(new Set(S.map((e) => e.source_name))).sort(),
+          ek = Array.from(new Set(S.map((e) => e.title))).sort(),
+          ej = Array.from(new Set(S.map((e) => e.year))).sort();
+        return (0, a.jsxs)(p.Z, {
+          activePath: '/search',
+          children: [
+            (0, a.jsxs)('div', {
+              className: 'px-4 sm:px-10 py-4 sm:py-8 overflow-visible mb-10',
+              children: [
+                (0, a.jsx)('div', {
+                  className: 'mb-7 max-w-2xl mx-auto md:hidden',
+                  children: (0, a.jsxs)('div', {
+                    className: 'flex items-center',
+                    children: [
+                      (0, a.jsx)('div', {
+                        className: 'flex-shrink-0',
+                        children: (0, a.jsx)(f.Z, {
+                          selectedSources: V,
+                          onChange: H,
+                          openFilter: X,
+                          setOpenFilter: $,
+                        }),
+                      }),
+                      (0, a.jsxs)('form', {
+                        onSubmit: ey,
+                        className: 'flex-1 relative',
+                        children: [
+                          (0, a.jsx)(s.Z, {
+                            className:
+                              'absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 dark:text-gray-500',
+                          }),
+                          (0, a.jsx)('input', {
+                            id: 'searchInput',
+                            type: 'text',
+                            value: x,
+                            onChange: (e) => {
+                              let t = e.target.value;
+                              v(t), _(!!t.trim());
+                            },
+                            onFocus: () => {
+                              x.trim() && _(!0);
+                            },
+                            placeholder: '搜索电影、电视剧...',
+                            className:
+                              'w-full h-12 rounded-r-lg rounded-l-none bg-gray-50/80 py-3 pl-10 pr-4 text-base text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white border border-gray-200/50 border-l-0 shadow-sm dark:bg-gray-800 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:bg-gray-700 dark:border-gray-700 dark:border-l-0',
+                          }),
+                          (0, a.jsx)(b.Z, {
+                            query: x,
+                            isVisible: Z,
+                            onSelect: (e) => {
+                              _(!1);
+                              let t = new URLSearchParams();
+                              t.set('q', e),
+                                V.length > 0 && t.set('sources', V.join(','));
+                              let r = (0, d.Jy)();
+                              t.set('timeout', r.toString()),
+                                window.history.pushState(
+                                  {},
+                                  '',
+                                  '/search?'.concat(t.toString())
+                                );
+                            },
+                            onClose: () => _(!1),
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                }),
+                (0, a.jsx)('div', {
+                  className: 'max-w-[95%] mx-auto overflow-visible',
+                  children: k
+                    ? (0, a.jsx)('div', {
+                        className: 'flex justify-center items-center h-40',
+                        children: (0, a.jsx)('div', {
+                          className:
+                            'animate-spin rounded-full h-8 w-8 border-b-2 border-green-500',
+                        }),
+                      })
+                    : N
+                    ? (0, a.jsxs)('section', {
+                        className: 'mb-12',
+                        children: [
+                          (0, a.jsxs)('div', {
+                            className: 'mb-3 flex items-center justify-between',
+                            children: [
+                              (0, a.jsxs)('div', {
+                                className: 'flex items-center gap-4',
+                                children: [
+                                  (0, a.jsx)('h2', {
+                                    className:
+                                      'text-xl font-bold text-gray-800 dark:text-gray-200',
+                                    children: '搜索结果',
+                                  }),
+                                  (0, a.jsx)(m, { failedSources: E }),
+                                ],
+                              }),
+                              (0, a.jsxs)('div', {
+                                className: 'flex items-center gap-4',
+                                children: [
+                                  (0, a.jsxs)('label', {
+                                    className:
+                                      'flex items-center gap-2 cursor-pointer select-none',
+                                    children: [
+                                      (0, a.jsx)('span', {
+                                        className:
+                                          'text-sm text-gray-700 dark:text-gray-300',
+                                        children: '流式',
+                                      }),
+                                      (0, a.jsxs)('div', {
+                                        className: 'relative',
+                                        children: [
+                                          (0, a.jsx)('input', {
+                                            type: 'checkbox',
+                                            className: 'sr-only peer',
+                                            checked: en,
+                                            onChange: () => eo(!en),
+                                          }),
+                                          (0, a.jsx)('div', {
+                                            className:
+                                              'w-9 h-5 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600',
+                                          }),
+                                          (0, a.jsx)('div', {
+                                            className:
+                                              'absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-4',
+                                          }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                  (0, a.jsxs)('label', {
+                                    className:
+                                      'flex items-center gap-2 cursor-pointer select-none',
+                                    children: [
+                                      (0, a.jsx)('span', {
+                                        className:
+                                          'text-sm text-gray-700 dark:text-gray-300',
+                                        children: '聚合',
+                                      }),
+                                      (0, a.jsxs)('div', {
+                                        className: 'relative',
+                                        children: [
+                                          (0, a.jsx)('input', {
+                                            type: 'checkbox',
+                                            className: 'sr-only peer',
+                                            checked: es,
+                                            onChange: () => el(!es),
+                                          }),
+                                          (0, a.jsx)('div', {
+                                            className:
+                                              'w-9 h-5 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600',
+                                          }),
+                                          (0, a.jsx)('div', {
+                                            className:
+                                              'absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-4',
+                                          }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                ],
+                              }),
+                            ],
+                          }),
+                          N &&
+                            S.length > 0 &&
+                            (0, a.jsx)('div', {
+                              className:
+                                'flex gap-3 flex-wrap mb-7 max-w-[100%] mx-auto',
+                              children: (0, a.jsx)(h, {
+                                openFilter: X,
+                                setOpenFilter: $,
+                                sourceOptions: ev,
+                                filterSources: Q,
+                                setFilterSources: W,
+                                titleOptions: ek,
+                                selectedTitles: Y,
+                                setSelectedTitles: B,
+                                yearOptions: ej,
+                                selectedYears: G,
+                                setSelectedYears: K,
+                                sortField: ee,
+                                onSortFieldChange: (e) => {
+                                  et(e);
+                                },
+                                sortOrder: er,
+                                onSortOrderChange: ea,
+                                sortOptions: [
+                                  { value: 'sources', label: '按源数量' },
+                                  { value: 'year', label: '按年份' },
+                                  { value: 'episodes', label: '按集数' },
+                                ],
+                              }),
+                            }),
+                          (0, a.jsxs)(
+                            'div',
+                            {
+                              className:
+                                'justify-start grid grid-cols-3 gap-x-2 gap-y-14 sm:gap-y-20 px-0 sm:px-2 sm:grid-cols-[repeat(auto-fill,_minmax(11rem,_1fr))] sm:gap-x-8',
+                              children: [
+                                eu.map((e, t) => {
+                                  let [r, s] = e;
+                                  if (es)
+                                    return (0, a.jsx)(
+                                      'div',
+                                      {
+                                        className: 'w-full',
+                                        children: (0, a.jsx)(y.Z, {
+                                          from: 'search',
+                                          items: s,
+                                          query:
+                                            x.trim() !== s[0].title
+                                              ? x.trim()
+                                              : '',
+                                        }),
+                                      },
+                                      'agg-'.concat(r, '-').concat(t)
+                                    );
+                                  {
+                                    let e = s[0];
+                                    return (0, a.jsx)(
+                                      'div',
+                                      {
+                                        className: 'w-full',
+                                        children: (0, a.jsx)(y.Z, {
+                                          id: e.id,
+                                          title: e.title || '',
+                                          poster: e.poster,
+                                          episodes: e.episodes
+                                            ? e.episodes.length
+                                            : 0,
+                                          source: e.source,
+                                          source_name: e.source_name,
+                                          douban_id: e.douban_id,
+                                          query:
+                                            x.trim() !== e.title
+                                              ? x.trim()
+                                              : '',
+                                          year: e.year,
+                                          from: 'search',
+                                          type:
+                                            e.episodes && e.episodes.length > 1
+                                              ? 'tv'
+                                              : 'movie',
+                                        }),
+                                      },
+                                      'all-'.concat(r, '-').concat(t)
+                                    );
+                                  }
+                                }),
+                                0 === ed.exact.length &&
+                                  0 === ed.others.length &&
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'col-span-full text-center text-gray-500 py-8 dark:text-gray-400',
+                                    children: '未找到相关结果',
+                                  }),
+                                em &&
+                                  (0, a.jsx)('div', {
+                                    ref: T,
+                                    className:
+                                      'col-span-full flex justify-center py-8',
+                                    children: (0, a.jsxs)('div', {
+                                      className:
+                                        'flex items-center gap-2 text-gray-500 dark:text-gray-400',
+                                      children: [
+                                        (0, a.jsx)('div', {
+                                          className:
+                                            'animate-spin rounded-full h-5 w-5 border-b-2 border-green-500',
+                                        }),
+                                        (0, a.jsx)('span', {
+                                          className: 'text-sm',
+                                          children: '加载中...',
+                                        }),
+                                      ],
+                                    }),
+                                  }),
+                              ],
+                            },
+                            'search-results-'.concat(es)
+                          ),
+                          ed.others.length > 0 &&
+                            (0, a.jsxs)('div', {
+                              className: 'mt-8',
+                              children: [
+                                (0, a.jsx)('h2', {
+                                  className:
+                                    'text-xl font-bold text-gray-800 dark:text-gray-200 mb-7',
+                                  children: '更多结果',
+                                }),
+                                (0, a.jsxs)('div', {
+                                  className:
+                                    'justify-start grid grid-cols-3 gap-x-2 gap-y-14 sm:gap-y-20 px-0 sm:px-2 sm:grid-cols-[repeat(auto-fill,_minmax(11rem,_1fr))] sm:gap-x-8',
+                                  children: [
+                                    eg.map((e, t) => {
+                                      let [r, s] = e;
+                                      if (es)
+                                        return (0, a.jsx)(
+                                          'div',
+                                          {
+                                            className: 'w-full',
+                                            children: (0, a.jsx)(y.Z, {
+                                              from: 'search',
+                                              items: s,
+                                              query:
+                                                x.trim() !== s[0].title
+                                                  ? x.trim()
+                                                  : '',
+                                            }),
+                                          },
+                                          'agg-others-'.concat(r, '-').concat(t)
+                                        );
+                                      {
+                                        let e = s[0];
+                                        return (0, a.jsx)(
+                                          'div',
+                                          {
+                                            className: 'w-full',
+                                            children: (0, a.jsx)(y.Z, {
+                                              id: e.id,
+                                              title: e.title || '',
+                                              poster: e.poster,
+                                              episodes: e.episodes
+                                                ? e.episodes.length
+                                                : 0,
+                                              source: e.source,
+                                              source_name: e.source_name,
+                                              douban_id: e.douban_id,
+                                              query:
+                                                x.trim() !== e.title
+                                                  ? x.trim()
+                                                  : '',
+                                              year: e.year,
+                                              from: 'search',
+                                              type:
+                                                e.episodes &&
+                                                e.episodes.length > 1
+                                                  ? 'tv'
+                                                  : 'movie',
+                                            }),
+                                          },
+                                          'all-others-'.concat(r, '-').concat(t)
+                                        );
+                                      }
+                                    }),
+                                    ex &&
+                                      !em &&
+                                      (0, a.jsx)('div', {
+                                        ref: U,
+                                        className:
+                                          'col-span-full flex justify-center py-8',
+                                        children: (0, a.jsxs)('div', {
+                                          className:
+                                            'flex items-center gap-2 text-gray-500 dark:text-gray-400',
+                                          children: [
+                                            (0, a.jsx)('div', {
+                                              className:
+                                                'animate-spin rounded-full h-5 w-5 border-b-2 border-green-500',
+                                            }),
+                                            (0, a.jsx)('span', {
+                                              className: 'text-sm',
+                                              children: '加载中...',
+                                            }),
+                                          ],
+                                        }),
+                                      }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                        ],
+                      })
+                    : e.length > 0
+                    ? (0, a.jsxs)('section', {
+                        className: 'mb-12',
+                        children: [
+                          (0, a.jsxs)('h2', {
+                            className:
+                              'mb-4 text-xl font-bold text-gray-800 text-left dark:text-gray-200',
+                            children: [
+                              '搜索历史',
+                              e.length > 0 &&
+                                (0, a.jsx)('button', {
+                                  onClick: () => (0, i.Ev)(),
+                                  className:
+                                    'ml-3 text-sm text-gray-500 hover:text-red-500 transition-colors dark:text-gray-400 dark:hover:text-red-500',
+                                  children: '清空',
+                                }),
+                            ],
+                          }),
+                          (0, a.jsx)('div', {
+                            ref: O,
+                            className: 'flex flex-wrap gap-2',
+                            children: e.map((e, t) =>
+                              (0, a.jsxs)(
+                                'div',
+                                {
+                                  className: 'relative group',
+                                  children: [
+                                    (0, a.jsx)('button', {
+                                      onClick: () => {
+                                        M === e ? ey(void 0, e) : (v(e), R(e));
+                                      },
+                                      className:
+                                        'px-4 py-2 rounded-full text-sm transition-colors duration-200 '.concat(
+                                          M === e
+                                            ? 'bg-green-500/20 text-green-600 dark:bg-green-600/30 dark:text-green-300'
+                                            : 'bg-gray-500/10 hover:bg-gray-300 text-gray-700 dark:bg-gray-700/50 dark:hover:bg-gray-600 dark:text-gray-300'
+                                        ),
+                                      children: e,
+                                    }),
+                                    M === e
+                                      ? (0, a.jsx)('button', {
+                                          'aria-label': '删除搜索历史',
+                                          onClick: (t) => {
+                                            t.stopPropagation(),
+                                              t.preventDefault(),
+                                              (0, i.Rw)(e),
+                                              M === e && R(null);
+                                          },
+                                          className:
+                                            'absolute -top-1 -right-1 w-4 h-4 bg-gray-400 hover:bg-red-500 text-white rounded-full flex items-center justify-center text-[10px] transition-colors',
+                                          children: (0, a.jsx)(l.Z, {
+                                            className: 'w-3 h-3',
+                                          }),
+                                        })
+                                      : (0, a.jsx)('button', {
+                                          'aria-label': '删除搜索历史',
+                                          onClick: (t) => {
+                                            t.stopPropagation(),
+                                              t.preventDefault(),
+                                              (0, i.Rw)(e);
+                                          },
+                                          className:
+                                            'absolute -top-1 -right-1 w-4 h-4 opacity-0 group-hover:opacity-100 bg-gray-400 hover:bg-red-500 text-white rounded-full flex items-center justify-center text-[10px] transition-colors',
+                                          children: (0, a.jsx)(l.Z, {
+                                            className: 'w-3 h-3',
+                                          }),
+                                        }),
+                                  ],
+                                },
+                                'history-'.concat(e, '-').concat(t)
+                              )
+                            ),
+                          }),
+                        ],
+                      })
+                    : null,
+                }),
+              ],
+            }),
+            (0, a.jsx)('button', {
+              onClick: () => {
+                try {
+                  document.body.scrollTo({ top: 0, behavior: 'smooth' });
+                } catch (e) {
+                  document.body.scrollTop = 0;
+                }
+              },
+              className:
+                'fixed bottom-20 md:bottom-6 right-6 z-[500] w-12 h-12 bg-green-500/90 hover:bg-green-500 text-white rounded-full shadow-lg backdrop-blur-sm transition-all duration-300 ease-in-out flex items-center justify-center group '.concat(
+                  r
+                    ? 'opacity-100 translate-y-0 pointer-events-auto'
+                    : 'opacity-0 translate-y-4 pointer-events-none'
+                ),
+              'aria-label': '返回顶部',
+              children: (0, a.jsx)(n.Z, {
+                className: 'w-6 h-6 transition-transform group-hover:scale-110',
+              }),
+            }),
+          ],
+        });
+      }
+      function k() {
+        return (0, a.jsx)(c.Suspense, { children: (0, a.jsx)(v, {}) });
+      }
+    },
+  },
+  function (e) {
+    e.O(0, [11, 886, 108, 914, 669, 455, 333, 314, 133, 744], function () {
+      return e((e.s = 4915));
+    }),
+      (_N_E = e.O());
+  },
+]);

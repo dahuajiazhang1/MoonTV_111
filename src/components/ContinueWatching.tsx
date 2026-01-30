@@ -20,7 +20,11 @@ interface ContinueWatchingProps {
   hideHeader?: boolean; // 是否隐藏标题栏
 }
 
-export default function ContinueWatching({ className, showAll = false, hideHeader = false }: ContinueWatchingProps) {
+export default function ContinueWatching({
+  className,
+  showAll = false,
+  hideHeader = false,
+}: ContinueWatchingProps) {
   const [playRecords, setPlayRecords] = useState<
     (PlayRecord & { key: string })[]
   >([]);
@@ -102,7 +106,7 @@ export default function ContinueWatching({ className, showAll = false, hideHeade
   if (isEmpty) {
     // 即使为空也返回一个空节点，保持组件挂载状态（或者返回 null，但在 Hooks 之后是安全的）
     // 为了最大程度安全，我们返回一个隐藏的 section
-    return <section className="hidden"></section>;
+    return <section className='hidden'></section>;
   }
 
   return (
@@ -148,89 +152,89 @@ export default function ContinueWatching({ className, showAll = false, hideHeade
         <div className='justify-start grid grid-cols-3 gap-x-2 gap-y-14 sm:gap-y-20 px-0 sm:px-2 sm:grid-cols-[repeat(auto-fill,_minmax(11rem,_1fr))] sm:gap-x-8'>
           {loading
             ? // 加载状态显示灰色占位数据
-            Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className='w-full'>
-                <div className='relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-gray-200 animate-pulse dark:bg-gray-800'>
-                  <div className='absolute inset-0 bg-gray-300 dark:bg-gray-700'></div>
+              Array.from({ length: 6 }).map((_, index) => (
+                <div key={index} className='w-full'>
+                  <div className='relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-gray-200 animate-pulse dark:bg-gray-800'>
+                    <div className='absolute inset-0 bg-gray-300 dark:bg-gray-700'></div>
+                  </div>
+                  <div className='mt-2 h-4 bg-gray-200 rounded animate-pulse dark:bg-gray-800'></div>
                 </div>
-                <div className='mt-2 h-4 bg-gray-200 rounded animate-pulse dark:bg-gray-800'></div>
-              </div>
-            ))
+              ))
             : // 显示真实数据
-            playRecords.map((record) => {
-              const { source, id } = parseKey(record.key);
-              return (
-                <div key={record.key} className='w-full'>
-                  <VideoCard
-                    id={id}
-                    title={record.title}
-                    poster={record.cover}
-                    year={record.year}
-                    source={source}
-                    source_name={record.source_name}
-                    progress={getProgress(record)}
-                    episodes={record.total_episodes}
-                    currentEpisode={record.index}
-                    query={record.search_title}
-                    from='playrecord'
-                    onDelete={() =>
-                      setPlayRecords((prev) =>
-                        prev.filter((r) => r.key !== record.key)
-                      )
-                    }
-                    type={record.total_episodes > 1 ? 'tv' : ''}
-                  />
-                </div>
-              );
-            })}
+              playRecords.map((record) => {
+                const { source, id } = parseKey(record.key);
+                return (
+                  <div key={record.key} className='w-full'>
+                    <VideoCard
+                      id={id}
+                      title={record.title}
+                      poster={record.cover}
+                      year={record.year}
+                      source={source}
+                      source_name={record.source_name}
+                      progress={getProgress(record)}
+                      episodes={record.total_episodes}
+                      currentEpisode={record.index}
+                      query={record.search_title}
+                      from='playrecord'
+                      onDelete={() =>
+                        setPlayRecords((prev) =>
+                          prev.filter((r) => r.key !== record.key)
+                        )
+                      }
+                      type={record.total_episodes > 1 ? 'tv' : ''}
+                    />
+                  </div>
+                );
+              })}
         </div>
       ) : (
         // 正常模式：使用横向滚动布局
         <ScrollableRow>
           {loading
             ? // 加载状态显示灰色占位数据
-            Array.from({ length: 6 }).map((_, index) => (
-              <div
-                key={index}
-                className='min-w-[96px] w-24 sm:min-w-[180px] sm:w-44'
-              >
-                <div className='relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-gray-200 animate-pulse dark:bg-gray-800'>
-                  <div className='absolute inset-0 bg-gray-300 dark:bg-gray-700'></div>
-                </div>
-                <div className='mt-2 h-4 bg-gray-200 rounded animate-pulse dark:bg-gray-800'></div>
-                <div className='mt-1 h-3 bg-gray-200 rounded animate-pulse dark:bg-gray-800'></div>
-              </div>
-            ))
-            : // 显示真实数据
-            playRecords.map((record) => {
-              const { source, id } = parseKey(record.key);
-              return (
+              Array.from({ length: 6 }).map((_, index) => (
                 <div
-                  key={record.key}
+                  key={index}
                   className='min-w-[96px] w-24 sm:min-w-[180px] sm:w-44'
                 >
-                  <VideoCard
-                    id={id}
-                    title={record.title}
-                    poster={record.cover}
-                    year={record.year}
-                    source={source}
-                    source_name={record.source_name}
-                    progress={getProgress(record)}
-                    episodes={record.total_episodes}
-                    currentEpisode={record.index}
-                    query={record.search_title}
-                    from='playrecord'
-                    onDelete={() =>
-                      setPlayRecords((prev) =>
-                        prev.filter((r) => r.key !== record.key)
-                      )
-                    }
-                    type={record.total_episodes > 1 ? 'tv' : ''}
-                  />
+                  <div className='relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-gray-200 animate-pulse dark:bg-gray-800'>
+                    <div className='absolute inset-0 bg-gray-300 dark:bg-gray-700'></div>
+                  </div>
+                  <div className='mt-2 h-4 bg-gray-200 rounded animate-pulse dark:bg-gray-800'></div>
+                  <div className='mt-1 h-3 bg-gray-200 rounded animate-pulse dark:bg-gray-800'></div>
                 </div>
-              );
-            })}
+              ))
+            : // 显示真实数据
+              playRecords.map((record) => {
+                const { source, id } = parseKey(record.key);
+                return (
+                  <div
+                    key={record.key}
+                    className='min-w-[96px] w-24 sm:min-w-[180px] sm:w-44'
+                  >
+                    <VideoCard
+                      id={id}
+                      title={record.title}
+                      poster={record.cover}
+                      year={record.year}
+                      source={source}
+                      source_name={record.source_name}
+                      progress={getProgress(record)}
+                      episodes={record.total_episodes}
+                      currentEpisode={record.index}
+                      query={record.search_title}
+                      from='playrecord'
+                      onDelete={() =>
+                        setPlayRecords((prev) =>
+                          prev.filter((r) => r.key !== record.key)
+                        )
+                      }
+                      type={record.total_episodes > 1 ? 'tv' : ''}
+                    />
+                  </div>
+                );
+              })}
         </ScrollableRow>
       )}
     </section>

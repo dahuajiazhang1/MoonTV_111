@@ -1,1 +1,2175 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[936],{3586:function(e,a,l){Promise.resolve().then(l.bind(l,4965))},9276:function(e,a,l){"use strict";Object.defineProperty(a,"__esModule",{value:!0}),Object.defineProperty(a,"RouterContext",{enumerable:!0,get:function(){return t}});let t=l(9180)._(l(5663)).default.createContext(null)},4965:function(e,a,l){"use strict";l.r(a),l.d(a,{default:function(){return y}});var t=l(7569),r=l(1383),s=l(5663),n=l(7946),i=l(3908),o=l(5241),c=l(2819),u=()=>(0,t.jsx)("div",{className:"w-full",children:(0,t.jsxs)("div",{className:"group relative w-full rounded-lg bg-transparent shadow-none flex flex-col",children:[(0,t.jsx)(c.Z,{aspectRatio:"aspect-[2/3]"}),(0,t.jsx)("div",{className:"absolute top-[calc(100%+0.5rem)] left-0 right-0",children:(0,t.jsx)("div",{className:"flex flex-col items-center justify-center",children:(0,t.jsx)("div",{className:"h-4 w-24 sm:w-32 bg-gray-200 rounded animate-pulse mb-2"})})})]})}),d=e=>{var a,l;let{customCategories:r,primarySelection:n,secondarySelection:i,onPrimaryChange:o,onSecondaryChange:c}=e,u=(0,s.useRef)(null),d=(0,s.useRef)([]),[m,v]=(0,s.useState)({left:0,width:0}),x=(0,s.useRef)(null),p=(0,s.useRef)([]),[f,b]=(0,s.useState)({left:0,width:0}),h=(0,s.useRef)(null),g=s.useMemo(()=>Array.from(new Set(r.map(e=>e.type))).sort((e,a)=>"movie"===e&&"movie"!==a?-1:"movie"!==e&&"movie"===a?1:0).map(e=>({label:"movie"===e?"电影":"剧集",value:e})),[r]),y=s.useMemo(()=>n?r.filter(e=>e.type===n).map(e=>({label:e.name||e.query,value:e.query})):[],[r,n]),w=s.useCallback(e=>{e.preventDefault(),e.stopPropagation();let a=h.current;if(a){let l=2*e.deltaY;a.scrollLeft+=l}},[]);(0,s.useEffect)(()=>{let e=h.current,a=x.current;if(e&&a)return e.addEventListener("wheel",w,{passive:!1}),a.addEventListener("wheel",w,{passive:!1}),()=>{e.removeEventListener("wheel",w),a.removeEventListener("wheel",w)}},[w]),(0,s.useEffect)(()=>{let e=h.current,a=x.current;if(e&&a&&y.length>0)return e.addEventListener("wheel",w,{passive:!1}),a.addEventListener("wheel",w,{passive:!1}),()=>{e.removeEventListener("wheel",w),a.removeEventListener("wheel",w)}},[w,y]);let j=(e,a,l,t)=>{if(e>=0&&l.current[e]&&a.current){let r=setTimeout(()=>{let r=l.current[e],s=a.current;if(r&&s){let e=r.getBoundingClientRect(),a=s.getBoundingClientRect();e.width>0&&t({left:e.left-a.left,width:e.width})}},0);return()=>clearTimeout(r)}};(0,s.useEffect)(()=>{g.length>0&&j(g.findIndex(e=>e.value===(n||g[0].value)),u,d,v),y.length>0&&j(y.findIndex(e=>e.value===(i||y[0].value)),x,p,b)},[g,y]),(0,s.useEffect)(()=>{if(g.length>0)return j(g.findIndex(e=>e.value===n),u,d,v)},[n,g]),(0,s.useEffect)(()=>{if(y.length>0)return j(y.findIndex(e=>e.value===i),x,p,b)},[i,y]);let k=function(e,a,l){let r=arguments.length>3&&void 0!==arguments[3]&&arguments[3],s=r?d:p,n=r?m:f;return(0,t.jsxs)("div",{ref:r?u:x,className:"relative inline-flex bg-gray-200/60 rounded-full p-0.5 sm:p-1 dark:bg-gray-700/60 backdrop-blur-sm",children:[n.width>0&&(0,t.jsx)("div",{className:"absolute top-0.5 bottom-0.5 sm:top-1 sm:bottom-1 bg-white dark:bg-gray-500 rounded-full shadow-sm transition-all duration-300 ease-out",style:{left:"".concat(n.left,"px"),width:"".concat(n.width,"px")}}),e.map((e,r)=>{let n=a===e.value;return(0,t.jsx)("button",{ref:e=>{s.current[r]=e},onClick:()=>l(e.value),className:"relative z-10 px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap ".concat(n?"text-gray-900 dark:text-gray-100 cursor-default":"text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 cursor-pointer"),children:e.label},e.value)})]})};return r&&0!==r.length?(0,t.jsx)("div",{className:"space-y-4 sm:space-y-6",children:(0,t.jsxs)("div",{className:"space-y-3 sm:space-y-4",children:[(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"类型"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:k(g,n||(null===(a=g[0])||void 0===a?void 0:a.value),o,!0)})]}),y.length>0&&(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"片单"}),(0,t.jsx)("div",{ref:h,className:"overflow-x-auto",children:k(y,i||(null===(l=y[0])||void 0===l?void 0:l.value),c,!1)})]})]})}):null},m=l(8091),v=e=>{var a;let{onChange:l,contentType:r="movie"}=e,[n,i]=(0,s.useState)(null),[o,c]=(0,s.useState)({x:0,y:0,width:0}),[u,d]=(0,s.useState)({}),v=(0,s.useRef)({}),x=(0,s.useRef)(null),p=[..."anime-tv"!==r&&"anime-movie"!==r?[{key:"type",label:"类型",options:(e=>{let a=[{label:"全部",value:"all"}];switch(e){case"movie":return[...a,{label:"喜剧",value:"comedy"},{label:"爱情",value:"romance"},{label:"动作",value:"action"},{label:"科幻",value:"sci-fi"},{label:"悬疑",value:"suspense"},{label:"犯罪",value:"crime"},{label:"惊悚",value:"thriller"},{label:"冒险",value:"adventure"},{label:"音乐",value:"music"},{label:"历史",value:"history"},{label:"奇幻",value:"fantasy"},{label:"恐怖",value:"horror"},{label:"战争",value:"war"},{label:"传记",value:"biography"},{label:"歌舞",value:"musical"},{label:"武侠",value:"wuxia"},{label:"情色",value:"erotic"},{label:"灾难",value:"disaster"},{label:"西部",value:"western"},{label:"纪录片",value:"documentary"},{label:"短片",value:"short"}];case"tv":return[...a,{label:"喜剧",value:"comedy"},{label:"爱情",value:"romance"},{label:"悬疑",value:"suspense"},{label:"武侠",value:"wuxia"},{label:"古装",value:"costume"},{label:"家庭",value:"family"},{label:"犯罪",value:"crime"},{label:"科幻",value:"sci-fi"},{label:"恐怖",value:"horror"},{label:"历史",value:"history"},{label:"战争",value:"war"},{label:"动作",value:"action"},{label:"冒险",value:"adventure"},{label:"传记",value:"biography"},{label:"剧情",value:"drama"},{label:"奇幻",value:"fantasy"},{label:"惊悚",value:"thriller"},{label:"灾难",value:"disaster"},{label:"歌舞",value:"musical"},{label:"音乐",value:"music"}];case"show":return[...a,{label:"真人秀",value:"reality"},{label:"脱口秀",value:"talkshow"},{label:"音乐",value:"music"},{label:"歌舞",value:"musical"}];default:return a}})(r)}]:[{key:"label",label:"类型",options:(e=>{let a=[{label:"全部",value:"all"}];switch(e){case"anime-movie":return[...a,{label:"定格动画",value:"stop_motion"},{label:"传记",value:"biography"},{label:"美国动画",value:"us_animation"},{label:"爱情",value:"romance"},{label:"黑色幽默",value:"dark_humor"},{label:"歌舞",value:"musical"},{label:"儿童",value:"children"},{label:"二次元",value:"anime"},{label:"动物",value:"animal"},{label:"青春",value:"youth"},{label:"历史",value:"history"},{label:"励志",value:"inspirational"},{label:"恶搞",value:"parody"},{label:"治愈",value:"healing"},{label:"运动",value:"sports"},{label:"后宫",value:"harem"},{label:"情色",value:"erotic"},{label:"人性",value:"human_nature"},{label:"悬疑",value:"suspense"},{label:"恋爱",value:"love"},{label:"魔幻",value:"fantasy"},{label:"科幻",value:"sci_fi"}];case"anime-tv":return[...a,{label:"黑色幽默",value:"dark_humor"},{label:"历史",value:"history"},{label:"歌舞",value:"musical"},{label:"励志",value:"inspirational"},{label:"恶搞",value:"parody"},{label:"治愈",value:"healing"},{label:"运动",value:"sports"},{label:"后宫",value:"harem"},{label:"情色",value:"erotic"},{label:"国漫",value:"chinese_anime"},{label:"人性",value:"human_nature"},{label:"悬疑",value:"suspense"},{label:"恋爱",value:"love"},{label:"魔幻",value:"fantasy"},{label:"科幻",value:"sci_fi"}];default:return a}})(r)}],{key:"region",label:"地区",options:(e=>{let a=[{label:"全部",value:"all"}];switch(e){case"movie":case"anime-movie":return[...a,{label:"华语",value:"chinese"},{label:"欧美",value:"western"},{label:"韩国",value:"korean"},{label:"日本",value:"japanese"},{label:"中国大陆",value:"mainland_china"},{label:"美国",value:"usa"},{label:"中国香港",value:"hong_kong"},{label:"中国台湾",value:"taiwan"},{label:"英国",value:"uk"},{label:"法国",value:"france"},{label:"德国",value:"germany"},{label:"意大利",value:"italy"},{label:"西班牙",value:"spain"},{label:"印度",value:"india"},{label:"泰国",value:"thailand"},{label:"俄罗斯",value:"russia"},{label:"加拿大",value:"canada"},{label:"澳大利亚",value:"australia"},{label:"爱尔兰",value:"ireland"},{label:"瑞典",value:"sweden"},{label:"巴西",value:"brazil"},{label:"丹麦",value:"denmark"}];case"tv":case"anime-tv":case"show":return[...a,{label:"华语",value:"chinese"},{label:"欧美",value:"western"},{label:"国外",value:"foreign"},{label:"韩国",value:"korean"},{label:"日本",value:"japanese"},{label:"中国大陆",value:"mainland_china"},{label:"中国香港",value:"hong_kong"},{label:"美国",value:"usa"},{label:"英国",value:"uk"},{label:"泰国",value:"thailand"},{label:"中国台湾",value:"taiwan"},{label:"意大利",value:"italy"},{label:"法国",value:"france"},{label:"德国",value:"germany"},{label:"西班牙",value:"spain"},{label:"俄罗斯",value:"russia"},{label:"瑞典",value:"sweden"},{label:"巴西",value:"brazil"},{label:"丹麦",value:"denmark"},{label:"印度",value:"india"},{label:"加拿大",value:"canada"},{label:"爱尔兰",value:"ireland"},{label:"澳大利亚",value:"australia"}];default:return a}})(r)},{key:"year",label:"年代",options:[{label:"全部",value:"all"},{label:"2020年代",value:"2020s"},{label:"2025",value:"2025"},{label:"2024",value:"2024"},{label:"2023",value:"2023"},{label:"2022",value:"2022"},{label:"2021",value:"2021"},{label:"2020",value:"2020"},{label:"2019",value:"2019"},{label:"2010年代",value:"2010s"},{label:"2000年代",value:"2000s"},{label:"90年代",value:"1990s"},{label:"80年代",value:"1980s"},{label:"70年代",value:"1970s"},{label:"60年代",value:"1960s"},{label:"更早",value:"earlier"}]},..."tv"===r||"show"===r||"anime-tv"===r?[{key:"platform",label:"平台",options:(e=>{let a=[{label:"全部",value:"all"}];switch(e){case"movie":default:return a;case"tv":case"anime-tv":case"show":return[...a,{label:"腾讯视频",value:"tencent"},{label:"爱奇艺",value:"iqiyi"},{label:"优酷",value:"youku"},{label:"湖南卫视",value:"hunan_tv"},{label:"Netflix",value:"netflix"},{label:"HBO",value:"hbo"},{label:"BBC",value:"bbc"},{label:"NHK",value:"nhk"},{label:"CBS",value:"cbs"},{label:"NBC",value:"nbc"},{label:"tvN",value:"tvn"}]}})(r)}]:[],{key:"sort",label:"排序",options:[{label:"综合排序",value:"T"},{label:"近期热度",value:"U"},{label:"tv"===r||"show"===r?"首播时间":"首映时间",value:"R"},{label:"高分优先",value:"S"}]}],f=e=>{let a=v.current[e];if(a){let e=a.getBoundingClientRect(),l=window.innerWidth,t=e.left,r=Math.max(e.width,300),s=!1;l<768&&(s=!0,t+(r=Math.min(r,l-32))>l-16&&(t=l-r-16),t<16&&(t=16)),c({x:t,y:e.bottom,width:s?r:e.width})}},b=e=>{n===e?i(null):(i(e),f(e))},h=(e,a)=>{let t={...u,[e]:a};d(t);let r={type:"all",region:"all",year:"all",platform:"all",label:"all",sort:"T"};Object.entries(t).forEach(e=>{let[a,l]=e;if(l&&"all"!==l&&("sort"!==a||"T"!==l)){let e=p.find(e=>e.key===a);if(e){let t=e.options.find(e=>e.value===l);t&&(r[a]="sort"===a?t.value:t.label)}}}),l(r),i(null)},g=e=>{let a=p.find(a=>a.key===e);if(!a)return"";let l=u[e];if(!l||"all"===l||"sort"===e&&"T"===l)return a.label;let t=a.options.find(e=>e.value===l);return(null==t?void 0:t.label)||a.label},y=e=>{let a=u[e];return!a||"all"===a||"sort"===e&&"T"===a},w=(e,a)=>{let l=u[e];return void 0===l&&(l="all","sort"===e&&(l="T")),l===a};return(0,s.useEffect)(()=>{let e=()=>{n&&f(n)},a=()=>{n&&f(n)};return window.addEventListener("scroll",e),window.addEventListener("resize",a),()=>{window.removeEventListener("scroll",e),window.removeEventListener("resize",a)}},[n]),(0,s.useEffect)(()=>{let e=e=>{!x.current||x.current.contains(e.target)||Object.values(v.current).some(a=>a&&a.contains(e.target))||i(null)};return document.addEventListener("mousedown",e),()=>document.removeEventListener("mousedown",e)},[]),(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)("div",{className:"relative inline-flex rounded-full p-0.5 sm:p-1 bg-transparent gap-1 sm:gap-2",children:p.map(e=>(0,t.jsx)("div",{ref:a=>{v.current[e.key]=a},className:"relative",children:(0,t.jsxs)("button",{onClick:()=>b(e.key),className:"relative z-10 px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-4 md:py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap ".concat(n===e.key?y(e.key)?"text-gray-900 dark:text-gray-100 cursor-default":"text-green-600 dark:text-green-400 cursor-default":y(e.key)?"text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 cursor-pointer":"text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 cursor-pointer"),children:[(0,t.jsx)("span",{children:g(e.key)}),(0,t.jsx)("svg",{className:"inline-block w-2.5 h-2.5 sm:w-3 sm:h-3 ml-0.5 sm:ml-1 transition-transform duration-200 ".concat(n===e.key?"rotate-180":""),fill:"none",stroke:"currentColor",viewBox:"0 0 24 24",children:(0,t.jsx)("path",{strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:2,d:"M19 9l-7 7-7-7"})})]})},e.key))}),n&&(0,m.createPortal)((0,t.jsx)("div",{ref:x,className:"fixed z-[9999] bg-white/95 dark:bg-gray-800/95 rounded-xl border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm",style:{left:"".concat(o.x,"px"),top:"".concat(o.y,"px"),...window.innerWidth<768?{width:"".concat(o.width,"px")}:{minWidth:"".concat(Math.max(o.width,300),"px")},maxWidth:"600px",position:"fixed"},children:(0,t.jsx)("div",{className:"p-2 sm:p-4",children:(0,t.jsx)("div",{className:"grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1 sm:gap-2",children:null===(a=p.find(e=>e.key===n))||void 0===a?void 0:a.options.map(e=>(0,t.jsx)("button",{onClick:()=>h(n,e.value),className:"px-2 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm rounded-lg transition-all duration-200 text-left ".concat(w(n,e.value)?"bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-700":"text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80"),children:e.label},e.value))})})}),document.body)]})};let x=[{value:"Mon",label:"周一",shortLabel:"周一"},{value:"Tue",label:"周二",shortLabel:"周二"},{value:"Wed",label:"周三",shortLabel:"周三"},{value:"Thu",label:"周四",shortLabel:"周四"},{value:"Fri",label:"周五",shortLabel:"周五"},{value:"Sat",label:"周六",shortLabel:"周六"},{value:"Sun",label:"周日",shortLabel:"周日"}];var p=e=>{let{onWeekdayChange:a,className:l=""}=e,r=()=>["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][new Date().getDay()],[n,i]=(0,s.useState)(r());return(0,s.useEffect)(()=>{a(r())},[]),(0,t.jsx)("div",{className:"relative inline-flex rounded-full p-0.5 sm:p-1 ".concat(l),children:x.map(e=>{let l=n===e.value;return(0,t.jsx)("button",{onClick:()=>{i(e.value),a(e.value)},className:"\n              relative z-10 px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap\n              ".concat(l?"text-green-600 dark:text-green-400 font-semibold":"text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 cursor-pointer","\n            "),title:e.label,children:e.shortLabel},e.value)})})},f=e=>{let{type:a,primarySelection:l,secondarySelection:r,onPrimaryChange:n,onSecondaryChange:i,onMultiLevelChange:o,onWeekdayChange:c}=e,u=(0,s.useRef)(null),d=(0,s.useRef)([]),[m,x]=(0,s.useState)({left:0,width:0}),f=(0,s.useRef)(null),b=(0,s.useRef)([]),[h,g]=(0,s.useState)({left:0,width:0}),y=[{label:"全部",value:"全部"},{label:"热门电影",value:"热门"},{label:"最新电影",value:"最新"},{label:"豆瓣高分",value:"豆瓣高分"},{label:"冷门佳片",value:"冷门佳片"}],w=[{label:"全部",value:"全部"},{label:"华语",value:"华语"},{label:"欧美",value:"欧美"},{label:"韩国",value:"韩国"},{label:"日本",value:"日本"}],j=[{label:"全部",value:"全部"},{label:"最近热门",value:"最近热门"}],k=[{label:"全部",value:"tv"},{label:"国产",value:"tv_domestic"},{label:"欧美",value:"tv_american"},{label:"日本",value:"tv_japanese"},{label:"韩国",value:"tv_korean"},{label:"动漫",value:"tv_animation"},{label:"纪录片",value:"tv_documentary"}],N=[{label:"全部",value:"全部"},{label:"最近热门",value:"最近热门"}],S=[{label:"全部",value:"show"},{label:"国内",value:"show_domestic"},{label:"国外",value:"show_foreign"}],E=[{label:"每日放送",value:"每日放送"},{label:"番剧",value:"番剧"},{label:"剧场版",value:"剧场版"}],_=e=>{null==o||o(e)},C=(e,a,l,t)=>{if(e>=0&&l.current[e]&&a.current){let r=setTimeout(()=>{let r=l.current[e],s=a.current;if(r&&s){let e=r.getBoundingClientRect(),a=s.getBoundingClientRect();e.width>0&&t({left:e.left-a.left,width:e.width})}},0);return()=>clearTimeout(r)}};(0,s.useEffect)(()=>{"movie"===a?C(y.findIndex(e=>e.value===(l||y[0].value)),u,d,x):"tv"===a?C(j.findIndex(e=>e.value===(l||j[1].value)),u,d,x):"anime"===a?C(E.findIndex(e=>e.value===(l||E[0].value)),u,d,x):"show"===a&&C(N.findIndex(e=>e.value===(l||N[1].value)),u,d,x);let e=-1;"movie"===a?e=w.findIndex(e=>e.value===(r||w[0].value)):"tv"===a?e=k.findIndex(e=>e.value===(r||k[0].value)):"show"===a&&(e=S.findIndex(e=>e.value===(r||S[0].value))),e>=0&&C(e,f,b,g)},[a]),(0,s.useEffect)(()=>"movie"===a?C(y.findIndex(e=>e.value===l),u,d,x):"tv"===a?C(j.findIndex(e=>e.value===l),u,d,x):"anime"===a?C(E.findIndex(e=>e.value===l),u,d,x):"show"===a?C(N.findIndex(e=>e.value===l),u,d,x):void 0,[l]),(0,s.useEffect)(()=>{let e=-1,l=[];if("movie"===a?(e=w.findIndex(e=>e.value===r),l=w):"tv"===a?(e=k.findIndex(e=>e.value===r),l=k):"show"===a&&(e=S.findIndex(e=>e.value===r),l=S),l.length>0)return C(e,f,b,g)},[r]);let L=function(e,a,l){let r=arguments.length>3&&void 0!==arguments[3]&&arguments[3],s=r?d:b,n=r?m:h;return(0,t.jsxs)("div",{ref:r?u:f,className:"relative inline-flex bg-gray-200/60 rounded-full p-0.5 sm:p-1 dark:bg-gray-700/60 backdrop-blur-sm",children:[n.width>0&&(0,t.jsx)("div",{className:"absolute top-0.5 bottom-0.5 sm:top-1 sm:bottom-1 bg-white dark:bg-gray-500 rounded-full shadow-sm transition-all duration-300 ease-out",style:{left:"".concat(n.left,"px"),width:"".concat(n.width,"px")}}),e.map((e,r)=>{let n=a===e.value;return(0,t.jsx)("button",{ref:e=>{s.current[r]=e},onClick:()=>l(e.value),className:"relative z-10 px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap ".concat(n?"text-gray-900 dark:text-gray-100 cursor-default":"text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 cursor-pointer"),children:e.label},e.value)})]})};return(0,t.jsxs)("div",{className:"space-y-4 sm:space-y-6",children:["movie"===a&&(0,t.jsxs)("div",{className:"space-y-3 sm:space-y-4",children:[(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"分类"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:L(y,l||y[0].value,n,!0)})]}),"全部"!==l?(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"地区"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:L(w,r||w[0].value,i,!1)})]}):(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"筛选"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:(0,t.jsx)(v,{onChange:_,contentType:a},"".concat(a,"-").concat(l))})]})]}),"tv"===a&&(0,t.jsxs)("div",{className:"space-y-3 sm:space-y-4",children:[(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"分类"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:L(j,l||j[1].value,n,!0)})]}),"最近热门"===(l||j[1].value)?(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"类型"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:L(k,r||k[0].value,i,!1)})]}):"全部"===(l||j[1].value)?(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"筛选"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:(0,t.jsx)(v,{onChange:_,contentType:a},"".concat(a,"-").concat(l))})]}):null]}),"anime"===a&&(0,t.jsxs)("div",{className:"space-y-3 sm:space-y-4",children:[(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"分类"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:L(E,l||E[0].value,n,!0)})]}),"每日放送"===(l||E[0].value)?(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"星期"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:(0,t.jsx)(p,{onWeekdayChange:c})})]}):(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"筛选"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:"番剧"===(l||E[0].value)?(0,t.jsx)(v,{onChange:_,contentType:"anime-tv"},"anime-tv-".concat(l)):(0,t.jsx)(v,{onChange:_,contentType:"anime-movie"},"anime-movie-".concat(l))})]})]}),"show"===a&&(0,t.jsxs)("div",{className:"space-y-3 sm:space-y-4",children:[(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"分类"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:L(N,l||N[1].value,n,!0)})]}),"最近热门"===(l||N[1].value)?(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"类型"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:L(S,r||S[0].value,i,!1)})]}):"全部"===(l||N[1].value)?(0,t.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center gap-2",children:[(0,t.jsx)("span",{className:"text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]",children:"筛选"}),(0,t.jsx)("div",{className:"overflow-x-auto",children:(0,t.jsx)(v,{onChange:_,contentType:a},"".concat(a,"-").concat(l))})]}):null]})]})},b=l(5036),h=l(4801);function g(){let e=(0,r.useSearchParams)(),[a,l]=(0,s.useState)([]),[c,m]=(0,s.useState)(!1),[v,x]=(0,s.useState)(0),[p,g]=(0,s.useState)(!0),[y,w]=(0,s.useState)(!1),[j,k]=(0,s.useState)(!1),N=(0,s.useRef)(null),S=(0,s.useRef)(null),E=(0,s.useRef)(null),_=(0,s.useRef)({type:"",primarySelection:"",secondarySelection:"",multiLevelSelection:{},selectedWeekday:"",currentPage:0}),C=e.get("type")||"movie",[L,T]=(0,s.useState)([]),[R,I]=(0,s.useState)(()=>"movie"===C?"热门":"tv"===C||"show"===C?"最近热门":"anime"===C?"每日放送":""),[P,O]=(0,s.useState)(()=>"movie"===C?"全部":"tv"===C?"tv":"show"===C?"show":"全部"),[W,B]=(0,s.useState)({type:"all",region:"all",year:"all",platform:"all",label:"all",sort:"T"}),[z,M]=(0,s.useState)("");(0,s.useEffect)(()=>{(0,i.V)().then(e=>{T(e)})},[]),(0,s.useEffect)(()=>{_.current={type:C,primarySelection:R,secondarySelection:P,multiLevelSelection:W,selectedWeekday:z,currentPage:v}},[C,R,P,W,z,v]),(0,s.useEffect)(()=>{let e=setTimeout(()=>{k(!0)},50);return()=>clearTimeout(e)},[]),(0,s.useEffect)(()=>{k(!1),m(!0)},[C]),(0,s.useEffect)(()=>{if("custom"===C&&L.length>0){let e=Array.from(new Set(L.map(e=>e.type)));if(e.length>0){let a=e[0];I(a=e.includes("movie")?"movie":"tv");let l=L.find(e=>e.type===a);l&&O(l.query)}}else"movie"===C?(I("热门"),O("全部")):"tv"===C?(I("最近热门"),O("tv")):"show"===C?(I("最近热门"),O("show")):("anime"===C?I("每日放送"):I(""),O("全部"));B({type:"all",region:"all",year:"all",platform:"all",label:"all",sort:"T"});let e=setTimeout(()=>{k(!0)},50);return()=>clearTimeout(e)},[C,L]);let q=Array.from({length:25},(e,a)=>a),U=(0,s.useCallback)((e,a)=>e.type===a.type&&e.primarySelection===a.primarySelection&&e.secondarySelection===a.secondarySelection&&e.selectedWeekday===a.selectedWeekday&&e.currentPage===a.currentPage&&JSON.stringify(e.multiLevelSelection)===JSON.stringify(a.multiLevelSelection),[]),A=(0,s.useCallback)(e=>"tv"===C||"show"===C?{kind:"tv",category:C,type:P,pageLimit:25,pageStart:e}:{kind:C,category:R,type:P,pageLimit:25,pageStart:e},[C,R,P]),F=(0,s.useCallback)(async()=>{try{let e;if(m(!0),l([]),x(0),g(!0),w(!1),"custom"===C){let a=L.find(e=>e.type===R&&e.query===P);if(a)e=await (0,o.$E)({tag:a.query,type:a.type,pageLimit:25,pageStart:0});else throw Error("没有找到对应的分类")}else if("anime"===C&&"每日放送"===R){let a=(await (0,n.W)()).find(e=>e.weekday.en===z);if(a)e={code:200,message:"success",list:a.items.map(e=>{var a,l,t,r,s;return{id:(null===(a=e.id)||void 0===a?void 0:a.toString())||"",title:e.name_cn||e.name,poster:e.images.large||e.images.common||e.images.medium||e.images.small||e.images.grid,rate:(null===(t=e.rating)||void 0===t?void 0:null===(l=t.score)||void 0===l?void 0:l.toString())||"",year:(null===(s=e.air_date)||void 0===s?void 0:null===(r=s.split("-"))||void 0===r?void 0:r[0])||""}})};else throw Error("没有找到对应的日期")}else e="anime"===C?await (0,o.tv)({kind:"番剧"===R?"tv":"movie",pageLimit:25,pageStart:0,category:"动画",format:"番剧"===R?"电视剧":"",region:W.region?W.region:"",year:W.year?W.year:"",platform:W.platform?W.platform:"",sort:W.sort?W.sort:"",label:W.label?W.label:""}):"全部"===R?await (0,o.tv)({kind:"show"===C?"tv":C,pageLimit:25,pageStart:0,category:W.type?W.type:"",format:"show"===C?"综艺":"tv"===C?"电视剧":"",region:W.region?W.region:"",year:W.year?W.year:"",platform:W.platform?W.platform:"",sort:W.sort?W.sort:"",label:W.label?W.label:""}):await (0,o.Z_)(A(0));if(200===e.code){let a={..._.current};U({type:C,primarySelection:R,secondarySelection:P,multiLevelSelection:W,selectedWeekday:z,currentPage:0},a)?(l(e.list),g(0!==e.list.length),m(!1)):console.log("参数不一致，不执行任何操作，避免设置过期数据")}else throw Error(e.message||"获取数据失败")}catch(e){console.error(e),m(!1)}},[C,R,P,W,z,A,L]);(0,s.useEffect)(()=>{if(j)return E.current&&clearTimeout(E.current),E.current=setTimeout(()=>{F()},100),()=>{E.current&&clearTimeout(E.current)}},[j,C,R,P,W,z,F]),(0,s.useEffect)(()=>{v>0&&(async()=>{try{let e;if(w(!0),"custom"===C){let a=L.find(e=>e.type===R&&e.query===P);if(a)e=await (0,o.$E)({tag:a.query,type:a.type,pageLimit:25,pageStart:25*v});else throw Error("没有找到对应的分类")}else e="anime"===C&&"每日放送"===R?{code:200,message:"success",list:[]}:"anime"===C?await (0,o.tv)({kind:"番剧"===R?"tv":"movie",pageLimit:25,pageStart:25*v,category:"动画",format:"番剧"===R?"电视剧":"",region:W.region?W.region:"",year:W.year?W.year:"",platform:W.platform?W.platform:"",sort:W.sort?W.sort:"",label:W.label?W.label:""}):"全部"===R?await (0,o.tv)({kind:"show"===C?"tv":C,pageLimit:25,pageStart:25*v,category:W.type?W.type:"",format:"show"===C?"综艺":"tv"===C?"电视剧":"",region:W.region?W.region:"",year:W.year?W.year:"",platform:W.platform?W.platform:"",sort:W.sort?W.sort:"",label:W.label?W.label:""}):await (0,o.Z_)(A(25*v));if(200===e.code){let a={..._.current};U({type:C,primarySelection:R,secondarySelection:P,multiLevelSelection:W,selectedWeekday:z,currentPage:v},a)?(l(a=>[...a,...e.list]),g(0!==e.list.length)):console.log("参数不一致，不执行任何操作，避免设置过期数据")}else throw Error(e.message||"获取数据失败")}catch(e){console.error(e)}finally{w(!1)}})()},[v,C,R,P,L,W,z]),(0,s.useEffect)(()=>{if(!p||y||c||!S.current)return;let e=new IntersectionObserver(e=>{e[0].isIntersecting&&p&&!y&&x(e=>e+1)},{threshold:.1});return e.observe(S.current),N.current=e,()=>{N.current&&N.current.disconnect()}},[p,y,c]);let D=(0,s.useCallback)(e=>{if(e!==R){if(m(!0),x(0),l([]),g(!0),w(!1),B({type:"all",region:"all",year:"all",platform:"all",label:"all",sort:"T"}),"custom"===C&&L.length>0){let a=L.find(a=>a.type===e);a?(I(e),O(a.query)):I(e)}else("tv"===C||"show"===C)&&"最近热门"===e?(I(e),"tv"===C?O("tv"):"show"===C&&O("show")):I(e)}},[R,C,L]),H=(0,s.useCallback)(e=>{e!==P&&(m(!0),x(0),l([]),g(!0),w(!1),O(e))},[P]),Z=(0,s.useCallback)(e=>{((e,a)=>{let l=Object.keys(e).sort(),t=Object.keys(a).sort();return l.length===t.length&&l.every(l=>e[l]===a[l])})(e,W)||(m(!0),x(0),l([]),g(!0),w(!1),B(e))},[W]),Y=(0,s.useCallback)(e=>{M(e)},[]);return(0,t.jsx)(b.Z,{activePath:(()=>{let e=new URLSearchParams;C&&e.set("type",C);let a=e.toString();return"/douban".concat(a?"?".concat(a):"")})(),children:(0,t.jsxs)("div",{className:"px-4 sm:px-10 py-4 sm:py-8 overflow-visible",children:[(0,t.jsxs)("div",{className:"mb-6 sm:mb-8 space-y-4 sm:space-y-6",children:[(0,t.jsxs)("div",{children:[(0,t.jsx)("h1",{className:"text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2 dark:text-gray-200",children:"movie"===C?"电影":"tv"===C?"电视剧":"anime"===C?"动漫":"show"===C?"综艺":"自定义"}),(0,t.jsx)("p",{className:"text-sm sm:text-base text-gray-600 dark:text-gray-400",children:"anime"===C&&"每日放送"===R?"来自 Bangumi 番组计划的精选内容":"来自豆瓣的精选内容"})]}),"custom"!==C?(0,t.jsx)("div",{className:"bg-white/60 dark:bg-gray-800/40 rounded-2xl p-4 sm:p-6 border border-gray-200/30 dark:border-gray-700/30 backdrop-blur-sm",children:(0,t.jsx)(f,{type:C,primarySelection:R,secondarySelection:P,onPrimaryChange:D,onSecondaryChange:H,onMultiLevelChange:Z,onWeekdayChange:Y})}):(0,t.jsx)("div",{className:"bg-white/60 dark:bg-gray-800/40 rounded-2xl p-4 sm:p-6 border border-gray-200/30 dark:border-gray-700/30 backdrop-blur-sm",children:(0,t.jsx)(d,{customCategories:L,primarySelection:R,secondarySelection:P,onPrimaryChange:D,onSecondaryChange:H})})]}),(0,t.jsxs)("div",{className:"max-w-[95%] mx-auto mt-8 overflow-visible",children:[(0,t.jsx)("div",{className:"justify-start grid grid-cols-3 gap-x-2 gap-y-12 px-0 sm:px-2 sm:grid-cols-[repeat(auto-fill,minmax(160px,1fr))] sm:gap-x-8 sm:gap-y-20",children:c||!j?q.map(e=>(0,t.jsx)(u,{},e)):a.map((e,a)=>(0,t.jsx)("div",{className:"w-full",children:(0,t.jsx)(h.Z,{from:"douban",title:e.title,poster:e.poster,douban_id:Number(e.id),rate:e.rate,year:e.year,type:"movie"===C?"movie":"",isBangumi:"anime"===C&&"每日放送"===R})},"".concat(e.title,"-").concat(a)))}),p&&!c&&(0,t.jsx)("div",{ref:e=>{e&&null!==e.offsetParent&&(S.current=e)},className:"flex justify-center mt-12 py-8",children:y&&(0,t.jsxs)("div",{className:"flex items-center gap-2",children:[(0,t.jsx)("div",{className:"animate-spin rounded-full h-6 w-6 border-b-2 border-green-500"}),(0,t.jsx)("span",{className:"text-gray-600",children:"加载中..."})]})}),!p&&a.length>0&&(0,t.jsx)("div",{className:"text-center text-gray-500 py-8",children:"已加载全部内容"}),!c&&0===a.length&&(0,t.jsx)("div",{className:"text-center text-gray-500 py-8",children:"暂无相关内容"})]})]})})}function y(){return(0,t.jsx)(s.Suspense,{children:(0,t.jsx)(g,{})})}},7946:function(e,a,l){"use strict";async function t(){let e=await fetch("https://api.bgm.tv/calendar");return(await e.json()).map(e=>({...e,items:e.items.filter(e=>e.images)}))}l.d(a,{W:function(){return t}})},3908:function(e,a,l){"use strict";async function t(){let e=await fetch("/api/config/custom_category");return(await e.json()).filter(e=>!e.disabled).map(e=>({name:e.name||"",type:e.type,query:e.query}))}async function r(){try{let e=await fetch("/api/config/sources");if(!e.ok)throw Error("Failed to fetch sources");return(await e.json()).map(e=>({key:e.key,name:e.name,api:e.api,detail:e.detail}))}catch(e){return console.error("Failed to fetch available API sites:",e),[]}}l.d(a,{B:function(){return r},V:function(){return t}})},5241:function(e,a,l){"use strict";async function t(e,a){let l=new AbortController,t=setTimeout(()=>l.abort(),1e4),r=a?"".concat(a).concat(encodeURIComponent(e)):e,s={signal:l.signal,headers:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",Referer:"https://movie.douban.com/",Accept:"application/json, text/plain, */*"}};try{let e=await fetch(r,s);return clearTimeout(t),e}catch(e){throw clearTimeout(t),e}}function r(){var e,a;return{proxyType:localStorage.getItem("doubanDataSource")||(null===(e=window.RUNTIME_CONFIG)||void 0===e?void 0:e.DOUBAN_PROXY_TYPE)||"direct",proxyUrl:localStorage.getItem("doubanProxyUrl")||(null===(a=window.RUNTIME_CONFIG)||void 0===a?void 0:a.DOUBAN_PROXY)||""}}async function s(e,a){let l=arguments.length>2&&void 0!==arguments[2]&&arguments[2],r=arguments.length>3&&void 0!==arguments[3]&&arguments[3],{kind:s,category:n,type:i,pageLimit:o=20,pageStart:c=0}=e;if(!["tv","movie"].includes(s))throw Error("kind 参数必须是 tv 或 movie");if(!n||!i)throw Error("category 和 type 参数不能为空");if(o<1||o>100)throw Error("pageLimit 必须在 1-100 之间");if(c<0)throw Error("pageStart 不能小于 0");let u=l?"https://m.douban.cmliussss.net/rexxar/api/v2/subject/recent_hot/".concat(s,"?start=").concat(c,"&limit=").concat(o,"&category=").concat(n,"&type=").concat(i):r?"https://m.douban.cmliussss.com/rexxar/api/v2/subject/recent_hot/".concat(s,"?start=").concat(c,"&limit=").concat(o,"&category=").concat(n,"&type=").concat(i):"https://m.douban.com/rexxar/api/v2/subject/recent_hot/".concat(s,"?start=").concat(c,"&limit=").concat(o,"&category=").concat(n,"&type=").concat(i);try{let e=await t(u,l||r?"":a);if(!e.ok)throw Error("HTTP error! Status: ".concat(e.status));let s=(await e.json()).items.map(e=>{var a,l,t,r,s;return{id:e.id,title:e.title,poster:(null===(a=e.pic)||void 0===a?void 0:a.normal)||(null===(l=e.pic)||void 0===l?void 0:l.large)||"",rate:(null===(t=e.rating)||void 0===t?void 0:t.value)?e.rating.value.toFixed(1):"",year:(null===(s=e.card_subtitle)||void 0===s?void 0:null===(r=s.match(/(\d{4})/))||void 0===r?void 0:r[1])||""}});return{code:200,message:"获取成功",list:s}}catch(e){throw window.dispatchEvent(new CustomEvent("globalError",{detail:{message:"获取豆瓣分类数据失败"}})),Error("获取豆瓣分类数据失败: ".concat(e.message))}}async function n(e){let{kind:a,category:l,type:t,pageLimit:n=20,pageStart:i=0}=e,{proxyType:o,proxyUrl:c}=r();switch(o){case"cors-proxy-zwei":return s(e,"https://ciao-cors.is-an.org/");case"cmliussss-cdn-tencent":return s(e,"",!0,!1);case"cmliussss-cdn-ali":return s(e,"",!1,!0);case"custom":return s(e,c);default:return(await fetch("/api/douban/categories?kind=".concat(a,"&category=").concat(l,"&type=").concat(t,"&limit=").concat(n,"&start=").concat(i))).json()}}async function i(e){let{tag:a,type:l,pageLimit:t=20,pageStart:s=0}=e,{proxyType:n,proxyUrl:i}=r();switch(n){case"cors-proxy-zwei":return o(e,"https://ciao-cors.is-an.org/");case"cmliussss-cdn-tencent":return o(e,"",!0,!1);case"cmliussss-cdn-ali":return o(e,"",!1,!0);case"custom":return o(e,i);default:return(await fetch("/api/douban?tag=".concat(a,"&type=").concat(l,"&pageSize=").concat(t,"&pageStart=").concat(s))).json()}}async function o(e,a){let l=arguments.length>2&&void 0!==arguments[2]&&arguments[2],r=arguments.length>3&&void 0!==arguments[3]&&arguments[3],{tag:s,type:n,pageLimit:i=20,pageStart:o=0}=e;if(!s||!n)throw Error("tag 和 type 参数不能为空");if(!["tv","movie"].includes(n))throw Error("type 参数必须是 tv 或 movie");if(i<1||i>100)throw Error("pageLimit 必须在 1-100 之间");if(o<0)throw Error("pageStart 不能小于 0");let c=l?"https://movie.douban.cmliussss.net/j/search_subjects?type=".concat(n,"&tag=").concat(s,"&sort=recommend&page_limit=").concat(i,"&page_start=").concat(o):r?"https://movie.douban.cmliussss.com/j/search_subjects?type=".concat(n,"&tag=").concat(s,"&sort=recommend&page_limit=").concat(i,"&page_start=").concat(o):"https://movie.douban.com/j/search_subjects?type=".concat(n,"&tag=").concat(s,"&sort=recommend&page_limit=").concat(i,"&page_start=").concat(o);try{let e=await t(c,l||r?"":a);if(!e.ok)throw Error("HTTP error! Status: ".concat(e.status));let s=(await e.json()).subjects.map(e=>{var a,l;return{id:e.id,title:e.title,poster:e.cover,rate:e.rate,year:(null===(l=e.card_subtitle)||void 0===l?void 0:null===(a=l.match(/(\d{4})/))||void 0===a?void 0:a[1])||""}});return{code:200,message:"获取成功",list:s}}catch(e){throw window.dispatchEvent(new CustomEvent("globalError",{detail:{message:"获取豆瓣列表数据失败"}})),Error("获取豆瓣分类数据失败: ".concat(e.message))}}async function c(e){let{kind:a,pageLimit:l=20,pageStart:t=0,category:s,format:n,label:i,region:o,year:c,platform:d,sort:m}=e,{proxyType:v,proxyUrl:x}=r();switch(v){case"cors-proxy-zwei":return u(e,"https://ciao-cors.is-an.org/");case"cmliussss-cdn-tencent":return u(e,"",!0,!1);case"cmliussss-cdn-ali":return u(e,"",!1,!0);case"custom":return u(e,x);default:return(await fetch("/api/douban/recommends?kind=".concat(a,"&limit=").concat(l,"&start=").concat(t,"&category=").concat(s,"&format=").concat(n,"&region=").concat(o,"&year=").concat(c,"&platform=").concat(d,"&sort=").concat(m,"&label=").concat(i))).json()}}async function u(e,a){let l=arguments.length>2&&void 0!==arguments[2]&&arguments[2],r=arguments.length>3&&void 0!==arguments[3]&&arguments[3],{kind:s,pageLimit:n=20,pageStart:i=0}=e,{category:o,format:c,region:u,year:d,platform:m,sort:v,label:x}=e;"all"===o&&(o=""),"all"===c&&(c=""),"all"===x&&(x=""),"all"===u&&(u=""),"all"===d&&(d=""),"all"===m&&(m=""),"T"===v&&(v="");let p={类型:o};c&&(p["形式"]=c),u&&(p["地区"]=u);let f=[];o&&f.push(o),!o&&c&&f.push(c),x&&f.push(x),u&&f.push(u),d&&f.push(d),m&&f.push(m);let b=new URLSearchParams;b.append("refresh","0"),b.append("start",i.toString()),b.append("count",n.toString()),b.append("selected_categories",JSON.stringify(p)),b.append("uncollect","false"),b.append("score_range","0,10"),b.append("tags",f.join(",")),v&&b.append("sort",v);let h="".concat(l?"https://m.douban.cmliussss.net/rexxar/api/v2/".concat(s,"/recommend"):r?"https://m.douban.cmliussss.com/rexxar/api/v2/".concat(s,"/recommend"):"https://m.douban.com/rexxar/api/v2/".concat(s,"/recommend"),"?").concat(b.toString());console.log(h);try{let e=await t(h,l||r?"":a);if(!e.ok)throw Error("HTTP error! Status: ".concat(e.status));let s=(await e.json()).items.filter(e=>"movie"==e.type||"tv"==e.type).map(e=>{var a,l,t;return{id:e.id,title:e.title,poster:(null===(a=e.pic)||void 0===a?void 0:a.normal)||(null===(l=e.pic)||void 0===l?void 0:l.large)||"",rate:(null===(t=e.rating)||void 0===t?void 0:t.value)?e.rating.value.toFixed(1):"",year:e.year}});return{code:200,message:"获取成功",list:s}}catch(e){throw Error("获取豆瓣推荐数据失败: ".concat(e.message))}}l.d(a,{$E:function(){return i},Z_:function(){return n},tv:function(){return c}})}},function(e){e.O(0,[11,108,914,669,455,314,133,744],function(){return e(e.s=3586)}),_N_E=e.O()}]);
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+  [936],
+  {
+    3586: function (e, a, l) {
+      Promise.resolve().then(l.bind(l, 4965));
+    },
+    9276: function (e, a, l) {
+      'use strict';
+      Object.defineProperty(a, '__esModule', { value: !0 }),
+        Object.defineProperty(a, 'RouterContext', {
+          enumerable: !0,
+          get: function () {
+            return t;
+          },
+        });
+      let t = l(9180)._(l(5663)).default.createContext(null);
+    },
+    4965: function (e, a, l) {
+      'use strict';
+      l.r(a),
+        l.d(a, {
+          default: function () {
+            return y;
+          },
+        });
+      var t = l(7569),
+        r = l(1383),
+        s = l(5663),
+        n = l(7946),
+        i = l(3908),
+        o = l(5241),
+        c = l(2819),
+        u = () =>
+          (0, t.jsx)('div', {
+            className: 'w-full',
+            children: (0, t.jsxs)('div', {
+              className:
+                'group relative w-full rounded-lg bg-transparent shadow-none flex flex-col',
+              children: [
+                (0, t.jsx)(c.Z, { aspectRatio: 'aspect-[2/3]' }),
+                (0, t.jsx)('div', {
+                  className: 'absolute top-[calc(100%+0.5rem)] left-0 right-0',
+                  children: (0, t.jsx)('div', {
+                    className: 'flex flex-col items-center justify-center',
+                    children: (0, t.jsx)('div', {
+                      className:
+                        'h-4 w-24 sm:w-32 bg-gray-200 rounded animate-pulse mb-2',
+                    }),
+                  }),
+                }),
+              ],
+            }),
+          }),
+        d = (e) => {
+          var a, l;
+          let {
+              customCategories: r,
+              primarySelection: n,
+              secondarySelection: i,
+              onPrimaryChange: o,
+              onSecondaryChange: c,
+            } = e,
+            u = (0, s.useRef)(null),
+            d = (0, s.useRef)([]),
+            [m, v] = (0, s.useState)({ left: 0, width: 0 }),
+            x = (0, s.useRef)(null),
+            p = (0, s.useRef)([]),
+            [f, b] = (0, s.useState)({ left: 0, width: 0 }),
+            h = (0, s.useRef)(null),
+            g = s.useMemo(
+              () =>
+                Array.from(new Set(r.map((e) => e.type)))
+                  .sort((e, a) =>
+                    'movie' === e && 'movie' !== a
+                      ? -1
+                      : 'movie' !== e && 'movie' === a
+                      ? 1
+                      : 0
+                  )
+                  .map((e) => ({
+                    label: 'movie' === e ? '电影' : '剧集',
+                    value: e,
+                  })),
+              [r]
+            ),
+            y = s.useMemo(
+              () =>
+                n
+                  ? r
+                      .filter((e) => e.type === n)
+                      .map((e) => ({
+                        label: e.name || e.query,
+                        value: e.query,
+                      }))
+                  : [],
+              [r, n]
+            ),
+            w = s.useCallback((e) => {
+              e.preventDefault(), e.stopPropagation();
+              let a = h.current;
+              if (a) {
+                let l = 2 * e.deltaY;
+                a.scrollLeft += l;
+              }
+            }, []);
+          (0, s.useEffect)(() => {
+            let e = h.current,
+              a = x.current;
+            if (e && a)
+              return (
+                e.addEventListener('wheel', w, { passive: !1 }),
+                a.addEventListener('wheel', w, { passive: !1 }),
+                () => {
+                  e.removeEventListener('wheel', w),
+                    a.removeEventListener('wheel', w);
+                }
+              );
+          }, [w]),
+            (0, s.useEffect)(() => {
+              let e = h.current,
+                a = x.current;
+              if (e && a && y.length > 0)
+                return (
+                  e.addEventListener('wheel', w, { passive: !1 }),
+                  a.addEventListener('wheel', w, { passive: !1 }),
+                  () => {
+                    e.removeEventListener('wheel', w),
+                      a.removeEventListener('wheel', w);
+                  }
+                );
+            }, [w, y]);
+          let j = (e, a, l, t) => {
+            if (e >= 0 && l.current[e] && a.current) {
+              let r = setTimeout(() => {
+                let r = l.current[e],
+                  s = a.current;
+                if (r && s) {
+                  let e = r.getBoundingClientRect(),
+                    a = s.getBoundingClientRect();
+                  e.width > 0 && t({ left: e.left - a.left, width: e.width });
+                }
+              }, 0);
+              return () => clearTimeout(r);
+            }
+          };
+          (0, s.useEffect)(() => {
+            g.length > 0 &&
+              j(
+                g.findIndex((e) => e.value === (n || g[0].value)),
+                u,
+                d,
+                v
+              ),
+              y.length > 0 &&
+                j(
+                  y.findIndex((e) => e.value === (i || y[0].value)),
+                  x,
+                  p,
+                  b
+                );
+          }, [g, y]),
+            (0, s.useEffect)(() => {
+              if (g.length > 0)
+                return j(
+                  g.findIndex((e) => e.value === n),
+                  u,
+                  d,
+                  v
+                );
+            }, [n, g]),
+            (0, s.useEffect)(() => {
+              if (y.length > 0)
+                return j(
+                  y.findIndex((e) => e.value === i),
+                  x,
+                  p,
+                  b
+                );
+            }, [i, y]);
+          let k = function (e, a, l) {
+            let r =
+                arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
+              s = r ? d : p,
+              n = r ? m : f;
+            return (0, t.jsxs)('div', {
+              ref: r ? u : x,
+              className:
+                'relative inline-flex bg-gray-200/60 rounded-full p-0.5 sm:p-1 dark:bg-gray-700/60 backdrop-blur-sm',
+              children: [
+                n.width > 0 &&
+                  (0, t.jsx)('div', {
+                    className:
+                      'absolute top-0.5 bottom-0.5 sm:top-1 sm:bottom-1 bg-white dark:bg-gray-500 rounded-full shadow-sm transition-all duration-300 ease-out',
+                    style: {
+                      left: ''.concat(n.left, 'px'),
+                      width: ''.concat(n.width, 'px'),
+                    },
+                  }),
+                e.map((e, r) => {
+                  let n = a === e.value;
+                  return (0, t.jsx)(
+                    'button',
+                    {
+                      ref: (e) => {
+                        s.current[r] = e;
+                      },
+                      onClick: () => l(e.value),
+                      className:
+                        'relative z-10 px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap '.concat(
+                          n
+                            ? 'text-gray-900 dark:text-gray-100 cursor-default'
+                            : 'text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 cursor-pointer'
+                        ),
+                      children: e.label,
+                    },
+                    e.value
+                  );
+                }),
+              ],
+            });
+          };
+          return r && 0 !== r.length
+            ? (0, t.jsx)('div', {
+                className: 'space-y-4 sm:space-y-6',
+                children: (0, t.jsxs)('div', {
+                  className: 'space-y-3 sm:space-y-4',
+                  children: [
+                    (0, t.jsxs)('div', {
+                      className:
+                        'flex flex-col sm:flex-row sm:items-center gap-2',
+                      children: [
+                        (0, t.jsx)('span', {
+                          className:
+                            'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                          children: '类型',
+                        }),
+                        (0, t.jsx)('div', {
+                          className: 'overflow-x-auto',
+                          children: k(
+                            g,
+                            n ||
+                              (null === (a = g[0]) || void 0 === a
+                                ? void 0
+                                : a.value),
+                            o,
+                            !0
+                          ),
+                        }),
+                      ],
+                    }),
+                    y.length > 0 &&
+                      (0, t.jsxs)('div', {
+                        className:
+                          'flex flex-col sm:flex-row sm:items-center gap-2',
+                        children: [
+                          (0, t.jsx)('span', {
+                            className:
+                              'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                            children: '片单',
+                          }),
+                          (0, t.jsx)('div', {
+                            ref: h,
+                            className: 'overflow-x-auto',
+                            children: k(
+                              y,
+                              i ||
+                                (null === (l = y[0]) || void 0 === l
+                                  ? void 0
+                                  : l.value),
+                              c,
+                              !1
+                            ),
+                          }),
+                        ],
+                      }),
+                  ],
+                }),
+              })
+            : null;
+        },
+        m = l(8091),
+        v = (e) => {
+          var a;
+          let { onChange: l, contentType: r = 'movie' } = e,
+            [n, i] = (0, s.useState)(null),
+            [o, c] = (0, s.useState)({ x: 0, y: 0, width: 0 }),
+            [u, d] = (0, s.useState)({}),
+            v = (0, s.useRef)({}),
+            x = (0, s.useRef)(null),
+            p = [
+              ...('anime-tv' !== r && 'anime-movie' !== r
+                ? [
+                    {
+                      key: 'type',
+                      label: '类型',
+                      options: ((e) => {
+                        let a = [{ label: '全部', value: 'all' }];
+                        switch (e) {
+                          case 'movie':
+                            return [
+                              ...a,
+                              { label: '喜剧', value: 'comedy' },
+                              { label: '爱情', value: 'romance' },
+                              { label: '动作', value: 'action' },
+                              { label: '科幻', value: 'sci-fi' },
+                              { label: '悬疑', value: 'suspense' },
+                              { label: '犯罪', value: 'crime' },
+                              { label: '惊悚', value: 'thriller' },
+                              { label: '冒险', value: 'adventure' },
+                              { label: '音乐', value: 'music' },
+                              { label: '历史', value: 'history' },
+                              { label: '奇幻', value: 'fantasy' },
+                              { label: '恐怖', value: 'horror' },
+                              { label: '战争', value: 'war' },
+                              { label: '传记', value: 'biography' },
+                              { label: '歌舞', value: 'musical' },
+                              { label: '武侠', value: 'wuxia' },
+                              { label: '情色', value: 'erotic' },
+                              { label: '灾难', value: 'disaster' },
+                              { label: '西部', value: 'western' },
+                              { label: '纪录片', value: 'documentary' },
+                              { label: '短片', value: 'short' },
+                            ];
+                          case 'tv':
+                            return [
+                              ...a,
+                              { label: '喜剧', value: 'comedy' },
+                              { label: '爱情', value: 'romance' },
+                              { label: '悬疑', value: 'suspense' },
+                              { label: '武侠', value: 'wuxia' },
+                              { label: '古装', value: 'costume' },
+                              { label: '家庭', value: 'family' },
+                              { label: '犯罪', value: 'crime' },
+                              { label: '科幻', value: 'sci-fi' },
+                              { label: '恐怖', value: 'horror' },
+                              { label: '历史', value: 'history' },
+                              { label: '战争', value: 'war' },
+                              { label: '动作', value: 'action' },
+                              { label: '冒险', value: 'adventure' },
+                              { label: '传记', value: 'biography' },
+                              { label: '剧情', value: 'drama' },
+                              { label: '奇幻', value: 'fantasy' },
+                              { label: '惊悚', value: 'thriller' },
+                              { label: '灾难', value: 'disaster' },
+                              { label: '歌舞', value: 'musical' },
+                              { label: '音乐', value: 'music' },
+                            ];
+                          case 'show':
+                            return [
+                              ...a,
+                              { label: '真人秀', value: 'reality' },
+                              { label: '脱口秀', value: 'talkshow' },
+                              { label: '音乐', value: 'music' },
+                              { label: '歌舞', value: 'musical' },
+                            ];
+                          default:
+                            return a;
+                        }
+                      })(r),
+                    },
+                  ]
+                : [
+                    {
+                      key: 'label',
+                      label: '类型',
+                      options: ((e) => {
+                        let a = [{ label: '全部', value: 'all' }];
+                        switch (e) {
+                          case 'anime-movie':
+                            return [
+                              ...a,
+                              { label: '定格动画', value: 'stop_motion' },
+                              { label: '传记', value: 'biography' },
+                              { label: '美国动画', value: 'us_animation' },
+                              { label: '爱情', value: 'romance' },
+                              { label: '黑色幽默', value: 'dark_humor' },
+                              { label: '歌舞', value: 'musical' },
+                              { label: '儿童', value: 'children' },
+                              { label: '二次元', value: 'anime' },
+                              { label: '动物', value: 'animal' },
+                              { label: '青春', value: 'youth' },
+                              { label: '历史', value: 'history' },
+                              { label: '励志', value: 'inspirational' },
+                              { label: '恶搞', value: 'parody' },
+                              { label: '治愈', value: 'healing' },
+                              { label: '运动', value: 'sports' },
+                              { label: '后宫', value: 'harem' },
+                              { label: '情色', value: 'erotic' },
+                              { label: '人性', value: 'human_nature' },
+                              { label: '悬疑', value: 'suspense' },
+                              { label: '恋爱', value: 'love' },
+                              { label: '魔幻', value: 'fantasy' },
+                              { label: '科幻', value: 'sci_fi' },
+                            ];
+                          case 'anime-tv':
+                            return [
+                              ...a,
+                              { label: '黑色幽默', value: 'dark_humor' },
+                              { label: '历史', value: 'history' },
+                              { label: '歌舞', value: 'musical' },
+                              { label: '励志', value: 'inspirational' },
+                              { label: '恶搞', value: 'parody' },
+                              { label: '治愈', value: 'healing' },
+                              { label: '运动', value: 'sports' },
+                              { label: '后宫', value: 'harem' },
+                              { label: '情色', value: 'erotic' },
+                              { label: '国漫', value: 'chinese_anime' },
+                              { label: '人性', value: 'human_nature' },
+                              { label: '悬疑', value: 'suspense' },
+                              { label: '恋爱', value: 'love' },
+                              { label: '魔幻', value: 'fantasy' },
+                              { label: '科幻', value: 'sci_fi' },
+                            ];
+                          default:
+                            return a;
+                        }
+                      })(r),
+                    },
+                  ]),
+              {
+                key: 'region',
+                label: '地区',
+                options: ((e) => {
+                  let a = [{ label: '全部', value: 'all' }];
+                  switch (e) {
+                    case 'movie':
+                    case 'anime-movie':
+                      return [
+                        ...a,
+                        { label: '华语', value: 'chinese' },
+                        { label: '欧美', value: 'western' },
+                        { label: '韩国', value: 'korean' },
+                        { label: '日本', value: 'japanese' },
+                        { label: '中国大陆', value: 'mainland_china' },
+                        { label: '美国', value: 'usa' },
+                        { label: '中国香港', value: 'hong_kong' },
+                        { label: '中国台湾', value: 'taiwan' },
+                        { label: '英国', value: 'uk' },
+                        { label: '法国', value: 'france' },
+                        { label: '德国', value: 'germany' },
+                        { label: '意大利', value: 'italy' },
+                        { label: '西班牙', value: 'spain' },
+                        { label: '印度', value: 'india' },
+                        { label: '泰国', value: 'thailand' },
+                        { label: '俄罗斯', value: 'russia' },
+                        { label: '加拿大', value: 'canada' },
+                        { label: '澳大利亚', value: 'australia' },
+                        { label: '爱尔兰', value: 'ireland' },
+                        { label: '瑞典', value: 'sweden' },
+                        { label: '巴西', value: 'brazil' },
+                        { label: '丹麦', value: 'denmark' },
+                      ];
+                    case 'tv':
+                    case 'anime-tv':
+                    case 'show':
+                      return [
+                        ...a,
+                        { label: '华语', value: 'chinese' },
+                        { label: '欧美', value: 'western' },
+                        { label: '国外', value: 'foreign' },
+                        { label: '韩国', value: 'korean' },
+                        { label: '日本', value: 'japanese' },
+                        { label: '中国大陆', value: 'mainland_china' },
+                        { label: '中国香港', value: 'hong_kong' },
+                        { label: '美国', value: 'usa' },
+                        { label: '英国', value: 'uk' },
+                        { label: '泰国', value: 'thailand' },
+                        { label: '中国台湾', value: 'taiwan' },
+                        { label: '意大利', value: 'italy' },
+                        { label: '法国', value: 'france' },
+                        { label: '德国', value: 'germany' },
+                        { label: '西班牙', value: 'spain' },
+                        { label: '俄罗斯', value: 'russia' },
+                        { label: '瑞典', value: 'sweden' },
+                        { label: '巴西', value: 'brazil' },
+                        { label: '丹麦', value: 'denmark' },
+                        { label: '印度', value: 'india' },
+                        { label: '加拿大', value: 'canada' },
+                        { label: '爱尔兰', value: 'ireland' },
+                        { label: '澳大利亚', value: 'australia' },
+                      ];
+                    default:
+                      return a;
+                  }
+                })(r),
+              },
+              {
+                key: 'year',
+                label: '年代',
+                options: [
+                  { label: '全部', value: 'all' },
+                  { label: '2020年代', value: '2020s' },
+                  { label: '2025', value: '2025' },
+                  { label: '2024', value: '2024' },
+                  { label: '2023', value: '2023' },
+                  { label: '2022', value: '2022' },
+                  { label: '2021', value: '2021' },
+                  { label: '2020', value: '2020' },
+                  { label: '2019', value: '2019' },
+                  { label: '2010年代', value: '2010s' },
+                  { label: '2000年代', value: '2000s' },
+                  { label: '90年代', value: '1990s' },
+                  { label: '80年代', value: '1980s' },
+                  { label: '70年代', value: '1970s' },
+                  { label: '60年代', value: '1960s' },
+                  { label: '更早', value: 'earlier' },
+                ],
+              },
+              ...('tv' === r || 'show' === r || 'anime-tv' === r
+                ? [
+                    {
+                      key: 'platform',
+                      label: '平台',
+                      options: ((e) => {
+                        let a = [{ label: '全部', value: 'all' }];
+                        switch (e) {
+                          case 'movie':
+                          default:
+                            return a;
+                          case 'tv':
+                          case 'anime-tv':
+                          case 'show':
+                            return [
+                              ...a,
+                              { label: '腾讯视频', value: 'tencent' },
+                              { label: '爱奇艺', value: 'iqiyi' },
+                              { label: '优酷', value: 'youku' },
+                              { label: '湖南卫视', value: 'hunan_tv' },
+                              { label: 'Netflix', value: 'netflix' },
+                              { label: 'HBO', value: 'hbo' },
+                              { label: 'BBC', value: 'bbc' },
+                              { label: 'NHK', value: 'nhk' },
+                              { label: 'CBS', value: 'cbs' },
+                              { label: 'NBC', value: 'nbc' },
+                              { label: 'tvN', value: 'tvn' },
+                            ];
+                        }
+                      })(r),
+                    },
+                  ]
+                : []),
+              {
+                key: 'sort',
+                label: '排序',
+                options: [
+                  { label: '综合排序', value: 'T' },
+                  { label: '近期热度', value: 'U' },
+                  {
+                    label: 'tv' === r || 'show' === r ? '首播时间' : '首映时间',
+                    value: 'R',
+                  },
+                  { label: '高分优先', value: 'S' },
+                ],
+              },
+            ],
+            f = (e) => {
+              let a = v.current[e];
+              if (a) {
+                let e = a.getBoundingClientRect(),
+                  l = window.innerWidth,
+                  t = e.left,
+                  r = Math.max(e.width, 300),
+                  s = !1;
+                l < 768 &&
+                  ((s = !0),
+                  t + (r = Math.min(r, l - 32)) > l - 16 && (t = l - r - 16),
+                  t < 16 && (t = 16)),
+                  c({ x: t, y: e.bottom, width: s ? r : e.width });
+              }
+            },
+            b = (e) => {
+              n === e ? i(null) : (i(e), f(e));
+            },
+            h = (e, a) => {
+              let t = { ...u, [e]: a };
+              d(t);
+              let r = {
+                type: 'all',
+                region: 'all',
+                year: 'all',
+                platform: 'all',
+                label: 'all',
+                sort: 'T',
+              };
+              Object.entries(t).forEach((e) => {
+                let [a, l] = e;
+                if (l && 'all' !== l && ('sort' !== a || 'T' !== l)) {
+                  let e = p.find((e) => e.key === a);
+                  if (e) {
+                    let t = e.options.find((e) => e.value === l);
+                    t && (r[a] = 'sort' === a ? t.value : t.label);
+                  }
+                }
+              }),
+                l(r),
+                i(null);
+            },
+            g = (e) => {
+              let a = p.find((a) => a.key === e);
+              if (!a) return '';
+              let l = u[e];
+              if (!l || 'all' === l || ('sort' === e && 'T' === l))
+                return a.label;
+              let t = a.options.find((e) => e.value === l);
+              return (null == t ? void 0 : t.label) || a.label;
+            },
+            y = (e) => {
+              let a = u[e];
+              return !a || 'all' === a || ('sort' === e && 'T' === a);
+            },
+            w = (e, a) => {
+              let l = u[e];
+              return (
+                void 0 === l && ((l = 'all'), 'sort' === e && (l = 'T')),
+                l === a
+              );
+            };
+          return (
+            (0, s.useEffect)(() => {
+              let e = () => {
+                  n && f(n);
+                },
+                a = () => {
+                  n && f(n);
+                };
+              return (
+                window.addEventListener('scroll', e),
+                window.addEventListener('resize', a),
+                () => {
+                  window.removeEventListener('scroll', e),
+                    window.removeEventListener('resize', a);
+                }
+              );
+            }, [n]),
+            (0, s.useEffect)(() => {
+              let e = (e) => {
+                !x.current ||
+                  x.current.contains(e.target) ||
+                  Object.values(v.current).some(
+                    (a) => a && a.contains(e.target)
+                  ) ||
+                  i(null);
+              };
+              return (
+                document.addEventListener('mousedown', e),
+                () => document.removeEventListener('mousedown', e)
+              );
+            }, []),
+            (0, t.jsxs)(t.Fragment, {
+              children: [
+                (0, t.jsx)('div', {
+                  className:
+                    'relative inline-flex rounded-full p-0.5 sm:p-1 bg-transparent gap-1 sm:gap-2',
+                  children: p.map((e) =>
+                    (0, t.jsx)(
+                      'div',
+                      {
+                        ref: (a) => {
+                          v.current[e.key] = a;
+                        },
+                        className: 'relative',
+                        children: (0, t.jsxs)('button', {
+                          onClick: () => b(e.key),
+                          className:
+                            'relative z-10 px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-4 md:py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap '.concat(
+                              n === e.key
+                                ? y(e.key)
+                                  ? 'text-gray-900 dark:text-gray-100 cursor-default'
+                                  : 'text-green-600 dark:text-green-400 cursor-default'
+                                : y(e.key)
+                                ? 'text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 cursor-pointer'
+                                : 'text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 cursor-pointer'
+                            ),
+                          children: [
+                            (0, t.jsx)('span', { children: g(e.key) }),
+                            (0, t.jsx)('svg', {
+                              className:
+                                'inline-block w-2.5 h-2.5 sm:w-3 sm:h-3 ml-0.5 sm:ml-1 transition-transform duration-200 '.concat(
+                                  n === e.key ? 'rotate-180' : ''
+                                ),
+                              fill: 'none',
+                              stroke: 'currentColor',
+                              viewBox: '0 0 24 24',
+                              children: (0, t.jsx)('path', {
+                                strokeLinecap: 'round',
+                                strokeLinejoin: 'round',
+                                strokeWidth: 2,
+                                d: 'M19 9l-7 7-7-7',
+                              }),
+                            }),
+                          ],
+                        }),
+                      },
+                      e.key
+                    )
+                  ),
+                }),
+                n &&
+                  (0, m.createPortal)(
+                    (0, t.jsx)('div', {
+                      ref: x,
+                      className:
+                        'fixed z-[9999] bg-white/95 dark:bg-gray-800/95 rounded-xl border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm',
+                      style: {
+                        left: ''.concat(o.x, 'px'),
+                        top: ''.concat(o.y, 'px'),
+                        ...(window.innerWidth < 768
+                          ? { width: ''.concat(o.width, 'px') }
+                          : {
+                              minWidth: ''.concat(Math.max(o.width, 300), 'px'),
+                            }),
+                        maxWidth: '600px',
+                        position: 'fixed',
+                      },
+                      children: (0, t.jsx)('div', {
+                        className: 'p-2 sm:p-4',
+                        children: (0, t.jsx)('div', {
+                          className:
+                            'grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1 sm:gap-2',
+                          children:
+                            null === (a = p.find((e) => e.key === n)) ||
+                            void 0 === a
+                              ? void 0
+                              : a.options.map((e) =>
+                                  (0, t.jsx)(
+                                    'button',
+                                    {
+                                      onClick: () => h(n, e.value),
+                                      className:
+                                        'px-2 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm rounded-lg transition-all duration-200 text-left '.concat(
+                                          w(n, e.value)
+                                            ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-700'
+                                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-700/80'
+                                        ),
+                                      children: e.label,
+                                    },
+                                    e.value
+                                  )
+                                ),
+                        }),
+                      }),
+                    }),
+                    document.body
+                  ),
+              ],
+            })
+          );
+        };
+      let x = [
+        { value: 'Mon', label: '周一', shortLabel: '周一' },
+        { value: 'Tue', label: '周二', shortLabel: '周二' },
+        { value: 'Wed', label: '周三', shortLabel: '周三' },
+        { value: 'Thu', label: '周四', shortLabel: '周四' },
+        { value: 'Fri', label: '周五', shortLabel: '周五' },
+        { value: 'Sat', label: '周六', shortLabel: '周六' },
+        { value: 'Sun', label: '周日', shortLabel: '周日' },
+      ];
+      var p = (e) => {
+          let { onWeekdayChange: a, className: l = '' } = e,
+            r = () =>
+              ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][
+                new Date().getDay()
+              ],
+            [n, i] = (0, s.useState)(r());
+          return (
+            (0, s.useEffect)(() => {
+              a(r());
+            }, []),
+            (0, t.jsx)('div', {
+              className:
+                'relative inline-flex rounded-full p-0.5 sm:p-1 '.concat(l),
+              children: x.map((e) => {
+                let l = n === e.value;
+                return (0, t.jsx)(
+                  'button',
+                  {
+                    onClick: () => {
+                      i(e.value), a(e.value);
+                    },
+                    className:
+                      '\n              relative z-10 px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap\n              '.concat(
+                        l
+                          ? 'text-green-600 dark:text-green-400 font-semibold'
+                          : 'text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 cursor-pointer',
+                        '\n            '
+                      ),
+                    title: e.label,
+                    children: e.shortLabel,
+                  },
+                  e.value
+                );
+              }),
+            })
+          );
+        },
+        f = (e) => {
+          let {
+              type: a,
+              primarySelection: l,
+              secondarySelection: r,
+              onPrimaryChange: n,
+              onSecondaryChange: i,
+              onMultiLevelChange: o,
+              onWeekdayChange: c,
+            } = e,
+            u = (0, s.useRef)(null),
+            d = (0, s.useRef)([]),
+            [m, x] = (0, s.useState)({ left: 0, width: 0 }),
+            f = (0, s.useRef)(null),
+            b = (0, s.useRef)([]),
+            [h, g] = (0, s.useState)({ left: 0, width: 0 }),
+            y = [
+              { label: '全部', value: '全部' },
+              { label: '热门电影', value: '热门' },
+              { label: '最新电影', value: '最新' },
+              { label: '豆瓣高分', value: '豆瓣高分' },
+              { label: '冷门佳片', value: '冷门佳片' },
+            ],
+            w = [
+              { label: '全部', value: '全部' },
+              { label: '华语', value: '华语' },
+              { label: '欧美', value: '欧美' },
+              { label: '韩国', value: '韩国' },
+              { label: '日本', value: '日本' },
+            ],
+            j = [
+              { label: '全部', value: '全部' },
+              { label: '最近热门', value: '最近热门' },
+            ],
+            k = [
+              { label: '全部', value: 'tv' },
+              { label: '国产', value: 'tv_domestic' },
+              { label: '欧美', value: 'tv_american' },
+              { label: '日本', value: 'tv_japanese' },
+              { label: '韩国', value: 'tv_korean' },
+              { label: '动漫', value: 'tv_animation' },
+              { label: '纪录片', value: 'tv_documentary' },
+            ],
+            N = [
+              { label: '全部', value: '全部' },
+              { label: '最近热门', value: '最近热门' },
+            ],
+            S = [
+              { label: '全部', value: 'show' },
+              { label: '国内', value: 'show_domestic' },
+              { label: '国外', value: 'show_foreign' },
+            ],
+            E = [
+              { label: '每日放送', value: '每日放送' },
+              { label: '番剧', value: '番剧' },
+              { label: '剧场版', value: '剧场版' },
+            ],
+            _ = (e) => {
+              null == o || o(e);
+            },
+            C = (e, a, l, t) => {
+              if (e >= 0 && l.current[e] && a.current) {
+                let r = setTimeout(() => {
+                  let r = l.current[e],
+                    s = a.current;
+                  if (r && s) {
+                    let e = r.getBoundingClientRect(),
+                      a = s.getBoundingClientRect();
+                    e.width > 0 && t({ left: e.left - a.left, width: e.width });
+                  }
+                }, 0);
+                return () => clearTimeout(r);
+              }
+            };
+          (0, s.useEffect)(() => {
+            'movie' === a
+              ? C(
+                  y.findIndex((e) => e.value === (l || y[0].value)),
+                  u,
+                  d,
+                  x
+                )
+              : 'tv' === a
+              ? C(
+                  j.findIndex((e) => e.value === (l || j[1].value)),
+                  u,
+                  d,
+                  x
+                )
+              : 'anime' === a
+              ? C(
+                  E.findIndex((e) => e.value === (l || E[0].value)),
+                  u,
+                  d,
+                  x
+                )
+              : 'show' === a &&
+                C(
+                  N.findIndex((e) => e.value === (l || N[1].value)),
+                  u,
+                  d,
+                  x
+                );
+            let e = -1;
+            'movie' === a
+              ? (e = w.findIndex((e) => e.value === (r || w[0].value)))
+              : 'tv' === a
+              ? (e = k.findIndex((e) => e.value === (r || k[0].value)))
+              : 'show' === a &&
+                (e = S.findIndex((e) => e.value === (r || S[0].value))),
+              e >= 0 && C(e, f, b, g);
+          }, [a]),
+            (0, s.useEffect)(
+              () =>
+                'movie' === a
+                  ? C(
+                      y.findIndex((e) => e.value === l),
+                      u,
+                      d,
+                      x
+                    )
+                  : 'tv' === a
+                  ? C(
+                      j.findIndex((e) => e.value === l),
+                      u,
+                      d,
+                      x
+                    )
+                  : 'anime' === a
+                  ? C(
+                      E.findIndex((e) => e.value === l),
+                      u,
+                      d,
+                      x
+                    )
+                  : 'show' === a
+                  ? C(
+                      N.findIndex((e) => e.value === l),
+                      u,
+                      d,
+                      x
+                    )
+                  : void 0,
+              [l]
+            ),
+            (0, s.useEffect)(() => {
+              let e = -1,
+                l = [];
+              if (
+                ('movie' === a
+                  ? ((e = w.findIndex((e) => e.value === r)), (l = w))
+                  : 'tv' === a
+                  ? ((e = k.findIndex((e) => e.value === r)), (l = k))
+                  : 'show' === a &&
+                    ((e = S.findIndex((e) => e.value === r)), (l = S)),
+                l.length > 0)
+              )
+                return C(e, f, b, g);
+            }, [r]);
+          let L = function (e, a, l) {
+            let r =
+                arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
+              s = r ? d : b,
+              n = r ? m : h;
+            return (0, t.jsxs)('div', {
+              ref: r ? u : f,
+              className:
+                'relative inline-flex bg-gray-200/60 rounded-full p-0.5 sm:p-1 dark:bg-gray-700/60 backdrop-blur-sm',
+              children: [
+                n.width > 0 &&
+                  (0, t.jsx)('div', {
+                    className:
+                      'absolute top-0.5 bottom-0.5 sm:top-1 sm:bottom-1 bg-white dark:bg-gray-500 rounded-full shadow-sm transition-all duration-300 ease-out',
+                    style: {
+                      left: ''.concat(n.left, 'px'),
+                      width: ''.concat(n.width, 'px'),
+                    },
+                  }),
+                e.map((e, r) => {
+                  let n = a === e.value;
+                  return (0, t.jsx)(
+                    'button',
+                    {
+                      ref: (e) => {
+                        s.current[r] = e;
+                      },
+                      onClick: () => l(e.value),
+                      className:
+                        'relative z-10 px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 whitespace-nowrap '.concat(
+                          n
+                            ? 'text-gray-900 dark:text-gray-100 cursor-default'
+                            : 'text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 cursor-pointer'
+                        ),
+                      children: e.label,
+                    },
+                    e.value
+                  );
+                }),
+              ],
+            });
+          };
+          return (0, t.jsxs)('div', {
+            className: 'space-y-4 sm:space-y-6',
+            children: [
+              'movie' === a &&
+                (0, t.jsxs)('div', {
+                  className: 'space-y-3 sm:space-y-4',
+                  children: [
+                    (0, t.jsxs)('div', {
+                      className:
+                        'flex flex-col sm:flex-row sm:items-center gap-2',
+                      children: [
+                        (0, t.jsx)('span', {
+                          className:
+                            'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                          children: '分类',
+                        }),
+                        (0, t.jsx)('div', {
+                          className: 'overflow-x-auto',
+                          children: L(y, l || y[0].value, n, !0),
+                        }),
+                      ],
+                    }),
+                    '全部' !== l
+                      ? (0, t.jsxs)('div', {
+                          className:
+                            'flex flex-col sm:flex-row sm:items-center gap-2',
+                          children: [
+                            (0, t.jsx)('span', {
+                              className:
+                                'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                              children: '地区',
+                            }),
+                            (0, t.jsx)('div', {
+                              className: 'overflow-x-auto',
+                              children: L(w, r || w[0].value, i, !1),
+                            }),
+                          ],
+                        })
+                      : (0, t.jsxs)('div', {
+                          className:
+                            'flex flex-col sm:flex-row sm:items-center gap-2',
+                          children: [
+                            (0, t.jsx)('span', {
+                              className:
+                                'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                              children: '筛选',
+                            }),
+                            (0, t.jsx)('div', {
+                              className: 'overflow-x-auto',
+                              children: (0, t.jsx)(
+                                v,
+                                { onChange: _, contentType: a },
+                                ''.concat(a, '-').concat(l)
+                              ),
+                            }),
+                          ],
+                        }),
+                  ],
+                }),
+              'tv' === a &&
+                (0, t.jsxs)('div', {
+                  className: 'space-y-3 sm:space-y-4',
+                  children: [
+                    (0, t.jsxs)('div', {
+                      className:
+                        'flex flex-col sm:flex-row sm:items-center gap-2',
+                      children: [
+                        (0, t.jsx)('span', {
+                          className:
+                            'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                          children: '分类',
+                        }),
+                        (0, t.jsx)('div', {
+                          className: 'overflow-x-auto',
+                          children: L(j, l || j[1].value, n, !0),
+                        }),
+                      ],
+                    }),
+                    '最近热门' === (l || j[1].value)
+                      ? (0, t.jsxs)('div', {
+                          className:
+                            'flex flex-col sm:flex-row sm:items-center gap-2',
+                          children: [
+                            (0, t.jsx)('span', {
+                              className:
+                                'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                              children: '类型',
+                            }),
+                            (0, t.jsx)('div', {
+                              className: 'overflow-x-auto',
+                              children: L(k, r || k[0].value, i, !1),
+                            }),
+                          ],
+                        })
+                      : '全部' === (l || j[1].value)
+                      ? (0, t.jsxs)('div', {
+                          className:
+                            'flex flex-col sm:flex-row sm:items-center gap-2',
+                          children: [
+                            (0, t.jsx)('span', {
+                              className:
+                                'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                              children: '筛选',
+                            }),
+                            (0, t.jsx)('div', {
+                              className: 'overflow-x-auto',
+                              children: (0, t.jsx)(
+                                v,
+                                { onChange: _, contentType: a },
+                                ''.concat(a, '-').concat(l)
+                              ),
+                            }),
+                          ],
+                        })
+                      : null,
+                  ],
+                }),
+              'anime' === a &&
+                (0, t.jsxs)('div', {
+                  className: 'space-y-3 sm:space-y-4',
+                  children: [
+                    (0, t.jsxs)('div', {
+                      className:
+                        'flex flex-col sm:flex-row sm:items-center gap-2',
+                      children: [
+                        (0, t.jsx)('span', {
+                          className:
+                            'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                          children: '分类',
+                        }),
+                        (0, t.jsx)('div', {
+                          className: 'overflow-x-auto',
+                          children: L(E, l || E[0].value, n, !0),
+                        }),
+                      ],
+                    }),
+                    '每日放送' === (l || E[0].value)
+                      ? (0, t.jsxs)('div', {
+                          className:
+                            'flex flex-col sm:flex-row sm:items-center gap-2',
+                          children: [
+                            (0, t.jsx)('span', {
+                              className:
+                                'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                              children: '星期',
+                            }),
+                            (0, t.jsx)('div', {
+                              className: 'overflow-x-auto',
+                              children: (0, t.jsx)(p, { onWeekdayChange: c }),
+                            }),
+                          ],
+                        })
+                      : (0, t.jsxs)('div', {
+                          className:
+                            'flex flex-col sm:flex-row sm:items-center gap-2',
+                          children: [
+                            (0, t.jsx)('span', {
+                              className:
+                                'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                              children: '筛选',
+                            }),
+                            (0, t.jsx)('div', {
+                              className: 'overflow-x-auto',
+                              children:
+                                '番剧' === (l || E[0].value)
+                                  ? (0, t.jsx)(
+                                      v,
+                                      { onChange: _, contentType: 'anime-tv' },
+                                      'anime-tv-'.concat(l)
+                                    )
+                                  : (0, t.jsx)(
+                                      v,
+                                      {
+                                        onChange: _,
+                                        contentType: 'anime-movie',
+                                      },
+                                      'anime-movie-'.concat(l)
+                                    ),
+                            }),
+                          ],
+                        }),
+                  ],
+                }),
+              'show' === a &&
+                (0, t.jsxs)('div', {
+                  className: 'space-y-3 sm:space-y-4',
+                  children: [
+                    (0, t.jsxs)('div', {
+                      className:
+                        'flex flex-col sm:flex-row sm:items-center gap-2',
+                      children: [
+                        (0, t.jsx)('span', {
+                          className:
+                            'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                          children: '分类',
+                        }),
+                        (0, t.jsx)('div', {
+                          className: 'overflow-x-auto',
+                          children: L(N, l || N[1].value, n, !0),
+                        }),
+                      ],
+                    }),
+                    '最近热门' === (l || N[1].value)
+                      ? (0, t.jsxs)('div', {
+                          className:
+                            'flex flex-col sm:flex-row sm:items-center gap-2',
+                          children: [
+                            (0, t.jsx)('span', {
+                              className:
+                                'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                              children: '类型',
+                            }),
+                            (0, t.jsx)('div', {
+                              className: 'overflow-x-auto',
+                              children: L(S, r || S[0].value, i, !1),
+                            }),
+                          ],
+                        })
+                      : '全部' === (l || N[1].value)
+                      ? (0, t.jsxs)('div', {
+                          className:
+                            'flex flex-col sm:flex-row sm:items-center gap-2',
+                          children: [
+                            (0, t.jsx)('span', {
+                              className:
+                                'text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 min-w-[48px]',
+                              children: '筛选',
+                            }),
+                            (0, t.jsx)('div', {
+                              className: 'overflow-x-auto',
+                              children: (0, t.jsx)(
+                                v,
+                                { onChange: _, contentType: a },
+                                ''.concat(a, '-').concat(l)
+                              ),
+                            }),
+                          ],
+                        })
+                      : null,
+                  ],
+                }),
+            ],
+          });
+        },
+        b = l(5036),
+        h = l(4801);
+      function g() {
+        let e = (0, r.useSearchParams)(),
+          [a, l] = (0, s.useState)([]),
+          [c, m] = (0, s.useState)(!1),
+          [v, x] = (0, s.useState)(0),
+          [p, g] = (0, s.useState)(!0),
+          [y, w] = (0, s.useState)(!1),
+          [j, k] = (0, s.useState)(!1),
+          N = (0, s.useRef)(null),
+          S = (0, s.useRef)(null),
+          E = (0, s.useRef)(null),
+          _ = (0, s.useRef)({
+            type: '',
+            primarySelection: '',
+            secondarySelection: '',
+            multiLevelSelection: {},
+            selectedWeekday: '',
+            currentPage: 0,
+          }),
+          C = e.get('type') || 'movie',
+          [L, T] = (0, s.useState)([]),
+          [R, I] = (0, s.useState)(() =>
+            'movie' === C
+              ? '热门'
+              : 'tv' === C || 'show' === C
+              ? '最近热门'
+              : 'anime' === C
+              ? '每日放送'
+              : ''
+          ),
+          [P, O] = (0, s.useState)(() =>
+            'movie' === C
+              ? '全部'
+              : 'tv' === C
+              ? 'tv'
+              : 'show' === C
+              ? 'show'
+              : '全部'
+          ),
+          [W, B] = (0, s.useState)({
+            type: 'all',
+            region: 'all',
+            year: 'all',
+            platform: 'all',
+            label: 'all',
+            sort: 'T',
+          }),
+          [z, M] = (0, s.useState)('');
+        (0, s.useEffect)(() => {
+          (0, i.V)().then((e) => {
+            T(e);
+          });
+        }, []),
+          (0, s.useEffect)(() => {
+            _.current = {
+              type: C,
+              primarySelection: R,
+              secondarySelection: P,
+              multiLevelSelection: W,
+              selectedWeekday: z,
+              currentPage: v,
+            };
+          }, [C, R, P, W, z, v]),
+          (0, s.useEffect)(() => {
+            let e = setTimeout(() => {
+              k(!0);
+            }, 50);
+            return () => clearTimeout(e);
+          }, []),
+          (0, s.useEffect)(() => {
+            k(!1), m(!0);
+          }, [C]),
+          (0, s.useEffect)(() => {
+            if ('custom' === C && L.length > 0) {
+              let e = Array.from(new Set(L.map((e) => e.type)));
+              if (e.length > 0) {
+                let a = e[0];
+                I((a = e.includes('movie') ? 'movie' : 'tv'));
+                let l = L.find((e) => e.type === a);
+                l && O(l.query);
+              }
+            } else
+              'movie' === C
+                ? (I('热门'), O('全部'))
+                : 'tv' === C
+                ? (I('最近热门'), O('tv'))
+                : 'show' === C
+                ? (I('最近热门'), O('show'))
+                : ('anime' === C ? I('每日放送') : I(''), O('全部'));
+            B({
+              type: 'all',
+              region: 'all',
+              year: 'all',
+              platform: 'all',
+              label: 'all',
+              sort: 'T',
+            });
+            let e = setTimeout(() => {
+              k(!0);
+            }, 50);
+            return () => clearTimeout(e);
+          }, [C, L]);
+        let q = Array.from({ length: 25 }, (e, a) => a),
+          U = (0, s.useCallback)(
+            (e, a) =>
+              e.type === a.type &&
+              e.primarySelection === a.primarySelection &&
+              e.secondarySelection === a.secondarySelection &&
+              e.selectedWeekday === a.selectedWeekday &&
+              e.currentPage === a.currentPage &&
+              JSON.stringify(e.multiLevelSelection) ===
+                JSON.stringify(a.multiLevelSelection),
+            []
+          ),
+          A = (0, s.useCallback)(
+            (e) =>
+              'tv' === C || 'show' === C
+                ? {
+                    kind: 'tv',
+                    category: C,
+                    type: P,
+                    pageLimit: 25,
+                    pageStart: e,
+                  }
+                : {
+                    kind: C,
+                    category: R,
+                    type: P,
+                    pageLimit: 25,
+                    pageStart: e,
+                  },
+            [C, R, P]
+          ),
+          F = (0, s.useCallback)(async () => {
+            try {
+              let e;
+              if ((m(!0), l([]), x(0), g(!0), w(!1), 'custom' === C)) {
+                let a = L.find((e) => e.type === R && e.query === P);
+                if (a)
+                  e = await (0, o.$E)({
+                    tag: a.query,
+                    type: a.type,
+                    pageLimit: 25,
+                    pageStart: 0,
+                  });
+                else throw Error('没有找到对应的分类');
+              } else if ('anime' === C && '每日放送' === R) {
+                let a = (await (0, n.W)()).find((e) => e.weekday.en === z);
+                if (a)
+                  e = {
+                    code: 200,
+                    message: 'success',
+                    list: a.items.map((e) => {
+                      var a, l, t, r, s;
+                      return {
+                        id:
+                          (null === (a = e.id) || void 0 === a
+                            ? void 0
+                            : a.toString()) || '',
+                        title: e.name_cn || e.name,
+                        poster:
+                          e.images.large ||
+                          e.images.common ||
+                          e.images.medium ||
+                          e.images.small ||
+                          e.images.grid,
+                        rate:
+                          (null === (t = e.rating) || void 0 === t
+                            ? void 0
+                            : null === (l = t.score) || void 0 === l
+                            ? void 0
+                            : l.toString()) || '',
+                        year:
+                          (null === (s = e.air_date) || void 0 === s
+                            ? void 0
+                            : null === (r = s.split('-')) || void 0 === r
+                            ? void 0
+                            : r[0]) || '',
+                      };
+                    }),
+                  };
+                else throw Error('没有找到对应的日期');
+              } else
+                e =
+                  'anime' === C
+                    ? await (0, o.tv)({
+                        kind: '番剧' === R ? 'tv' : 'movie',
+                        pageLimit: 25,
+                        pageStart: 0,
+                        category: '动画',
+                        format: '番剧' === R ? '电视剧' : '',
+                        region: W.region ? W.region : '',
+                        year: W.year ? W.year : '',
+                        platform: W.platform ? W.platform : '',
+                        sort: W.sort ? W.sort : '',
+                        label: W.label ? W.label : '',
+                      })
+                    : '全部' === R
+                    ? await (0, o.tv)({
+                        kind: 'show' === C ? 'tv' : C,
+                        pageLimit: 25,
+                        pageStart: 0,
+                        category: W.type ? W.type : '',
+                        format:
+                          'show' === C ? '综艺' : 'tv' === C ? '电视剧' : '',
+                        region: W.region ? W.region : '',
+                        year: W.year ? W.year : '',
+                        platform: W.platform ? W.platform : '',
+                        sort: W.sort ? W.sort : '',
+                        label: W.label ? W.label : '',
+                      })
+                    : await (0, o.Z_)(A(0));
+              if (200 === e.code) {
+                let a = { ..._.current };
+                U(
+                  {
+                    type: C,
+                    primarySelection: R,
+                    secondarySelection: P,
+                    multiLevelSelection: W,
+                    selectedWeekday: z,
+                    currentPage: 0,
+                  },
+                  a
+                )
+                  ? (l(e.list), g(0 !== e.list.length), m(!1))
+                  : console.log('参数不一致，不执行任何操作，避免设置过期数据');
+              } else throw Error(e.message || '获取数据失败');
+            } catch (e) {
+              console.error(e), m(!1);
+            }
+          }, [C, R, P, W, z, A, L]);
+        (0, s.useEffect)(() => {
+          if (j)
+            return (
+              E.current && clearTimeout(E.current),
+              (E.current = setTimeout(() => {
+                F();
+              }, 100)),
+              () => {
+                E.current && clearTimeout(E.current);
+              }
+            );
+        }, [j, C, R, P, W, z, F]),
+          (0, s.useEffect)(() => {
+            v > 0 &&
+              (async () => {
+                try {
+                  let e;
+                  if ((w(!0), 'custom' === C)) {
+                    let a = L.find((e) => e.type === R && e.query === P);
+                    if (a)
+                      e = await (0, o.$E)({
+                        tag: a.query,
+                        type: a.type,
+                        pageLimit: 25,
+                        pageStart: 25 * v,
+                      });
+                    else throw Error('没有找到对应的分类');
+                  } else
+                    e =
+                      'anime' === C && '每日放送' === R
+                        ? { code: 200, message: 'success', list: [] }
+                        : 'anime' === C
+                        ? await (0, o.tv)({
+                            kind: '番剧' === R ? 'tv' : 'movie',
+                            pageLimit: 25,
+                            pageStart: 25 * v,
+                            category: '动画',
+                            format: '番剧' === R ? '电视剧' : '',
+                            region: W.region ? W.region : '',
+                            year: W.year ? W.year : '',
+                            platform: W.platform ? W.platform : '',
+                            sort: W.sort ? W.sort : '',
+                            label: W.label ? W.label : '',
+                          })
+                        : '全部' === R
+                        ? await (0, o.tv)({
+                            kind: 'show' === C ? 'tv' : C,
+                            pageLimit: 25,
+                            pageStart: 25 * v,
+                            category: W.type ? W.type : '',
+                            format:
+                              'show' === C
+                                ? '综艺'
+                                : 'tv' === C
+                                ? '电视剧'
+                                : '',
+                            region: W.region ? W.region : '',
+                            year: W.year ? W.year : '',
+                            platform: W.platform ? W.platform : '',
+                            sort: W.sort ? W.sort : '',
+                            label: W.label ? W.label : '',
+                          })
+                        : await (0, o.Z_)(A(25 * v));
+                  if (200 === e.code) {
+                    let a = { ..._.current };
+                    U(
+                      {
+                        type: C,
+                        primarySelection: R,
+                        secondarySelection: P,
+                        multiLevelSelection: W,
+                        selectedWeekday: z,
+                        currentPage: v,
+                      },
+                      a
+                    )
+                      ? (l((a) => [...a, ...e.list]), g(0 !== e.list.length))
+                      : console.log(
+                          '参数不一致，不执行任何操作，避免设置过期数据'
+                        );
+                  } else throw Error(e.message || '获取数据失败');
+                } catch (e) {
+                  console.error(e);
+                } finally {
+                  w(!1);
+                }
+              })();
+          }, [v, C, R, P, L, W, z]),
+          (0, s.useEffect)(() => {
+            if (!p || y || c || !S.current) return;
+            let e = new IntersectionObserver(
+              (e) => {
+                e[0].isIntersecting && p && !y && x((e) => e + 1);
+              },
+              { threshold: 0.1 }
+            );
+            return (
+              e.observe(S.current),
+              (N.current = e),
+              () => {
+                N.current && N.current.disconnect();
+              }
+            );
+          }, [p, y, c]);
+        let D = (0, s.useCallback)(
+            (e) => {
+              if (e !== R) {
+                if (
+                  (m(!0),
+                  x(0),
+                  l([]),
+                  g(!0),
+                  w(!1),
+                  B({
+                    type: 'all',
+                    region: 'all',
+                    year: 'all',
+                    platform: 'all',
+                    label: 'all',
+                    sort: 'T',
+                  }),
+                  'custom' === C && L.length > 0)
+                ) {
+                  let a = L.find((a) => a.type === e);
+                  a ? (I(e), O(a.query)) : I(e);
+                } else
+                  ('tv' === C || 'show' === C) && '最近热门' === e
+                    ? (I(e), 'tv' === C ? O('tv') : 'show' === C && O('show'))
+                    : I(e);
+              }
+            },
+            [R, C, L]
+          ),
+          H = (0, s.useCallback)(
+            (e) => {
+              e !== P && (m(!0), x(0), l([]), g(!0), w(!1), O(e));
+            },
+            [P]
+          ),
+          Z = (0, s.useCallback)(
+            (e) => {
+              ((e, a) => {
+                let l = Object.keys(e).sort(),
+                  t = Object.keys(a).sort();
+                return l.length === t.length && l.every((l) => e[l] === a[l]);
+              })(e, W) || (m(!0), x(0), l([]), g(!0), w(!1), B(e));
+            },
+            [W]
+          ),
+          Y = (0, s.useCallback)((e) => {
+            M(e);
+          }, []);
+        return (0, t.jsx)(b.Z, {
+          activePath: (() => {
+            let e = new URLSearchParams();
+            C && e.set('type', C);
+            let a = e.toString();
+            return '/douban'.concat(a ? '?'.concat(a) : '');
+          })(),
+          children: (0, t.jsxs)('div', {
+            className: 'px-4 sm:px-10 py-4 sm:py-8 overflow-visible',
+            children: [
+              (0, t.jsxs)('div', {
+                className: 'mb-6 sm:mb-8 space-y-4 sm:space-y-6',
+                children: [
+                  (0, t.jsxs)('div', {
+                    children: [
+                      (0, t.jsx)('h1', {
+                        className:
+                          'text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2 dark:text-gray-200',
+                        children:
+                          'movie' === C
+                            ? '电影'
+                            : 'tv' === C
+                            ? '电视剧'
+                            : 'anime' === C
+                            ? '动漫'
+                            : 'show' === C
+                            ? '综艺'
+                            : '自定义',
+                      }),
+                      (0, t.jsx)('p', {
+                        className:
+                          'text-sm sm:text-base text-gray-600 dark:text-gray-400',
+                        children:
+                          'anime' === C && '每日放送' === R
+                            ? '来自 Bangumi 番组计划的精选内容'
+                            : '来自豆瓣的精选内容',
+                      }),
+                    ],
+                  }),
+                  'custom' !== C
+                    ? (0, t.jsx)('div', {
+                        className:
+                          'bg-white/60 dark:bg-gray-800/40 rounded-2xl p-4 sm:p-6 border border-gray-200/30 dark:border-gray-700/30 backdrop-blur-sm',
+                        children: (0, t.jsx)(f, {
+                          type: C,
+                          primarySelection: R,
+                          secondarySelection: P,
+                          onPrimaryChange: D,
+                          onSecondaryChange: H,
+                          onMultiLevelChange: Z,
+                          onWeekdayChange: Y,
+                        }),
+                      })
+                    : (0, t.jsx)('div', {
+                        className:
+                          'bg-white/60 dark:bg-gray-800/40 rounded-2xl p-4 sm:p-6 border border-gray-200/30 dark:border-gray-700/30 backdrop-blur-sm',
+                        children: (0, t.jsx)(d, {
+                          customCategories: L,
+                          primarySelection: R,
+                          secondarySelection: P,
+                          onPrimaryChange: D,
+                          onSecondaryChange: H,
+                        }),
+                      }),
+                ],
+              }),
+              (0, t.jsxs)('div', {
+                className: 'max-w-[95%] mx-auto mt-8 overflow-visible',
+                children: [
+                  (0, t.jsx)('div', {
+                    className:
+                      'justify-start grid grid-cols-3 gap-x-2 gap-y-12 px-0 sm:px-2 sm:grid-cols-[repeat(auto-fill,minmax(160px,1fr))] sm:gap-x-8 sm:gap-y-20',
+                    children:
+                      c || !j
+                        ? q.map((e) => (0, t.jsx)(u, {}, e))
+                        : a.map((e, a) =>
+                            (0, t.jsx)(
+                              'div',
+                              {
+                                className: 'w-full',
+                                children: (0, t.jsx)(h.Z, {
+                                  from: 'douban',
+                                  title: e.title,
+                                  poster: e.poster,
+                                  douban_id: Number(e.id),
+                                  rate: e.rate,
+                                  year: e.year,
+                                  type: 'movie' === C ? 'movie' : '',
+                                  isBangumi: 'anime' === C && '每日放送' === R,
+                                }),
+                              },
+                              ''.concat(e.title, '-').concat(a)
+                            )
+                          ),
+                  }),
+                  p &&
+                    !c &&
+                    (0, t.jsx)('div', {
+                      ref: (e) => {
+                        e && null !== e.offsetParent && (S.current = e);
+                      },
+                      className: 'flex justify-center mt-12 py-8',
+                      children:
+                        y &&
+                        (0, t.jsxs)('div', {
+                          className: 'flex items-center gap-2',
+                          children: [
+                            (0, t.jsx)('div', {
+                              className:
+                                'animate-spin rounded-full h-6 w-6 border-b-2 border-green-500',
+                            }),
+                            (0, t.jsx)('span', {
+                              className: 'text-gray-600',
+                              children: '加载中...',
+                            }),
+                          ],
+                        }),
+                    }),
+                  !p &&
+                    a.length > 0 &&
+                    (0, t.jsx)('div', {
+                      className: 'text-center text-gray-500 py-8',
+                      children: '已加载全部内容',
+                    }),
+                  !c &&
+                    0 === a.length &&
+                    (0, t.jsx)('div', {
+                      className: 'text-center text-gray-500 py-8',
+                      children: '暂无相关内容',
+                    }),
+                ],
+              }),
+            ],
+          }),
+        });
+      }
+      function y() {
+        return (0, t.jsx)(s.Suspense, { children: (0, t.jsx)(g, {}) });
+      }
+    },
+    7946: function (e, a, l) {
+      'use strict';
+      async function t() {
+        let e = await fetch('https://api.bgm.tv/calendar');
+        return (await e.json()).map((e) => ({
+          ...e,
+          items: e.items.filter((e) => e.images),
+        }));
+      }
+      l.d(a, {
+        W: function () {
+          return t;
+        },
+      });
+    },
+    3908: function (e, a, l) {
+      'use strict';
+      async function t() {
+        let e = await fetch('/api/config/custom_category');
+        return (await e.json())
+          .filter((e) => !e.disabled)
+          .map((e) => ({ name: e.name || '', type: e.type, query: e.query }));
+      }
+      async function r() {
+        try {
+          let e = await fetch('/api/config/sources');
+          if (!e.ok) throw Error('Failed to fetch sources');
+          return (await e.json()).map((e) => ({
+            key: e.key,
+            name: e.name,
+            api: e.api,
+            detail: e.detail,
+          }));
+        } catch (e) {
+          return console.error('Failed to fetch available API sites:', e), [];
+        }
+      }
+      l.d(a, {
+        B: function () {
+          return r;
+        },
+        V: function () {
+          return t;
+        },
+      });
+    },
+    5241: function (e, a, l) {
+      'use strict';
+      async function t(e, a) {
+        let l = new AbortController(),
+          t = setTimeout(() => l.abort(), 1e4),
+          r = a ? ''.concat(a).concat(encodeURIComponent(e)) : e,
+          s = {
+            signal: l.signal,
+            headers: {
+              'User-Agent':
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+              Referer: 'https://movie.douban.com/',
+              Accept: 'application/json, text/plain, */*',
+            },
+          };
+        try {
+          let e = await fetch(r, s);
+          return clearTimeout(t), e;
+        } catch (e) {
+          throw (clearTimeout(t), e);
+        }
+      }
+      function r() {
+        var e, a;
+        return {
+          proxyType:
+            localStorage.getItem('doubanDataSource') ||
+            (null === (e = window.RUNTIME_CONFIG) || void 0 === e
+              ? void 0
+              : e.DOUBAN_PROXY_TYPE) ||
+            'direct',
+          proxyUrl:
+            localStorage.getItem('doubanProxyUrl') ||
+            (null === (a = window.RUNTIME_CONFIG) || void 0 === a
+              ? void 0
+              : a.DOUBAN_PROXY) ||
+            '',
+        };
+      }
+      async function s(e, a) {
+        let l = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
+          r = arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
+          {
+            kind: s,
+            category: n,
+            type: i,
+            pageLimit: o = 20,
+            pageStart: c = 0,
+          } = e;
+        if (!['tv', 'movie'].includes(s))
+          throw Error('kind 参数必须是 tv 或 movie');
+        if (!n || !i) throw Error('category 和 type 参数不能为空');
+        if (o < 1 || o > 100) throw Error('pageLimit 必须在 1-100 之间');
+        if (c < 0) throw Error('pageStart 不能小于 0');
+        let u = l
+          ? 'https://m.douban.cmliussss.net/rexxar/api/v2/subject/recent_hot/'
+              .concat(s, '?start=')
+              .concat(c, '&limit=')
+              .concat(o, '&category=')
+              .concat(n, '&type=')
+              .concat(i)
+          : r
+          ? 'https://m.douban.cmliussss.com/rexxar/api/v2/subject/recent_hot/'
+              .concat(s, '?start=')
+              .concat(c, '&limit=')
+              .concat(o, '&category=')
+              .concat(n, '&type=')
+              .concat(i)
+          : 'https://m.douban.com/rexxar/api/v2/subject/recent_hot/'
+              .concat(s, '?start=')
+              .concat(c, '&limit=')
+              .concat(o, '&category=')
+              .concat(n, '&type=')
+              .concat(i);
+        try {
+          let e = await t(u, l || r ? '' : a);
+          if (!e.ok) throw Error('HTTP error! Status: '.concat(e.status));
+          let s = (await e.json()).items.map((e) => {
+            var a, l, t, r, s;
+            return {
+              id: e.id,
+              title: e.title,
+              poster:
+                (null === (a = e.pic) || void 0 === a ? void 0 : a.normal) ||
+                (null === (l = e.pic) || void 0 === l ? void 0 : l.large) ||
+                '',
+              rate: (null === (t = e.rating) || void 0 === t ? void 0 : t.value)
+                ? e.rating.value.toFixed(1)
+                : '',
+              year:
+                (null === (s = e.card_subtitle) || void 0 === s
+                  ? void 0
+                  : null === (r = s.match(/(\d{4})/)) || void 0 === r
+                  ? void 0
+                  : r[1]) || '',
+            };
+          });
+          return { code: 200, message: '获取成功', list: s };
+        } catch (e) {
+          throw (
+            (window.dispatchEvent(
+              new CustomEvent('globalError', {
+                detail: { message: '获取豆瓣分类数据失败' },
+              })
+            ),
+            Error('获取豆瓣分类数据失败: '.concat(e.message)))
+          );
+        }
+      }
+      async function n(e) {
+        let {
+            kind: a,
+            category: l,
+            type: t,
+            pageLimit: n = 20,
+            pageStart: i = 0,
+          } = e,
+          { proxyType: o, proxyUrl: c } = r();
+        switch (o) {
+          case 'cors-proxy-zwei':
+            return s(e, 'https://ciao-cors.is-an.org/');
+          case 'cmliussss-cdn-tencent':
+            return s(e, '', !0, !1);
+          case 'cmliussss-cdn-ali':
+            return s(e, '', !1, !0);
+          case 'custom':
+            return s(e, c);
+          default:
+            return (
+              await fetch(
+                '/api/douban/categories?kind='
+                  .concat(a, '&category=')
+                  .concat(l, '&type=')
+                  .concat(t, '&limit=')
+                  .concat(n, '&start=')
+                  .concat(i)
+              )
+            ).json();
+        }
+      }
+      async function i(e) {
+        let { tag: a, type: l, pageLimit: t = 20, pageStart: s = 0 } = e,
+          { proxyType: n, proxyUrl: i } = r();
+        switch (n) {
+          case 'cors-proxy-zwei':
+            return o(e, 'https://ciao-cors.is-an.org/');
+          case 'cmliussss-cdn-tencent':
+            return o(e, '', !0, !1);
+          case 'cmliussss-cdn-ali':
+            return o(e, '', !1, !0);
+          case 'custom':
+            return o(e, i);
+          default:
+            return (
+              await fetch(
+                '/api/douban?tag='
+                  .concat(a, '&type=')
+                  .concat(l, '&pageSize=')
+                  .concat(t, '&pageStart=')
+                  .concat(s)
+              )
+            ).json();
+        }
+      }
+      async function o(e, a) {
+        let l = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
+          r = arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
+          { tag: s, type: n, pageLimit: i = 20, pageStart: o = 0 } = e;
+        if (!s || !n) throw Error('tag 和 type 参数不能为空');
+        if (!['tv', 'movie'].includes(n))
+          throw Error('type 参数必须是 tv 或 movie');
+        if (i < 1 || i > 100) throw Error('pageLimit 必须在 1-100 之间');
+        if (o < 0) throw Error('pageStart 不能小于 0');
+        let c = l
+          ? 'https://movie.douban.cmliussss.net/j/search_subjects?type='
+              .concat(n, '&tag=')
+              .concat(s, '&sort=recommend&page_limit=')
+              .concat(i, '&page_start=')
+              .concat(o)
+          : r
+          ? 'https://movie.douban.cmliussss.com/j/search_subjects?type='
+              .concat(n, '&tag=')
+              .concat(s, '&sort=recommend&page_limit=')
+              .concat(i, '&page_start=')
+              .concat(o)
+          : 'https://movie.douban.com/j/search_subjects?type='
+              .concat(n, '&tag=')
+              .concat(s, '&sort=recommend&page_limit=')
+              .concat(i, '&page_start=')
+              .concat(o);
+        try {
+          let e = await t(c, l || r ? '' : a);
+          if (!e.ok) throw Error('HTTP error! Status: '.concat(e.status));
+          let s = (await e.json()).subjects.map((e) => {
+            var a, l;
+            return {
+              id: e.id,
+              title: e.title,
+              poster: e.cover,
+              rate: e.rate,
+              year:
+                (null === (l = e.card_subtitle) || void 0 === l
+                  ? void 0
+                  : null === (a = l.match(/(\d{4})/)) || void 0 === a
+                  ? void 0
+                  : a[1]) || '',
+            };
+          });
+          return { code: 200, message: '获取成功', list: s };
+        } catch (e) {
+          throw (
+            (window.dispatchEvent(
+              new CustomEvent('globalError', {
+                detail: { message: '获取豆瓣列表数据失败' },
+              })
+            ),
+            Error('获取豆瓣分类数据失败: '.concat(e.message)))
+          );
+        }
+      }
+      async function c(e) {
+        let {
+            kind: a,
+            pageLimit: l = 20,
+            pageStart: t = 0,
+            category: s,
+            format: n,
+            label: i,
+            region: o,
+            year: c,
+            platform: d,
+            sort: m,
+          } = e,
+          { proxyType: v, proxyUrl: x } = r();
+        switch (v) {
+          case 'cors-proxy-zwei':
+            return u(e, 'https://ciao-cors.is-an.org/');
+          case 'cmliussss-cdn-tencent':
+            return u(e, '', !0, !1);
+          case 'cmliussss-cdn-ali':
+            return u(e, '', !1, !0);
+          case 'custom':
+            return u(e, x);
+          default:
+            return (
+              await fetch(
+                '/api/douban/recommends?kind='
+                  .concat(a, '&limit=')
+                  .concat(l, '&start=')
+                  .concat(t, '&category=')
+                  .concat(s, '&format=')
+                  .concat(n, '&region=')
+                  .concat(o, '&year=')
+                  .concat(c, '&platform=')
+                  .concat(d, '&sort=')
+                  .concat(m, '&label=')
+                  .concat(i)
+              )
+            ).json();
+        }
+      }
+      async function u(e, a) {
+        let l = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
+          r = arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
+          { kind: s, pageLimit: n = 20, pageStart: i = 0 } = e,
+          {
+            category: o,
+            format: c,
+            region: u,
+            year: d,
+            platform: m,
+            sort: v,
+            label: x,
+          } = e;
+        'all' === o && (o = ''),
+          'all' === c && (c = ''),
+          'all' === x && (x = ''),
+          'all' === u && (u = ''),
+          'all' === d && (d = ''),
+          'all' === m && (m = ''),
+          'T' === v && (v = '');
+        let p = { 类型: o };
+        c && (p['形式'] = c), u && (p['地区'] = u);
+        let f = [];
+        o && f.push(o),
+          !o && c && f.push(c),
+          x && f.push(x),
+          u && f.push(u),
+          d && f.push(d),
+          m && f.push(m);
+        let b = new URLSearchParams();
+        b.append('refresh', '0'),
+          b.append('start', i.toString()),
+          b.append('count', n.toString()),
+          b.append('selected_categories', JSON.stringify(p)),
+          b.append('uncollect', 'false'),
+          b.append('score_range', '0,10'),
+          b.append('tags', f.join(',')),
+          v && b.append('sort', v);
+        let h = ''
+          .concat(
+            l
+              ? 'https://m.douban.cmliussss.net/rexxar/api/v2/'.concat(
+                  s,
+                  '/recommend'
+                )
+              : r
+              ? 'https://m.douban.cmliussss.com/rexxar/api/v2/'.concat(
+                  s,
+                  '/recommend'
+                )
+              : 'https://m.douban.com/rexxar/api/v2/'.concat(s, '/recommend'),
+            '?'
+          )
+          .concat(b.toString());
+        console.log(h);
+        try {
+          let e = await t(h, l || r ? '' : a);
+          if (!e.ok) throw Error('HTTP error! Status: '.concat(e.status));
+          let s = (await e.json()).items
+            .filter((e) => 'movie' == e.type || 'tv' == e.type)
+            .map((e) => {
+              var a, l, t;
+              return {
+                id: e.id,
+                title: e.title,
+                poster:
+                  (null === (a = e.pic) || void 0 === a ? void 0 : a.normal) ||
+                  (null === (l = e.pic) || void 0 === l ? void 0 : l.large) ||
+                  '',
+                rate: (
+                  null === (t = e.rating) || void 0 === t ? void 0 : t.value
+                )
+                  ? e.rating.value.toFixed(1)
+                  : '',
+                year: e.year,
+              };
+            });
+          return { code: 200, message: '获取成功', list: s };
+        } catch (e) {
+          throw Error('获取豆瓣推荐数据失败: '.concat(e.message));
+        }
+      }
+      l.d(a, {
+        $E: function () {
+          return i;
+        },
+        Z_: function () {
+          return n;
+        },
+        tv: function () {
+          return c;
+        },
+      });
+    },
+  },
+  function (e) {
+    e.O(0, [11, 108, 914, 669, 455, 314, 133, 744], function () {
+      return e((e.s = 3586));
+    }),
+      (_N_E = e.O());
+  },
+]);

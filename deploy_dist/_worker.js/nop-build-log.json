@@ -7,9 +7,7 @@
   "buildFiles": {
     "functions": {
       "invalid": [],
-      "middleware": [
-        "src/middleware"
-      ],
+      "middleware": ["src/middleware"],
       "edge": [
         {
           "relativePath": "/_not-found.func",
@@ -33,9 +31,7 @@
           },
           "route": {
             "path": "/_not-found",
-            "overrides": [
-              "/_not-found.rsc"
-            ]
+            "overrides": ["/_not-found.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/_not-found.func.js",
           "outputByteSize": 337085
@@ -62,9 +58,7 @@
           },
           "route": {
             "path": "/admin",
-            "overrides": [
-              "/admin.rsc"
-            ]
+            "overrides": ["/admin.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/admin.func.js",
           "outputByteSize": 494151
@@ -91,9 +85,7 @@
           },
           "route": {
             "path": "/api/admin/category",
-            "overrides": [
-              "/api/admin/category.rsc"
-            ]
+            "overrides": ["/api/admin/category.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/category.func.js",
           "outputByteSize": 81090
@@ -120,9 +112,7 @@
           },
           "route": {
             "path": "/api/admin/config",
-            "overrides": [
-              "/api/admin/config.rsc"
-            ]
+            "overrides": ["/api/admin/config.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/config.func.js",
           "outputByteSize": 79102
@@ -149,9 +139,7 @@
           },
           "route": {
             "path": "/api/admin/config_file",
-            "overrides": [
-              "/api/admin/config_file.rsc"
-            ]
+            "overrides": ["/api/admin/config_file.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/config_file.func.js",
           "outputByteSize": 79644
@@ -178,9 +166,7 @@
           },
           "route": {
             "path": "/api/admin/data_migration/export",
-            "overrides": [
-              "/api/admin/data_migration/export.rsc"
-            ]
+            "overrides": ["/api/admin/data_migration/export.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/data_migration/export.func.js",
           "outputByteSize": 146375
@@ -207,9 +193,7 @@
           },
           "route": {
             "path": "/api/admin/data_migration/import",
-            "overrides": [
-              "/api/admin/data_migration/import.rsc"
-            ]
+            "overrides": ["/api/admin/data_migration/import.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/data_migration/import.func.js",
           "outputByteSize": 146162
@@ -236,9 +220,7 @@
           },
           "route": {
             "path": "/api/admin/group",
-            "overrides": [
-              "/api/admin/group.rsc"
-            ]
+            "overrides": ["/api/admin/group.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/group.func.js",
           "outputByteSize": 81288
@@ -265,9 +247,7 @@
           },
           "route": {
             "path": "/api/admin/orders",
-            "overrides": [
-              "/api/admin/orders.rsc"
-            ]
+            "overrides": ["/api/admin/orders.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/orders.func.js",
           "outputByteSize": 79826
@@ -294,9 +274,7 @@
           },
           "route": {
             "path": "/api/admin/payment-settings",
-            "overrides": [
-              "/api/admin/payment-settings.rsc"
-            ]
+            "overrides": ["/api/admin/payment-settings.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/payment-settings.func.js",
           "outputByteSize": 79415
@@ -323,9 +301,7 @@
           },
           "route": {
             "path": "/api/admin/plans",
-            "overrides": [
-              "/api/admin/plans.rsc"
-            ]
+            "overrides": ["/api/admin/plans.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/plans.func.js",
           "outputByteSize": 79333
@@ -352,9 +328,7 @@
           },
           "route": {
             "path": "/api/admin/reset",
-            "overrides": [
-              "/api/admin/reset.rsc"
-            ]
+            "overrides": ["/api/admin/reset.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/reset.func.js",
           "outputByteSize": 78855
@@ -381,9 +355,7 @@
           },
           "route": {
             "path": "/api/admin/site",
-            "overrides": [
-              "/api/admin/site.rsc"
-            ]
+            "overrides": ["/api/admin/site.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/site.func.js",
           "outputByteSize": 80080
@@ -410,9 +382,7 @@
           },
           "route": {
             "path": "/api/admin/source",
-            "overrides": [
-              "/api/admin/source.rsc"
-            ]
+            "overrides": ["/api/admin/source.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/source.func.js",
           "outputByteSize": 81710
@@ -439,9 +409,7 @@
           },
           "route": {
             "path": "/api/admin/subscription",
-            "overrides": [
-              "/api/admin/subscription.rsc"
-            ]
+            "overrides": ["/api/admin/subscription.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/subscription.func.js",
           "outputByteSize": 82968
@@ -468,9 +436,7 @@
           },
           "route": {
             "path": "/api/admin/tvbox",
-            "overrides": [
-              "/api/admin/tvbox.rsc"
-            ]
+            "overrides": ["/api/admin/tvbox.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/tvbox.func.js",
           "outputByteSize": 80325
@@ -497,9 +463,7 @@
           },
           "route": {
             "path": "/api/admin/user",
-            "overrides": [
-              "/api/admin/user.rsc"
-            ]
+            "overrides": ["/api/admin/user.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/admin/user.func.js",
           "outputByteSize": 82927
@@ -526,9 +490,7 @@
           },
           "route": {
             "path": "/api/change-password",
-            "overrides": [
-              "/api/change-password.rsc"
-            ]
+            "overrides": ["/api/change-password.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/change-password.func.js",
           "outputByteSize": 78951
@@ -555,9 +517,7 @@
           },
           "route": {
             "path": "/api/config/custom_category",
-            "overrides": [
-              "/api/config/custom_category.rsc"
-            ]
+            "overrides": ["/api/config/custom_category.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/config/custom_category.func.js",
           "outputByteSize": 78345
@@ -584,9 +544,7 @@
           },
           "route": {
             "path": "/api/config/sources",
-            "overrides": [
-              "/api/config/sources.rsc"
-            ]
+            "overrides": ["/api/config/sources.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/config/sources.func.js",
           "outputByteSize": 78592
@@ -613,9 +571,7 @@
           },
           "route": {
             "path": "/api/cron",
-            "overrides": [
-              "/api/cron.rsc"
-            ]
+            "overrides": ["/api/cron.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/cron.func.js",
           "outputByteSize": 168719
@@ -642,9 +598,7 @@
           },
           "route": {
             "path": "/api/detail",
-            "overrides": [
-              "/api/detail.rsc"
-            ]
+            "overrides": ["/api/detail.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/detail.func.js",
           "outputByteSize": 165756
@@ -671,9 +625,7 @@
           },
           "route": {
             "path": "/api/douban/categories",
-            "overrides": [
-              "/api/douban/categories.rsc"
-            ]
+            "overrides": ["/api/douban/categories.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/douban/categories.func.js",
           "outputByteSize": 79643
@@ -700,9 +652,7 @@
           },
           "route": {
             "path": "/api/douban/recommends",
-            "overrides": [
-              "/api/douban/recommends.rsc"
-            ]
+            "overrides": ["/api/douban/recommends.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/douban/recommends.func.js",
           "outputByteSize": 80435
@@ -729,9 +679,7 @@
           },
           "route": {
             "path": "/api/douban",
-            "overrides": [
-              "/api/douban.rsc"
-            ]
+            "overrides": ["/api/douban.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/douban.func.js",
           "outputByteSize": 80721
@@ -758,9 +706,7 @@
           },
           "route": {
             "path": "/api/favorites",
-            "overrides": [
-              "/api/favorites.rsc"
-            ]
+            "overrides": ["/api/favorites.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/favorites.func.js",
           "outputByteSize": 80637
@@ -787,9 +733,7 @@
           },
           "route": {
             "path": "/api/image-proxy",
-            "overrides": [
-              "/api/image-proxy.rsc"
-            ]
+            "overrides": ["/api/image-proxy.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/image-proxy.func.js",
           "outputByteSize": 11246
@@ -816,9 +760,7 @@
           },
           "route": {
             "path": "/api/login",
-            "overrides": [
-              "/api/login.rsc"
-            ]
+            "overrides": ["/api/login.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/login.func.js",
           "outputByteSize": 80520
@@ -845,9 +787,7 @@
           },
           "route": {
             "path": "/api/logout",
-            "overrides": [
-              "/api/logout.rsc"
-            ]
+            "overrides": ["/api/logout.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/logout.func.js",
           "outputByteSize": 10455
@@ -874,9 +814,7 @@
           },
           "route": {
             "path": "/api/m3u8",
-            "overrides": [
-              "/api/m3u8.rsc"
-            ]
+            "overrides": ["/api/m3u8.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/m3u8.func.js",
           "outputByteSize": 184453
@@ -903,9 +841,7 @@
           },
           "route": {
             "path": "/api/plans",
-            "overrides": [
-              "/api/plans.rsc"
-            ]
+            "overrides": ["/api/plans.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/plans.func.js",
           "outputByteSize": 77965
@@ -932,9 +868,7 @@
           },
           "route": {
             "path": "/api/playrecords",
-            "overrides": [
-              "/api/playrecords.rsc"
-            ]
+            "overrides": ["/api/playrecords.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/playrecords.func.js",
           "outputByteSize": 80478
@@ -961,9 +895,7 @@
           },
           "route": {
             "path": "/api/register",
-            "overrides": [
-              "/api/register.rsc"
-            ]
+            "overrides": ["/api/register.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/register.func.js",
           "outputByteSize": 79828
@@ -990,9 +922,7 @@
           },
           "route": {
             "path": "/api/search/one",
-            "overrides": [
-              "/api/search/one.rsc"
-            ]
+            "overrides": ["/api/search/one.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/search/one.func.js",
           "outputByteSize": 166819
@@ -1019,9 +949,7 @@
           },
           "route": {
             "path": "/api/search/resources",
-            "overrides": [
-              "/api/search/resources.rsc"
-            ]
+            "overrides": ["/api/search/resources.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/search/resources.func.js",
           "outputByteSize": 78623
@@ -1048,9 +976,7 @@
           },
           "route": {
             "path": "/api/search/suggestions",
-            "overrides": [
-              "/api/search/suggestions.rsc"
-            ]
+            "overrides": ["/api/search/suggestions.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/search/suggestions.func.js",
           "outputByteSize": 166691
@@ -1077,9 +1003,7 @@
           },
           "route": {
             "path": "/api/search/ws",
-            "overrides": [
-              "/api/search/ws.rsc"
-            ]
+            "overrides": ["/api/search/ws.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/search/ws.func.js",
           "outputByteSize": 167417
@@ -1106,9 +1030,7 @@
           },
           "route": {
             "path": "/api/search",
-            "overrides": [
-              "/api/search.rsc"
-            ]
+            "overrides": ["/api/search.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/search.func.js",
           "outputByteSize": 168594
@@ -1135,9 +1057,7 @@
           },
           "route": {
             "path": "/api/searchhistory",
-            "overrides": [
-              "/api/searchhistory.rsc"
-            ]
+            "overrides": ["/api/searchhistory.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/searchhistory.func.js",
           "outputByteSize": 80061
@@ -1164,9 +1084,7 @@
           },
           "route": {
             "path": "/api/server-config",
-            "overrides": [
-              "/api/server-config.rsc"
-            ]
+            "overrides": ["/api/server-config.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/server-config.func.js",
           "outputByteSize": 78255
@@ -1193,9 +1111,7 @@
           },
           "route": {
             "path": "/api/skipconfigs",
-            "overrides": [
-              "/api/skipconfigs.rsc"
-            ]
+            "overrides": ["/api/skipconfigs.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/skipconfigs.func.js",
           "outputByteSize": 80730
@@ -1222,9 +1138,7 @@
           },
           "route": {
             "path": "/api/tvbox/categories",
-            "overrides": [
-              "/api/tvbox/categories.rsc"
-            ]
+            "overrides": ["/api/tvbox/categories.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/tvbox/categories.func.js",
           "outputByteSize": 80488
@@ -1251,9 +1165,7 @@
           },
           "route": {
             "path": "/api/tvbox/config",
-            "overrides": [
-              "/api/tvbox/config.rsc"
-            ]
+            "overrides": ["/api/tvbox/config.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/tvbox/config.func.js",
           "outputByteSize": 79512
@@ -1280,9 +1192,7 @@
           },
           "route": {
             "path": "/api/user/online",
-            "overrides": [
-              "/api/user/online.rsc"
-            ]
+            "overrides": ["/api/user/online.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/user/online.func.js",
           "outputByteSize": 79179
@@ -1309,9 +1219,7 @@
           },
           "route": {
             "path": "/api/user/orders/create",
-            "overrides": [
-              "/api/user/orders/create.rsc"
-            ]
+            "overrides": ["/api/user/orders/create.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/user/orders/create.func.js",
           "outputByteSize": 79341
@@ -1338,9 +1246,7 @@
           },
           "route": {
             "path": "/api/user/orders",
-            "overrides": [
-              "/api/user/orders.rsc"
-            ]
+            "overrides": ["/api/user/orders.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/user/orders.func.js",
           "outputByteSize": 79640
@@ -1367,9 +1273,7 @@
           },
           "route": {
             "path": "/api/user/payment-settings",
-            "overrides": [
-              "/api/user/payment-settings.rsc"
-            ]
+            "overrides": ["/api/user/payment-settings.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/user/payment-settings.func.js",
           "outputByteSize": 78442
@@ -1396,9 +1300,7 @@
           },
           "route": {
             "path": "/api/user/plans",
-            "overrides": [
-              "/api/user/plans.rsc"
-            ]
+            "overrides": ["/api/user/plans.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/user/plans.func.js",
           "outputByteSize": 78135
@@ -1425,9 +1327,7 @@
           },
           "route": {
             "path": "/api/user/subscription",
-            "overrides": [
-              "/api/user/subscription.rsc"
-            ]
+            "overrides": ["/api/user/subscription.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/api/user/subscription.func.js",
           "outputByteSize": 78335
@@ -1454,9 +1354,7 @@
           },
           "route": {
             "path": "/douban",
-            "overrides": [
-              "/douban.rsc"
-            ]
+            "overrides": ["/douban.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/douban.func.js",
           "outputByteSize": 375152
@@ -1483,10 +1381,7 @@
           },
           "route": {
             "path": "/index",
-            "overrides": [
-              "/",
-              "/index.rsc"
-            ]
+            "overrides": ["/", "/index.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/index.func.js",
           "outputByteSize": 353449
@@ -1513,9 +1408,7 @@
           },
           "route": {
             "path": "/login",
-            "overrides": [
-              "/login.rsc"
-            ]
+            "overrides": ["/login.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/login.func.js",
           "outputByteSize": 342807
@@ -1542,9 +1435,7 @@
           },
           "route": {
             "path": "/orders",
-            "overrides": [
-              "/orders.rsc"
-            ]
+            "overrides": ["/orders.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/orders.func.js",
           "outputByteSize": 343759
@@ -1571,9 +1462,7 @@
           },
           "route": {
             "path": "/play",
-            "overrides": [
-              "/play.rsc"
-            ]
+            "overrides": ["/play.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/play.func.js",
           "outputByteSize": 378320
@@ -1600,9 +1489,7 @@
           },
           "route": {
             "path": "/search",
-            "overrides": [
-              "/search.rsc"
-            ]
+            "overrides": ["/search.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/search.func.js",
           "outputByteSize": 358984
@@ -1656,9 +1543,7 @@
           },
           "route": {
             "path": "/subscription",
-            "overrides": [
-              "/subscription.rsc"
-            ]
+            "overrides": ["/subscription.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/subscription.func.js",
           "outputByteSize": 344751
@@ -1685,9 +1570,7 @@
           },
           "route": {
             "path": "/vip/buy/[planId]",
-            "overrides": [
-              "/vip/buy/[planId].rsc"
-            ]
+            "overrides": ["/vip/buy/[planId].rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/vip/buy/[planId].func.js",
           "outputByteSize": 346584
@@ -1714,9 +1597,7 @@
           },
           "route": {
             "path": "/vip",
-            "overrides": [
-              "/vip.rsc"
-            ]
+            "overrides": ["/vip.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/vip.func.js",
           "outputByteSize": 342077
@@ -1743,9 +1624,7 @@
           },
           "route": {
             "path": "/warning",
-            "overrides": [
-              "/warning.rsc"
-            ]
+            "overrides": ["/warning.rsc"]
           },
           "outputPath": "__next-on-pages-dist__/functions/warning.func.js",
           "outputByteSize": 341269
@@ -6435,9 +6314,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1104,
-          "consumersList": [
-            "/api/server-config.func/index.js"
-          ]
+          "consumersList": ["/api/server-config.func/index.js"]
         },
         "277": {
           "consumers": 12,
@@ -6736,9 +6613,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 358,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "686": {
           "consumers": 12,
@@ -7725,9 +7600,7 @@
           "groupedPath": "be9792104e243cc1ed465c30a31c3ba5",
           "inlined": true,
           "byteLength": 6035,
-          "consumersList": [
-            "/orders.func/index.js"
-          ]
+          "consumersList": ["/orders.func/index.js"]
         },
         "2449": {
           "consumers": 47,
@@ -8034,9 +7907,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2646,
-          "consumersList": [
-            "/api/admin/site.func/index.js"
-          ]
+          "consumersList": ["/api/admin/site.func/index.js"]
         },
         "3084": {
           "consumers": 3,
@@ -8394,9 +8265,7 @@
           "groupedPath": "ef90a725745e74f74877c7fd1c930cd8",
           "inlined": true,
           "byteLength": 384,
-          "consumersList": [
-            "/src/middleware.func/index.js"
-          ]
+          "consumersList": ["/src/middleware.func/index.js"]
         },
         "3758": {
           "consumers": 12,
@@ -8487,9 +8356,7 @@
           "groupedPath": "bafd2876ffc9e7acd2ac1b296b9b52b0",
           "inlined": true,
           "byteLength": 6008,
-          "consumersList": [
-            "/vip.func/index.js"
-          ]
+          "consumersList": ["/vip.func/index.js"]
         },
         "3917": {
           "consumers": 56,
@@ -9183,9 +9050,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1225,
-          "consumersList": [
-            "/api/config/sources.func/index.js"
-          ]
+          "consumersList": ["/api/config/sources.func/index.js"]
         },
         "5785": {
           "consumers": 12,
@@ -9340,9 +9205,7 @@
           "groupedPath": "5bc4e3726b61f8b88b6deb1f10862b31",
           "inlined": true,
           "byteLength": 6035,
-          "consumersList": [
-            "/douban.func/index.js"
-          ]
+          "consumersList": ["/douban.func/index.js"]
         },
         "6056": {
           "consumers": 12,
@@ -9760,9 +9623,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 4437,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "7927": {
           "consumers": 56,
@@ -10456,9 +10317,7 @@
           "groupedPath": "a15d978829d7d6453271ebe3cfaa534d",
           "inlined": true,
           "byteLength": 6878,
-          "consumersList": [
-            "/subscription.func/index.js"
-          ]
+          "consumersList": ["/subscription.func/index.js"]
         },
         "10291": {
           "consumers": 12,
@@ -10485,9 +10344,7 @@
           "groupedPath": "ec7fd0bcfeb2b99b4f899bbe1e981956",
           "inlined": true,
           "byteLength": 183,
-          "consumersList": [
-            "/vip/buy/[planId].func/index.js"
-          ]
+          "consumersList": ["/vip/buy/[planId].func/index.js"]
         },
         "10585": {
           "consumers": 56,
@@ -10685,18 +10542,14 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2091,
-          "consumersList": [
-            "/api/user/orders/create.func/index.js"
-          ]
+          "consumersList": ["/api/user/orders/create.func/index.js"]
         },
         "10930": {
           "consumers": 1,
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 29,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "10976": {
           "consumers": 12,
@@ -11194,9 +11047,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 4356,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "12099": {
           "consumers": 56,
@@ -11426,18 +11277,14 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 2767,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "12599": {
           "consumers": 1,
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 100,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "12694": {
           "consumers": 12,
@@ -11464,9 +11311,7 @@
           "groupedPath": "749c2cb71fc80860bc85029c84f5442a",
           "inlined": true,
           "byteLength": 3602,
-          "consumersList": [
-            "/warning.func/index.js"
-          ]
+          "consumersList": ["/warning.func/index.js"]
         },
         "12809": {
           "consumers": 56,
@@ -11536,9 +11381,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2075,
-          "consumersList": [
-            "/api/admin/config_file.func/index.js"
-          ]
+          "consumersList": ["/api/admin/config_file.func/index.js"]
         },
         "13147": {
           "consumers": 12,
@@ -11565,9 +11408,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 667,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "13309": {
           "consumers": 56,
@@ -11678,9 +11519,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 9191,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "13735": {
           "consumers": 56,
@@ -11751,9 +11590,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 803,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "13948": {
           "consumers": 56,
@@ -12572,9 +12409,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 4060,
-          "consumersList": [
-            "/api/admin/source.func/index.js"
-          ]
+          "consumersList": ["/api/admin/source.func/index.js"]
         },
         "14993": {
           "consumers": 12,
@@ -12984,9 +12819,7 @@
           "groupedPath": "9fe8f3863a46a5280fadb72db08b3225",
           "inlined": true,
           "byteLength": 15316,
-          "consumersList": [
-            "/index.func/index.js"
-          ]
+          "consumersList": ["/index.func/index.js"]
         },
         "15643": {
           "consumers": 56,
@@ -14263,9 +14096,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1293,
-          "consumersList": [
-            "/api/search/resources.func/index.js"
-          ]
+          "consumersList": ["/api/search/resources.func/index.js"]
         },
         "17527": {
           "consumers": 56,
@@ -14503,9 +14334,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1269,
-          "consumersList": [
-            "/api/user/subscription.func/index.js"
-          ]
+          "consumersList": ["/api/user/subscription.func/index.js"]
         },
         "18152": {
           "consumers": 56,
@@ -14936,9 +14765,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 543,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "19592": {
           "consumers": 12,
@@ -15144,9 +14971,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 100,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "20425": {
           "consumers": 56,
@@ -15429,9 +15254,7 @@
           "groupedPath": "70bca20cb3ddc23cfeac02618bd922e0",
           "inlined": true,
           "byteLength": 172,
-          "consumersList": [
-            "/login.func/index.js"
-          ]
+          "consumersList": ["/login.func/index.js"]
         },
         "20738": {
           "consumers": 2,
@@ -15447,9 +15270,7 @@
           "groupedPath": "9fe8f3863a46a5280fadb72db08b3225",
           "inlined": true,
           "byteLength": 5955,
-          "consumersList": [
-            "/index.func/index.js"
-          ]
+          "consumersList": ["/index.func/index.js"]
         },
         "20927": {
           "consumers": 56,
@@ -16408,9 +16229,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 1220,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "22319": {
           "consumers": 12,
@@ -16437,9 +16256,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 13096,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "22391": {
           "consumers": 56,
@@ -16742,9 +16559,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 2270,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "23450": {
           "consumers": 56,
@@ -18258,9 +18073,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 5983,
-          "consumersList": [
-            "/_not-found.func/index.js"
-          ]
+          "consumersList": ["/_not-found.func/index.js"]
         },
         "26757": {
           "consumers": 56,
@@ -18415,17 +18228,13 @@
           "groupedPath": "bafd2876ffc9e7acd2ac1b296b9b52b0",
           "inlined": true,
           "byteLength": 170,
-          "consumersList": [
-            "/vip.func/index.js"
-          ]
+          "consumersList": ["/vip.func/index.js"]
         },
         "26895": {
           "consumers": 1,
           "inlined": true,
           "byteLength": 1143,
-          "consumersList": [
-            "/api/config/custom_category.func/index.js"
-          ]
+          "consumersList": ["/api/config/custom_category.func/index.js"]
         },
         "26930": {
           "consumers": 56,
@@ -19136,9 +18945,7 @@
           "groupedPath": "70bca20cb3ddc23cfeac02618bd922e0",
           "inlined": true,
           "byteLength": 5192,
-          "consumersList": [
-            "/login.func/index.js"
-          ]
+          "consumersList": ["/login.func/index.js"]
         },
         "28133": {
           "consumers": 56,
@@ -19333,9 +19140,7 @@
           "groupedPath": "e62455b9c66daf9946a6837341da8adc",
           "inlined": true,
           "byteLength": 6017,
-          "consumersList": [
-            "/play.func/index.js"
-          ]
+          "consumersList": ["/play.func/index.js"]
         },
         "28505": {
           "consumers": 12,
@@ -19658,9 +19463,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 3874,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "29560": {
           "consumers": 12,
@@ -19686,18 +19489,14 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2855,
-          "consumersList": [
-            "/api/douban/recommends.func/index.js"
-          ]
+          "consumersList": ["/api/douban/recommends.func/index.js"]
         },
         "29572": {
           "consumers": 1,
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 3272,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "29620": {
           "consumers": 56,
@@ -19939,9 +19738,7 @@
           "groupedPath": "5bc4e3726b61f8b88b6deb1f10862b31",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/douban.func/index.js"
-          ]
+          "consumersList": ["/douban.func/index.js"]
         },
         "30244": {
           "consumers": 56,
@@ -21428,9 +21225,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1778,
-          "consumersList": [
-            "/api/image-proxy.func/index.js"
-          ]
+          "consumersList": ["/api/image-proxy.func/index.js"]
         },
         "33627": {
           "consumers": 12,
@@ -21584,10 +21379,7 @@
           "consumers": 2,
           "newDest": "__next-on-pages-dist__/webpack/34021.js",
           "byteLength": 395,
-          "consumersList": [
-            "/subscription.func/index.js",
-            "/vip.func/index.js"
-          ]
+          "consumersList": ["/subscription.func/index.js", "/vip.func/index.js"]
         },
         "34205": {
           "consumers": 56,
@@ -21658,9 +21450,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 2109,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "34393": {
           "consumers": 56,
@@ -21771,26 +21561,20 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 2639,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "34893": {
           "consumers": 1,
           "inlined": true,
           "byteLength": 3079,
-          "consumersList": [
-            "/api/admin/data_migration/import.func/index.js"
-          ]
+          "consumersList": ["/api/admin/data_migration/import.func/index.js"]
         },
         "34968": {
           "consumers": 1,
           "groupedPath": "e62455b9c66daf9946a6837341da8adc",
           "inlined": true,
           "byteLength": 38542,
-          "consumersList": [
-            "/play.func/index.js"
-          ]
+          "consumersList": ["/play.func/index.js"]
         },
         "35058": {
           "consumers": 56,
@@ -21945,26 +21729,20 @@
           "groupedPath": "814d63c7275cc7c8abfdc888fdd1a5a1",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/search.func/index.js"
-          ]
+          "consumersList": ["/search.func/index.js"]
         },
         "35317": {
           "consumers": 1,
           "groupedPath": "a15d978829d7d6453271ebe3cfaa534d",
           "inlined": true,
           "byteLength": 179,
-          "consumersList": [
-            "/subscription.func/index.js"
-          ]
+          "consumersList": ["/subscription.func/index.js"]
         },
         "35445": {
           "consumers": 1,
           "inlined": true,
           "byteLength": 1172,
-          "consumersList": [
-            "/api/user/plans.func/index.js"
-          ]
+          "consumersList": ["/api/user/plans.func/index.js"]
         },
         "35481": {
           "consumers": 56,
@@ -22375,9 +22153,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 116,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "37041": {
           "consumers": 12,
@@ -22615,18 +22391,14 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 3257,
-          "consumersList": [
-            "/api/douban.func/index.js"
-          ]
+          "consumersList": ["/api/douban.func/index.js"]
         },
         "37524": {
           "consumers": 1,
           "groupedPath": "bafd2876ffc9e7acd2ac1b296b9b52b0",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/vip.func/index.js"
-          ]
+          "consumersList": ["/vip.func/index.js"]
         },
         "37529": {
           "consumers": 12,
@@ -22774,9 +22546,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 3667,
-          "consumersList": [
-            "/api/admin/data_migration/export.func/index.js"
-          ]
+          "consumersList": ["/api/admin/data_migration/export.func/index.js"]
         },
         "37817": {
           "consumers": 56,
@@ -23282,9 +23052,7 @@
           "groupedPath": "814d63c7275cc7c8abfdc888fdd1a5a1",
           "inlined": true,
           "byteLength": 173,
-          "consumersList": [
-            "/search.func/index.js"
-          ]
+          "consumersList": ["/search.func/index.js"]
         },
         "38834": {
           "consumers": 12,
@@ -23310,9 +23078,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2173,
-          "consumersList": [
-            "/api/admin/plans.func/index.js"
-          ]
+          "consumersList": ["/api/admin/plans.func/index.js"]
         },
         "39338": {
           "consumers": 12,
@@ -23338,18 +23104,14 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1458,
-          "consumersList": [
-            "/api/admin/reset.func/index.js"
-          ]
+          "consumersList": ["/api/admin/reset.func/index.js"]
         },
         "39489": {
           "consumers": 1,
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 4838,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "39520": {
           "consumers": 59,
@@ -23506,9 +23268,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1374,
-          "consumersList": [
-            "/api/user/payment-settings.func/index.js"
-          ]
+          "consumersList": ["/api/user/payment-settings.func/index.js"]
         },
         "39927": {
           "consumers": 12,
@@ -23791,9 +23551,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 93,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "41059": {
           "consumers": 56,
@@ -24204,9 +23962,7 @@
           "groupedPath": "e62455b9c66daf9946a6837341da8adc",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/play.func/index.js"
-          ]
+          "consumersList": ["/play.func/index.js"]
         },
         "42095": {
           "consumers": 12,
@@ -24287,18 +24043,14 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1967,
-          "consumersList": [
-            "/api/admin/payment-settings.func/index.js"
-          ]
+          "consumersList": ["/api/admin/payment-settings.func/index.js"]
         },
         "42428": {
           "consumers": 1,
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 1078,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "42474": {
           "consumers": 56,
@@ -24432,10 +24184,7 @@
           "consumers": 2,
           "newDest": "__next-on-pages-dist__/webpack/42738.js",
           "byteLength": 297,
-          "consumersList": [
-            "/admin.func/index.js",
-            "/search.func/index.js"
-          ]
+          "consumersList": ["/admin.func/index.js", "/search.func/index.js"]
         },
         "42860": {
           "consumers": 12,
@@ -26020,9 +25769,7 @@
           "groupedPath": "ef90a725745e74f74877c7fd1c930cd8",
           "inlined": true,
           "byteLength": 1665,
-          "consumersList": [
-            "/src/middleware.func/index.js"
-          ]
+          "consumersList": ["/src/middleware.func/index.js"]
         },
         "46053": {
           "consumers": 56,
@@ -26516,9 +26263,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 5347,
-          "consumersList": [
-            "/api/admin/subscription.func/index.js"
-          ]
+          "consumersList": ["/api/admin/subscription.func/index.js"]
         },
         "47264": {
           "consumers": 12,
@@ -27003,27 +26748,21 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2654,
-          "consumersList": [
-            "/api/searchhistory.func/index.js"
-          ]
+          "consumersList": ["/api/searchhistory.func/index.js"]
         },
         "48262": {
           "consumers": 1,
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 142,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "48294": {
           "consumers": 1,
           "groupedPath": "5bc4e3726b61f8b88b6deb1f10862b31",
           "inlined": true,
           "byteLength": 173,
-          "consumersList": [
-            "/douban.func/index.js"
-          ]
+          "consumersList": ["/douban.func/index.js"]
         },
         "48563": {
           "consumers": 56,
@@ -27094,18 +26833,14 @@
           "groupedPath": "ef90a725745e74f74877c7fd1c930cd8",
           "inlined": true,
           "byteLength": 4959,
-          "consumersList": [
-            "/src/middleware.func/index.js"
-          ]
+          "consumersList": ["/src/middleware.func/index.js"]
         },
         "49171": {
           "consumers": 1,
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 2088,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "49263": {
           "consumers": 12,
@@ -27216,9 +26951,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 1095,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "49551": {
           "consumers": 56,
@@ -27416,9 +27149,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1541,
-          "consumersList": [
-            "/api/detail.func/index.js"
-          ]
+          "consumersList": ["/api/detail.func/index.js"]
         },
         "49931": {
           "consumers": 56,
@@ -27745,9 +27476,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 76,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "50785": {
           "consumers": 56,
@@ -28429,9 +28158,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2961,
-          "consumersList": [
-            "/api/admin/tvbox.func/index.js"
-          ]
+          "consumersList": ["/api/admin/tvbox.func/index.js"]
         },
         "52387": {
           "consumers": 30,
@@ -28599,9 +28326,7 @@
           "groupedPath": "70bca20cb3ddc23cfeac02618bd922e0",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/login.func/index.js"
-          ]
+          "consumersList": ["/login.func/index.js"]
         },
         "52756": {
           "consumers": 56,
@@ -28864,9 +28589,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 992,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "52998": {
           "consumers": 12,
@@ -29701,27 +29424,21 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 4323,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "54661": {
           "consumers": 1,
           "groupedPath": "be9792104e243cc1ed465c30a31c3ba5",
           "inlined": true,
           "byteLength": 173,
-          "consumersList": [
-            "/orders.func/index.js"
-          ]
+          "consumersList": ["/orders.func/index.js"]
         },
         "54751": {
           "consumers": 1,
           "groupedPath": "9fe8f3863a46a5280fadb72db08b3225",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/index.func/index.js"
-          ]
+          "consumersList": ["/index.func/index.js"]
         },
         "54819": {
           "consumers": 56,
@@ -29792,18 +29509,14 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 1818,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "54935": {
           "consumers": 1,
           "groupedPath": "4e222346cec04b4232f0e1369d037302",
           "inlined": true,
           "byteLength": 6026,
-          "consumersList": [
-            "/admin.func/index.js"
-          ]
+          "consumersList": ["/admin.func/index.js"]
         },
         "54976": {
           "consumers": 56,
@@ -29937,9 +29650,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 3260,
-          "consumersList": [
-            "/api/favorites.func/index.js"
-          ]
+          "consumersList": ["/api/favorites.func/index.js"]
         },
         "55287": {
           "consumers": 56,
@@ -30724,9 +30435,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 5732,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "56602": {
           "consumers": 56,
@@ -30860,9 +30569,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1669,
-          "consumersList": [
-            "/api/admin/config.func/index.js"
-          ]
+          "consumersList": ["/api/admin/config.func/index.js"]
         },
         "56659": {
           "consumers": 12,
@@ -30889,9 +30596,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 291,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "56960": {
           "consumers": 12,
@@ -30982,9 +30687,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 1412,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "57269": {
           "consumers": 47,
@@ -31046,9 +30749,7 @@
           "groupedPath": "9fe8f3863a46a5280fadb72db08b3225",
           "inlined": true,
           "byteLength": 166,
-          "consumersList": [
-            "/index.func/index.js"
-          ]
+          "consumersList": ["/index.func/index.js"]
         },
         "57520": {
           "consumers": 56,
@@ -31304,10 +31005,7 @@
           "consumers": 2,
           "newDest": "__next-on-pages-dist__/webpack/58052.js",
           "byteLength": 239,
-          "consumersList": [
-            "/admin.func/index.js",
-            "/play.func/index.js"
-          ]
+          "consumersList": ["/admin.func/index.js", "/play.func/index.js"]
         },
         "58056": {
           "consumers": 12,
@@ -31693,9 +31391,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 4875,
-          "consumersList": [
-            "/api/admin/user.func/index.js"
-          ]
+          "consumersList": ["/api/admin/user.func/index.js"]
         },
         "58784": {
           "consumers": 12,
@@ -31850,17 +31546,13 @@
           "groupedPath": "4e222346cec04b4232f0e1369d037302",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/admin.func/index.js"
-          ]
+          "consumersList": ["/admin.func/index.js"]
         },
         "59140": {
           "consumers": 1,
           "inlined": true,
           "byteLength": 3181,
-          "consumersList": [
-            "/api/tvbox/categories.func/index.js"
-          ]
+          "consumersList": ["/api/tvbox/categories.func/index.js"]
         },
         "59258": {
           "consumers": 56,
@@ -32372,9 +32064,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 2551,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "60573": {
           "consumers": 12,
@@ -32401,9 +32091,7 @@
           "groupedPath": "a15d978829d7d6453271ebe3cfaa534d",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/subscription.func/index.js"
-          ]
+          "consumersList": ["/subscription.func/index.js"]
         },
         "60609": {
           "consumers": 12,
@@ -33006,9 +32694,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 1979,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "61258": {
           "consumers": 56,
@@ -33079,9 +32765,7 @@
           "groupedPath": "ef90a725745e74f74877c7fd1c930cd8",
           "inlined": true,
           "byteLength": 29588,
-          "consumersList": [
-            "/src/middleware.func/index.js"
-          ]
+          "consumersList": ["/src/middleware.func/index.js"]
         },
         "61583": {
           "consumers": 12,
@@ -33512,9 +33196,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "62614": {
           "consumers": 56,
@@ -34404,27 +34086,21 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 1066,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "64113": {
           "consumers": 1,
           "groupedPath": "ec7fd0bcfeb2b99b4f899bbe1e981956",
           "inlined": true,
           "byteLength": 7835,
-          "consumersList": [
-            "/vip/buy/[planId].func/index.js"
-          ]
+          "consumersList": ["/vip/buy/[planId].func/index.js"]
         },
         "64605": {
           "consumers": 1,
           "groupedPath": "60b4ad895c24039b786736fc1aad0cdd",
           "inlined": true,
           "byteLength": 163,
-          "consumersList": [
-            "/api/user/orders.func/index.js"
-          ]
+          "consumersList": ["/api/user/orders.func/index.js"]
         },
         "64672": {
           "consumers": 56,
@@ -35087,9 +34763,7 @@
           "groupedPath": "60b4ad895c24039b786736fc1aad0cdd",
           "inlined": true,
           "byteLength": 2232,
-          "consumersList": [
-            "/api/user/orders.func/index.js"
-          ]
+          "consumersList": ["/api/user/orders.func/index.js"]
         },
         "66233": {
           "consumers": 56,
@@ -35160,9 +34834,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 408,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "66339": {
           "consumers": 56,
@@ -35721,9 +35393,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 1127,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "67550": {
           "consumers": 46,
@@ -37193,9 +36863,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 3102,
-          "consumersList": [
-            "/api/skipconfigs.func/index.js"
-          ]
+          "consumersList": ["/api/skipconfigs.func/index.js"]
         },
         "70262": {
           "consumers": 12,
@@ -37350,9 +37018,7 @@
           "groupedPath": "be9792104e243cc1ed465c30a31c3ba5",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/orders.func/index.js"
-          ]
+          "consumersList": ["/orders.func/index.js"]
         },
         "70373": {
           "consumers": 12,
@@ -37922,17 +37588,13 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 204,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "71341": {
           "consumers": 1,
           "inlined": true,
           "byteLength": 3485,
-          "consumersList": [
-            "/api/admin/category.func/index.js"
-          ]
+          "consumersList": ["/api/admin/category.func/index.js"]
         },
         "71538": {
           "consumers": 56,
@@ -38003,19 +37665,14 @@
           "groupedPath": "4d36bd62197beea91293cb790cc44d12",
           "newDest": "__next-on-pages-dist__/webpack/4d36bd62197beea91293cb790cc44d12.js",
           "byteLength": 216,
-          "consumersList": [
-            "/admin.func/index.js",
-            "/orders.func/index.js"
-          ]
+          "consumersList": ["/admin.func/index.js", "/orders.func/index.js"]
         },
         "71676": {
           "consumers": 1,
           "groupedPath": "70bca20cb3ddc23cfeac02618bd922e0",
           "inlined": true,
           "byteLength": 6026,
-          "consumersList": [
-            "/login.func/index.js"
-          ]
+          "consumersList": ["/login.func/index.js"]
         },
         "71680": {
           "consumers": 56,
@@ -38608,9 +38265,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 3188,
-          "consumersList": [
-            "/api/login.func/index.js"
-          ]
+          "consumersList": ["/api/login.func/index.js"]
         },
         "73069": {
           "consumers": 12,
@@ -38849,9 +38504,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 952,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "73464": {
           "consumers": 12,
@@ -39173,9 +38826,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1083,
-          "consumersList": [
-            "/api/plans.func/index.js"
-          ]
+          "consumersList": ["/api/plans.func/index.js"]
         },
         "74306": {
           "consumers": 56,
@@ -39310,9 +38961,7 @@
           "groupedPath": "e62455b9c66daf9946a6837341da8adc",
           "inlined": true,
           "byteLength": 171,
-          "consumersList": [
-            "/play.func/index.js"
-          ]
+          "consumersList": ["/play.func/index.js"]
         },
         "74917": {
           "consumers": 12,
@@ -39339,9 +38988,7 @@
           "groupedPath": "ec7fd0bcfeb2b99b4f899bbe1e981956",
           "inlined": true,
           "byteLength": 50,
-          "consumersList": [
-            "/vip/buy/[planId].func/index.js"
-          ]
+          "consumersList": ["/vip/buy/[planId].func/index.js"]
         },
         "75058": {
           "consumers": 56,
@@ -39411,9 +39058,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2298,
-          "consumersList": [
-            "/api/search/one.func/index.js"
-          ]
+          "consumersList": ["/api/search/one.func/index.js"]
         },
         "75368": {
           "consumers": 12,
@@ -39460,17 +39105,13 @@
           "groupedPath": "ef90a725745e74f74877c7fd1c930cd8",
           "inlined": true,
           "byteLength": 16825,
-          "consumersList": [
-            "/src/middleware.func/index.js"
-          ]
+          "consumersList": ["/src/middleware.func/index.js"]
         },
         "75563": {
           "consumers": 1,
           "inlined": true,
           "byteLength": 2375,
-          "consumersList": [
-            "/api/admin/orders.func/index.js"
-          ]
+          "consumersList": ["/api/admin/orders.func/index.js"]
         },
         "75597": {
           "consumers": 56,
@@ -39636,9 +39277,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 91,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "76092": {
           "consumers": 56,
@@ -39709,9 +39348,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 7758,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "76486": {
           "consumers": 56,
@@ -41444,9 +41081,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 3891,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "79820": {
           "consumers": 56,
@@ -41645,9 +41280,7 @@
           "groupedPath": "749c2cb71fc80860bc85029c84f5442a",
           "inlined": true,
           "byteLength": 6044,
-          "consumersList": [
-            "/warning.func/index.js"
-          ]
+          "consumersList": ["/warning.func/index.js"]
         },
         "80185": {
           "consumers": 12,
@@ -41877,9 +41510,7 @@
           "groupedPath": "814d63c7275cc7c8abfdc888fdd1a5a1",
           "inlined": true,
           "byteLength": 6035,
-          "consumersList": [
-            "/search.func/index.js"
-          ]
+          "consumersList": ["/search.func/index.js"]
         },
         "80666": {
           "consumers": 59,
@@ -42164,9 +41795,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1752,
-          "consumersList": [
-            "/api/change-password.func/index.js"
-          ]
+          "consumersList": ["/api/change-password.func/index.js"]
         },
         "80954": {
           "consumers": 56,
@@ -42237,9 +41866,7 @@
           "groupedPath": "814d63c7275cc7c8abfdc888fdd1a5a1",
           "inlined": true,
           "byteLength": 19625,
-          "consumersList": [
-            "/search.func/index.js"
-          ]
+          "consumersList": ["/search.func/index.js"]
         },
         "81116": {
           "consumers": 12,
@@ -42708,9 +42335,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 1522,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "81961": {
           "consumers": 56,
@@ -42909,9 +42534,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 180,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "82137": {
           "consumers": 56,
@@ -43046,18 +42669,14 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 215,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "82312": {
           "consumers": 1,
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 42,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "82328": {
           "consumers": 56,
@@ -43127,18 +42746,14 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2429,
-          "consumersList": [
-            "/api/search/suggestions.func/index.js"
-          ]
+          "consumersList": ["/api/search/suggestions.func/index.js"]
         },
         "82656": {
           "consumers": 1,
           "groupedPath": "be9792104e243cc1ed465c30a31c3ba5",
           "inlined": true,
           "byteLength": 5868,
-          "consumersList": [
-            "/orders.func/index.js"
-          ]
+          "consumersList": ["/orders.func/index.js"]
         },
         "82698": {
           "consumers": 56,
@@ -43644,9 +43259,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 534,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "83265": {
           "consumers": 56,
@@ -43992,9 +43605,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2154,
-          "consumersList": [
-            "/api/douban/categories.func/index.js"
-          ]
+          "consumersList": ["/api/douban/categories.func/index.js"]
         },
         "84197": {
           "consumers": 12,
@@ -45268,18 +44879,14 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2502,
-          "consumersList": [
-            "/api/register.func/index.js"
-          ]
+          "consumersList": ["/api/register.func/index.js"]
         },
         "86605": {
           "consumers": 1,
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 585,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "86666": {
           "consumers": 56,
@@ -45434,18 +45041,13 @@
           "groupedPath": "4d36bd62197beea91293cb790cc44d12",
           "newDest": "__next-on-pages-dist__/webpack/4d36bd62197beea91293cb790cc44d12.js",
           "byteLength": 239,
-          "consumersList": [
-            "/admin.func/index.js",
-            "/orders.func/index.js"
-          ]
+          "consumersList": ["/admin.func/index.js", "/orders.func/index.js"]
         },
         "87250": {
           "consumers": 1,
           "inlined": true,
           "byteLength": 2264,
-          "consumersList": [
-            "/api/tvbox/config.func/index.js"
-          ]
+          "consumersList": ["/api/tvbox/config.func/index.js"]
         },
         "87367": {
           "consumers": 56,
@@ -45664,9 +45266,7 @@
           "groupedPath": "ef90a725745e74f74877c7fd1c930cd8",
           "inlined": true,
           "byteLength": 1710,
-          "consumersList": [
-            "/src/middleware.func/index.js"
-          ]
+          "consumersList": ["/src/middleware.func/index.js"]
         },
         "87764": {
           "consumers": 56,
@@ -46344,17 +45944,13 @@
           "groupedPath": "4e222346cec04b4232f0e1369d037302",
           "inlined": true,
           "byteLength": 147097,
-          "consumersList": [
-            "/admin.func/index.js"
-          ]
+          "consumersList": ["/admin.func/index.js"]
         },
         "89141": {
           "consumers": 1,
           "inlined": true,
           "byteLength": 1740,
-          "consumersList": [
-            "/api/user/online.func/index.js"
-          ]
+          "consumersList": ["/api/user/online.func/index.js"]
         },
         "89224": {
           "consumers": 56,
@@ -46425,18 +46021,14 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 902,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "89295": {
           "consumers": 1,
           "groupedPath": "ef90a725745e74f74877c7fd1c930cd8",
           "inlined": true,
           "byteLength": 24461,
-          "consumersList": [
-            "/src/middleware.func/index.js"
-          ]
+          "consumersList": ["/src/middleware.func/index.js"]
         },
         "89377": {
           "consumers": 56,
@@ -47652,18 +47244,14 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 2915,
-          "consumersList": [
-            "/api/search/ws.func/index.js"
-          ]
+          "consumersList": ["/api/search/ws.func/index.js"]
         },
         "92052": {
           "consumers": 1,
           "groupedPath": "ec7fd0bcfeb2b99b4f899bbe1e981956",
           "inlined": true,
           "byteLength": 6161,
-          "consumersList": [
-            "/vip/buy/[planId].func/index.js"
-          ]
+          "consumersList": ["/vip/buy/[planId].func/index.js"]
         },
         "92398": {
           "consumers": 12,
@@ -47818,9 +47406,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 260,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "92771": {
           "consumers": 56,
@@ -47975,9 +47561,7 @@
           "groupedPath": "317a90beb9766714ac1a99e3186fbf98",
           "inlined": true,
           "byteLength": 9022,
-          "consumersList": [
-            "/api/m3u8.func/index.js"
-          ]
+          "consumersList": ["/api/m3u8.func/index.js"]
         },
         "92935": {
           "consumers": 56,
@@ -48240,9 +47824,7 @@
           "groupedPath": "ef90a725745e74f74877c7fd1c930cd8",
           "inlined": true,
           "byteLength": 524,
-          "consumersList": [
-            "/src/middleware.func/index.js"
-          ]
+          "consumersList": ["/src/middleware.func/index.js"]
         },
         "93664": {
           "consumers": 47,
@@ -48831,9 +48413,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 4073,
-          "consumersList": [
-            "/api/cron.func/index.js"
-          ]
+          "consumersList": ["/api/cron.func/index.js"]
         },
         "95252": {
           "consumers": 12,
@@ -48924,9 +48504,7 @@
           "groupedPath": "bafd2876ffc9e7acd2ac1b296b9b52b0",
           "inlined": true,
           "byteLength": 4481,
-          "consumersList": [
-            "/vip.func/index.js"
-          ]
+          "consumersList": ["/vip.func/index.js"]
         },
         "95417": {
           "consumers": 56,
@@ -49148,9 +48726,7 @@
           "groupedPath": "a15d978829d7d6453271ebe3cfaa534d",
           "inlined": true,
           "byteLength": 6089,
-          "consumersList": [
-            "/subscription.func/index.js"
-          ]
+          "consumersList": ["/subscription.func/index.js"]
         },
         "95948": {
           "consumers": 56,
@@ -49221,9 +48797,7 @@
           "groupedPath": "5bc4e3726b61f8b88b6deb1f10862b31",
           "inlined": true,
           "byteLength": 34163,
-          "consumersList": [
-            "/douban.func/index.js"
-          ]
+          "consumersList": ["/douban.func/index.js"]
         },
         "96438": {
           "consumers": 56,
@@ -49319,9 +48893,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 3077,
-          "consumersList": [
-            "/api/playrecords.func/index.js"
-          ]
+          "consumersList": ["/api/playrecords.func/index.js"]
         },
         "96825": {
           "consumers": 12,
@@ -49412,9 +48984,7 @@
           "groupedPath": "4e222346cec04b4232f0e1369d037302",
           "inlined": true,
           "byteLength": 172,
-          "consumersList": [
-            "/admin.func/index.js"
-          ]
+          "consumersList": ["/admin.func/index.js"]
         },
         "96951": {
           "consumers": 12,
@@ -49632,9 +49202,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 4071,
-          "consumersList": [
-            "/api/search.func/index.js"
-          ]
+          "consumersList": ["/api/search.func/index.js"]
         },
         "97599": {
           "consumers": 56,
@@ -50331,9 +49899,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 3651,
-          "consumersList": [
-            "/api/admin/group.func/index.js"
-          ]
+          "consumersList": ["/api/admin/group.func/index.js"]
         },
         "99189": {
           "consumers": 12,
@@ -50542,9 +50108,7 @@
           "consumers": 1,
           "inlined": true,
           "byteLength": 1000,
-          "consumersList": [
-            "/api/logout.func/index.js"
-          ]
+          "consumersList": ["/api/logout.func/index.js"]
         },
         "99528": {
           "consumers": 56,

@@ -1,1 +1,31 @@
-var r={},m=(c,u,p)=>(r.__chunk_43309=(h,a,i)=>{"use strict";async function n(s){let e=new AbortController,o=setTimeout(()=>e.abort(),1e4),l={signal:e.signal,headers:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",Referer:"https://movie.douban.com/",Accept:"application/json, text/plain, */*",Origin:"https://movie.douban.com"}};try{let t=await fetch(s,l);if(clearTimeout(o),!t.ok)throw Error(`HTTP error! Status: ${t.status}`);return await t.json()}catch(t){throw clearTimeout(o),t}}i.d(a,{C:()=>n})},r);export{m as __getNamedExports};
+var r = {},
+  m = (c, u, p) => (
+    (r.__chunk_43309 = (h, a, i) => {
+      'use strict';
+      async function n(s) {
+        let e = new AbortController(),
+          o = setTimeout(() => e.abort(), 1e4),
+          l = {
+            signal: e.signal,
+            headers: {
+              'User-Agent':
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+              Referer: 'https://movie.douban.com/',
+              Accept: 'application/json, text/plain, */*',
+              Origin: 'https://movie.douban.com',
+            },
+          };
+        try {
+          let t = await fetch(s, l);
+          if ((clearTimeout(o), !t.ok))
+            throw Error(`HTTP error! Status: ${t.status}`);
+          return await t.json();
+        } catch (t) {
+          throw (clearTimeout(o), t);
+        }
+      }
+      i.d(a, { C: () => n });
+    }),
+    r
+  );
+export { m as __getNamedExports };

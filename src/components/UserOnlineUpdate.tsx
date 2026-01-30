@@ -36,4 +36,3 @@ export default function UserOnlineUpdate() {
 
   return null;
 }
-

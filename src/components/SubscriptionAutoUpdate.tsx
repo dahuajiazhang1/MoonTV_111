@@ -20,7 +20,6 @@ export default function SubscriptionAutoUpdate() {
         if (response.ok) {
           const data = await response.json();
           if (data.updated) {
-            
             console.log('订阅自动更新已执行', data);
           } else {
             console.log('订阅自动更新未执行:', data.reason);

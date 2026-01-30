@@ -1,1 +1,212 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[623],{5623:function(e,t,n){n.r(t),n.d(t,{createWriteStream:function(){return c},isStreamSaverSupported:function(){return m}});let a=window.isSecureContext||"https:"===location.protocol,o="MozAppearance"in document.documentElement.style,r=a||o?"iframe":"navigate",s=/constructor/i.test(window.HTMLElement.toString())||!!window.safari;try{new Response(new ReadableStream),!a||"serviceWorker"in navigator||(s=!0)}catch(e){s=!0}let l=!1;try{let{readable:e}=new TransformStream,t=new MessageChannel;t.port1.postMessage(e,[e]),t.port1.close(),t.port2.close(),l=!0}catch(e){l=!1}let i=null;function d(e){let t=document.createElement("iframe");t.hidden=!0,t.src=e,t.name="iframe",document.body.appendChild(t);let n={frame:t,loaded:!1,isIframe:!0,remove(){window.removeEventListener("message",a),document.body.removeChild(t)},postMessage(e,n,a){var o;null===(o=t.contentWindow)||void 0===o||o.postMessage(e,n,a)},addEventListener(e,n,a){t.addEventListener(e,n,a)}},a=e=>{if("stream-saver-ready"===e.data&&e.source===t.contentWindow){n.loaded=!0,window.removeEventListener("message",a);let e=new Event("load");t.dispatchEvent(e)}};return window.addEventListener("message",a),n}function c(e){let t=0,n=null,o=null,c=null;if(!s){i=i||(a?d("/mitm.html"):function(e){let t=document.createDocumentFragment(),n={frame:window.open(e,"popup","width=200,height=100"),loaded:!1,isPopup:!0,remove(){this.frame&&"close"in this.frame&&this.frame.close()},postMessage(e,t,n){this.frame&&"postMessage"in this.frame&&this.frame.postMessage(e,t,n)},addEventListener(e,n,a){t.addEventListener(e,n,a)}},a=e=>{if(e.source===n.frame){n.loaded=!0,window.removeEventListener("message",a);let e=new Event("load");t.dispatchEvent(e)}};return window.addEventListener("message",a),n}("/mitm.html")),o=new MessageChannel,e=encodeURIComponent(e.replace(/\//g,":")).replace(/['()]/g,escape).replace(/\*/g,"%2A"),l&&(c=new TransformStream("iframe"===r?void 0:{transform(e,a){if(!(e instanceof Uint8Array))throw TypeError("Can only write Uint8Arrays");t+=e.length,a.enqueue(e),n&&(location.href=n,n=null)},flush(){n&&(location.href=n)}}),o.port1.postMessage({readableStream:c.readable},[c.readable])),o.port1.onmessage=e=>{if(e.data.download)"navigate"===r?(null==i||i.remove(),i=null,t?location.href=e.data.download:n=e.data.download):((null==i?void 0:i.isPopup)&&(null==i||i.remove(),i=null,"iframe"===r&&d("/mitm.html")),d(e.data.download));else if(e.data.abort&&(m=[],o)){o.port1.postMessage("abort");let e=o.port1;e.onmessage=null,e.close(),o.port2.close(),o=null}};let s={transferringReadable:l,pathname:Math.random().toString().slice(-6)+"/"+e,headers:{"Content-Type":"application/octet-stream; charset=utf-8","Content-Disposition":"attachment; filename*=UTF-8''"+e}};i.loaded?i.postMessage(s,"*",[o.port2]):i.addEventListener("load",()=>{i&&o&&i.postMessage(s,"*",[o.port2])},{once:!0})}let m=[];return!s&&c&&c.writable?c.writable:new WritableStream({write(e){if(!(e instanceof Uint8Array))throw TypeError("Can only write Uint8Arrays");if(s){m.push(e);return}null==o||o.port1.postMessage(e),t+=e.length,n&&(location.href=n,n=null)},close(){if(s){let t=new Blob(m,{type:"application/octet-stream; charset=utf-8"}),n=document.createElement("a");n.href=URL.createObjectURL(t),n.download=e,n.click()}else null==o||o.port1.postMessage("end")},abort(){if(m=[],o){o.port1.postMessage("abort");let e=o.port1;e.onmessage=null,e.close(),o.port2.close(),o=null}}})}function m(){return!s}}}]);
+'use strict';
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+  [623],
+  {
+    5623: function (e, t, n) {
+      n.r(t),
+        n.d(t, {
+          createWriteStream: function () {
+            return c;
+          },
+          isStreamSaverSupported: function () {
+            return m;
+          },
+        });
+      let a = window.isSecureContext || 'https:' === location.protocol,
+        o = 'MozAppearance' in document.documentElement.style,
+        r = a || o ? 'iframe' : 'navigate',
+        s =
+          /constructor/i.test(window.HTMLElement.toString()) || !!window.safari;
+      try {
+        new Response(new ReadableStream()),
+          !a || 'serviceWorker' in navigator || (s = !0);
+      } catch (e) {
+        s = !0;
+      }
+      let l = !1;
+      try {
+        let { readable: e } = new TransformStream(),
+          t = new MessageChannel();
+        t.port1.postMessage(e, [e]), t.port1.close(), t.port2.close(), (l = !0);
+      } catch (e) {
+        l = !1;
+      }
+      let i = null;
+      function d(e) {
+        let t = document.createElement('iframe');
+        (t.hidden = !0),
+          (t.src = e),
+          (t.name = 'iframe'),
+          document.body.appendChild(t);
+        let n = {
+            frame: t,
+            loaded: !1,
+            isIframe: !0,
+            remove() {
+              window.removeEventListener('message', a),
+                document.body.removeChild(t);
+            },
+            postMessage(e, n, a) {
+              var o;
+              null === (o = t.contentWindow) ||
+                void 0 === o ||
+                o.postMessage(e, n, a);
+            },
+            addEventListener(e, n, a) {
+              t.addEventListener(e, n, a);
+            },
+          },
+          a = (e) => {
+            if (
+              'stream-saver-ready' === e.data &&
+              e.source === t.contentWindow
+            ) {
+              (n.loaded = !0), window.removeEventListener('message', a);
+              let e = new Event('load');
+              t.dispatchEvent(e);
+            }
+          };
+        return window.addEventListener('message', a), n;
+      }
+      function c(e) {
+        let t = 0,
+          n = null,
+          o = null,
+          c = null;
+        if (!s) {
+          (i =
+            i ||
+            (a
+              ? d('/mitm.html')
+              : (function (e) {
+                  let t = document.createDocumentFragment(),
+                    n = {
+                      frame: window.open(e, 'popup', 'width=200,height=100'),
+                      loaded: !1,
+                      isPopup: !0,
+                      remove() {
+                        this.frame &&
+                          'close' in this.frame &&
+                          this.frame.close();
+                      },
+                      postMessage(e, t, n) {
+                        this.frame &&
+                          'postMessage' in this.frame &&
+                          this.frame.postMessage(e, t, n);
+                      },
+                      addEventListener(e, n, a) {
+                        t.addEventListener(e, n, a);
+                      },
+                    },
+                    a = (e) => {
+                      if (e.source === n.frame) {
+                        (n.loaded = !0),
+                          window.removeEventListener('message', a);
+                        let e = new Event('load');
+                        t.dispatchEvent(e);
+                      }
+                    };
+                  return window.addEventListener('message', a), n;
+                })('/mitm.html'))),
+            (o = new MessageChannel()),
+            (e = encodeURIComponent(e.replace(/\//g, ':'))
+              .replace(/['()]/g, escape)
+              .replace(/\*/g, '%2A')),
+            l &&
+              ((c = new TransformStream(
+                'iframe' === r
+                  ? void 0
+                  : {
+                      transform(e, a) {
+                        if (!(e instanceof Uint8Array))
+                          throw TypeError('Can only write Uint8Arrays');
+                        (t += e.length),
+                          a.enqueue(e),
+                          n && ((location.href = n), (n = null));
+                      },
+                      flush() {
+                        n && (location.href = n);
+                      },
+                    }
+              )),
+              o.port1.postMessage({ readableStream: c.readable }, [
+                c.readable,
+              ])),
+            (o.port1.onmessage = (e) => {
+              if (e.data.download)
+                'navigate' === r
+                  ? (null == i || i.remove(),
+                    (i = null),
+                    t
+                      ? (location.href = e.data.download)
+                      : (n = e.data.download))
+                  : ((null == i ? void 0 : i.isPopup) &&
+                      (null == i || i.remove(),
+                      (i = null),
+                      'iframe' === r && d('/mitm.html')),
+                    d(e.data.download));
+              else if (e.data.abort && ((m = []), o)) {
+                o.port1.postMessage('abort');
+                let e = o.port1;
+                (e.onmessage = null), e.close(), o.port2.close(), (o = null);
+              }
+            });
+          let s = {
+            transferringReadable: l,
+            pathname: Math.random().toString().slice(-6) + '/' + e,
+            headers: {
+              'Content-Type': 'application/octet-stream; charset=utf-8',
+              'Content-Disposition': "attachment; filename*=UTF-8''" + e,
+            },
+          };
+          i.loaded
+            ? i.postMessage(s, '*', [o.port2])
+            : i.addEventListener(
+                'load',
+                () => {
+                  i && o && i.postMessage(s, '*', [o.port2]);
+                },
+                { once: !0 }
+              );
+        }
+        let m = [];
+        return !s && c && c.writable
+          ? c.writable
+          : new WritableStream({
+              write(e) {
+                if (!(e instanceof Uint8Array))
+                  throw TypeError('Can only write Uint8Arrays');
+                if (s) {
+                  m.push(e);
+                  return;
+                }
+                null == o || o.port1.postMessage(e),
+                  (t += e.length),
+                  n && ((location.href = n), (n = null));
+              },
+              close() {
+                if (s) {
+                  let t = new Blob(m, {
+                      type: 'application/octet-stream; charset=utf-8',
+                    }),
+                    n = document.createElement('a');
+                  (n.href = URL.createObjectURL(t)),
+                    (n.download = e),
+                    n.click();
+                } else null == o || o.port1.postMessage('end');
+              },
+              abort() {
+                if (((m = []), o)) {
+                  o.port1.postMessage('abort');
+                  let e = o.port1;
+                  (e.onmessage = null), e.close(), o.port2.close(), (o = null);
+                }
+              },
+            });
+      }
+      function m() {
+        return !s;
+      }
+    },
+  },
+]);

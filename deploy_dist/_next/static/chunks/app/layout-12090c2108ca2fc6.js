@@ -1,1 +1,5662 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[185,846],{1721:function(e,t,r){Promise.resolve().then(r.t.bind(r,6792,23)),Promise.resolve().then(r.t.bind(r,9966,23)),Promise.resolve().then(r.t.bind(r,8889,23)),Promise.resolve().then(r.bind(r,1295)),Promise.resolve().then(r.bind(r,2888)),Promise.resolve().then(r.bind(r,3593)),Promise.resolve().then(r.bind(r,9038)),Promise.resolve().then(r.bind(r,7703)),Promise.resolve().then(r.bind(r,6766)),Promise.resolve().then(r.bind(r,8959)),Promise.resolve().then(r.bind(r,2370)),Promise.resolve().then(r.bind(r,8423)),Promise.resolve().then(r.bind(r,1753))},1295:function(e,t,r){"use strict";r.d(t,{default:function(){return Y}});var a=r(7569),s=r(1383),l=r(5663),n=r(3225),o=r(9477),d=r(1320),i=r(198),c=r(7885),u=r(6662),g=r(6957),x=r(5524),m=r(3908),h=r(7703),f=(0,l.memo)(e=>{let{activePath:t}=e,r=(0,s.usePathname)(),{startLoading:f}=(0,h.w)(),b=null!=t?t:r,[y,p]=(0,l.useState)([{icon:n.Z,label:"首页",href:"/"},{icon:o.Z,label:"搜索",href:"/search"},{icon:d.Z,label:"电影",href:"/douban?type=movie"},{icon:i.Z,label:"剧集",href:"/douban?type=tv"},{icon:c.Z,label:"动漫",href:"/douban?type=anime"},{icon:u.Z,label:"综艺",href:"/douban?type=show"}]),[v,w]=(0,l.useState)(!1),[k,j]=(0,l.useState)(!1);(0,l.useEffect)(()=>{j(!0);{let e=localStorage.getItem("simpleMode");null!==e&&w(JSON.parse(e))}},[]),(0,l.useEffect)(()=>{(0,m.V)().then(e=>{e.length>0&&p(e=>[...e,{icon:g.Z,label:"自定义",href:"/douban?type=custom"}])})},[]);let N=e=>{var t;let r=null===(t=e.match(/type=([^&]+)/))||void 0===t?void 0:t[1],a=decodeURIComponent(b);return a===decodeURIComponent(e)||a.startsWith("/douban")&&a.includes("type=".concat(r))};return(0,a.jsx)("nav",{className:"md:hidden fixed left-0 right-0 z-[600] bg-white/90 backdrop-blur-xl border-t border-gray-200/50 overflow-hidden dark:bg-gray-900/80 dark:border-gray-700/50",style:{bottom:0,paddingBottom:"env(safe-area-inset-bottom)",minHeight:"calc(3.5rem + env(safe-area-inset-bottom))"},children:(0,a.jsx)("ul",{className:"flex items-center overflow-x-auto scrollbar-hide",children:y.map(e=>{let t=N(e.href);return k&&(!v||["/","/search"].includes(e.href))?(0,a.jsx)("li",{className:"flex-shrink-0",style:{width:v?"50vw":"20vw",minWidth:v?"50vw":"20vw"},children:(0,a.jsxs)(x.default,{href:e.href,className:"flex flex-col items-center justify-center w-full h-14 gap-1 text-xs",onClick:e=>{t||f()},children:[(0,a.jsx)(e.icon,{className:"h-6 w-6 ".concat(t?"text-green-600 dark:text-green-400":"text-gray-500 dark:text-gray-400")}),(0,a.jsx)("span",{className:t?"text-green-600 dark:text-green-400":"text-gray-600 dark:text-gray-300",children:e.label})]})},e.href):null})})})}),b=r(8448),y=r(7818);function p(){return(0,a.jsx)("button",{onClick:()=>window.history.back(),className:"w-10 h-10 p-2 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200/50 dark:text-gray-300 dark:hover:bg-gray-700/50 transition-colors","aria-label":"Back",children:(0,a.jsx)(y.Z,{className:"w-full h-full"})})}var v=r(8959),w=r(4768),k=r(7764),j=r(4122),N=r(5240),S=r(7565),C=r(4819),T=r(131),E=r(1210),I=r(898),P=r(1413),D=r(8091),R=r(4507),O=r(4073),M=r(772),Z=r(4660),L=r(3043),U=r(1111),A=r(7308);let _=[{version:"3.8.2",date:"2026-01-04",added:["导航栏加入下载管理页面","视频下载中可查看片段下载状况: 可手动进行错误重试","可设置自动弹幕获取尝试次数","普通模式下载可在下载过程中立即存储: 存储已经下载的片段，不影响正常下载过程"],changed:["导航栏框架分离: 切换导航页面时不再刷新","完善边下边存功能: 可手动选择三种下载模式","完善mp4转码功能"],fixed:["修复移动端边下边存文件后缀错误","修复登录页面导航栏错误加载"]},{version:"3.7.0",date:"2026-01-01",added:["加入M3U8视频在线下载功能","支持多线程并发下载（1-16线程可调）","支持TS和MP4格式转换","支持范围下载（指定起始和结束片段）","支持AES-128加密视频解密","支持边下边存功能（解决大文件内存占用问题）","下载任务管理（暂停/继续/删除）","批量操作（全部开始/全部暂停/清空全部）","本地存储任务持久化","自动保留用户配置偏好（格式、线程数、边下边存）"],changed:["播放页面添加下载视频按钮","显示用户最后在线时间"],fixed:["修复历史影片重复保存问题","修复设置重置不完全的问题"]},{version:"3.6.2",date:"2025-12-09",added:["添加默认优选换源开关"],changed:["优化弹幕自动加载","默认为空壳项目(无内置源和弹幕)","优化优选换源加载形式"],fixed:["OrionTV本地存储播放无源"]},{version:"3.5.7",date:"2025-12-06",added:["自动弹幕加载功能","订阅配置功能"],changed:["优化弹幕加载","使用artplayer弹幕库","弹幕加载状态提示"],fixed:[]},{version:"3.5.0",date:"2025-11-30",added:["加入视频播放弹幕功能"],changed:["可手动搜索弹幕源","可控制弹幕的显示行数","可控制弹幕的显示密度","分页渲染搜索结果"],fixed:["修复CF数据导出的不完整","修复docker非本地存储管理员配置的读取修改"]},{version:"3.4.2",date:"2025-10-21",added:["添加数据迁移功能","加入卡片右键长按选项卡"],changed:["调整选项卡收藏按钮显示逻辑","微调UI及收藏按钮显示逻辑","优化移动端卡片长按复制问题","微调播放页面UI","简化调整播放页面","调整分组配置弹窗UI","微调视频源配置UI"],fixed:["修复CF数据迁入问题","修复本地存储搜索","修复本地存储TVBox接口"]},{version:"3.3.0",date:"2025-10-16",added:["用户组分配视频源功能","视频源配置支持批量操作","添加加载动画"],changed:["非本地存储默认关闭TVBox","简化明暗模式变化","优化 docker 构建流程"],fixed:["非本地模式视频源配置初始化"]},{version:"3.2.0",date:"2025-10-04",added:["添加Docker镜像自动构建工作流","搜索建议添加开关控制"],changed:["优化搜索设置UI布局","调整搜索建议排序逻辑","优化搜索参数设置逻辑","调整并简化播放页面UI","调整移动端播放页面UI","微调站点配置UI","微调TVBox配置UI"],fixed:[]},{version:"3.1.0",date:"2025-10-02",added:[],changed:["TVBox的设置改为在管理面板中，原位置显示状态及其链接","修改桌面端导航栏布局为顶栏","桌面搜索页改为顶栏搜索框"],fixed:["卡片显示详情链接跳转"]},{version:"3.0.0",date:"2025-09-30",added:["添加TVBox配置接口","添加对Selene的兼容"],changed:[],fixed:["修复首页动漫接口引起的崩溃","修复docker播放刷新崩溃问题"]},{version:"2.9.1",date:"2025-09-19",added:[],changed:["搜索栏左侧源配置获取采用缓存","优化搜索结果的筛选组件UI","搜索结果区分为包含与不包含搜索词的结果","删除播放存储无用缓存的逻辑","开放分类配置中的添加分类"],fixed:["缓存失效时播放加载源不一致","修复d1数据库管理配置保存报错"]},{version:"2.8.4",date:"2025-09-14",added:["添加搜索结果的排序选择"],changed:["优化搜索逻辑"],fixed:["修复对OrionTV的兼容","修复d1数据库继续观看无法收藏"]},{version:"2.8.0",date:"2025-09-09",added:["添加cf部署","添加d1支持"],changed:[],fixed:[]},{version:"2.7.6",date:"2025-09-04",added:[],changed:["调整搜索超时时间可选范围，及默认值","添加docker部署支持"],fixed:["修复播放中搜索超时时间不生效"]},{version:"2.7.4",date:"2025-08-31",added:[],changed:["可自定义搜索超时时间","播放时的搜索播放源超时时间同上","细化失败源原因的展示"],fixed:["修复播放搜索无结果也缓存在localstorage"]},{version:"2.7.0",date:"2025-08-30",added:["搜索添加对源的选择功能"],changed:["优化筛选","简洁模式跳过豆瓣数据加载"],fixed:[]},{version:"2.6.4",date:"2025-08-30",added:[],changed:["优化搜索:调整超时时间(获取首页超时时间过长)"],fixed:["修复播放缓存key不唯一","修复聚合结果不准确"]},{version:"2.6.1",date:"2025-08-29",added:["添加简洁模式"],changed:[],fixed:[]},{version:"2.5.1",date:"2025-08-28",added:[],changed:["优化收藏状态检测,减少数据库请求","优化搜索筛选展示逻辑","边缘点击不触发播放"],fixed:["修复动漫番剧详情页面跳转"]},{version:"2.4.7",date:"2025-08-26",added:["搜索结果添加筛选功能"],changed:[],fixed:["主页展示评分","搜索结果展示年份"]},{version:"2.4.0",date:"2025-08-25",added:[],changed:["站点配置可直接修改","进一步优化搜索速度"],fixed:["修复搜索结果只能打开同一个"]},{version:"2.3.6",date:"2025-08-24",added:[],changed:["优化播放优选换源"],fixed:["修复播放视频源缓存"]},{version:"2.3.4",date:"2025-08-24",added:[],changed:[],fixed:["修复管理功能不生效","修复netlify无法部署","修复非本地数据库初始化"]},{version:"2.3.1",date:"2025-08-23",added:[],changed:[],fixed:["修复配置文件不生效","修复无config.json文件报错","修复失败源不准确"]},{version:"2.2.8",date:"2025-08-22",added:[],changed:["转移视频源优选按钮至播放页面"],fixed:["优化播放换源","优化失败源显示逻辑","修复搜索路由问题"]},{version:"2.2.1",date:"2025-08-22",added:["搜索结果展示失败源"],changed:["移除无效代理Cors Anywhere"],fixed:["修复一次搜索两个请求的问题"]},{version:"2.1.0",date:"2025-08-21",added:["支持流式搜索搜索模式","搜索结果展示视频源"],changed:["重新支持localstorage","独立缓存播放源"],fixed:["修复视频播放缓存逻辑问题"]},{version:"2.0.1",date:"2025-08-13",added:[],changed:["版本检查和变更日志请求 Github"],fixed:["微调管理面板样式"]},{version:"2.0.0",date:"2025-08-13",added:["支持配置文件在线配置和编辑","搜索页搜索框实时联想","去除对 localstorage 模式的支持"],changed:["播放记录删除按钮改为垃圾桶图标以消除歧义"],fixed:["限制设置面板的最大长度，防止超出视口"]},{version:"1.1.1",date:"2025-08-12",added:[],changed:["修正 zwei 提供的 cors proxy 地址","移除废弃代码"],fixed:["[运维] docker workflow release 日期使用东八区日期"]},{version:"1.1.0",date:"2025-08-12",added:["每日新番放送功能，展示每日新番放送的番剧"],changed:[],fixed:["修复远程 CHANGELOG 无法提取变更内容的问题"]},{version:"1.0.5",date:"2025-08-12",added:[],changed:["实现基于 Git 标签的自动 Release 工作流"],fixed:[]},{version:"1.0.4",date:"2025-08-11",added:["优化版本管理工作流，实现单点修改"],changed:["版本号现在从 CHANGELOG 自动提取，无需手动维护 VERSION.txt"],fixed:[]},{version:"1.0.3",date:"2025-08-11",added:[],changed:["升级播放器 Artplayer 至版本 5.2.5"],fixed:[]},{version:"1.0.2",date:"2025-08-11",added:[],changed:["版本号比较机制恢复为数字比较，仅当最新版本大于本地版本时才认为有更新","[运维] 自动替换 version.ts 中的版本号为 VERSION.txt 中的版本号"],fixed:[]},{version:"1.0.1",date:"2025-08-11",added:[],changed:[],fixed:["修复版本检查功能，只要与最新版本号不一致即认为有更新"]},{version:"1.0.0",date:"2025-08-10",added:["基于 Semantic Versioning 的版本号机制","版本信息面板，展示本地变更日志和远程更新日志"],changed:[],fixed:[]}],F=e=>{let{isOpen:t,onClose:r}=e,[s,n]=(0,l.useState)(!1),[o,d]=(0,l.useState)([]),[i,c]=(0,l.useState)(!1),[u,g]=(0,l.useState)(""),[x,m]=(0,l.useState)(!1);(0,l.useEffect)(()=>(n(!0),()=>n(!1)),[]),(0,l.useEffect)(()=>{t&&h()},[t]);let h=async()=>{try{let e=await fetch("https://raw.githubusercontent.com/Stardm0/MoonTV/main/CHANGELOG");if(e.ok){let t=await e.text(),r=f(t);if(d(r),r.length>0){let e=r[0];g(e.version),c((0,O.n4)(e.version)===O.qu.HAS_UPDATE)}}else console.error("获取远程变更日志失败:",e.status,e.statusText)}catch(e){console.error("获取远程变更日志失败:",e)}},f=e=>{let t=e.split("\n"),r=[],a=null,s=null,l=!1;for(let e of t){let t=e.trim(),n=t.match(/^## \[([\d.]+)\] - (\d{4}-\d{2}-\d{2})$/);if(n){a&&r.push(a),a={version:n[1],date:n[2],added:[],changed:[],fixed:[]},s=null,l=!0;continue}if(l&&a){if("### Added"===t){s="added";continue}if("### Changed"===t){s="changed";continue}if("### Fixed"===t){s="fixed";continue}if(t.startsWith("- ")&&s){let e=t.substring(2);"added"===s?a.added.push(e):"changed"===s?a.changed.push(e):"fixed"===s&&a.fixed.push(e)}}}return a&&r.push(a),r},y=function(e){let t=arguments.length>1&&void 0!==arguments[1]&&arguments[1],r=arguments.length>2&&void 0!==arguments[2]&&arguments[2],s=r&&i&&e.version===u;return(0,a.jsxs)("div",{className:"p-4 rounded-lg border ".concat(t?"bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800":s?"bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800":"bg-gray-50 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700"),children:[(0,a.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3",children:[(0,a.jsxs)("div",{className:"flex flex-wrap items-center gap-2",children:[(0,a.jsxs)("h4",{className:"text-lg font-semibold text-gray-900 dark:text-gray-100",children:["v",e.version]}),t&&(0,a.jsx)("span",{className:"px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full",children:"当前版本"}),s&&(0,a.jsxs)("span",{className:"px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 rounded-full flex items-center gap-1",children:[(0,a.jsx)(b.Z,{className:"w-3 h-3"}),"可更新"]})]}),(0,a.jsx)("div",{className:"flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400",children:e.date})]}),(0,a.jsxs)("div",{className:"space-y-3",children:[e.added.length>0&&(0,a.jsxs)("div",{children:[(0,a.jsxs)("h5",{className:"text-sm font-medium text-green-700 dark:text-green-400 mb-2 flex items-center gap-1",children:[(0,a.jsx)(M.Z,{className:"w-4 h-4"}),"新增功能"]}),(0,a.jsx)("ul",{className:"space-y-1",children:e.added.map((e,t)=>(0,a.jsxs)("li",{className:"text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2",children:[(0,a.jsx)("span",{className:"w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"}),e]},t))})]}),e.changed.length>0&&(0,a.jsxs)("div",{children:[(0,a.jsxs)("h5",{className:"text-sm font-medium text-blue-700 dark:text-blue-400 mb-2 flex items-center gap-1",children:[(0,a.jsx)(Z.Z,{className:"w-4 h-4"}),"功能改进"]}),(0,a.jsx)("ul",{className:"space-y-1",children:e.changed.map((e,t)=>(0,a.jsxs)("li",{className:"text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2",children:[(0,a.jsx)("span",{className:"w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"}),e]},t))})]}),e.fixed.length>0&&(0,a.jsxs)("div",{children:[(0,a.jsxs)("h5",{className:"text-sm font-medium text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-1",children:[(0,a.jsx)(L.Z,{className:"w-4 h-4"}),"问题修复"]}),(0,a.jsx)("ul",{className:"space-y-1",children:e.fixed.map((e,t)=>(0,a.jsxs)("li",{className:"text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2",children:[(0,a.jsx)("span",{className:"w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"}),e]},t))})]})]})]},e.version)},p=(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("div",{className:"fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000]",onClick:r}),(0,a.jsxs)("div",{className:"fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-xl shadow-xl z-[1001] overflow-hidden",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between p-3 sm:p-6 border-b border-gray-200 dark:border-gray-700",children:[(0,a.jsxs)("div",{className:"flex items-center gap-2 sm:gap-3",children:[(0,a.jsx)("h3",{className:"text-lg sm:text-xl font-bold text-gray-800 dark:text-gray-200",children:"版本信息"}),(0,a.jsxs)("div",{className:"flex flex-wrap items-center gap-1 sm:gap-2",children:[(0,a.jsxs)("span",{className:"px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 rounded-full",children:["v",O.we]}),i&&(0,a.jsxs)("span",{className:"px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 rounded-full flex items-center gap-1",children:[(0,a.jsx)(b.Z,{className:"w-3 h-3 sm:w-4 sm:h-4"}),(0,a.jsx)("span",{className:"hidden sm:inline",children:"有新版本可用"}),(0,a.jsx)("span",{className:"sm:hidden",children:"可更新"})]})]})]}),(0,a.jsx)("button",{onClick:r,className:"w-6 h-6 sm:w-8 sm:h-8 p-1 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors","aria-label":"关闭",children:(0,a.jsx)(C.Z,{className:"w-full h-full"})})]}),(0,a.jsx)("div",{className:"p-3 sm:p-6 overflow-y-auto max-h-[calc(95vh-140px)] sm:max-h-[calc(90vh-120px)]",children:(0,a.jsxs)("div",{className:"space-y-3 sm:space-y-6",children:[i&&(0,a.jsx)("div",{className:"bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-3 sm:p-4",children:(0,a.jsxs)("div",{className:"flex flex-col gap-3",children:[(0,a.jsxs)("div",{className:"flex items-center gap-2 sm:gap-3",children:[(0,a.jsx)("div",{className:"w-8 h-8 sm:w-10 sm:h-10 bg-yellow-100 dark:bg-yellow-800/40 rounded-full flex items-center justify-center flex-shrink-0",children:(0,a.jsx)(b.Z,{className:"w-4 h-4 sm:w-5 sm:h-5 text-yellow-600 dark:text-yellow-400"})}),(0,a.jsxs)("div",{className:"min-w-0 flex-1",children:[(0,a.jsx)("h4",{className:"text-sm sm:text-base font-semibold text-yellow-800 dark:text-yellow-200",children:"发现新版本"}),(0,a.jsxs)("p",{className:"text-xs sm:text-sm text-yellow-700 dark:text-yellow-300 break-all",children:["v",O.we," → v",u]})]})]}),(0,a.jsxs)("a",{href:"https://github.com/Stardm0/MoonTV",target:"_blank",rel:"noopener noreferrer",className:"inline-flex items-center justify-center gap-2 px-3 py-2 bg-yellow-600 hover:bg-yellow-700 text-white text-xs sm:text-sm rounded-lg transition-colors shadow-sm w-full",children:[(0,a.jsx)(b.Z,{className:"w-3 h-3 sm:w-4 sm:h-4"}),"前往仓库"]})]})}),!i&&(0,a.jsx)("div",{className:"bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-200 dark:border-green-800 rounded-lg p-3 sm:p-4",children:(0,a.jsxs)("div",{className:"flex flex-col gap-3",children:[(0,a.jsxs)("div",{className:"flex items-center gap-2 sm:gap-3",children:[(0,a.jsx)("div",{className:"w-8 h-8 sm:w-10 sm:h-10 bg-green-100 dark:bg-green-800/40 rounded-full flex items-center justify-center flex-shrink-0",children:(0,a.jsx)(U.Z,{className:"w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400"})}),(0,a.jsxs)("div",{className:"min-w-0 flex-1",children:[(0,a.jsx)("h4",{className:"text-sm sm:text-base font-semibold text-green-800 dark:text-green-200",children:"当前为最新版本"}),(0,a.jsxs)("p",{className:"text-xs sm:text-sm text-green-700 dark:text-green-300 break-all",children:["已是最新版本 v",O.we]})]})]}),(0,a.jsxs)("a",{href:"https://github.com/Stardm0/MoonTV",target:"_blank",rel:"noopener noreferrer",className:"inline-flex items-center justify-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm rounded-lg transition-colors shadow-sm w-full",children:[(0,a.jsx)(U.Z,{className:"w-3 h-3 sm:w-4 sm:h-4"}),"前往仓库"]})]})}),i&&(0,a.jsxs)("div",{className:"space-y-4",children:[(0,a.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center justify-between gap-3",children:[(0,a.jsxs)("h4",{className:"text-lg font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2",children:[(0,a.jsx)(b.Z,{className:"w-5 h-5 text-yellow-500"}),"远程更新内容"]}),(0,a.jsx)("button",{onClick:()=>m(!x),className:"inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-yellow-100 hover:bg-yellow-200 text-yellow-800 dark:bg-yellow-800/30 dark:hover:bg-yellow-800/50 dark:text-yellow-200 rounded-lg transition-colors text-sm w-full sm:w-auto",children:x?(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(A.Z,{className:"w-4 h-4"}),"收起"]}):(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(T.Z,{className:"w-4 h-4"}),"查看更新内容"]})})]}),x&&o.length>0&&(0,a.jsx)("div",{className:"space-y-4",children:o.filter(e=>!_.map(e=>e.version).includes(e.version)).map((e,t)=>(0,a.jsxs)("div",{className:"p-4 rounded-lg border ".concat(e.version===u?"bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800":"bg-gray-50 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700"),children:[(0,a.jsxs)("div",{className:"flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3",children:[(0,a.jsxs)("div",{className:"flex flex-wrap items-center gap-2",children:[(0,a.jsxs)("h4",{className:"text-lg font-semibold text-gray-900 dark:text-gray-100",children:["v",e.version]}),e.version===u&&(0,a.jsx)("span",{className:"px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 rounded-full flex items-center gap-1",children:"远程最新"})]}),(0,a.jsx)("div",{className:"flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400",children:e.date})]}),e.added&&e.added.length>0&&(0,a.jsxs)("div",{className:"mb-3",children:[(0,a.jsxs)("h5",{className:"text-sm font-medium text-green-600 dark:text-green-400 mb-2 flex items-center gap-1",children:[(0,a.jsx)(M.Z,{className:"w-4 h-4"}),"新增功能"]}),(0,a.jsx)("ul",{className:"space-y-1",children:e.added.map((e,t)=>(0,a.jsxs)("li",{className:"text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2",children:[(0,a.jsx)("span",{className:"w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0"}),e]},t))})]}),e.changed&&e.changed.length>0&&(0,a.jsxs)("div",{className:"mb-3",children:[(0,a.jsxs)("h5",{className:"text-sm font-medium text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-1",children:[(0,a.jsx)(Z.Z,{className:"w-4 h-4"}),"功能改进"]}),(0,a.jsx)("ul",{className:"space-y-1",children:e.changed.map((e,t)=>(0,a.jsxs)("li",{className:"text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2",children:[(0,a.jsx)("span",{className:"w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"}),e]},t))})]}),e.fixed&&e.fixed.length>0&&(0,a.jsxs)("div",{children:[(0,a.jsxs)("h5",{className:"text-sm font-medium text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-1",children:[(0,a.jsx)(L.Z,{className:"w-4 h-4"}),"问题修复"]}),(0,a.jsx)("ul",{className:"space-y-1",children:e.fixed.map((e,t)=>(0,a.jsxs)("li",{className:"text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2",children:[(0,a.jsx)("span",{className:"w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0"}),e]},t))})]})]},t))})]}),(0,a.jsxs)("div",{className:"border-b border-gray-200 dark:border-gray-700 pb-4",children:[(0,a.jsx)("h4",{className:"text-lg font-semibold text-gray-800 dark:text-gray-200 pb-3 sm:pb-4",children:"变更日志"}),(0,a.jsx)("div",{className:"space-y-4",children:_.map(e=>y(e,e.version===O.we,!1))})]})]})})]})]});return s&&t?(0,D.createPortal)(p,document.body):null},B=()=>{var e,t,r;let n=(0,s.useRouter)(),o=(0,s.usePathname)(),{startLoading:d}=(0,h.w)(),[i,c]=(0,l.useState)(!1),[u,g]=(0,l.useState)(!1),[x,m]=(0,l.useState)(!1),[f,b]=(0,l.useState)(!1),[y,p]=(0,l.useState)(null),[v,w]=(0,l.useState)("localstorage"),[M,Z]=(0,l.useState)(!1),[L,U]=(0,l.useState)(!0),[A,_]=(0,l.useState)(!0),[B,V]=(0,l.useState)(!1),[z,W]=(0,l.useState)(""),[J,G]=(0,l.useState)("direct"),[q,H]=(0,l.useState)("direct"),[Y,X]=(0,l.useState)(""),[K,$]=(0,l.useState)(!1),[Q,ee]=(0,l.useState)(!1),[et,er]=(0,l.useState)(!1),[ea,es]=(0,l.useState)(()=>{{let e=localStorage.getItem("danmakuRetryCount");if(null!==e){let t=parseInt(e,10);if(!isNaN(t))return t}}return 3}),[el,en]=(0,l.useState)(!1),[eo,ed]=(0,l.useState)("bilibili1"),[ei,ec]=(0,l.useState)(!1),eu=[{value:"qiyi",label:"qiyi（爱奇艺）"},{value:"bilibili1",label:"bilibili1（哔哩哔哩）"},{value:"imgo",label:"imgo（芒果）"},{value:"youku",label:"youku（优酷）"},{value:"qq",label:"qq（腾讯）"},{value:"renren",label:"renren（人人）"},{value:"hanjutv",label:"hanjutv（韩剧TV）"},{value:"bahamut",label:"bahamut（巴哈姆特）"},{value:"dandan",label:"dandan（弹弹）"}],eg=[{value:"direct",label:"直连（服务器直接请求豆瓣）"},{value:"cors-proxy-zwei",label:"Cors Proxy By Zwei"},{value:"cmliussss-cdn-tencent",label:"豆瓣 CDN By CMLiussss（腾讯云）"},{value:"cmliussss-cdn-ali",label:"豆瓣 CDN By CMLiussss（阿里云）"},{value:"custom",label:"自定义代理"}],ex=[{value:"direct",label:"直连（浏览器直接请求豆瓣）"},{value:"server",label:"服务器代理（由服务器代理请求豆瓣）"},{value:"img3",label:"豆瓣精品 CDN（阿里云）"},{value:"cmliussss-cdn-tencent",label:"豆瓣 CDN By CMLiussss（腾讯云）"},{value:"cmliussss-cdn-ali",label:"豆瓣 CDN By CMLiussss（阿里云）"},{value:"custom",label:"自定义代理"}],[em,eh]=(0,l.useState)(""),[ef,eb]=(0,l.useState)(""),[ey,ep]=(0,l.useState)(!1),[ev,ew]=(0,l.useState)(""),[ek,ej]=(0,l.useState)(null),[eN,eS]=(0,l.useState)(!0),[eC,eT]=(0,l.useState)(!1),[eE,eI]=(0,l.useState)(""),[eP,eD]=(0,l.useState)(""),eR=(null==y?void 0:y.role)==="owner"||(null==y?void 0:y.role)==="admin",eO=async()=>{try{let e=await fetch("/api/admin/tvbox",{cache:"no-store"});if(!e.ok)return;let t=await e.json();eT(!!t.enabled),eI(t.password||""),eD(t.url||"")}catch(e){console.warn("Failed to load TVBox admin config:",e)}};(0,l.useEffect)(()=>{u&&eO()},[u]),(0,l.useEffect)(()=>{Z(!0)},[]),(0,l.useEffect)(()=>{var e;p((0,R.v)()),w((null===(e=window.RUNTIME_CONFIG)||void 0===e?void 0:e.STORAGE_TYPE)||"localstorage")},[]),(0,l.useEffect)(()=>{{var e,t,r,a;let s=localStorage.getItem("defaultAggregateSearch");null!==s&&U(JSON.parse(s));let l=localStorage.getItem("defaultStreamSearch");null!==l&&_(JSON.parse(l));let n=localStorage.getItem("simpleMode");null!==n&&V(JSON.parse(n));let o=localStorage.getItem("doubanDataSource"),d=(null===(e=window.RUNTIME_CONFIG)||void 0===e?void 0:e.DOUBAN_PROXY_TYPE)||"direct";null!==o?G(o):d&&G(d);let i=localStorage.getItem("doubanProxyUrl"),c=(null===(t=window.RUNTIME_CONFIG)||void 0===t?void 0:t.DOUBAN_PROXY)||"";null!==i?W(i):c&&W(c);let u=localStorage.getItem("doubanImageProxyType"),g=(null===(r=window.RUNTIME_CONFIG)||void 0===r?void 0:r.DOUBAN_IMAGE_PROXY_TYPE)||"direct";null!==u?H(u):g&&H(g);let x=localStorage.getItem("doubanImageProxyUrl"),m=(null===(a=window.RUNTIME_CONFIG)||void 0===a?void 0:a.DOUBAN_IMAGE_PROXY)||"";null!==x?X(x):m&&X(m);let h=localStorage.getItem("autoDanmakuEnabled");null!==h&&er(JSON.parse(h));let f=localStorage.getItem("danmakuRetryCount");if(null!==f){let e=parseInt(f,10);isNaN(e)||es(e)}let b=localStorage.getItem("enablePreferBestSource");null!==b&&en(JSON.parse(b));let y=localStorage.getItem("preferredDanmakuPlatform");y&&ed(y)}},[]),(0,l.useEffect)(()=>{(async()=>{try{let e=await (0,O.Df)();ej(e)}catch(e){console.warn("版本检查失败:",e)}finally{eS(!1)}})()},[]),(0,l.useEffect)(()=>{let e=e=>{K&&!e.target.closest('[data-dropdown="douban-datasource"]')&&$(!1)};if(K)return document.addEventListener("mousedown",e),()=>document.removeEventListener("mousedown",e)},[K]),(0,l.useEffect)(()=>{let e=e=>{Q&&!e.target.closest('[data-dropdown="douban-image-proxy"]')&&ee(!1)};if(Q)return document.addEventListener("mousedown",e),()=>document.removeEventListener("mousedown",e)},[Q]);let eM=()=>{c(!1)},eZ=async()=>{try{await fetch("/api/logout",{method:"POST",headers:{"Content-Type":"application/json"}})}catch(e){console.error("注销请求失败:",e)}window.location.href="/"},eL=()=>{m(!1),eh(""),eb(""),ew("")},eU=async()=>{if(ew(""),!em){ew("新密码不得为空");return}if(em!==ef){ew("两次输入的密码不一致");return}ep(!0);try{let e=await fetch("/api/change-password",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({newPassword:em})}),t=await e.json();if(!e.ok){ew(t.error||"修改密码失败");return}m(!1),await eZ()}catch(e){ew("网络错误，请稍后重试")}finally{ep(!1)}},eA=()=>{g(!1)},e_=e=>{er(e),localStorage.setItem("autoDanmakuEnabled",JSON.stringify(e))},eF=e=>{e<-1||(es(e),localStorage.setItem("danmakuRetryCount",e.toString()))},eB=e=>{en(e),localStorage.setItem("enablePreferBestSource",JSON.stringify(e))},eV=e=>{ed(e),localStorage.setItem("preferredDanmakuPlatform",e)},ez=e=>{U(e),localStorage.setItem("defaultAggregateSearch",JSON.stringify(e))},eW=e=>{_(e),localStorage.setItem("defaultStreamSearch",JSON.stringify(e))},eJ=e=>{V(e),localStorage.setItem("simpleMode",JSON.stringify(e)),g(!1),setTimeout(()=>{window.location.reload()},100)},eG=e=>{W(e),localStorage.setItem("doubanProxyUrl",e)},eq=e=>{G(e),localStorage.setItem("doubanDataSource",e)},eH=e=>{H(e),localStorage.setItem("doubanImageProxyType",e)},eY=e=>{X(e),localStorage.setItem("doubanImageProxyUrl",e)},eX=e=>{switch(e){case"cors-proxy-zwei":return{text:"Thanks to @Zwei",url:"https://github.com/bestzwei"};case"cmliussss-cdn-tencent":case"cmliussss-cdn-ali":return{text:"Thanks to @CMLiussss",url:"https://github.com/cmliu"};default:return null}},eK=(null==y?void 0:y.role)==="owner"||(null==y?void 0:y.role)==="admin",e$=(null==y?void 0:y.role)!=="owner"&&"localstorage"!==v,eQ=(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("div",{className:"fixed inset-0 bg-transparent z-[1000]",onClick:eM}),(0,a.jsxs)("div",{className:"fixed top-14 right-4 w-56 bg-white dark:bg-gray-900 rounded-lg shadow-xl z-[1001] border border-gray-200/50 dark:border-gray-700/50 overflow-hidden select-none",children:[(0,a.jsx)("div",{className:"px-3 py-2.5 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-50 to-gray-100/50 dark:from-gray-800 dark:to-gray-800/50",children:(0,a.jsxs)("div",{className:"space-y-1",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsx)("span",{className:"text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider",children:"当前用户"}),(0,a.jsx)("span",{className:"inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ".concat("owner"===((null==y?void 0:y.role)||"user")?"bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300":"admin"===((null==y?void 0:y.role)||"user")?"bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300":"bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300"),children:(e=>{switch(e){case"owner":return"站长";case"admin":return"管理员";case"user":return"用户";default:return""}})((null==y?void 0:y.role)||"user")})]}),(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsx)("div",{className:"font-semibold text-gray-900 dark:text-gray-100 text-sm truncate",children:(null==y?void 0:y.username)||"default"}),(0,a.jsxs)("div",{className:"text-[10px] text-gray-400 dark:text-gray-500",children:["数据存储：","localstorage"===v?"本地":v]})]})]})}),(0,a.jsxs)("div",{className:"py-1",children:[(0,a.jsxs)("button",{onClick:()=>{c(!1),g(!0)},className:"w-full px-3 py-2 text-left flex items-center gap-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm",children:[(0,a.jsx)(k.Z,{className:"w-4 h-4 text-gray-500 dark:text-gray-400"}),(0,a.jsx)("span",{className:"font-medium",children:"设置"})]}),eK&&(0,a.jsxs)("button",{onClick:()=>{if("/admin"===o){c(!1);return}d(),n.push("/admin")},className:"w-full px-3 py-2 text-left flex items-center gap-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm",children:[(0,a.jsx)(j.Z,{className:"w-4 h-4 text-gray-500 dark:text-gray-400"}),(0,a.jsx)("span",{className:"font-medium",children:"管理面板"})]}),e$&&(0,a.jsxs)("button",{onClick:()=>{c(!1),m(!0),eh(""),eb(""),ew("")},className:"w-full px-3 py-2 text-left flex items-center gap-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm",children:[(0,a.jsx)(N.Z,{className:"w-4 h-4 text-gray-500 dark:text-gray-400"}),(0,a.jsx)("span",{className:"font-medium",children:"修改密码"})]}),(0,a.jsx)("div",{className:"my-1 border-t border-gray-200 dark:border-gray-700"}),(0,a.jsxs)("button",{onClick:eZ,className:"w-full px-3 py-2 text-left flex items-center gap-2.5 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors text-sm",children:[(0,a.jsx)(S.Z,{className:"w-4 h-4"}),(0,a.jsx)("span",{className:"font-medium",children:"登出"})]}),(0,a.jsx)("div",{className:"my-1 border-t border-gray-200 dark:border-gray-700"}),(0,a.jsx)("button",{onClick:()=>{b(!0),eM()},className:"w-full px-3 py-2 text-center flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors text-xs",children:(0,a.jsxs)("div",{className:"flex items-center gap-1",children:[(0,a.jsxs)("span",{className:"font-mono",children:["v",O.we]}),!eN&&ek&&ek!==O.qu.FETCH_FAILED&&(0,a.jsx)("div",{className:"w-2 h-2 rounded-full -translate-y-2 ".concat(ek===O.qu.HAS_UPDATE?"bg-yellow-500":ek===O.qu.NO_UPDATE?"bg-green-400":"")})]})})]})]})]}),e0=(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("div",{className:"fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000]",onClick:eA}),(0,a.jsxs)("div",{className:"fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-xl shadow-xl z-[1001] p-6 overflow-y-auto",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between mb-6",children:[(0,a.jsxs)("div",{className:"flex items-center gap-3",children:[(0,a.jsx)("h3",{className:"text-xl font-bold text-gray-800 dark:text-gray-200",children:"本地设置"}),(0,a.jsx)("button",{onClick:()=>{var e,t,r,a;let s=(null===(e=window.RUNTIME_CONFIG)||void 0===e?void 0:e.DOUBAN_PROXY_TYPE)||"direct",l=(null===(t=window.RUNTIME_CONFIG)||void 0===t?void 0:t.DOUBAN_PROXY)||"",n=(null===(r=window.RUNTIME_CONFIG)||void 0===r?void 0:r.DOUBAN_IMAGE_PROXY_TYPE)||"direct",o=(null===(a=window.RUNTIME_CONFIG)||void 0===a?void 0:a.DOUBAN_IMAGE_PROXY)||"";U(!0),_(!0),V(!1),W(l),G(s),H(n),X(o),en(!1),er(!1),ed("bilibili1"),es(3),localStorage.setItem("defaultAggregateSearch",JSON.stringify(!0)),localStorage.setItem("defaultStreamSearch",JSON.stringify(!0)),localStorage.setItem("simpleMode",JSON.stringify(!1)),localStorage.setItem("doubanProxyUrl",l),localStorage.setItem("doubanDataSource",s),localStorage.setItem("doubanImageProxyType",n),localStorage.setItem("doubanImageProxyUrl",o),localStorage.setItem("enablePreferBestSource",JSON.stringify(!1)),localStorage.setItem("autoDanmakuEnabled",JSON.stringify(!1)),localStorage.setItem("preferredDanmakuPlatform","bilibili1"),localStorage.setItem("danmakuRetryCount","3")},className:"px-2 py-1 text-xs text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 border border-red-200 hover:border-red-300 dark:border-red-800 dark:hover:border-red-700 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors",title:"重置为默认设置",children:"重置"})]}),(0,a.jsx)("button",{onClick:eA,className:"w-8 h-8 p-1 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors","aria-label":"Close",children:(0,a.jsx)(C.Z,{className:"w-full h-full"})})]}),(0,a.jsxs)("div",{className:"space-y-6",children:[!B&&(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)("div",{className:"space-y-3",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"豆瓣数据代理"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"选择获取豆瓣数据的方式"})]}),(0,a.jsxs)("div",{className:"relative","data-dropdown":"douban-datasource",children:[(0,a.jsx)("button",{type:"button",onClick:()=>$(!K),className:"w-full px-3 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 text-left",children:null===(e=eg.find(e=>e.value===J))||void 0===e?void 0:e.label}),(0,a.jsx)("div",{className:"absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none",children:(0,a.jsx)(T.Z,{className:"w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 ".concat(K?"rotate-180":"")})}),K&&(0,a.jsx)("div",{className:"absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto",children:eg.map(e=>(0,a.jsxs)("button",{type:"button",onClick:()=>{eq(e.value),$(!1)},className:"w-full px-3 py-2.5 text-left text-sm transition-colors duration-150 flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 ".concat(J===e.value?"bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400":"text-gray-900 dark:text-gray-100"),children:[(0,a.jsx)("span",{className:"truncate",children:e.label}),J===e.value&&(0,a.jsx)(E.Z,{className:"w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 ml-2"})]},e.value))})]}),eX(J)&&(0,a.jsx)("div",{className:"mt-3",children:(0,a.jsxs)("button",{type:"button",onClick:()=>window.open(eX(J).url,"_blank"),className:"flex items-center justify-center gap-1.5 w-full px-3 text-xs text-gray-500 dark:text-gray-400 cursor-pointer",children:[(0,a.jsx)("span",{className:"font-medium",children:eX(J).text}),(0,a.jsx)(I.Z,{className:"w-3.5 opacity-70"})]})})]}),"custom"===J&&(0,a.jsxs)("div",{className:"space-y-3",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"豆瓣代理地址"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"自定义代理服务器地址"})]}),(0,a.jsx)("input",{type:"text",className:"w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm hover:border-gray-400 dark:hover:border-gray-500",placeholder:"例如: https://proxy.example.com/fetch?url=",value:z,onChange:e=>eG(e.target.value)})]}),(0,a.jsx)("div",{className:"border-t border-gray-200 dark:border-gray-700"}),(0,a.jsxs)("div",{className:"space-y-3",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"豆瓣图片代理"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"选择获取豆瓣图片的方式"})]}),(0,a.jsxs)("div",{className:"relative","data-dropdown":"douban-image-proxy",children:[(0,a.jsx)("button",{type:"button",onClick:()=>ee(!Q),className:"w-full px-3 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 text-left",children:null===(t=ex.find(e=>e.value===q))||void 0===t?void 0:t.label}),(0,a.jsx)("div",{className:"absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none",children:(0,a.jsx)(T.Z,{className:"w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 ".concat(K?"rotate-180":"")})}),Q&&(0,a.jsx)("div",{className:"absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto",children:ex.map(e=>(0,a.jsxs)("button",{type:"button",onClick:()=>{eH(e.value),ee(!1)},className:"w-full px-3 py-2.5 text-left text-sm transition-colors duration-150 flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 ".concat(q===e.value?"bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400":"text-gray-900 dark:text-gray-100"),children:[(0,a.jsx)("span",{className:"truncate",children:e.label}),q===e.value&&(0,a.jsx)(E.Z,{className:"w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 ml-2"})]},e.value))})]}),eX(q)&&(0,a.jsx)("div",{className:"mt-3",children:(0,a.jsxs)("button",{type:"button",onClick:()=>window.open(eX(q).url,"_blank"),className:"flex items-center justify-center gap-1.5 w-full px-3 text-xs text-gray-500 dark:text-gray-400 cursor-pointer",children:[(0,a.jsx)("span",{className:"font-medium",children:eX(q).text}),(0,a.jsx)(I.Z,{className:"w-3.5 opacity-70"})]})})]}),"custom"===q&&(0,a.jsxs)("div",{className:"space-y-3",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"豆瓣图片代理地址"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"自定义图片代理服务器地址"})]}),(0,a.jsx)("input",{type:"text",className:"w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm hover:border-gray-400 dark:hover:border-gray-500",placeholder:"例如: https://proxy.example.com/fetch?url=",value:Y,onChange:e=>eY(e.target.value)})]}),(0,a.jsx)("div",{className:"border-t border-gray-200 dark:border-gray-700"})]}),(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"默认聚合搜索结果"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"搜索时默认按标题和年份聚合显示结果"})]}),(0,a.jsx)("label",{className:"flex items-center cursor-pointer",children:(0,a.jsxs)("div",{className:"relative",children:[(0,a.jsx)("input",{type:"checkbox",className:"sr-only peer",checked:L,onChange:e=>ez(e.target.checked)}),(0,a.jsx)("div",{className:"w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600"}),(0,a.jsx)("div",{className:"absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-5"})]})})]}),(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"默认流式搜索模式"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"关闭后默认使用一次性返回，空结果将不缓存"})]}),(0,a.jsx)("label",{className:"flex items-center cursor-pointer",children:(0,a.jsxs)("div",{className:"relative",children:[(0,a.jsx)("input",{type:"checkbox",className:"sr-only peer",checked:A,onChange:e=>eW(e.target.checked)}),(0,a.jsx)("div",{className:"w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600"}),(0,a.jsx)("div",{className:"absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-5"})]})})]}),(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"优选播放源"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"开启后，加载视频时执行优选，关闭则跳过"})]}),(0,a.jsx)("label",{className:"flex items-center cursor-pointer",children:(0,a.jsxs)("div",{className:"relative",children:[(0,a.jsx)("input",{type:"checkbox",className:"sr-only peer",checked:el,onChange:e=>eB(e.target.checked)}),(0,a.jsx)("div",{className:"w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600"}),(0,a.jsx)("div",{className:"absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-5"})]})})]}),(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"自动匹配弹幕"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"在进入播放页面时自动匹配并加载弹幕（推荐）"})]}),(0,a.jsx)("label",{className:"flex items-center cursor-pointer",children:(0,a.jsxs)("div",{className:"relative",children:[(0,a.jsx)("input",{type:"checkbox",className:"sr-only peer",checked:et,onChange:e=>e_(e.target.checked)}),(0,a.jsx)("div",{className:"w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600"}),(0,a.jsx)("div",{className:"absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-5"})]})})]}),(0,a.jsxs)("div",{className:"flex items-center justify-between mt-2",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"弹幕自动尝试次数"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"自动弹幕获取的尝试次数，-1为一直获取直到成功"})]}),(0,a.jsx)("input",{type:"number",min:"-1",className:"w-11 px-2 py-1 rounded text-sm bg-[#f5f5f5] dark:bg-gray-800 text-gray-900 dark:text-gray-100 outline-none border-none focus:outline-none focus:border-none focus:ring-0",value:ea,onChange:e=>eF(Number(e.target.value))})]}),(0,a.jsxs)("div",{className:"mt-3 relative",children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"优先弹幕平台"}),(0,a.jsx)("button",{type:"button",onClick:()=>ec(!ei),className:"w-full px-3 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 text-left mt-2",children:null===(r=eu.find(e=>e.value===eo))||void 0===r?void 0:r.label}),(0,a.jsx)("div",{className:"absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none mt-2",children:(0,a.jsx)(T.Z,{className:"w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 ".concat(ei?"rotate-180":"")})}),ei&&(0,a.jsx)("div",{className:"absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto",children:eu.map(e=>(0,a.jsxs)("button",{type:"button",onClick:()=>{eV(e.value),ec(!1)},className:"w-full px-3 py-2.5 text-left text-sm transition-colors duration-150 flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 ".concat(eo===e.value?"bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400":"text-gray-900 dark:text-gray-100"),children:[(0,a.jsx)("span",{className:"truncate",children:e.label}),eo===e.value&&(0,a.jsx)(E.Z,{className:"w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 ml-2"})]},e.value))}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"自动匹配弹幕时优先使用此平台"})]}),(0,a.jsx)("div",{className:"border-t border-gray-200 dark:border-gray-700"}),(0,a.jsxs)("div",{className:"space-y-3",children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"TVBox 接口"}),(0,a.jsxs)("div",{className:"flex items-center gap-3",children:[(0,a.jsxs)("div",{className:"flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-medium shrink-0 ".concat(eC?"bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400":"bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"),children:[(0,a.jsx)("div",{className:"w-2 h-2 rounded-full ".concat(eC?"bg-green-500 animate-pulse":"bg-gray-400")}),(0,a.jsx)("span",{children:eC?"已开启":"未开启"})]}),eC&&eP?(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("input",{ref:e=>{if(e){let t=new URL(eP);t.searchParams.set("pwd",eE||""),e.value=t.toString()}},type:"text",className:"flex-1 min-w-0 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100",readOnly:!0}),(0,a.jsx)("button",{type:"button",className:"shrink-0 px-3 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors",onClick:e=>{let t=e.currentTarget.previousElementSibling;navigator.clipboard.writeText(t.value)},children:"复制"})]}):!eC&&(0,a.jsx)("span",{className:"text-xs text-gray-500 dark:text-gray-400",children:"localstorage"===v?"请修改环境变量 TVBOX_ENABLED 以开启":eR?"请前往管理面板的站点配置中开启":"请联系管理员开启"})]}),eC&&eP&&(0,a.jsxs)("div",{className:"space-y-2",children:[(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400",children:"将该地址填入 TVBox 的订阅/配置接口即可使用。"}),"localstorage"===v&&(0,a.jsx)("p",{className:"text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-2 rounded-lg",children:"\uD83D\uDCA1 本地模式，开关由环境变量 TVBOX_ENABLED 控制，口令为 PASSWORD"}),eR&&"localstorage"!==v&&(0,a.jsx)("p",{className:"text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-2 rounded-lg",children:"\uD83D\uDCA1 如需修改 TVBox 配置（开关/密码），请前往管理面板的站点配置"})]})]}),(0,a.jsx)("div",{className:"border-t border-gray-200 dark:border-gray-700"}),(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h4",{className:"text-sm font-medium text-gray-700 dark:text-gray-300",children:"简洁模式"}),(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 mt-1",children:"开启后导航栏只保留首页和搜索，首页只保留继续观看和收藏夹"})]}),(0,a.jsx)("label",{className:"flex items-center cursor-pointer",children:(0,a.jsxs)("div",{className:"relative",children:[(0,a.jsx)("input",{type:"checkbox",className:"sr-only peer",checked:B,onChange:e=>eJ(e.target.checked)}),(0,a.jsx)("div",{className:"w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600"}),(0,a.jsx)("div",{className:"absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-5"})]})})]})]}),(0,a.jsx)("div",{className:"mt-6 pt-4 border-t border-gray-200 dark:border-gray-700",children:(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 text-center",children:"这些设置保存在本地浏览器中"})})]})]}),e1=(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("div",{className:"fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000]",onClick:eL}),(0,a.jsxs)("div",{className:"fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white dark:bg-gray-900 rounded-xl shadow-xl z-[1001] p-6",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between mb-6",children:[(0,a.jsx)("h3",{className:"text-xl font-bold text-gray-800 dark:text-gray-200",children:"修改密码"}),(0,a.jsx)("button",{onClick:eL,className:"w-8 h-8 p-1 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors","aria-label":"Close",children:(0,a.jsx)(C.Z,{className:"w-full h-full"})})]}),(0,a.jsxs)("div",{className:"space-y-4",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:"新密码"}),(0,a.jsx)("input",{type:"password",className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400",placeholder:"请输入新密码",value:em,onChange:e=>eh(e.target.value),disabled:ey})]}),(0,a.jsxs)("div",{children:[(0,a.jsx)("label",{className:"block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2",children:"确认密码"}),(0,a.jsx)("input",{type:"password",className:"w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400",placeholder:"请再次输入新密码",value:ef,onChange:e=>eb(e.target.value),disabled:ey})]}),ev&&(0,a.jsx)("div",{className:"text-red-500 text-sm bg-red-50 dark:bg-red-900/20 p-3 rounded-md border border-red-200 dark:border-red-800",children:ev})]}),(0,a.jsxs)("div",{className:"flex gap-3 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700",children:[(0,a.jsx)("button",{onClick:eL,className:"flex-1 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors",disabled:ey,children:"取消"}),(0,a.jsx)("button",{onClick:eU,className:"flex-1 px-4 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed",disabled:ey||!em||!ef,children:ey?"修改中...":"确认修改"})]}),(0,a.jsx)("div",{className:"mt-4 pt-4 border-t border-gray-200 dark:border-gray-700",children:(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 text-center",children:"修改密码后需要重新登录"})})]})]});return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)("div",{className:"relative",children:[(0,a.jsx)("button",{onClick:()=>{c(!i)},className:"w-10 h-10 p-2 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200/50 dark:text-gray-300 dark:hover:bg-gray-700/50 transition-colors","aria-label":"User Menu",children:(0,a.jsx)(P.Z,{className:"w-full h-full"})}),ek===O.qu.HAS_UPDATE&&(0,a.jsx)("div",{className:"absolute top-[2px] right-[2px] w-2 h-2 bg-yellow-500 rounded-full"})]}),i&&M&&(0,D.createPortal)(eQ,document.body),u&&M&&(0,D.createPortal)(e0,document.body),x&&M&&(0,D.createPortal)(e1,document.body),(0,a.jsx)(F,{isOpen:f,onClose:()=>b(!1)})]})};var V=(0,l.memo)(e=>{let{showBackButton:t=!1}=e,{siteName:r}=(0,v.W)(),[s,n]=(0,l.useState)(0);return(0,l.useEffect)(()=>{let e=()=>{{let e=localStorage.getItem("downloadTasks");if(e)try{let t=JSON.parse(e).filter(e=>"downloading"===e.status||"paused"===e.status||"waiting"===e.status||"error"===e.status).length;n(t)}catch(e){n(0)}else n(0)}};e();let t=()=>{e()};return window.addEventListener("storage",t),window.addEventListener("downloadTasksUpdated",t),()=>{window.removeEventListener("storage",t),window.removeEventListener("downloadTasksUpdated",t)}},[]),(0,a.jsx)(a.Fragment,{children:(0,a.jsx)("header",{className:"md:hidden relative w-full bg-white/70 backdrop-blur-xl border-b border-gray-200/50 shadow-sm dark:bg-gray-900/70 dark:border-gray-700/50",children:(0,a.jsxs)("div",{className:"h-12 flex items-center justify-between px-4",children:[(0,a.jsxs)("div",{className:"flex items-center gap-3",children:[t&&(0,a.jsx)(p,{}),(0,a.jsx)(x.default,{href:"/",className:"text-xl font-bold text-green-600 tracking-tight hover:opacity-80 transition-opacity",children:r})]}),(0,a.jsxs)("div",{className:"flex items-center gap-2",children:[(0,a.jsxs)("button",{onClick:()=>{window.dispatchEvent(new Event("showDownloadManager"))},className:"p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors relative",title:"下载管理器",children:[(0,a.jsx)(b.Z,{className:"h-5 w-5"}),s>0&&(0,a.jsx)("span",{className:"absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center",children:s>9?"9+":s})]}),(0,a.jsx)(w.T,{}),(0,a.jsx)(B,{})]})]})})})}),z=r(9018),W=r(7407),J=r(4090),G=r(4855),q=r(3563),H=(0,l.memo)(e=>{let{activePath:t}=e,r=(0,s.useRouter)(),f=(0,s.usePathname)(),y=(0,s.useSearchParams)(),{siteName:p}=(0,v.W)(),{startLoading:k}=(0,h.w)(),[j,N]=(0,l.useState)(t||"/"),[S,T]=(0,l.useState)(""),[E,I]=(0,l.useState)(!1),P=(0,l.useRef)(null),[D,R]=(0,l.useState)([]),[O,M]=(0,l.useState)(null),[Z,L]=(0,l.useState)([]),[U,A]=(0,l.useState)(!1),_=(0,l.useRef)(null),F=(0,l.useRef)(null),[V,H]=(0,l.useState)(!1),Y=(0,l.useRef)(null),[X,K]=(0,l.useState)(0);(0,l.useEffect)(()=>{let e=()=>{{let e=localStorage.getItem("downloadTasks");if(e)try{let t=JSON.parse(e).filter(e=>"downloading"===e.status||"paused"===e.status||"waiting"===e.status||"error"===e.status).length;K(t)}catch(e){K(0)}else K(0)}};e();let t=()=>{e()};return window.addEventListener("storage",t),window.addEventListener("downloadTasksUpdated",t),()=>{window.removeEventListener("storage",t),window.removeEventListener("downloadTasksUpdated",t)}},[]);let[$,Q]=(0,l.useState)(!1),[ee,et]=(0,l.useState)(!1);(0,l.useEffect)(()=>{et(!0);{let e=localStorage.getItem("simpleMode");null!==e&&Q(JSON.parse(e))}(0,J.nO)().then(L);let e=(0,J.rq)("searchHistoryUpdated",L);return()=>{e()}},[]),(0,l.useEffect)(()=>{if(t)N(t);else{let e=y.toString();N(e?"".concat(f,"?").concat(e):f)}},[t,f,y]),(0,l.useEffect)(()=>{if("/search"===f){let e=y.get("q");e?T(decodeURIComponent(e)):T("");let t=y.get("sources");t&&R(t.split(","))}},[f,y]);let[er,ea]=(0,l.useState)([{icon:d.Z,label:"电影",href:"/douban?type=movie"},{icon:i.Z,label:"剧集",href:"/douban?type=tv"},{icon:c.Z,label:"动漫",href:"/douban?type=anime"},{icon:u.Z,label:"综艺",href:"/douban?type=show"}]);(0,l.useEffect)(()=>{(0,m.V)().then(e=>{e.length>0&&ea(e=>[...e,{icon:g.Z,label:"自定义",href:"/douban?type=custom"}])})},[]);let es=e=>{T(e),A(!1),(0,J.F0)(e),"/search"!==f&&k();let t=new URLSearchParams;t.set("q",e),D.length>0&&t.set("sources",D.join(",")),r.push("/search?".concat(t.toString()))},el=async(e,t)=>{t.stopPropagation(),await (0,J.Rw)(e)},en=async()=>{await (0,J.Ev)(),A(!1)};(0,l.useEffect)(()=>{let e=e=>{V&&Y.current&&!Y.current.contains(e.target)&&(H(!1),O&&M(null),U&&A(!1))};return document.addEventListener("mousedown",e),()=>{document.removeEventListener("mousedown",e)}},[V,O,U]),(0,l.useEffect)(()=>{let e=e=>{U&&F.current&&_.current&&!F.current.contains(e.target)&&!_.current.contains(e.target)&&A(!1)};return document.addEventListener("mousedown",e),()=>{document.removeEventListener("mousedown",e)}},[U]);let eo=(0,a.jsxs)("div",{className:"flex-1 max-w-md flex items-center",ref:Y,children:[(0,a.jsx)("div",{className:"flex-shrink-0",children:(0,a.jsx)(q.Z,{selectedSources:D,onChange:R,openFilter:O,setOpenFilter:M,size:"compact"})}),(0,a.jsxs)("div",{className:"relative flex-1",children:[(0,a.jsxs)("form",{onSubmit:e=>{e.preventDefault();let t=S.trim();if(t){(0,J.F0)(t),"/search"!==f&&k();let e=new URLSearchParams;e.set("q",t),D.length>0&&e.set("sources",D.join(",")),r.push("/search?".concat(e.toString())),I(!1),A(!1)}},className:"relative",children:[(0,a.jsx)(o.Z,{className:"absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400 dark:text-gray-500"}),(0,a.jsx)("input",{ref:P,type:"text",value:S,onChange:e=>{let t=e.target.value;T(t),I(t.trim().length>0),A(!1)},onFocus:()=>{S.trim().length>0&&I(!0),A(!1)},placeholder:"搜索电影、电视剧...",className:"w-full h-10 rounded-r-lg rounded-l-none bg-gray-100/80 py-2 pl-10 pr-20 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white transition-all duration-200 border border-gray-200/50 border-l-0 dark:bg-gray-800 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:bg-gray-700 dark:border-gray-700"}),(0,a.jsxs)("div",{className:"absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1",children:[S&&(0,a.jsx)("button",{type:"button",onClick:()=>{var e;T(""),I(!1),null===(e=P.current)||void 0===e||e.focus()},className:"text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors",children:(0,a.jsx)(C.Z,{className:"h-4 w-4"})}),(0,a.jsxs)("button",{ref:_,type:"button",onClick:()=>A(!U),className:"text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors relative",title:"搜索历史",children:[(0,a.jsx)(z.Z,{className:"h-4 w-4"}),Z.length>0&&(0,a.jsx)("span",{className:"absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full"})]})]}),(0,a.jsx)(G.Z,{query:S,isVisible:E,onSelect:e=>{T(e),I(!1),A(!1),(0,J.F0)(e),"/search"!==f&&k();let t=new URLSearchParams;t.set("q",e),D.length>0&&t.set("sources",D.join(",")),r.push("/search?".concat(t.toString()))},onClose:()=>I(!1)})]}),U&&Z.length>0&&(0,a.jsxs)("div",{ref:F,className:"absolute top-full right-0 mt-2 w-80 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg max-h-96 overflow-y-auto z-50",children:[(0,a.jsxs)("div",{className:"p-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between",children:[(0,a.jsx)("h3",{className:"text-sm font-semibold text-gray-700 dark:text-gray-300",children:"搜索历史"}),(0,a.jsx)("button",{onClick:en,className:"text-xs text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-500 transition-colors",children:"清空全部"})]}),(0,a.jsx)("div",{className:"p-2",children:Z.map((e,t)=>(0,a.jsxs)("div",{className:"group flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer",onClick:()=>es(e),children:[(0,a.jsx)("span",{className:"text-sm text-gray-700 dark:text-gray-300 truncate flex-1",children:e}),(0,a.jsx)("button",{onClick:t=>el(e,t),className:"ml-2 text-gray-400 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-500 transition-colors",title:"删除",children:(0,a.jsx)(W.Z,{className:"h-3 w-3"})})]},"history-".concat(e,"-").concat(t)))})]})]})]}),ed=(0,a.jsx)("button",{onClick:()=>{H(!0),setTimeout(()=>{var e;return null===(e=P.current)||void 0===e?void 0:e.focus()},300)},className:"p-2 text-gray-700 hover:bg-gray-100/50 hover:text-green-600 rounded-lg transition-colors duration-200 dark:text-gray-300 dark:hover:text-green-400 dark:hover:bg-gray-700/50 flex-shrink-0",title:"搜索",children:(0,a.jsx)(o.Z,{className:"h-5 w-5"})});return(0,a.jsx)(a.Fragment,{children:(0,a.jsx)("header",{className:"hidden md:block sticky top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-sm dark:bg-gray-900/80 dark:border-gray-700/50",children:(0,a.jsxs)("div",{className:"mx-auto px-6 h-16 flex items-center justify-between gap-6",children:[$?(0,a.jsx)("div",{className:"absolute left-1/2 transform -translate-x-1/2",children:(0,a.jsx)(x.default,{href:"/",className:"flex items-center justify-center select-none hover:opacity-80 transition-opacity duration-200",onClick:()=>{"/"!==j&&k()},children:(0,a.jsx)("span",{className:"text-2xl font-bold text-green-600 tracking-tight",children:p})})}):(0,a.jsx)(x.default,{href:"/",className:"flex items-center justify-center select-none hover:opacity-80 transition-opacity duration-200 flex-shrink-0",onClick:()=>{"/"!==j&&k()},children:(0,a.jsx)("span",{className:"text-2xl font-bold text-green-600 tracking-tight",children:p})}),(0,a.jsxs)("nav",{className:"flex items-center gap-1 flex-shrink-0",children:[ee&&!$&&(0,a.jsxs)(x.default,{href:"/",onClick:()=>{"/"!==j&&k(),N("/")},"data-active":"/"===j,className:"group flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100/50 hover:text-green-600 data-[active=true]:bg-green-500/10 data-[active=true]:text-green-600 font-medium transition-colors duration-200 dark:text-gray-300 dark:hover:text-green-400 dark:hover:bg-gray-700/50 dark:data-[active=true]:bg-green-500/10 dark:data-[active=true]:text-green-400",children:[(0,a.jsx)(n.Z,{className:"h-4 w-4"}),(0,a.jsx)("span",{children:"首页"})]}),ee&&!$&&er.map(e=>{var t;let r=null===(t=e.href.match(/type=([^&]+)/))||void 0===t?void 0:t[1],s=decodeURIComponent(j),l=s===decodeURIComponent(e.href)||s.startsWith("/douban")&&s.includes("type=".concat(r)),n=e.icon;return(0,a.jsxs)(x.default,{href:e.href,onClick:()=>{l||k(),N(e.href)},"data-active":l,className:"group flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100/50 hover:text-green-600 data-[active=true]:bg-green-500/10 data-[active=true]:text-green-600 font-medium transition-colors duration-200 dark:text-gray-300 dark:hover:text-green-400 dark:hover:bg-gray-700/50 dark:data-[active=true]:bg-green-500/10 dark:data-[active=true]:text-green-400",children:[(0,a.jsx)(n,{className:"h-4 w-4"}),(0,a.jsx)("span",{children:e.label})]},e.label)})]}),(0,a.jsx)("div",{className:"flex-1"}),(0,a.jsxs)("div",{className:"flex items-center justify-end",children:[V&&eo,!V&&ed]}),(0,a.jsxs)("div",{className:"flex items-center gap-2 flex-shrink-0 mr-9",children:[(0,a.jsxs)("button",{onClick:()=>{window.dispatchEvent(new Event("showDownloadManager"))},className:"p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors relative",title:"下载管理器",children:[(0,a.jsx)(b.Z,{className:"h-5 w-5"}),X>0&&(0,a.jsx)("span",{className:"absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center",children:X>99?"99+":X})]}),(0,a.jsx)(w.T,{}),(0,a.jsx)(B,{})]})]})})})}),Y=(0,l.memo)(()=>{let e=(0,s.usePathname)();return["/login","/warning"].some(t=>e.startsWith(t))?null:(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(V,{showBackButton:!1}),(0,a.jsx)(H,{}),(0,a.jsx)("div",{className:"md:hidden",children:(0,a.jsx)(f,{})})]})})},2888:function(e,t,r){"use strict";r.d(t,{default:function(){return p}});var a=r(7569),s=r(5663),l=r(8448),n=r(4819),o=r(7656),d=r(9346),i=r(9392),c=r(7407),u=r(4989),g=r.n(u),x=r(2038),m=r(904),h=r(4660),f=r(8474),b=e=>{let{task:t,isOpen:r,onClose:l,onSegmentRetry:o,taskExists:d,concurrency:i=6,streamMode:c="disabled"}=e,[u,g]=(0,s.useState)(new Set),[,m]=(0,s.useState)({}),b=async e=>{if(!u.has(e)){if(d&&!d()){console.log("任务已删除，取消片段 ".concat(e+1," 的重试"));return}g(t=>new Set(t).add(e));try{let r=await (0,x.qA)(t.tsUrlList[e]);t.aesConf.key&&(r=(0,x.jz)(r,t.aesConf.key,t.aesConf.iv)),t.downloadedSegments||(t.downloadedSegments=new Map),t.downloadedSegments.set(e,r),t.finishList[e].status="success",t.finishNum++,t.errorNum=Math.max(0,t.errorNum-1),o&&o(e),m({}),console.log("片段 ".concat(e+1," 重试成功，数据已保存"))}catch(t){console.error("片段 ".concat(e+1," 重试失败:"),t)}finally{g(t=>{let r=new Set(t);return r.delete(e),r})}}},y=async()=>{if(d&&!d()){console.log("任务已删除，取消批量重试");return}let e=t.finishList.map((e,t)=>({item:e,index:t})).filter(e=>{let{item:t}=e;return"error"===t.status}).map(e=>{let{index:t}=e;return t});if(0===e.length){console.log("⚠️ 没有失败的片段可重试");return}console.log("开始批量重试 ".concat(e.length," 个失败片段，并发数: ").concat(i));let r=[...e],a=async()=>{for(;r.length>0;){if(d&&!d()){console.log("任务已删除，停止批量重试");return}let e=r.shift();void 0!==e&&await b(e)}},s=[];for(let t=0;t<Math.min(i,e.length);t++)s.push(a());try{await Promise.all(s);let e=t.finishList.filter(e=>"error"===e.status).length;if(console.log("批量重试完成，剩余失败片段: ".concat(e)),0===e){var l;console.log("✅ 所有片段已成功！已保存 ".concat((null===(l=t.downloadedSegments)||void 0===l?void 0:l.size)||0," 个片段数据，即将自动合并保存..."))}}catch(e){console.error("批量重试出错:",e)}};if((0,s.useEffect)(()=>{let e=e=>{"Escape"===e.key&&l()};return r&&document.addEventListener("keydown",e),()=>{document.removeEventListener("keydown",e)}},[r,l]),!r)return null;let{startSegment:p,endSegment:v}=t.rangeDownload,w=t.finishList.slice(p-1,v),k=p-1,j=t.segmentDurations||[],N=j.slice(0,p-1).reduce((e,t)=>e+t,0),S=j.slice(0,v).reduce((e,t)=>e+t,0),C=w.filter(e=>"success"===e.status).length,T=w.filter(e=>"error"===e.status).length,E=w.filter(e=>"downloading"===e.status).length,I=w.filter(e=>""===e.status).length;return(0,a.jsx)("div",{className:"fixed inset-0 bg-black/50 backdrop-blur-sm z-[10000] flex items-center justify-center p-4",children:(0,a.jsxs)("div",{className:"bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-4xl max-h-[80vh] flex flex-col",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("h2",{className:"text-lg font-semibold text-gray-900 dark:text-white",children:"片段列表"}),(0,a.jsx)("p",{className:"text-sm text-gray-500 dark:text-gray-400 mt-1",children:t.title}),(0,a.jsxs)("p",{className:"text-xs text-gray-400 dark:text-gray-500 mt-1",children:["片段范围：",p," ~ ",v," \xa0|\xa0 时长范围：",(0,f.m)(N)," ~ ",(0,f.m)(S)]})]}),(0,a.jsx)("button",{onClick:l,className:"p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors",children:(0,a.jsx)(n.Z,{className:"h-5 w-5"})})]}),(0,a.jsx)("div",{className:"p-4 bg-gray-50 dark:bg-gray-900/50 border-b border-gray-200 dark:border-gray-700",children:(0,a.jsxs)("div",{className:"grid grid-cols-2 sm:grid-cols-5 gap-3",children:[(0,a.jsxs)("div",{className:"bg-white dark:bg-gray-800 rounded-lg p-3",children:[(0,a.jsx)("div",{className:"text-xs text-gray-500 dark:text-gray-400",children:"总片段"}),(0,a.jsx)("div",{className:"text-lg font-semibold text-gray-900 dark:text-white mt-1",children:w.length})]}),(0,a.jsxs)("div",{className:"bg-green-50 dark:bg-green-900/20 rounded-lg p-3",children:[(0,a.jsx)("div",{className:"text-xs text-green-600 dark:text-green-400",children:"成功"}),(0,a.jsx)("div",{className:"text-lg font-semibold text-green-700 dark:text-green-300 mt-1",children:C})]}),(0,a.jsxs)("div",{className:"bg-red-50 dark:bg-red-900/20 rounded-lg p-3 relative",children:[(0,a.jsx)("div",{className:"text-xs text-red-600 dark:text-red-400",children:"失败"}),(0,a.jsxs)("div",{className:"flex items-center justify-between mt-1",children:[(0,a.jsx)("div",{className:"text-lg font-semibold text-red-700 dark:text-red-300",children:T}),(0,a.jsx)("button",{onClick:y,disabled:u.size>0||0===T||"disabled"!==c,className:"p-1.5 rounded-md hover:bg-red-200 dark:hover:bg-red-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors",title:"disabled"!==c?"边下边存模式重试由重试次数控制":"重试所有失败片段",children:(0,a.jsx)(h.Z,{className:"h-4 w-4 text-red-600 dark:text-red-400 ".concat(u.size>0?"animate-spin":"")})})]})]}),(0,a.jsxs)("div",{className:"bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3",children:[(0,a.jsx)("div",{className:"text-xs text-blue-600 dark:text-blue-400",children:"下载中"}),(0,a.jsx)("div",{className:"text-lg font-semibold text-blue-700 dark:text-blue-300 mt-1",children:E})]}),(0,a.jsxs)("div",{className:"bg-gray-100 dark:bg-gray-700 rounded-lg p-3",children:[(0,a.jsx)("div",{className:"text-xs text-gray-600 dark:text-gray-400",children:"待下载"}),(0,a.jsx)("div",{className:"text-lg font-semibold text-gray-700 dark:text-gray-300 mt-1",children:I})]})]})}),(0,a.jsx)("div",{className:"flex-1 overflow-y-auto p-4",children:(0,a.jsx)("div",{className:"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2",children:w.map((e,t)=>{let r=k+t,s=u.has(r),l="success"===e.status?"bg-green-100 dark:bg-green-900/30 border-green-300 dark:border-green-700":"error"===e.status?"bg-red-100 dark:bg-red-900/30 border-red-300 dark:border-red-700":"downloading"===e.status?"bg-blue-100 dark:bg-blue-900/30 border-blue-300 dark:border-blue-700":"bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600",n="success"===e.status?"text-green-700 dark:text-green-300":"error"===e.status?"text-red-700 dark:text-red-300":"downloading"===e.status?"text-blue-700 dark:text-blue-300":"text-gray-700 dark:text-gray-300";return(0,a.jsxs)("div",{className:"relative border rounded-lg p-3 transition-all ".concat(l," ").concat("error"!==e.status||s||"disabled"!==c?"":"cursor-pointer hover:shadow-md"),onClick:()=>{"error"!==e.status||s||"disabled"!==c||b(r)},title:"error"===e.status?"disabled"!==c?"边下边存模式无法重试失败片段":"点击重试":"success"===e.status?"下载成功":"downloading"===e.status?"下载中":"待下载",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between",children:[(0,a.jsxs)("span",{className:"text-sm font-medium ".concat(n),children:["#",r+1]}),"error"===e.status&&(0,a.jsx)(h.Z,{className:"h-3 w-3 ".concat(n," ").concat(s?"animate-spin":"")})]}),(0,a.jsx)("div",{className:"text-xs mt-1 ".concat(n," opacity-75"),children:"success"===e.status?"✓ 成功":"error"===e.status?"✗ 失败".concat(e.retryCount?" (重试".concat(e.retryCount,"次)"):""):"downloading"===e.status?"⟳ ".concat(e.retryCount&&e.retryCount>0?"重试中(第".concat(e.retryCount,"次)"):"下载中"):"○ 待下载"})]},r)})})}),(0,a.jsx)("div",{className:"p-4 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700",children:(0,a.jsx)("p",{className:"text-xs text-gray-500 dark:text-gray-400 text-center",children:"点击红色片段可以重试下载 • 绿色表示成功 • 蓝色表示下载中 • 灰色表示待下载"})})]})})},y=e=>{let{isOpen:t,onClose:u}=e,[h,y]=(0,s.useState)([]),[p,v]=(0,s.useState)(!1),[w,k]=(0,s.useState)(null),j=(0,s.useRef)([]),N=(0,s.useRef)(!1),S=(0,s.useRef)(!1),C=(0,s.useRef)(new Set);(0,s.useEffect)(()=>{j.current=h},[h]),(0,s.useEffect)(()=>{{let e=localStorage.getItem("downloadTasks");if(e)try{let t=JSON.parse(e).map(e=>{let t="downloading"===e._originalStatus||"downloading"===e.status,{_originalStatus:r,...a}=e;return{...a,status:t?"paused":e.status,autoResume:t,abortController:void 0}});y(t)}catch(e){}}},[]),(0,s.useEffect)(()=>{if(N.current)return;let e=h.filter(e=>e.autoResume&&"paused"===e.status);e.length>0&&(N.current=!0,setTimeout(()=>{e.forEach(e=>{R(e.id)}),y(e=>e.map(e=>({...e,autoResume:!1})))},500))},[h]),(0,s.useEffect)(()=>{{let e=h.map(e=>{let{abortController:t,pauseResumeController:r,config:a,...s}=e;return{...s,config:a?{downloadType:a.downloadType,concurrency:a.concurrency,rangeMode:a.rangeMode,startSegment:a.startSegment,endSegment:a.endSegment,streamMode:a.streamMode,maxRetries:a.maxRetries}:void 0,_originalStatus:s.status}});localStorage.setItem("downloadTasks",JSON.stringify(e)),window.dispatchEvent(new Event("downloadTasksUpdated"))}},[h]),(0,s.useEffect)(()=>{let e=()=>{S.current=!0,j.current.forEach(e=>{"downloading"===e.status&&e.abortController&&e.abortController.abort(),e.pauseResumeController&&e.pauseResumeController.destroy()})};return window.addEventListener("beforeunload",e),()=>{window.removeEventListener("beforeunload",e)}},[]);let T=(0,s.useCallback)(async function(e,t,r,a,s,l,n,o,d){let i=arguments.length>9&&void 0!==arguments[9]?arguments[9]:"disabled",c=arguments.length>10&&void 0!==arguments[10]?arguments[10]:3,u=arguments.length>11?arguments[11]:void 0;try{var g;t.type=s,n&&(t.rangeDownload={startSegment:Math.max(1,Math.min(o,t.tsUrlList.length)),endSegment:Math.max(1,Math.min(d,t.tsUrlList.length)),targetSegment:Math.abs(d-o)+1}),await (0,x.MP)(t,r=>{y(a=>a.map(a=>{if(a.id!==e||"merging"===a.status||a.isEarlyCompleting)return a;let s="downloading"===a.status,l=a.parsedTask?{...a.parsedTask,finishNum:t.finishNum,errorNum:t.errorNum,finishList:t.finishList,downloadedSegments:t.downloadedSegments}:void 0;return{...a,progress:r.percentage,current:r.current,total:r.total,status:s?"done"===r.status?"completed":"error"===r.status?"error":"downloading":a.status,parsedTask:l}}))},r.signal,a,l,i,c,u);let m=j.current.find(t=>t.id===e),h=null==m?void 0:null===(g=m.parsedTask)||void 0===g?void 0:g.finishList.some(e=>"error"===e.status);h&&"disabled"===i?console.log("⚠️ 任务 ".concat(e," 有失败片段，保持下载状态等待重试")):(y(t=>t.map(t=>t.id===e?{...t,abortController:void 0}:t)),h&&"disabled"!==i&&console.log("✅ 边下边存模式：任务 ".concat(e," 已完成，失败片段已跳过")))}catch(t){if(t instanceof Error&&"下载已取消"===t.message){let t=j.current.find(t=>t.id===e);if((null==t?void 0:t.isEarlyCompleting)||(null==t?void 0:t.status)==="completed")return;S.current||y(t=>t.map(t=>t.id===e?{...t,status:"paused",abortController:void 0}:t))}else console.error("下载失败:",t),y(t=>t.map(t=>t.id===e?{...t,status:"error",abortController:void 0}:t))}},[]),E=(0,s.useCallback)(e=>{var t;let r=Date.now().toString(),a=new AbortController,s=new x.zc,l={current:null},n={id:r,url:e.url,title:e.title,status:"downloading",progress:0,current:0,total:e.parsedTask.tsUrlList.length,config:{downloadType:e.downloadType,concurrency:e.concurrency,rangeMode:e.rangeMode,startSegment:e.startSegment,endSegment:e.endSegment,streamMode:e.streamMode,maxRetries:null!==(t=e.maxRetries)&&void 0!==t?t:3,parsedTask:e.parsedTask},parsedTask:e.parsedTask,abortController:a,pauseResumeController:s,completeStreamRef:l};y(e=>[...e,n]),setTimeout(()=>{T(r,e.parsedTask,a,s,e.downloadType,e.concurrency,e.rangeMode,e.startSegment,e.endSegment,e.streamMode,e.maxRetries||3,l)},0)},[T]);(0,s.useEffect)(()=>{let e=e=>{var t;let r=e.detail,a=Date.now().toString(),s=new AbortController,l=new x.zc,n={current:null},o={id:a,url:r.url,title:r.title,status:"downloading",progress:0,current:0,total:r.parsedTask.tsUrlList.length,config:{downloadType:r.downloadType,concurrency:r.concurrency,rangeMode:r.rangeMode,startSegment:r.startSegment,endSegment:r.endSegment,streamMode:r.streamMode,maxRetries:null!==(t=r.maxRetries)&&void 0!==t?t:3,parsedTask:r.parsedTask},parsedTask:r.parsedTask,abortController:s,pauseResumeController:l,completeStreamRef:n};y(e=>[...e,o]),setTimeout(()=>{var e;T(a,r.parsedTask,s,l,r.downloadType,r.concurrency,r.rangeMode,r.startSegment,r.endSegment,r.streamMode,null!==(e=r.maxRetries)&&void 0!==e?e:3,n)},0)};return window.addEventListener("addDownloadTask",e),()=>{window.removeEventListener("addDownloadTask",e)}},[T]);let I=(0,s.useCallback)(async(e,t)=>{let r=j.current.find(t=>t.id===e);if(!(null==r?void 0:r.config))return;let a=new AbortController,s=new x.zc,l={current:null},{downloadType:n,concurrency:o,rangeMode:d,startSegment:i,endSegment:c,streamMode:u,maxRetries:g}=r.config;y(t=>t.map(t=>t.id===e?{...t,status:"downloading",abortController:a,pauseResumeController:s,completeStreamRef:l}:t)),T(e,t,a,s,n,o,d,i,c,u||"disabled",null!=g?g:3,l)},[T]),P=(0,s.useCallback)(e=>{y(t=>{let r=t.find(t=>t.id===e);return(null==r?void 0:r.abortController)&&r.abortController.abort(),(null==r?void 0:r.pauseResumeController)&&r.pauseResumeController.destroy(),t.filter(t=>t.id!==e)})},[]),D=(0,s.useCallback)(e=>{y(t=>{let r=t.find(t=>t.id===e);return(null==r?void 0:r.pauseResumeController)&&r.pauseResumeController.pause(),t.map(t=>t.id===e?{...t,status:"paused"}:t)})},[]),R=(0,s.useCallback)(async e=>{var t,a,s,l;console.log("\uD83D\uDD04 resumeTask 被调用: taskId=".concat(e));let n=j.current.find(t=>t.id===e);if(!n){console.log("⚠️ 找不到任务: ".concat(e));return}console.log("\uD83D\uDCCB 任务状态: ".concat(n.status,", abortController: ").concat(!!n.abortController));let o=null===(t=n.parsedTask)||void 0===t?void 0:t.finishList.some(e=>"error"===e.status);if("downloading"===n.status&&n.abortController&&o){console.log("⚠️ 任务正在下载中且有失败片段，跳过");return}if(n.pauseResumeController&&n.pauseResumeController.getPaused()){console.log("▶️ 任务处于暂停状态，恢复下载..."),n.pauseResumeController.resume(),y(t=>t.map(t=>t.id===e?{...t,status:"downloading"}:t));return}let d=n.parsedTask||(null===(a=n.config)||void 0===a?void 0:a.parsedTask);if(d){let t=(null===(s=d.downloadedSegments)||void 0===s?void 0:s.size)||0,a=(null===(l=n.config)||void 0===l?void 0:l.streamMode)!=="disabled",{startSegment:o,endSegment:i}=d.rangeDownload,c=0,u=0,g=0;for(let e=o-1;e<i;e++){let t=d.finishList[e].status;""===t||"downloading"===t?c++:"success"===t?u++:"error"===t&&g++}let x=i-o+1;if(console.log("✅ 使用已保存的 parsedTask，范围内片段: ".concat(x,"个，成功: ").concat(u,"，失败: ").concat(g,"，待下载: ").concat(c,"，已保存数据: ").concat(t," 个, 边下边存: ").concat(a)),0===c){if(0===g){if(console.log("\uD83C\uDF89 范围内所有 ".concat(x," 个片段都已成功下载")),a){console.log("✅ 边下边存模式，数据已写入文件，直接标记为完成"),y(t=>t.map(t=>t.id===e?{...t,status:"completed",progress:100}:t));return}console.log("\uD83D\uDCE6 普通模式，开始合并 ".concat(t," 个片段数据...")),y(t=>t.map(t=>t.id===e?{...t,status:"merging",progress:99}:t)),setTimeout(async()=>{try{var t,a;let s;let l=[];for(let e=o-1;e<i;e++){let t=null===(a=d.downloadedSegments)||void 0===a?void 0:a.get(e);t&&l.push(t)}if(0===l.length)throw Error("没有可合并的片段数据");console.log("\uD83D\uDCE6 合并 ".concat(l.length," 个片段..."));let{mergeSegments:c,triggerDownload:u}=await Promise.resolve().then(r.bind(r,2038)),{transmuxTSToMP4:g}=await Promise.resolve().then(r.bind(r,9309)),m=(null===(t=n.config)||void 0===t?void 0:t.downloadType)||"TS";if("MP4"===m){let e=d.durationSecond||0,t=d.finishList.length;console.log("\uD83C\uDFAC 转码为 MP4 格式..."),s=g(l,x/t*e)}else s=c(l,m);u(s,d.title,m),y(t=>t.map(t=>t.id===e?{...t,status:"completed",progress:100}:t)),console.log("✅ 合并下载完成！")}catch(t){console.error("合并下载失败:",t),y(t=>t.map(t=>t.id===e?{...t,status:"error"}:t))}},100);return}console.log("⚠️ 范围内有 ".concat(g," 个片段失败，等待手动重试"));return}console.log("▶️ 还有 ".concat(c," 个片段待下载，继续下载...")),I(e,d);return}try{let t=await (0,x.BV)(n.url);t.title=n.title,y(r=>r.map(r=>{var a,s,l,n,o,d;return r.id===e?{...r,config:{downloadType:(null===(a=r.config)||void 0===a?void 0:a.downloadType)||"TS",concurrency:(null===(s=r.config)||void 0===s?void 0:s.concurrency)||6,rangeMode:(null===(l=r.config)||void 0===l?void 0:l.rangeMode)||!1,startSegment:(null===(n=r.config)||void 0===n?void 0:n.startSegment)||1,endSegment:(null===(o=r.config)||void 0===o?void 0:o.endSegment)||t.tsUrlList.length,streamMode:(null===(d=r.config)||void 0===d?void 0:d.streamMode)||"disabled",parsedTask:t}}:r})),I(e,t)}catch(t){console.error("重新解析失败:",t),y(t=>t.map(t=>t.id===e?{...t,status:"error"}:t))}},[I]),O=(0,s.useCallback)(()=>{y(e=>(e.forEach(e=>{"downloading"===e.status&&e.pauseResumeController&&e.pauseResumeController.pause()}),e.map(e=>"downloading"===e.status?{...e,status:"paused"}:e)))},[]),M=(0,s.useCallback)(()=>{j.current.forEach(e=>{("waiting"===e.status||"paused"===e.status||"error"===e.status)&&R(e.id)})},[R]),Z=(0,s.useCallback)(()=>{y(e=>(e.forEach(e=>{e.abortController&&e.abortController.abort(),e.pauseResumeController&&e.pauseResumeController.destroy()}),[]))},[]);return t?(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)("div",{className:"fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] flex items-center justify-center p-4",children:(0,a.jsxs)("div",{className:"bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-4xl max-h-[80vh] flex flex-col",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700",children:[(0,a.jsxs)("h2",{className:"text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2",children:[(0,a.jsx)(l.Z,{className:"h-5 w-5"}),"下载管理器"]}),(0,a.jsx)("button",{onClick:u,className:"p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors",children:(0,a.jsx)(n.Z,{className:"h-5 w-5"})})]}),(0,a.jsxs)("div",{className:"p-4 border-b border-gray-200 dark:border-gray-700 flex gap-2",children:[(0,a.jsxs)("button",{onClick:()=>v(!0),className:"px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center gap-2",children:[(0,a.jsx)(l.Z,{className:"h-4 w-4"}),"添加下载"]}),(0,a.jsxs)("button",{onClick:M,className:"px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors flex items-center gap-2",children:[(0,a.jsx)(o.Z,{className:"h-4 w-4"}),"全部开始"]}),(0,a.jsxs)("button",{onClick:O,className:"px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors flex items-center gap-2",children:[(0,a.jsx)(d.Z,{className:"h-4 w-4"}),"全部暂停"]}),(0,a.jsx)("button",{onClick:Z,className:"px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors",children:"清空全部"})]}),(0,a.jsx)("div",{className:"flex-1 overflow-y-auto p-4 space-y-3",children:0===h.length?(0,a.jsx)("div",{className:"text-center py-12 text-gray-500 dark:text-gray-400",children:"暂无下载任务"}):h.map(e=>{var t;return(0,a.jsxs)("div",{className:"bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 space-y-3",children:[(0,a.jsxs)("div",{className:"flex items-start justify-between gap-4",children:[(0,a.jsxs)("div",{className:"flex-1 min-w-0",children:[(0,a.jsx)("h3",{className:"font-medium text-gray-900 dark:text-white truncate",children:e.title}),(0,a.jsx)("p",{className:"text-sm text-gray-500 dark:text-gray-400 truncate mt-1",children:e.url}),e.config&&(0,a.jsxs)("div",{className:"flex flex-wrap gap-2 mt-2",children:[(0,a.jsxs)("span",{className:"inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400",children:[e.config.downloadType," 格式"]}),(0,a.jsxs)("span",{className:"inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400",children:[e.config.concurrency," 线程"]}),e.config.rangeMode&&(()=>{let t=0,r=0;if(e.parsedTask&&Array.isArray(e.parsedTask.segmentDurations)){let{startSegment:a,endSegment:s}=e.parsedTask.rangeDownload,l=e.parsedTask.segmentDurations;t=l.slice(0,a-1).reduce((e,t)=>e+t,0),r=l.slice(0,s).reduce((e,t)=>e+t,0)}return(0,a.jsxs)("span",{className:"inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400",children:["范围: ",e.config.startSegment,"-",e.config.endSegment,e.parsedTask&&e.parsedTask.segmentDurations&&e.parsedTask.segmentDurations.length>0&&(0,a.jsxs)(a.Fragment,{children:["\xa0|\xa0时长: ",(0,f.m)(t)," ~ ",(0,f.m)(r)]})]})})(),e.parsedTask&&(()=>{let{startSegment:t,endSegment:r}=e.parsedTask.rangeDownload,s=e.parsedTask.finishList.slice(t-1,r).filter(e=>"error"===e.status).length;return s>0?(0,a.jsxs)("span",{className:"inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400",children:["失败: ",s," 个片段"]}):null})()]})]}),(0,a.jsxs)("div",{className:"flex items-center gap-2 flex-shrink-0",children:[e.parsedTask&&(0,a.jsx)("button",{onClick:async()=>{var t,a,s,l;if(!C.current.has(e.id)&&e.parsedTask){if("disabled"!==((null===(t=e.config)||void 0===t?void 0:t.streamMode)||"disabled")){if(!(await g().fire({title:"立即保存",text:"立即保存将跳过后续片段下载，直接完成下载。文件将包含目前已下载的片段。\n\n是否继续？",icon:"warning",showCancelButton:!0,confirmButtonText:"确定",cancelButtonText:"取消",customClass:{container:"z-[11000]"}})).isConfirmed)return;if(null===(a=e.completeStreamRef)||void 0===a?void 0:a.current)try{y(t=>t.map(t=>t.id===e.id?{...t,isEarlyCompleting:!0}:t)),e.abortController&&e.abortController.abort(),await new Promise(e=>setTimeout(e,100)),await e.completeStreamRef.current(),y(t=>t.map(t=>t.id===e.id?{...t,status:"completed",progress:100,current:t.total,abortController:void 0}:t)),setTimeout(()=>{y(t=>t.map(t=>t.id===e.id&&"completed"===t.status?{...t,isEarlyCompleting:!1}:t))},1e3)}catch(t){console.error("完成下载失败:",t),g().fire({icon:"error",title:"完成下载失败",text:t instanceof Error?t.message:String(t)}),y(t=>t.map(t=>t.id===e.id?{...t,isEarlyCompleting:!1}:t))}else g().fire({icon:"error",title:"无法完成下载",text:"流未初始化"});return}C.current.add(e.id);try{let t;let{mergeSegments:a,triggerDownload:n}=await Promise.resolve().then(r.bind(r,2038)),{transmuxTSToMP4:o}=await Promise.resolve().then(r.bind(r,9309)),{startSegment:d,endSegment:i}=e.parsedTask.rangeDownload,c=(null===(s=e.config)||void 0===s?void 0:s.downloadType)||"TS",u=[];for(let t=d-1;t<i;t++){let r=null===(l=e.parsedTask.downloadedSegments)||void 0===l?void 0:l.get(t);r&&u.push(r)}if(0===u.length){alert("没有可合并的片段数据！");return}if("MP4"===c){let r=(e.parsedTask.durationSecond||0)/(i-d+1)*u.length;t=o(u,r)}else t=a(u,c);n(t,e.parsedTask.title,c)}catch(e){alert("合并下载失败："+(e instanceof Error?e.message:e))}finally{setTimeout(()=>C.current.delete(e.id),2e3)}}},className:"p-2 hover:bg-green-100 dark:hover:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg transition-colors",title:(null===(t=e.config)||void 0===t?void 0:t.streamMode)==="disabled"?"立即合并已下载片段并导出文件":"立即保存（将跳过后续片段下载，直接完成下载）",children:(0,a.jsx)(l.Z,{className:"h-4 w-4"})}),e.parsedTask&&(0,a.jsx)("button",{onClick:()=>k(e.id),className:"p-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors",title:"查看片段",children:(0,a.jsx)(i.Z,{className:"h-4 w-4"})}),"downloading"===e.status?(0,a.jsx)("button",{onClick:()=>D(e.id),className:"p-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors",title:"暂停",children:(0,a.jsx)(d.Z,{className:"h-4 w-4"})}):"waiting"===e.status||"paused"===e.status||"error"===e.status?(0,a.jsx)("button",{onClick:()=>R(e.id),className:"p-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors",title:"开始/继续",children:(0,a.jsx)(o.Z,{className:"h-4 w-4"})}):null,(0,a.jsx)("button",{onClick:()=>P(e.id),className:"p-2 hover:bg-red-100 dark:hover:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg transition-colors",title:"删除",children:(0,a.jsx)(c.Z,{className:"h-4 w-4"})})]})]}),(0,a.jsxs)("div",{className:"space-y-1",children:[(0,a.jsxs)("div",{className:"flex items-center justify-between text-sm",children:[(0,a.jsx)("span",{className:"text-gray-700 dark:text-gray-300",children:"completed"===e.status?"已完成":"merging"===e.status?"合并中":"downloading"===e.status?"下载中":"error"===e.status?"下载失败":"paused"===e.status?"已暂停":"等待中"}),(0,a.jsxs)("span",{className:"text-gray-600 dark:text-gray-400",children:[Math.floor(e.progress),"%"]})]}),(0,a.jsx)("div",{className:"w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2",children:(0,a.jsx)("div",{className:"bg-green-600 h-2 rounded-full transition-all duration-300",style:{width:"".concat(e.progress,"%")}})}),(0,a.jsx)("div",{className:"flex items-center justify-between text-xs text-gray-500 dark:text-gray-400",children:(0,a.jsxs)("span",{children:[e.current," / ",e.total," 片段"]})})]})]},e.id)})})]})}),(0,a.jsx)(m.Z,{isOpen:p,onClose:()=>v(!1),onAddTask:e=>{E(e),v(!1)},initialUrl:"",initialTitle:""}),w&&(()=>{var e,t;let r=h.find(e=>e.id===w);return(null==r?void 0:r.parsedTask)?(0,a.jsx)(b,{task:r.parsedTask,isOpen:!0,onClose:()=>k(null),taskExists:()=>h.some(e=>e.id===w),concurrency:(null===(e=r.config)||void 0===e?void 0:e.concurrency)||6,streamMode:(null===(t=r.config)||void 0===t?void 0:t.streamMode)||"disabled",onSegmentRetry:e=>{y(e=>e.map(e=>{if(e.id===w&&e.parsedTask){let{startSegment:r,endSegment:a}=e.parsedTask.rangeDownload,s=0,l=0;for(let t=r-1;t<a;t++)"success"===e.parsedTask.finishList[t].status?s++:"error"===e.parsedTask.finishList[t].status&&l++;let n=a-r+1,o=s/n*100;if(0===l&&s===n){var t;if(C.current.has(w))return console.log("⚠️ 任务 ".concat(w," 已经在合并中，跳过")),e;C.current.add(w),console.log("✅ 范围内所有 ".concat(n," 个片段重试成功！downloadedSegments 有 ").concat((null===(t=e.parsedTask.downloadedSegments)||void 0===t?void 0:t.size)||0," 个片段，自动触发合并保存...")),k(null),y(e=>e.map(e=>e.id===w?{...e,abortController:void 0}:e)),setTimeout(()=>{R(w),setTimeout(()=>{C.current.delete(w)},3e3)},500)}return{...e,current:s,progress:o}}return e}))}}):null})()]}):null},p=(0,s.memo)(()=>{let[e,t]=(0,s.useState)(!1);return(0,s.useEffect)(()=>{let e=()=>t(!0);return window.addEventListener("showDownloadManager",e),()=>{window.removeEventListener("showDownloadManager",e)}},[]),(0,a.jsx)(y,{isOpen:e,onClose:()=>t(!1)})})},9038:function(e,t,r){"use strict";r.d(t,{NavigationLoadingIndicator:function(){return n}});var a=r(7569),s=r(5663),l=r(7703);function n(){let{isLoading:e}=(0,l.w)(),[t,r]=(0,s.useState)(!1),[n,o]=(0,s.useState)(!1);return((0,s.useEffect)(()=>{e?(r(!0),o(!0)):(o(!1),r(!1))},[e]),t)?(0,a.jsx)(a.Fragment,{children:(0,a.jsx)("div",{className:"fixed inset-0 z-[50] bg-white/90 backdrop-blur-xl transition-opacity duration-500 dark:bg-gray-900/90",style:{opacity:n?1:0,pointerEvents:n?"auto":"none"},children:(0,a.jsxs)("div",{className:"flex items-center justify-center h-full",children:[(0,a.jsx)("div",{className:"relative",children:(0,a.jsxs)("div",{className:"relative w-20 h-20",children:[(0,a.jsxs)("div",{className:"absolute inset-0 bg-gradient-to-br from-yellow-300 to-yellow-500 dark:from-yellow-400 dark:to-yellow-600 rounded-full shadow-lg shadow-yellow-500/30 animate-bounce",style:{animationDuration:"2s"},children:[(0,a.jsx)("div",{className:"absolute top-3 left-4 w-2 h-2 bg-yellow-600/40 dark:bg-yellow-700/40 rounded-full"}),(0,a.jsx)("div",{className:"absolute top-6 right-5 w-1.5 h-1.5 bg-yellow-600/40 dark:bg-yellow-700/40 rounded-full"}),(0,a.jsx)("div",{className:"absolute bottom-4 left-6 w-1 h-1 bg-yellow-600/40 dark:bg-yellow-700/40 rounded-full"})]}),(0,a.jsx)("div",{className:"absolute -bottom-1 -left-1 w-2 h-2 bg-yellow-400 dark:bg-yellow-300 rounded-full animate-spin",style:{animationDuration:"4s",animationDirection:"reverse"},children:(0,a.jsx)("div",{className:"absolute inset-0 flex items-center justify-center",children:(0,a.jsx)("div",{className:"w-0.5 h-0.5 bg-yellow-600 dark:bg-yellow-500 rounded-full"})})})]})}),(0,a.jsxs)("div",{className:"absolute mt-32 text-gray-700 dark:text-gray-300 font-medium text-sm",children:[(0,a.jsx)("span",{className:"animate-pulse",children:"\uD83C\uDF19"}),(0,a.jsx)("span",{className:"animate-pulse",style:{animationDelay:"0.2s"},children:" 月亮正在努力加载中"}),(0,a.jsx)("span",{className:"animate-pulse",style:{animationDelay:"0.4s"},children:" ✨"})]})]})})}):null}},7703:function(e,t,r){"use strict";r.d(t,{NavigationLoadingProvider:function(){return d},w:function(){return o}});var a=r(7569),s=r(1383),l=r(5663);let n=(0,l.createContext)({isLoading:!1,startLoading:()=>{},stopLoading:()=>{}}),o=()=>(0,l.useContext)(n);function d(e){let{children:t}=e,[r,o]=(0,l.useState)(!1),d=(0,s.usePathname)(),i=(0,s.useSearchParams)(),c=(0,l.useCallback)(()=>{o(!0)},[]),u=(0,l.useCallback)(()=>{o(!1)},[]);return(0,l.useEffect)(()=>{let e=setTimeout(()=>{o(!1)},300);return()=>clearTimeout(e)},[d,i]),(0,a.jsx)(n.Provider,{value:{isLoading:r,startLoading:c,stopLoading:u},children:t})}},6766:function(e,t,r){"use strict";r.d(t,{default:function(){return l}});var a=r(5663),s=r(2846);function l(){return(0,a.useEffect)(()=>{let e=(0,s.detectStreamingCapability)();"service-worker"===e.method?fetch("/sw.js",{method:"HEAD"}).then(e=>{if(!e.ok)throw Error("Service Worker 文件不存在");return navigator.serviceWorker.register("/sw.js",{scope:"/",updateViaCache:"none"})}).then(e=>{console.log("✅ Service Worker 注册成功，支持完整的边下边存功能"),e.addEventListener("updatefound",()=>{console.log("Service Worker 发现更新")})}).catch(e=>{console.warn("⚠️ Service Worker 注册失败，将使用降级方案:",e.message)}):"file-system-access"===e.method?console.log("✅ 支持 File System Access API，可以使用边下边存功能（Chrome/Edge）"):"blob"===e.method&&console.warn("⚠️ 当前环境使用 Blob 降级方案\n"+"限制: ".concat(e.limitation,"\n")+"建议：使用 Chrome/Edge 浏览器或本地部署版本以获得更好的下载体验")},[]),null}},8959:function(e,t,r){"use strict";r.d(t,{SiteProvider:function(){return o},W:function(){return n}});var a=r(7569),s=r(5663);let l=(0,s.createContext)({siteName:"MoonTV",announcement:"本网站仅提供影视信息搜索服务，所有内容均来自第三方网站。本站不存储任何视频资源，不对任何内容的准确性、合法性、完整性负责。"}),n=()=>(0,s.useContext)(l);function o(e){let{children:t,siteName:r,announcement:s}=e;return(0,a.jsx)(l.Provider,{value:{siteName:r,announcement:s},children:t})}},2370:function(e,t,r){"use strict";r.d(t,{default:function(){return s}});var a=r(5663);function s(){return(0,a.useEffect)(()=>{(async()=>{try{let e=await fetch("/api/admin/subscription",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"check"})});if(e.ok){let t=await e.json();t.updated?console.log("订阅自动更新已执行",t):console.log("订阅自动更新未执行:",t.reason)}else console.warn("订阅自动更新检查失败:",e.status)}catch(e){console.error("订阅自动更新检查异常:",e)}})()},[]),null}},8423:function(e,t,r){"use strict";r.d(t,{ThemeProvider:function(){return l}});var a=r(7569),s=r(3411);function l(e){let{children:t,...r}=e;return(0,a.jsx)(s.f,{attribute:"class",defaultTheme:"system",enableSystem:!0,...r,children:t})}r(5663)},4768:function(e,t,r){"use strict";r.d(t,{T:function(){return i}});var a=r(7569),s=r(2358),l=r(2167),n=r(1383),o=r(3411),d=r(5663);function i(){let[e,t]=(0,d.useState)(!1),{setTheme:r,resolvedTheme:i}=(0,o.F)(),c=(0,n.usePathname)(),u=e=>{let t=document.querySelector('meta[name="theme-color"]');if(t)t.setAttribute("content","dark"===e?"#0c111c":"#f9fbfe");else{let t=document.createElement("meta");t.name="theme-color",t.content="dark"===e?"#0c111c":"#f9fbfe",document.head.appendChild(t)}};return((0,d.useEffect)(()=>{t(!0)},[]),(0,d.useEffect)(()=>{e&&u(i)},[e,i,c]),e)?(0,a.jsx)("button",{onClick:()=>{let e="dark"===i?"light":"dark";if(u(e),!document.startViewTransition){r(e);return}document.startViewTransition(()=>{r(e)})},className:"w-10 h-10 p-2 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200/50 dark:text-gray-300 dark:hover:bg-gray-700/50 transition-colors","aria-label":"Toggle theme",children:"dark"===i?(0,a.jsx)(s.Z,{className:"w-full h-full"}):(0,a.jsx)(l.Z,{className:"w-full h-full"})}):(0,a.jsx)("div",{className:"w-10 h-10"})}},1753:function(e,t,r){"use strict";r.d(t,{default:function(){return s}});var a=r(5663);function s(){return(0,a.useEffect)(()=>{(async()=>{try{let e=await fetch("/api/user/online",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({}),cache:"no-store"});if(!e.ok){let t=await e.text().catch(()=>"");console.error("更新用户在线时间失败",{status:e.status,statusText:e.statusText,body:t})}}catch(e){console.error("调用更新用户在线时间接口出错",e)}})()},[]),null}},2846:function(e,t,r){"use strict";function a(){return"showSaveFilePicker"in window&&"function"==typeof window.showSaveFilePicker}async function s(e,t){if(!a())return null;try{let t=".ts";e.toLowerCase().endsWith(".mp4")?t=".mp4":e.toLowerCase().endsWith(".ts")&&(t=".ts");let r={suggestedName:e,types:[{description:"Video files",accept:{"video/*":[t]}}]},a=await window.showSaveFilePicker(r),s=await a.createWritable();return new WritableStream({async write(e){await s.write(e)},async close(){await s.close()},async abort(e){await s.abort(e)}})}catch(e){if("AbortError"===e.name)return console.log("用户取消了文件保存"),null;return console.error("File System Access API 错误:",e),null}}function l(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:524288e3,r=[],a=0;return new WritableStream({write(e){if((a+=e.length)>t)throw Error("文件大小超过限制 (".concat(Math.round(t/1024/1024),"MB)，")+"请使用支持 Service Worker 或 File System Access API 的浏览器");r.push(e)},close(){let t=new Blob(r,{type:"application/octet-stream"}),a=URL.createObjectURL(t),s=document.createElement("a");s.href=a,s.download=e,s.style.display="none",document.body.appendChild(s),s.click(),setTimeout(()=>{document.body.removeChild(s),URL.revokeObjectURL(a)},100),r.length=0},abort(e){console.error("下载被中止:",e),r.length=0}})}async function n(e,t){if(a()){console.log("使用 File System Access API");let r=await s(e,t);if(r)return r}if("serviceWorker"in navigator&&navigator.serviceWorker.controller&&window.isSecureContext)throw console.log("Service Worker 可用，尝试使用流式下载"),Error("USE_SERVICE_WORKER");if(console.warn("当前环境不支持流式下载，使用 Blob 降级方案（可能有内存限制）"),t&&t>524288e3&&!confirm("文件较大，可能导致内存不足。建议使用 Chrome/Edge 浏览器或本地部署版本。\n\n是否继续下载？"))throw Error("用户取消下载");return l(e)}function o(){let e=window.location.hostname.includes("pages.dev")||window.location.hostname.includes(".workers.dev")||window.location.hostname.includes(".vercel.app")||window.location.hostname.includes(".netlify.app");return a()?{supported:!0,method:"file-system-access"}:"serviceWorker"in navigator&&window.isSecureContext&&!e?{supported:!0,method:"service-worker"}:{supported:!0,method:"blob",limitation:"文件大小限制约 500MB，不支持超大文件"}}r.r(t),r.d(t,{createAdaptiveWriteStream:function(){return n},createBlobWriteStream:function(){return l},createFileSystemWriteStream:function(){return s},detectStreamingCapability:function(){return o},supportsFileSystemAccess:function(){return a}})},4073:function(e,t,r){"use strict";var a,s;r.d(t,{Df:function(){return n},n4:function(){return d},qu:function(){return a},we:function(){return l}});let l="3.8.2";async function n(){try{let e=await o("https://raw.githubusercontent.com/Stardm0/MoonTV/main/VERSION.txt");if(e)return d(e);let t=await o(["https://raw.githubusercontent.com/Stardm0/MoonTV/main/VERSION.txt"][1]);if(t)return d(t);return"fetch_failed"}catch(e){return console.error("版本检查失败:",e),"fetch_failed"}}async function o(e){try{let t=new AbortController,r=setTimeout(()=>t.abort(),5e3),a=Date.now(),s=e.includes("?")?"".concat(e,"&_t=").concat(a):"".concat(e,"?_t=").concat(a),l=await fetch(s,{method:"GET",signal:t.signal,headers:{"Content-Type":"text/plain"}});if(clearTimeout(r),!l.ok)throw Error("HTTP error! status: ".concat(l.status));return(await l.text()).trim()}catch(t){return console.warn("从 ".concat(e," 获取版本信息失败:"),t),null}}function d(e){if(e===l)return"no_update";try{let t=l.split(".").map(e=>{let t=parseInt(e,10);if(isNaN(t)||t<0)throw Error("无效的版本号格式: ".concat(l));return t}),r=e.split(".").map(t=>{let r=parseInt(t,10);if(isNaN(r)||r<0)throw Error("无效的版本号格式: ".concat(e));return r}),a=e=>{if(e.length>=3)return e.slice(0,3);{let t=[...e];for(;t.length<3;)t.push(0);return t}},s=a(t),n=a(r);for(let e=0;e<3;e++){if(n[e]>s[e])return"has_update";if(n[e]<s[e])break}return"no_update"}catch(t){return console.error("版本号比较失败:",t),e!==l?"has_update":"no_update"}}(s=a||(a={})).HAS_UPDATE="has_update",s.NO_UPDATE="no_update",s.FETCH_FAILED="fetch_failed"},9966:function(){}},function(e){e.O(0,[606,245,705,11,886,108,728,325,969,669,429,333,314,133,744],function(){return e(e.s=1721)}),_N_E=e.O()}]);
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+  [185, 846],
+  {
+    1721: function (e, t, r) {
+      Promise.resolve().then(r.t.bind(r, 6792, 23)),
+        Promise.resolve().then(r.t.bind(r, 9966, 23)),
+        Promise.resolve().then(r.t.bind(r, 8889, 23)),
+        Promise.resolve().then(r.bind(r, 1295)),
+        Promise.resolve().then(r.bind(r, 2888)),
+        Promise.resolve().then(r.bind(r, 3593)),
+        Promise.resolve().then(r.bind(r, 9038)),
+        Promise.resolve().then(r.bind(r, 7703)),
+        Promise.resolve().then(r.bind(r, 6766)),
+        Promise.resolve().then(r.bind(r, 8959)),
+        Promise.resolve().then(r.bind(r, 2370)),
+        Promise.resolve().then(r.bind(r, 8423)),
+        Promise.resolve().then(r.bind(r, 1753));
+    },
+    1295: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        default: function () {
+          return Y;
+        },
+      });
+      var a = r(7569),
+        s = r(1383),
+        l = r(5663),
+        n = r(3225),
+        o = r(9477),
+        d = r(1320),
+        i = r(198),
+        c = r(7885),
+        u = r(6662),
+        g = r(6957),
+        x = r(5524),
+        m = r(3908),
+        h = r(7703),
+        f = (0, l.memo)((e) => {
+          let { activePath: t } = e,
+            r = (0, s.usePathname)(),
+            { startLoading: f } = (0, h.w)(),
+            b = null != t ? t : r,
+            [y, p] = (0, l.useState)([
+              { icon: n.Z, label: '首页', href: '/' },
+              { icon: o.Z, label: '搜索', href: '/search' },
+              { icon: d.Z, label: '电影', href: '/douban?type=movie' },
+              { icon: i.Z, label: '剧集', href: '/douban?type=tv' },
+              { icon: c.Z, label: '动漫', href: '/douban?type=anime' },
+              { icon: u.Z, label: '综艺', href: '/douban?type=show' },
+            ]),
+            [v, w] = (0, l.useState)(!1),
+            [k, j] = (0, l.useState)(!1);
+          (0, l.useEffect)(() => {
+            j(!0);
+            {
+              let e = localStorage.getItem('simpleMode');
+              null !== e && w(JSON.parse(e));
+            }
+          }, []),
+            (0, l.useEffect)(() => {
+              (0, m.V)().then((e) => {
+                e.length > 0 &&
+                  p((e) => [
+                    ...e,
+                    { icon: g.Z, label: '自定义', href: '/douban?type=custom' },
+                  ]);
+              });
+            }, []);
+          let N = (e) => {
+            var t;
+            let r =
+                null === (t = e.match(/type=([^&]+)/)) || void 0 === t
+                  ? void 0
+                  : t[1],
+              a = decodeURIComponent(b);
+            return (
+              a === decodeURIComponent(e) ||
+              (a.startsWith('/douban') && a.includes('type='.concat(r)))
+            );
+          };
+          return (0, a.jsx)('nav', {
+            className:
+              'md:hidden fixed left-0 right-0 z-[600] bg-white/90 backdrop-blur-xl border-t border-gray-200/50 overflow-hidden dark:bg-gray-900/80 dark:border-gray-700/50',
+            style: {
+              bottom: 0,
+              paddingBottom: 'env(safe-area-inset-bottom)',
+              minHeight: 'calc(3.5rem + env(safe-area-inset-bottom))',
+            },
+            children: (0, a.jsx)('ul', {
+              className: 'flex items-center overflow-x-auto scrollbar-hide',
+              children: y.map((e) => {
+                let t = N(e.href);
+                return k && (!v || ['/', '/search'].includes(e.href))
+                  ? (0, a.jsx)(
+                      'li',
+                      {
+                        className: 'flex-shrink-0',
+                        style: {
+                          width: v ? '50vw' : '20vw',
+                          minWidth: v ? '50vw' : '20vw',
+                        },
+                        children: (0, a.jsxs)(x.default, {
+                          href: e.href,
+                          className:
+                            'flex flex-col items-center justify-center w-full h-14 gap-1 text-xs',
+                          onClick: (e) => {
+                            t || f();
+                          },
+                          children: [
+                            (0, a.jsx)(e.icon, {
+                              className: 'h-6 w-6 '.concat(
+                                t
+                                  ? 'text-green-600 dark:text-green-400'
+                                  : 'text-gray-500 dark:text-gray-400'
+                              ),
+                            }),
+                            (0, a.jsx)('span', {
+                              className: t
+                                ? 'text-green-600 dark:text-green-400'
+                                : 'text-gray-600 dark:text-gray-300',
+                              children: e.label,
+                            }),
+                          ],
+                        }),
+                      },
+                      e.href
+                    )
+                  : null;
+              }),
+            }),
+          });
+        }),
+        b = r(8448),
+        y = r(7818);
+      function p() {
+        return (0, a.jsx)('button', {
+          onClick: () => window.history.back(),
+          className:
+            'w-10 h-10 p-2 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200/50 dark:text-gray-300 dark:hover:bg-gray-700/50 transition-colors',
+          'aria-label': 'Back',
+          children: (0, a.jsx)(y.Z, { className: 'w-full h-full' }),
+        });
+      }
+      var v = r(8959),
+        w = r(4768),
+        k = r(7764),
+        j = r(4122),
+        N = r(5240),
+        S = r(7565),
+        C = r(4819),
+        T = r(131),
+        E = r(1210),
+        I = r(898),
+        P = r(1413),
+        D = r(8091),
+        R = r(4507),
+        O = r(4073),
+        M = r(772),
+        Z = r(4660),
+        L = r(3043),
+        U = r(1111),
+        A = r(7308);
+      let _ = [
+          {
+            version: '3.8.2',
+            date: '2026-01-04',
+            added: [
+              '导航栏加入下载管理页面',
+              '视频下载中可查看片段下载状况: 可手动进行错误重试',
+              '可设置自动弹幕获取尝试次数',
+              '普通模式下载可在下载过程中立即存储: 存储已经下载的片段，不影响正常下载过程',
+            ],
+            changed: [
+              '导航栏框架分离: 切换导航页面时不再刷新',
+              '完善边下边存功能: 可手动选择三种下载模式',
+              '完善mp4转码功能',
+            ],
+            fixed: [
+              '修复移动端边下边存文件后缀错误',
+              '修复登录页面导航栏错误加载',
+            ],
+          },
+          {
+            version: '3.7.0',
+            date: '2026-01-01',
+            added: [
+              '加入M3U8视频在线下载功能',
+              '支持多线程并发下载（1-16线程可调）',
+              '支持TS和MP4格式转换',
+              '支持范围下载（指定起始和结束片段）',
+              '支持AES-128加密视频解密',
+              '支持边下边存功能（解决大文件内存占用问题）',
+              '下载任务管理（暂停/继续/删除）',
+              '批量操作（全部开始/全部暂停/清空全部）',
+              '本地存储任务持久化',
+              '自动保留用户配置偏好（格式、线程数、边下边存）',
+            ],
+            changed: ['播放页面添加下载视频按钮', '显示用户最后在线时间'],
+            fixed: ['修复历史影片重复保存问题', '修复设置重置不完全的问题'],
+          },
+          {
+            version: '3.6.2',
+            date: '2025-12-09',
+            added: ['添加默认优选换源开关'],
+            changed: [
+              '优化弹幕自动加载',
+              '默认为空壳项目(无内置源和弹幕)',
+              '优化优选换源加载形式',
+            ],
+            fixed: ['OrionTV本地存储播放无源'],
+          },
+          {
+            version: '3.5.7',
+            date: '2025-12-06',
+            added: ['自动弹幕加载功能', '订阅配置功能'],
+            changed: [
+              '优化弹幕加载',
+              '使用artplayer弹幕库',
+              '弹幕加载状态提示',
+            ],
+            fixed: [],
+          },
+          {
+            version: '3.5.0',
+            date: '2025-11-30',
+            added: ['加入视频播放弹幕功能'],
+            changed: [
+              '可手动搜索弹幕源',
+              '可控制弹幕的显示行数',
+              '可控制弹幕的显示密度',
+              '分页渲染搜索结果',
+            ],
+            fixed: [
+              '修复CF数据导出的不完整',
+              '修复docker非本地存储管理员配置的读取修改',
+            ],
+          },
+          {
+            version: '3.4.2',
+            date: '2025-10-21',
+            added: ['添加数据迁移功能', '加入卡片右键长按选项卡'],
+            changed: [
+              '调整选项卡收藏按钮显示逻辑',
+              '微调UI及收藏按钮显示逻辑',
+              '优化移动端卡片长按复制问题',
+              '微调播放页面UI',
+              '简化调整播放页面',
+              '调整分组配置弹窗UI',
+              '微调视频源配置UI',
+            ],
+            fixed: [
+              '修复CF数据迁入问题',
+              '修复本地存储搜索',
+              '修复本地存储TVBox接口',
+            ],
+          },
+          {
+            version: '3.3.0',
+            date: '2025-10-16',
+            added: [
+              '用户组分配视频源功能',
+              '视频源配置支持批量操作',
+              '添加加载动画',
+            ],
+            changed: [
+              '非本地存储默认关闭TVBox',
+              '简化明暗模式变化',
+              '优化 docker 构建流程',
+            ],
+            fixed: ['非本地模式视频源配置初始化'],
+          },
+          {
+            version: '3.2.0',
+            date: '2025-10-04',
+            added: ['添加Docker镜像自动构建工作流', '搜索建议添加开关控制'],
+            changed: [
+              '优化搜索设置UI布局',
+              '调整搜索建议排序逻辑',
+              '优化搜索参数设置逻辑',
+              '调整并简化播放页面UI',
+              '调整移动端播放页面UI',
+              '微调站点配置UI',
+              '微调TVBox配置UI',
+            ],
+            fixed: [],
+          },
+          {
+            version: '3.1.0',
+            date: '2025-10-02',
+            added: [],
+            changed: [
+              'TVBox的设置改为在管理面板中，原位置显示状态及其链接',
+              '修改桌面端导航栏布局为顶栏',
+              '桌面搜索页改为顶栏搜索框',
+            ],
+            fixed: ['卡片显示详情链接跳转'],
+          },
+          {
+            version: '3.0.0',
+            date: '2025-09-30',
+            added: ['添加TVBox配置接口', '添加对Selene的兼容'],
+            changed: [],
+            fixed: ['修复首页动漫接口引起的崩溃', '修复docker播放刷新崩溃问题'],
+          },
+          {
+            version: '2.9.1',
+            date: '2025-09-19',
+            added: [],
+            changed: [
+              '搜索栏左侧源配置获取采用缓存',
+              '优化搜索结果的筛选组件UI',
+              '搜索结果区分为包含与不包含搜索词的结果',
+              '删除播放存储无用缓存的逻辑',
+              '开放分类配置中的添加分类',
+            ],
+            fixed: [
+              '缓存失效时播放加载源不一致',
+              '修复d1数据库管理配置保存报错',
+            ],
+          },
+          {
+            version: '2.8.4',
+            date: '2025-09-14',
+            added: ['添加搜索结果的排序选择'],
+            changed: ['优化搜索逻辑'],
+            fixed: ['修复对OrionTV的兼容', '修复d1数据库继续观看无法收藏'],
+          },
+          {
+            version: '2.8.0',
+            date: '2025-09-09',
+            added: ['添加cf部署', '添加d1支持'],
+            changed: [],
+            fixed: [],
+          },
+          {
+            version: '2.7.6',
+            date: '2025-09-04',
+            added: [],
+            changed: [
+              '调整搜索超时时间可选范围，及默认值',
+              '添加docker部署支持',
+            ],
+            fixed: ['修复播放中搜索超时时间不生效'],
+          },
+          {
+            version: '2.7.4',
+            date: '2025-08-31',
+            added: [],
+            changed: [
+              '可自定义搜索超时时间',
+              '播放时的搜索播放源超时时间同上',
+              '细化失败源原因的展示',
+            ],
+            fixed: ['修复播放搜索无结果也缓存在localstorage'],
+          },
+          {
+            version: '2.7.0',
+            date: '2025-08-30',
+            added: ['搜索添加对源的选择功能'],
+            changed: ['优化筛选', '简洁模式跳过豆瓣数据加载'],
+            fixed: [],
+          },
+          {
+            version: '2.6.4',
+            date: '2025-08-30',
+            added: [],
+            changed: ['优化搜索:调整超时时间(获取首页超时时间过长)'],
+            fixed: ['修复播放缓存key不唯一', '修复聚合结果不准确'],
+          },
+          {
+            version: '2.6.1',
+            date: '2025-08-29',
+            added: ['添加简洁模式'],
+            changed: [],
+            fixed: [],
+          },
+          {
+            version: '2.5.1',
+            date: '2025-08-28',
+            added: [],
+            changed: [
+              '优化收藏状态检测,减少数据库请求',
+              '优化搜索筛选展示逻辑',
+              '边缘点击不触发播放',
+            ],
+            fixed: ['修复动漫番剧详情页面跳转'],
+          },
+          {
+            version: '2.4.7',
+            date: '2025-08-26',
+            added: ['搜索结果添加筛选功能'],
+            changed: [],
+            fixed: ['主页展示评分', '搜索结果展示年份'],
+          },
+          {
+            version: '2.4.0',
+            date: '2025-08-25',
+            added: [],
+            changed: ['站点配置可直接修改', '进一步优化搜索速度'],
+            fixed: ['修复搜索结果只能打开同一个'],
+          },
+          {
+            version: '2.3.6',
+            date: '2025-08-24',
+            added: [],
+            changed: ['优化播放优选换源'],
+            fixed: ['修复播放视频源缓存'],
+          },
+          {
+            version: '2.3.4',
+            date: '2025-08-24',
+            added: [],
+            changed: [],
+            fixed: [
+              '修复管理功能不生效',
+              '修复netlify无法部署',
+              '修复非本地数据库初始化',
+            ],
+          },
+          {
+            version: '2.3.1',
+            date: '2025-08-23',
+            added: [],
+            changed: [],
+            fixed: [
+              '修复配置文件不生效',
+              '修复无config.json文件报错',
+              '修复失败源不准确',
+            ],
+          },
+          {
+            version: '2.2.8',
+            date: '2025-08-22',
+            added: [],
+            changed: ['转移视频源优选按钮至播放页面'],
+            fixed: ['优化播放换源', '优化失败源显示逻辑', '修复搜索路由问题'],
+          },
+          {
+            version: '2.2.1',
+            date: '2025-08-22',
+            added: ['搜索结果展示失败源'],
+            changed: ['移除无效代理Cors Anywhere'],
+            fixed: ['修复一次搜索两个请求的问题'],
+          },
+          {
+            version: '2.1.0',
+            date: '2025-08-21',
+            added: ['支持流式搜索搜索模式', '搜索结果展示视频源'],
+            changed: ['重新支持localstorage', '独立缓存播放源'],
+            fixed: ['修复视频播放缓存逻辑问题'],
+          },
+          {
+            version: '2.0.1',
+            date: '2025-08-13',
+            added: [],
+            changed: ['版本检查和变更日志请求 Github'],
+            fixed: ['微调管理面板样式'],
+          },
+          {
+            version: '2.0.0',
+            date: '2025-08-13',
+            added: [
+              '支持配置文件在线配置和编辑',
+              '搜索页搜索框实时联想',
+              '去除对 localstorage 模式的支持',
+            ],
+            changed: ['播放记录删除按钮改为垃圾桶图标以消除歧义'],
+            fixed: ['限制设置面板的最大长度，防止超出视口'],
+          },
+          {
+            version: '1.1.1',
+            date: '2025-08-12',
+            added: [],
+            changed: ['修正 zwei 提供的 cors proxy 地址', '移除废弃代码'],
+            fixed: ['[运维] docker workflow release 日期使用东八区日期'],
+          },
+          {
+            version: '1.1.0',
+            date: '2025-08-12',
+            added: ['每日新番放送功能，展示每日新番放送的番剧'],
+            changed: [],
+            fixed: ['修复远程 CHANGELOG 无法提取变更内容的问题'],
+          },
+          {
+            version: '1.0.5',
+            date: '2025-08-12',
+            added: [],
+            changed: ['实现基于 Git 标签的自动 Release 工作流'],
+            fixed: [],
+          },
+          {
+            version: '1.0.4',
+            date: '2025-08-11',
+            added: ['优化版本管理工作流，实现单点修改'],
+            changed: [
+              '版本号现在从 CHANGELOG 自动提取，无需手动维护 VERSION.txt',
+            ],
+            fixed: [],
+          },
+          {
+            version: '1.0.3',
+            date: '2025-08-11',
+            added: [],
+            changed: ['升级播放器 Artplayer 至版本 5.2.5'],
+            fixed: [],
+          },
+          {
+            version: '1.0.2',
+            date: '2025-08-11',
+            added: [],
+            changed: [
+              '版本号比较机制恢复为数字比较，仅当最新版本大于本地版本时才认为有更新',
+              '[运维] 自动替换 version.ts 中的版本号为 VERSION.txt 中的版本号',
+            ],
+            fixed: [],
+          },
+          {
+            version: '1.0.1',
+            date: '2025-08-11',
+            added: [],
+            changed: [],
+            fixed: ['修复版本检查功能，只要与最新版本号不一致即认为有更新'],
+          },
+          {
+            version: '1.0.0',
+            date: '2025-08-10',
+            added: [
+              '基于 Semantic Versioning 的版本号机制',
+              '版本信息面板，展示本地变更日志和远程更新日志',
+            ],
+            changed: [],
+            fixed: [],
+          },
+        ],
+        F = (e) => {
+          let { isOpen: t, onClose: r } = e,
+            [s, n] = (0, l.useState)(!1),
+            [o, d] = (0, l.useState)([]),
+            [i, c] = (0, l.useState)(!1),
+            [u, g] = (0, l.useState)(''),
+            [x, m] = (0, l.useState)(!1);
+          (0, l.useEffect)(() => (n(!0), () => n(!1)), []),
+            (0, l.useEffect)(() => {
+              t && h();
+            }, [t]);
+          let h = async () => {
+              try {
+                let e = await fetch(
+                  'https://raw.githubusercontent.com/Stardm0/MoonTV/main/CHANGELOG'
+                );
+                if (e.ok) {
+                  let t = await e.text(),
+                    r = f(t);
+                  if ((d(r), r.length > 0)) {
+                    let e = r[0];
+                    g(e.version), c((0, O.n4)(e.version) === O.qu.HAS_UPDATE);
+                  }
+                } else
+                  console.error(
+                    '获取远程变更日志失败:',
+                    e.status,
+                    e.statusText
+                  );
+              } catch (e) {
+                console.error('获取远程变更日志失败:', e);
+              }
+            },
+            f = (e) => {
+              let t = e.split('\n'),
+                r = [],
+                a = null,
+                s = null,
+                l = !1;
+              for (let e of t) {
+                let t = e.trim(),
+                  n = t.match(/^## \[([\d.]+)\] - (\d{4}-\d{2}-\d{2})$/);
+                if (n) {
+                  a && r.push(a),
+                    (a = {
+                      version: n[1],
+                      date: n[2],
+                      added: [],
+                      changed: [],
+                      fixed: [],
+                    }),
+                    (s = null),
+                    (l = !0);
+                  continue;
+                }
+                if (l && a) {
+                  if ('### Added' === t) {
+                    s = 'added';
+                    continue;
+                  }
+                  if ('### Changed' === t) {
+                    s = 'changed';
+                    continue;
+                  }
+                  if ('### Fixed' === t) {
+                    s = 'fixed';
+                    continue;
+                  }
+                  if (t.startsWith('- ') && s) {
+                    let e = t.substring(2);
+                    'added' === s
+                      ? a.added.push(e)
+                      : 'changed' === s
+                      ? a.changed.push(e)
+                      : 'fixed' === s && a.fixed.push(e);
+                  }
+                }
+              }
+              return a && r.push(a), r;
+            },
+            y = function (e) {
+              let t =
+                  arguments.length > 1 &&
+                  void 0 !== arguments[1] &&
+                  arguments[1],
+                r =
+                  arguments.length > 2 &&
+                  void 0 !== arguments[2] &&
+                  arguments[2],
+                s = r && i && e.version === u;
+              return (0, a.jsxs)(
+                'div',
+                {
+                  className: 'p-4 rounded-lg border '.concat(
+                    t
+                      ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800'
+                      : s
+                      ? 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800'
+                      : 'bg-gray-50 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700'
+                  ),
+                  children: [
+                    (0, a.jsxs)('div', {
+                      className:
+                        'flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3',
+                      children: [
+                        (0, a.jsxs)('div', {
+                          className: 'flex flex-wrap items-center gap-2',
+                          children: [
+                            (0, a.jsxs)('h4', {
+                              className:
+                                'text-lg font-semibold text-gray-900 dark:text-gray-100',
+                              children: ['v', e.version],
+                            }),
+                            t &&
+                              (0, a.jsx)('span', {
+                                className:
+                                  'px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full',
+                                children: '当前版本',
+                              }),
+                            s &&
+                              (0, a.jsxs)('span', {
+                                className:
+                                  'px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 rounded-full flex items-center gap-1',
+                                children: [
+                                  (0, a.jsx)(b.Z, { className: 'w-3 h-3' }),
+                                  '可更新',
+                                ],
+                              }),
+                          ],
+                        }),
+                        (0, a.jsx)('div', {
+                          className:
+                            'flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400',
+                          children: e.date,
+                        }),
+                      ],
+                    }),
+                    (0, a.jsxs)('div', {
+                      className: 'space-y-3',
+                      children: [
+                        e.added.length > 0 &&
+                          (0, a.jsxs)('div', {
+                            children: [
+                              (0, a.jsxs)('h5', {
+                                className:
+                                  'text-sm font-medium text-green-700 dark:text-green-400 mb-2 flex items-center gap-1',
+                                children: [
+                                  (0, a.jsx)(M.Z, { className: 'w-4 h-4' }),
+                                  '新增功能',
+                                ],
+                              }),
+                              (0, a.jsx)('ul', {
+                                className: 'space-y-1',
+                                children: e.added.map((e, t) =>
+                                  (0, a.jsxs)(
+                                    'li',
+                                    {
+                                      className:
+                                        'text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2',
+                                      children: [
+                                        (0, a.jsx)('span', {
+                                          className:
+                                            'w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0',
+                                        }),
+                                        e,
+                                      ],
+                                    },
+                                    t
+                                  )
+                                ),
+                              }),
+                            ],
+                          }),
+                        e.changed.length > 0 &&
+                          (0, a.jsxs)('div', {
+                            children: [
+                              (0, a.jsxs)('h5', {
+                                className:
+                                  'text-sm font-medium text-blue-700 dark:text-blue-400 mb-2 flex items-center gap-1',
+                                children: [
+                                  (0, a.jsx)(Z.Z, { className: 'w-4 h-4' }),
+                                  '功能改进',
+                                ],
+                              }),
+                              (0, a.jsx)('ul', {
+                                className: 'space-y-1',
+                                children: e.changed.map((e, t) =>
+                                  (0, a.jsxs)(
+                                    'li',
+                                    {
+                                      className:
+                                        'text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2',
+                                      children: [
+                                        (0, a.jsx)('span', {
+                                          className:
+                                            'w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0',
+                                        }),
+                                        e,
+                                      ],
+                                    },
+                                    t
+                                  )
+                                ),
+                              }),
+                            ],
+                          }),
+                        e.fixed.length > 0 &&
+                          (0, a.jsxs)('div', {
+                            children: [
+                              (0, a.jsxs)('h5', {
+                                className:
+                                  'text-sm font-medium text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-1',
+                                children: [
+                                  (0, a.jsx)(L.Z, { className: 'w-4 h-4' }),
+                                  '问题修复',
+                                ],
+                              }),
+                              (0, a.jsx)('ul', {
+                                className: 'space-y-1',
+                                children: e.fixed.map((e, t) =>
+                                  (0, a.jsxs)(
+                                    'li',
+                                    {
+                                      className:
+                                        'text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2',
+                                      children: [
+                                        (0, a.jsx)('span', {
+                                          className:
+                                            'w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0',
+                                        }),
+                                        e,
+                                      ],
+                                    },
+                                    t
+                                  )
+                                ),
+                              }),
+                            ],
+                          }),
+                      ],
+                    }),
+                  ],
+                },
+                e.version
+              );
+            },
+            p = (0, a.jsxs)(a.Fragment, {
+              children: [
+                (0, a.jsx)('div', {
+                  className:
+                    'fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000]',
+                  onClick: r,
+                }),
+                (0, a.jsxs)('div', {
+                  className:
+                    'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-xl shadow-xl z-[1001] overflow-hidden',
+                  children: [
+                    (0, a.jsxs)('div', {
+                      className:
+                        'flex items-center justify-between p-3 sm:p-6 border-b border-gray-200 dark:border-gray-700',
+                      children: [
+                        (0, a.jsxs)('div', {
+                          className: 'flex items-center gap-2 sm:gap-3',
+                          children: [
+                            (0, a.jsx)('h3', {
+                              className:
+                                'text-lg sm:text-xl font-bold text-gray-800 dark:text-gray-200',
+                              children: '版本信息',
+                            }),
+                            (0, a.jsxs)('div', {
+                              className:
+                                'flex flex-wrap items-center gap-1 sm:gap-2',
+                              children: [
+                                (0, a.jsxs)('span', {
+                                  className:
+                                    'px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 rounded-full',
+                                  children: ['v', O.we],
+                                }),
+                                i &&
+                                  (0, a.jsxs)('span', {
+                                    className:
+                                      'px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 rounded-full flex items-center gap-1',
+                                    children: [
+                                      (0, a.jsx)(b.Z, {
+                                        className: 'w-3 h-3 sm:w-4 sm:h-4',
+                                      }),
+                                      (0, a.jsx)('span', {
+                                        className: 'hidden sm:inline',
+                                        children: '有新版本可用',
+                                      }),
+                                      (0, a.jsx)('span', {
+                                        className: 'sm:hidden',
+                                        children: '可更新',
+                                      }),
+                                    ],
+                                  }),
+                              ],
+                            }),
+                          ],
+                        }),
+                        (0, a.jsx)('button', {
+                          onClick: r,
+                          className:
+                            'w-6 h-6 sm:w-8 sm:h-8 p-1 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors',
+                          'aria-label': '关闭',
+                          children: (0, a.jsx)(C.Z, {
+                            className: 'w-full h-full',
+                          }),
+                        }),
+                      ],
+                    }),
+                    (0, a.jsx)('div', {
+                      className:
+                        'p-3 sm:p-6 overflow-y-auto max-h-[calc(95vh-140px)] sm:max-h-[calc(90vh-120px)]',
+                      children: (0, a.jsxs)('div', {
+                        className: 'space-y-3 sm:space-y-6',
+                        children: [
+                          i &&
+                            (0, a.jsx)('div', {
+                              className:
+                                'bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-3 sm:p-4',
+                              children: (0, a.jsxs)('div', {
+                                className: 'flex flex-col gap-3',
+                                children: [
+                                  (0, a.jsxs)('div', {
+                                    className:
+                                      'flex items-center gap-2 sm:gap-3',
+                                    children: [
+                                      (0, a.jsx)('div', {
+                                        className:
+                                          'w-8 h-8 sm:w-10 sm:h-10 bg-yellow-100 dark:bg-yellow-800/40 rounded-full flex items-center justify-center flex-shrink-0',
+                                        children: (0, a.jsx)(b.Z, {
+                                          className:
+                                            'w-4 h-4 sm:w-5 sm:h-5 text-yellow-600 dark:text-yellow-400',
+                                        }),
+                                      }),
+                                      (0, a.jsxs)('div', {
+                                        className: 'min-w-0 flex-1',
+                                        children: [
+                                          (0, a.jsx)('h4', {
+                                            className:
+                                              'text-sm sm:text-base font-semibold text-yellow-800 dark:text-yellow-200',
+                                            children: '发现新版本',
+                                          }),
+                                          (0, a.jsxs)('p', {
+                                            className:
+                                              'text-xs sm:text-sm text-yellow-700 dark:text-yellow-300 break-all',
+                                            children: ['v', O.we, ' → v', u],
+                                          }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                  (0, a.jsxs)('a', {
+                                    href: 'https://github.com/Stardm0/MoonTV',
+                                    target: '_blank',
+                                    rel: 'noopener noreferrer',
+                                    className:
+                                      'inline-flex items-center justify-center gap-2 px-3 py-2 bg-yellow-600 hover:bg-yellow-700 text-white text-xs sm:text-sm rounded-lg transition-colors shadow-sm w-full',
+                                    children: [
+                                      (0, a.jsx)(b.Z, {
+                                        className: 'w-3 h-3 sm:w-4 sm:h-4',
+                                      }),
+                                      '前往仓库',
+                                    ],
+                                  }),
+                                ],
+                              }),
+                            }),
+                          !i &&
+                            (0, a.jsx)('div', {
+                              className:
+                                'bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-200 dark:border-green-800 rounded-lg p-3 sm:p-4',
+                              children: (0, a.jsxs)('div', {
+                                className: 'flex flex-col gap-3',
+                                children: [
+                                  (0, a.jsxs)('div', {
+                                    className:
+                                      'flex items-center gap-2 sm:gap-3',
+                                    children: [
+                                      (0, a.jsx)('div', {
+                                        className:
+                                          'w-8 h-8 sm:w-10 sm:h-10 bg-green-100 dark:bg-green-800/40 rounded-full flex items-center justify-center flex-shrink-0',
+                                        children: (0, a.jsx)(U.Z, {
+                                          className:
+                                            'w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400',
+                                        }),
+                                      }),
+                                      (0, a.jsxs)('div', {
+                                        className: 'min-w-0 flex-1',
+                                        children: [
+                                          (0, a.jsx)('h4', {
+                                            className:
+                                              'text-sm sm:text-base font-semibold text-green-800 dark:text-green-200',
+                                            children: '当前为最新版本',
+                                          }),
+                                          (0, a.jsxs)('p', {
+                                            className:
+                                              'text-xs sm:text-sm text-green-700 dark:text-green-300 break-all',
+                                            children: ['已是最新版本 v', O.we],
+                                          }),
+                                        ],
+                                      }),
+                                    ],
+                                  }),
+                                  (0, a.jsxs)('a', {
+                                    href: 'https://github.com/Stardm0/MoonTV',
+                                    target: '_blank',
+                                    rel: 'noopener noreferrer',
+                                    className:
+                                      'inline-flex items-center justify-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm rounded-lg transition-colors shadow-sm w-full',
+                                    children: [
+                                      (0, a.jsx)(U.Z, {
+                                        className: 'w-3 h-3 sm:w-4 sm:h-4',
+                                      }),
+                                      '前往仓库',
+                                    ],
+                                  }),
+                                ],
+                              }),
+                            }),
+                          i &&
+                            (0, a.jsxs)('div', {
+                              className: 'space-y-4',
+                              children: [
+                                (0, a.jsxs)('div', {
+                                  className:
+                                    'flex flex-col sm:flex-row sm:items-center justify-between gap-3',
+                                  children: [
+                                    (0, a.jsxs)('h4', {
+                                      className:
+                                        'text-lg font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2',
+                                      children: [
+                                        (0, a.jsx)(b.Z, {
+                                          className: 'w-5 h-5 text-yellow-500',
+                                        }),
+                                        '远程更新内容',
+                                      ],
+                                    }),
+                                    (0, a.jsx)('button', {
+                                      onClick: () => m(!x),
+                                      className:
+                                        'inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-yellow-100 hover:bg-yellow-200 text-yellow-800 dark:bg-yellow-800/30 dark:hover:bg-yellow-800/50 dark:text-yellow-200 rounded-lg transition-colors text-sm w-full sm:w-auto',
+                                      children: x
+                                        ? (0, a.jsxs)(a.Fragment, {
+                                            children: [
+                                              (0, a.jsx)(A.Z, {
+                                                className: 'w-4 h-4',
+                                              }),
+                                              '收起',
+                                            ],
+                                          })
+                                        : (0, a.jsxs)(a.Fragment, {
+                                            children: [
+                                              (0, a.jsx)(T.Z, {
+                                                className: 'w-4 h-4',
+                                              }),
+                                              '查看更新内容',
+                                            ],
+                                          }),
+                                    }),
+                                  ],
+                                }),
+                                x &&
+                                  o.length > 0 &&
+                                  (0, a.jsx)('div', {
+                                    className: 'space-y-4',
+                                    children: o
+                                      .filter(
+                                        (e) =>
+                                          !_.map((e) => e.version).includes(
+                                            e.version
+                                          )
+                                      )
+                                      .map((e, t) =>
+                                        (0, a.jsxs)(
+                                          'div',
+                                          {
+                                            className:
+                                              'p-4 rounded-lg border '.concat(
+                                                e.version === u
+                                                  ? 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800'
+                                                  : 'bg-gray-50 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700'
+                                              ),
+                                            children: [
+                                              (0, a.jsxs)('div', {
+                                                className:
+                                                  'flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3',
+                                                children: [
+                                                  (0, a.jsxs)('div', {
+                                                    className:
+                                                      'flex flex-wrap items-center gap-2',
+                                                    children: [
+                                                      (0, a.jsxs)('h4', {
+                                                        className:
+                                                          'text-lg font-semibold text-gray-900 dark:text-gray-100',
+                                                        children: [
+                                                          'v',
+                                                          e.version,
+                                                        ],
+                                                      }),
+                                                      e.version === u &&
+                                                        (0, a.jsx)('span', {
+                                                          className:
+                                                            'px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 rounded-full flex items-center gap-1',
+                                                          children: '远程最新',
+                                                        }),
+                                                    ],
+                                                  }),
+                                                  (0, a.jsx)('div', {
+                                                    className:
+                                                      'flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400',
+                                                    children: e.date,
+                                                  }),
+                                                ],
+                                              }),
+                                              e.added &&
+                                                e.added.length > 0 &&
+                                                (0, a.jsxs)('div', {
+                                                  className: 'mb-3',
+                                                  children: [
+                                                    (0, a.jsxs)('h5', {
+                                                      className:
+                                                        'text-sm font-medium text-green-600 dark:text-green-400 mb-2 flex items-center gap-1',
+                                                      children: [
+                                                        (0, a.jsx)(M.Z, {
+                                                          className: 'w-4 h-4',
+                                                        }),
+                                                        '新增功能',
+                                                      ],
+                                                    }),
+                                                    (0, a.jsx)('ul', {
+                                                      className: 'space-y-1',
+                                                      children: e.added.map(
+                                                        (e, t) =>
+                                                          (0, a.jsxs)(
+                                                            'li',
+                                                            {
+                                                              className:
+                                                                'text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2',
+                                                              children: [
+                                                                (0, a.jsx)(
+                                                                  'span',
+                                                                  {
+                                                                    className:
+                                                                      'w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0',
+                                                                  }
+                                                                ),
+                                                                e,
+                                                              ],
+                                                            },
+                                                            t
+                                                          )
+                                                      ),
+                                                    }),
+                                                  ],
+                                                }),
+                                              e.changed &&
+                                                e.changed.length > 0 &&
+                                                (0, a.jsxs)('div', {
+                                                  className: 'mb-3',
+                                                  children: [
+                                                    (0, a.jsxs)('h5', {
+                                                      className:
+                                                        'text-sm font-medium text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-1',
+                                                      children: [
+                                                        (0, a.jsx)(Z.Z, {
+                                                          className: 'w-4 h-4',
+                                                        }),
+                                                        '功能改进',
+                                                      ],
+                                                    }),
+                                                    (0, a.jsx)('ul', {
+                                                      className: 'space-y-1',
+                                                      children: e.changed.map(
+                                                        (e, t) =>
+                                                          (0, a.jsxs)(
+                                                            'li',
+                                                            {
+                                                              className:
+                                                                'text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2',
+                                                              children: [
+                                                                (0, a.jsx)(
+                                                                  'span',
+                                                                  {
+                                                                    className:
+                                                                      'w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0',
+                                                                  }
+                                                                ),
+                                                                e,
+                                                              ],
+                                                            },
+                                                            t
+                                                          )
+                                                      ),
+                                                    }),
+                                                  ],
+                                                }),
+                                              e.fixed &&
+                                                e.fixed.length > 0 &&
+                                                (0, a.jsxs)('div', {
+                                                  children: [
+                                                    (0, a.jsxs)('h5', {
+                                                      className:
+                                                        'text-sm font-medium text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-1',
+                                                      children: [
+                                                        (0, a.jsx)(L.Z, {
+                                                          className: 'w-4 h-4',
+                                                        }),
+                                                        '问题修复',
+                                                      ],
+                                                    }),
+                                                    (0, a.jsx)('ul', {
+                                                      className: 'space-y-1',
+                                                      children: e.fixed.map(
+                                                        (e, t) =>
+                                                          (0, a.jsxs)(
+                                                            'li',
+                                                            {
+                                                              className:
+                                                                'text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2',
+                                                              children: [
+                                                                (0, a.jsx)(
+                                                                  'span',
+                                                                  {
+                                                                    className:
+                                                                      'w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0',
+                                                                  }
+                                                                ),
+                                                                e,
+                                                              ],
+                                                            },
+                                                            t
+                                                          )
+                                                      ),
+                                                    }),
+                                                  ],
+                                                }),
+                                            ],
+                                          },
+                                          t
+                                        )
+                                      ),
+                                  }),
+                              ],
+                            }),
+                          (0, a.jsxs)('div', {
+                            className:
+                              'border-b border-gray-200 dark:border-gray-700 pb-4',
+                            children: [
+                              (0, a.jsx)('h4', {
+                                className:
+                                  'text-lg font-semibold text-gray-800 dark:text-gray-200 pb-3 sm:pb-4',
+                                children: '变更日志',
+                              }),
+                              (0, a.jsx)('div', {
+                                className: 'space-y-4',
+                                children: _.map((e) =>
+                                  y(e, e.version === O.we, !1)
+                                ),
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    }),
+                  ],
+                }),
+              ],
+            });
+          return s && t ? (0, D.createPortal)(p, document.body) : null;
+        },
+        B = () => {
+          var e, t, r;
+          let n = (0, s.useRouter)(),
+            o = (0, s.usePathname)(),
+            { startLoading: d } = (0, h.w)(),
+            [i, c] = (0, l.useState)(!1),
+            [u, g] = (0, l.useState)(!1),
+            [x, m] = (0, l.useState)(!1),
+            [f, b] = (0, l.useState)(!1),
+            [y, p] = (0, l.useState)(null),
+            [v, w] = (0, l.useState)('localstorage'),
+            [M, Z] = (0, l.useState)(!1),
+            [L, U] = (0, l.useState)(!0),
+            [A, _] = (0, l.useState)(!0),
+            [B, V] = (0, l.useState)(!1),
+            [z, W] = (0, l.useState)(''),
+            [J, G] = (0, l.useState)('direct'),
+            [q, H] = (0, l.useState)('direct'),
+            [Y, X] = (0, l.useState)(''),
+            [K, $] = (0, l.useState)(!1),
+            [Q, ee] = (0, l.useState)(!1),
+            [et, er] = (0, l.useState)(!1),
+            [ea, es] = (0, l.useState)(() => {
+              {
+                let e = localStorage.getItem('danmakuRetryCount');
+                if (null !== e) {
+                  let t = parseInt(e, 10);
+                  if (!isNaN(t)) return t;
+                }
+              }
+              return 3;
+            }),
+            [el, en] = (0, l.useState)(!1),
+            [eo, ed] = (0, l.useState)('bilibili1'),
+            [ei, ec] = (0, l.useState)(!1),
+            eu = [
+              { value: 'qiyi', label: 'qiyi（爱奇艺）' },
+              { value: 'bilibili1', label: 'bilibili1（哔哩哔哩）' },
+              { value: 'imgo', label: 'imgo（芒果）' },
+              { value: 'youku', label: 'youku（优酷）' },
+              { value: 'qq', label: 'qq（腾讯）' },
+              { value: 'renren', label: 'renren（人人）' },
+              { value: 'hanjutv', label: 'hanjutv（韩剧TV）' },
+              { value: 'bahamut', label: 'bahamut（巴哈姆特）' },
+              { value: 'dandan', label: 'dandan（弹弹）' },
+            ],
+            eg = [
+              { value: 'direct', label: '直连（服务器直接请求豆瓣）' },
+              { value: 'cors-proxy-zwei', label: 'Cors Proxy By Zwei' },
+              {
+                value: 'cmliussss-cdn-tencent',
+                label: '豆瓣 CDN By CMLiussss（腾讯云）',
+              },
+              {
+                value: 'cmliussss-cdn-ali',
+                label: '豆瓣 CDN By CMLiussss（阿里云）',
+              },
+              { value: 'custom', label: '自定义代理' },
+            ],
+            ex = [
+              { value: 'direct', label: '直连（浏览器直接请求豆瓣）' },
+              { value: 'server', label: '服务器代理（由服务器代理请求豆瓣）' },
+              { value: 'img3', label: '豆瓣精品 CDN（阿里云）' },
+              {
+                value: 'cmliussss-cdn-tencent',
+                label: '豆瓣 CDN By CMLiussss（腾讯云）',
+              },
+              {
+                value: 'cmliussss-cdn-ali',
+                label: '豆瓣 CDN By CMLiussss（阿里云）',
+              },
+              { value: 'custom', label: '自定义代理' },
+            ],
+            [em, eh] = (0, l.useState)(''),
+            [ef, eb] = (0, l.useState)(''),
+            [ey, ep] = (0, l.useState)(!1),
+            [ev, ew] = (0, l.useState)(''),
+            [ek, ej] = (0, l.useState)(null),
+            [eN, eS] = (0, l.useState)(!0),
+            [eC, eT] = (0, l.useState)(!1),
+            [eE, eI] = (0, l.useState)(''),
+            [eP, eD] = (0, l.useState)(''),
+            eR =
+              (null == y ? void 0 : y.role) === 'owner' ||
+              (null == y ? void 0 : y.role) === 'admin',
+            eO = async () => {
+              try {
+                let e = await fetch('/api/admin/tvbox', { cache: 'no-store' });
+                if (!e.ok) return;
+                let t = await e.json();
+                eT(!!t.enabled), eI(t.password || ''), eD(t.url || '');
+              } catch (e) {
+                console.warn('Failed to load TVBox admin config:', e);
+              }
+            };
+          (0, l.useEffect)(() => {
+            u && eO();
+          }, [u]),
+            (0, l.useEffect)(() => {
+              Z(!0);
+            }, []),
+            (0, l.useEffect)(() => {
+              var e;
+              p((0, R.v)()),
+                w(
+                  (null === (e = window.RUNTIME_CONFIG) || void 0 === e
+                    ? void 0
+                    : e.STORAGE_TYPE) || 'localstorage'
+                );
+            }, []),
+            (0, l.useEffect)(() => {
+              {
+                var e, t, r, a;
+                let s = localStorage.getItem('defaultAggregateSearch');
+                null !== s && U(JSON.parse(s));
+                let l = localStorage.getItem('defaultStreamSearch');
+                null !== l && _(JSON.parse(l));
+                let n = localStorage.getItem('simpleMode');
+                null !== n && V(JSON.parse(n));
+                let o = localStorage.getItem('doubanDataSource'),
+                  d =
+                    (null === (e = window.RUNTIME_CONFIG) || void 0 === e
+                      ? void 0
+                      : e.DOUBAN_PROXY_TYPE) || 'direct';
+                null !== o ? G(o) : d && G(d);
+                let i = localStorage.getItem('doubanProxyUrl'),
+                  c =
+                    (null === (t = window.RUNTIME_CONFIG) || void 0 === t
+                      ? void 0
+                      : t.DOUBAN_PROXY) || '';
+                null !== i ? W(i) : c && W(c);
+                let u = localStorage.getItem('doubanImageProxyType'),
+                  g =
+                    (null === (r = window.RUNTIME_CONFIG) || void 0 === r
+                      ? void 0
+                      : r.DOUBAN_IMAGE_PROXY_TYPE) || 'direct';
+                null !== u ? H(u) : g && H(g);
+                let x = localStorage.getItem('doubanImageProxyUrl'),
+                  m =
+                    (null === (a = window.RUNTIME_CONFIG) || void 0 === a
+                      ? void 0
+                      : a.DOUBAN_IMAGE_PROXY) || '';
+                null !== x ? X(x) : m && X(m);
+                let h = localStorage.getItem('autoDanmakuEnabled');
+                null !== h && er(JSON.parse(h));
+                let f = localStorage.getItem('danmakuRetryCount');
+                if (null !== f) {
+                  let e = parseInt(f, 10);
+                  isNaN(e) || es(e);
+                }
+                let b = localStorage.getItem('enablePreferBestSource');
+                null !== b && en(JSON.parse(b));
+                let y = localStorage.getItem('preferredDanmakuPlatform');
+                y && ed(y);
+              }
+            }, []),
+            (0, l.useEffect)(() => {
+              (async () => {
+                try {
+                  let e = await (0, O.Df)();
+                  ej(e);
+                } catch (e) {
+                  console.warn('版本检查失败:', e);
+                } finally {
+                  eS(!1);
+                }
+              })();
+            }, []),
+            (0, l.useEffect)(() => {
+              let e = (e) => {
+                K &&
+                  !e.target.closest('[data-dropdown="douban-datasource"]') &&
+                  $(!1);
+              };
+              if (K)
+                return (
+                  document.addEventListener('mousedown', e),
+                  () => document.removeEventListener('mousedown', e)
+                );
+            }, [K]),
+            (0, l.useEffect)(() => {
+              let e = (e) => {
+                Q &&
+                  !e.target.closest('[data-dropdown="douban-image-proxy"]') &&
+                  ee(!1);
+              };
+              if (Q)
+                return (
+                  document.addEventListener('mousedown', e),
+                  () => document.removeEventListener('mousedown', e)
+                );
+            }, [Q]);
+          let eM = () => {
+              c(!1);
+            },
+            eZ = async () => {
+              try {
+                await fetch('/api/logout', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                });
+              } catch (e) {
+                console.error('注销请求失败:', e);
+              }
+              window.location.href = '/';
+            },
+            eL = () => {
+              m(!1), eh(''), eb(''), ew('');
+            },
+            eU = async () => {
+              if ((ew(''), !em)) {
+                ew('新密码不得为空');
+                return;
+              }
+              if (em !== ef) {
+                ew('两次输入的密码不一致');
+                return;
+              }
+              ep(!0);
+              try {
+                let e = await fetch('/api/change-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ newPassword: em }),
+                  }),
+                  t = await e.json();
+                if (!e.ok) {
+                  ew(t.error || '修改密码失败');
+                  return;
+                }
+                m(!1), await eZ();
+              } catch (e) {
+                ew('网络错误，请稍后重试');
+              } finally {
+                ep(!1);
+              }
+            },
+            eA = () => {
+              g(!1);
+            },
+            e_ = (e) => {
+              er(e),
+                localStorage.setItem('autoDanmakuEnabled', JSON.stringify(e));
+            },
+            eF = (e) => {
+              e < -1 ||
+                (es(e),
+                localStorage.setItem('danmakuRetryCount', e.toString()));
+            },
+            eB = (e) => {
+              en(e),
+                localStorage.setItem(
+                  'enablePreferBestSource',
+                  JSON.stringify(e)
+                );
+            },
+            eV = (e) => {
+              ed(e), localStorage.setItem('preferredDanmakuPlatform', e);
+            },
+            ez = (e) => {
+              U(e),
+                localStorage.setItem(
+                  'defaultAggregateSearch',
+                  JSON.stringify(e)
+                );
+            },
+            eW = (e) => {
+              _(e),
+                localStorage.setItem('defaultStreamSearch', JSON.stringify(e));
+            },
+            eJ = (e) => {
+              V(e),
+                localStorage.setItem('simpleMode', JSON.stringify(e)),
+                g(!1),
+                setTimeout(() => {
+                  window.location.reload();
+                }, 100);
+            },
+            eG = (e) => {
+              W(e), localStorage.setItem('doubanProxyUrl', e);
+            },
+            eq = (e) => {
+              G(e), localStorage.setItem('doubanDataSource', e);
+            },
+            eH = (e) => {
+              H(e), localStorage.setItem('doubanImageProxyType', e);
+            },
+            eY = (e) => {
+              X(e), localStorage.setItem('doubanImageProxyUrl', e);
+            },
+            eX = (e) => {
+              switch (e) {
+                case 'cors-proxy-zwei':
+                  return {
+                    text: 'Thanks to @Zwei',
+                    url: 'https://github.com/bestzwei',
+                  };
+                case 'cmliussss-cdn-tencent':
+                case 'cmliussss-cdn-ali':
+                  return {
+                    text: 'Thanks to @CMLiussss',
+                    url: 'https://github.com/cmliu',
+                  };
+                default:
+                  return null;
+              }
+            },
+            eK =
+              (null == y ? void 0 : y.role) === 'owner' ||
+              (null == y ? void 0 : y.role) === 'admin',
+            e$ =
+              (null == y ? void 0 : y.role) !== 'owner' && 'localstorage' !== v,
+            eQ = (0, a.jsxs)(a.Fragment, {
+              children: [
+                (0, a.jsx)('div', {
+                  className: 'fixed inset-0 bg-transparent z-[1000]',
+                  onClick: eM,
+                }),
+                (0, a.jsxs)('div', {
+                  className:
+                    'fixed top-14 right-4 w-56 bg-white dark:bg-gray-900 rounded-lg shadow-xl z-[1001] border border-gray-200/50 dark:border-gray-700/50 overflow-hidden select-none',
+                  children: [
+                    (0, a.jsx)('div', {
+                      className:
+                        'px-3 py-2.5 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-50 to-gray-100/50 dark:from-gray-800 dark:to-gray-800/50',
+                      children: (0, a.jsxs)('div', {
+                        className: 'space-y-1',
+                        children: [
+                          (0, a.jsxs)('div', {
+                            className: 'flex items-center justify-between',
+                            children: [
+                              (0, a.jsx)('span', {
+                                className:
+                                  'text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider',
+                                children: '当前用户',
+                              }),
+                              (0, a.jsx)('span', {
+                                className:
+                                  'inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium '.concat(
+                                    'owner' ===
+                                      ((null == y ? void 0 : y.role) || 'user')
+                                      ? 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300'
+                                      : 'admin' ===
+                                        ((null == y ? void 0 : y.role) ||
+                                          'user')
+                                      ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
+                                      : 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
+                                  ),
+                                children: ((e) => {
+                                  switch (e) {
+                                    case 'owner':
+                                      return '站长';
+                                    case 'admin':
+                                      return '管理员';
+                                    case 'user':
+                                      return '用户';
+                                    default:
+                                      return '';
+                                  }
+                                })((null == y ? void 0 : y.role) || 'user'),
+                              }),
+                            ],
+                          }),
+                          (0, a.jsxs)('div', {
+                            className: 'flex items-center justify-between',
+                            children: [
+                              (0, a.jsx)('div', {
+                                className:
+                                  'font-semibold text-gray-900 dark:text-gray-100 text-sm truncate',
+                                children:
+                                  (null == y ? void 0 : y.username) ||
+                                  'default',
+                              }),
+                              (0, a.jsxs)('div', {
+                                className:
+                                  'text-[10px] text-gray-400 dark:text-gray-500',
+                                children: [
+                                  '数据存储：',
+                                  'localstorage' === v ? '本地' : v,
+                                ],
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    }),
+                    (0, a.jsxs)('div', {
+                      className: 'py-1',
+                      children: [
+                        (0, a.jsxs)('button', {
+                          onClick: () => {
+                            c(!1), g(!0);
+                          },
+                          className:
+                            'w-full px-3 py-2 text-left flex items-center gap-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm',
+                          children: [
+                            (0, a.jsx)(k.Z, {
+                              className:
+                                'w-4 h-4 text-gray-500 dark:text-gray-400',
+                            }),
+                            (0, a.jsx)('span', {
+                              className: 'font-medium',
+                              children: '设置',
+                            }),
+                          ],
+                        }),
+                        eK &&
+                          (0, a.jsxs)('button', {
+                            onClick: () => {
+                              if ('/admin' === o) {
+                                c(!1);
+                                return;
+                              }
+                              d(), n.push('/admin');
+                            },
+                            className:
+                              'w-full px-3 py-2 text-left flex items-center gap-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm',
+                            children: [
+                              (0, a.jsx)(j.Z, {
+                                className:
+                                  'w-4 h-4 text-gray-500 dark:text-gray-400',
+                              }),
+                              (0, a.jsx)('span', {
+                                className: 'font-medium',
+                                children: '管理面板',
+                              }),
+                            ],
+                          }),
+                        e$ &&
+                          (0, a.jsxs)('button', {
+                            onClick: () => {
+                              c(!1), m(!0), eh(''), eb(''), ew('');
+                            },
+                            className:
+                              'w-full px-3 py-2 text-left flex items-center gap-2.5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm',
+                            children: [
+                              (0, a.jsx)(N.Z, {
+                                className:
+                                  'w-4 h-4 text-gray-500 dark:text-gray-400',
+                              }),
+                              (0, a.jsx)('span', {
+                                className: 'font-medium',
+                                children: '修改密码',
+                              }),
+                            ],
+                          }),
+                        (0, a.jsx)('div', {
+                          className:
+                            'my-1 border-t border-gray-200 dark:border-gray-700',
+                        }),
+                        (0, a.jsxs)('button', {
+                          onClick: eZ,
+                          className:
+                            'w-full px-3 py-2 text-left flex items-center gap-2.5 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors text-sm',
+                          children: [
+                            (0, a.jsx)(S.Z, { className: 'w-4 h-4' }),
+                            (0, a.jsx)('span', {
+                              className: 'font-medium',
+                              children: '登出',
+                            }),
+                          ],
+                        }),
+                        (0, a.jsx)('div', {
+                          className:
+                            'my-1 border-t border-gray-200 dark:border-gray-700',
+                        }),
+                        (0, a.jsx)('button', {
+                          onClick: () => {
+                            b(!0), eM();
+                          },
+                          className:
+                            'w-full px-3 py-2 text-center flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors text-xs',
+                          children: (0, a.jsxs)('div', {
+                            className: 'flex items-center gap-1',
+                            children: [
+                              (0, a.jsxs)('span', {
+                                className: 'font-mono',
+                                children: ['v', O.we],
+                              }),
+                              !eN &&
+                                ek &&
+                                ek !== O.qu.FETCH_FAILED &&
+                                (0, a.jsx)('div', {
+                                  className:
+                                    'w-2 h-2 rounded-full -translate-y-2 '.concat(
+                                      ek === O.qu.HAS_UPDATE
+                                        ? 'bg-yellow-500'
+                                        : ek === O.qu.NO_UPDATE
+                                        ? 'bg-green-400'
+                                        : ''
+                                    ),
+                                }),
+                            ],
+                          }),
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            e0 = (0, a.jsxs)(a.Fragment, {
+              children: [
+                (0, a.jsx)('div', {
+                  className:
+                    'fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000]',
+                  onClick: eA,
+                }),
+                (0, a.jsxs)('div', {
+                  className:
+                    'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-xl shadow-xl z-[1001] p-6 overflow-y-auto',
+                  children: [
+                    (0, a.jsxs)('div', {
+                      className: 'flex items-center justify-between mb-6',
+                      children: [
+                        (0, a.jsxs)('div', {
+                          className: 'flex items-center gap-3',
+                          children: [
+                            (0, a.jsx)('h3', {
+                              className:
+                                'text-xl font-bold text-gray-800 dark:text-gray-200',
+                              children: '本地设置',
+                            }),
+                            (0, a.jsx)('button', {
+                              onClick: () => {
+                                var e, t, r, a;
+                                let s =
+                                    (null === (e = window.RUNTIME_CONFIG) ||
+                                    void 0 === e
+                                      ? void 0
+                                      : e.DOUBAN_PROXY_TYPE) || 'direct',
+                                  l =
+                                    (null === (t = window.RUNTIME_CONFIG) ||
+                                    void 0 === t
+                                      ? void 0
+                                      : t.DOUBAN_PROXY) || '',
+                                  n =
+                                    (null === (r = window.RUNTIME_CONFIG) ||
+                                    void 0 === r
+                                      ? void 0
+                                      : r.DOUBAN_IMAGE_PROXY_TYPE) || 'direct',
+                                  o =
+                                    (null === (a = window.RUNTIME_CONFIG) ||
+                                    void 0 === a
+                                      ? void 0
+                                      : a.DOUBAN_IMAGE_PROXY) || '';
+                                U(!0),
+                                  _(!0),
+                                  V(!1),
+                                  W(l),
+                                  G(s),
+                                  H(n),
+                                  X(o),
+                                  en(!1),
+                                  er(!1),
+                                  ed('bilibili1'),
+                                  es(3),
+                                  localStorage.setItem(
+                                    'defaultAggregateSearch',
+                                    JSON.stringify(!0)
+                                  ),
+                                  localStorage.setItem(
+                                    'defaultStreamSearch',
+                                    JSON.stringify(!0)
+                                  ),
+                                  localStorage.setItem(
+                                    'simpleMode',
+                                    JSON.stringify(!1)
+                                  ),
+                                  localStorage.setItem('doubanProxyUrl', l),
+                                  localStorage.setItem('doubanDataSource', s),
+                                  localStorage.setItem(
+                                    'doubanImageProxyType',
+                                    n
+                                  ),
+                                  localStorage.setItem(
+                                    'doubanImageProxyUrl',
+                                    o
+                                  ),
+                                  localStorage.setItem(
+                                    'enablePreferBestSource',
+                                    JSON.stringify(!1)
+                                  ),
+                                  localStorage.setItem(
+                                    'autoDanmakuEnabled',
+                                    JSON.stringify(!1)
+                                  ),
+                                  localStorage.setItem(
+                                    'preferredDanmakuPlatform',
+                                    'bilibili1'
+                                  ),
+                                  localStorage.setItem(
+                                    'danmakuRetryCount',
+                                    '3'
+                                  );
+                              },
+                              className:
+                                'px-2 py-1 text-xs text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 border border-red-200 hover:border-red-300 dark:border-red-800 dark:hover:border-red-700 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors',
+                              title: '重置为默认设置',
+                              children: '重置',
+                            }),
+                          ],
+                        }),
+                        (0, a.jsx)('button', {
+                          onClick: eA,
+                          className:
+                            'w-8 h-8 p-1 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors',
+                          'aria-label': 'Close',
+                          children: (0, a.jsx)(C.Z, {
+                            className: 'w-full h-full',
+                          }),
+                        }),
+                      ],
+                    }),
+                    (0, a.jsxs)('div', {
+                      className: 'space-y-6',
+                      children: [
+                        !B &&
+                          (0, a.jsxs)(a.Fragment, {
+                            children: [
+                              (0, a.jsxs)('div', {
+                                className: 'space-y-3',
+                                children: [
+                                  (0, a.jsxs)('div', {
+                                    children: [
+                                      (0, a.jsx)('h4', {
+                                        className:
+                                          'text-sm font-medium text-gray-700 dark:text-gray-300',
+                                        children: '豆瓣数据代理',
+                                      }),
+                                      (0, a.jsx)('p', {
+                                        className:
+                                          'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                        children: '选择获取豆瓣数据的方式',
+                                      }),
+                                    ],
+                                  }),
+                                  (0, a.jsxs)('div', {
+                                    className: 'relative',
+                                    'data-dropdown': 'douban-datasource',
+                                    children: [
+                                      (0, a.jsx)('button', {
+                                        type: 'button',
+                                        onClick: () => $(!K),
+                                        className:
+                                          'w-full px-3 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 text-left',
+                                        children:
+                                          null ===
+                                            (e = eg.find(
+                                              (e) => e.value === J
+                                            )) || void 0 === e
+                                            ? void 0
+                                            : e.label,
+                                      }),
+                                      (0, a.jsx)('div', {
+                                        className:
+                                          'absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none',
+                                        children: (0, a.jsx)(T.Z, {
+                                          className:
+                                            'w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 '.concat(
+                                              K ? 'rotate-180' : ''
+                                            ),
+                                        }),
+                                      }),
+                                      K &&
+                                        (0, a.jsx)('div', {
+                                          className:
+                                            'absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto',
+                                          children: eg.map((e) =>
+                                            (0, a.jsxs)(
+                                              'button',
+                                              {
+                                                type: 'button',
+                                                onClick: () => {
+                                                  eq(e.value), $(!1);
+                                                },
+                                                className:
+                                                  'w-full px-3 py-2.5 text-left text-sm transition-colors duration-150 flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 '.concat(
+                                                    J === e.value
+                                                      ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400'
+                                                      : 'text-gray-900 dark:text-gray-100'
+                                                  ),
+                                                children: [
+                                                  (0, a.jsx)('span', {
+                                                    className: 'truncate',
+                                                    children: e.label,
+                                                  }),
+                                                  J === e.value &&
+                                                    (0, a.jsx)(E.Z, {
+                                                      className:
+                                                        'w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 ml-2',
+                                                    }),
+                                                ],
+                                              },
+                                              e.value
+                                            )
+                                          ),
+                                        }),
+                                    ],
+                                  }),
+                                  eX(J) &&
+                                    (0, a.jsx)('div', {
+                                      className: 'mt-3',
+                                      children: (0, a.jsxs)('button', {
+                                        type: 'button',
+                                        onClick: () =>
+                                          window.open(eX(J).url, '_blank'),
+                                        className:
+                                          'flex items-center justify-center gap-1.5 w-full px-3 text-xs text-gray-500 dark:text-gray-400 cursor-pointer',
+                                        children: [
+                                          (0, a.jsx)('span', {
+                                            className: 'font-medium',
+                                            children: eX(J).text,
+                                          }),
+                                          (0, a.jsx)(I.Z, {
+                                            className: 'w-3.5 opacity-70',
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                ],
+                              }),
+                              'custom' === J &&
+                                (0, a.jsxs)('div', {
+                                  className: 'space-y-3',
+                                  children: [
+                                    (0, a.jsxs)('div', {
+                                      children: [
+                                        (0, a.jsx)('h4', {
+                                          className:
+                                            'text-sm font-medium text-gray-700 dark:text-gray-300',
+                                          children: '豆瓣代理地址',
+                                        }),
+                                        (0, a.jsx)('p', {
+                                          className:
+                                            'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                          children: '自定义代理服务器地址',
+                                        }),
+                                      ],
+                                    }),
+                                    (0, a.jsx)('input', {
+                                      type: 'text',
+                                      className:
+                                        'w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm hover:border-gray-400 dark:hover:border-gray-500',
+                                      placeholder:
+                                        '例如: https://proxy.example.com/fetch?url=',
+                                      value: z,
+                                      onChange: (e) => eG(e.target.value),
+                                    }),
+                                  ],
+                                }),
+                              (0, a.jsx)('div', {
+                                className:
+                                  'border-t border-gray-200 dark:border-gray-700',
+                              }),
+                              (0, a.jsxs)('div', {
+                                className: 'space-y-3',
+                                children: [
+                                  (0, a.jsxs)('div', {
+                                    children: [
+                                      (0, a.jsx)('h4', {
+                                        className:
+                                          'text-sm font-medium text-gray-700 dark:text-gray-300',
+                                        children: '豆瓣图片代理',
+                                      }),
+                                      (0, a.jsx)('p', {
+                                        className:
+                                          'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                        children: '选择获取豆瓣图片的方式',
+                                      }),
+                                    ],
+                                  }),
+                                  (0, a.jsxs)('div', {
+                                    className: 'relative',
+                                    'data-dropdown': 'douban-image-proxy',
+                                    children: [
+                                      (0, a.jsx)('button', {
+                                        type: 'button',
+                                        onClick: () => ee(!Q),
+                                        className:
+                                          'w-full px-3 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 text-left',
+                                        children:
+                                          null ===
+                                            (t = ex.find(
+                                              (e) => e.value === q
+                                            )) || void 0 === t
+                                            ? void 0
+                                            : t.label,
+                                      }),
+                                      (0, a.jsx)('div', {
+                                        className:
+                                          'absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none',
+                                        children: (0, a.jsx)(T.Z, {
+                                          className:
+                                            'w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 '.concat(
+                                              K ? 'rotate-180' : ''
+                                            ),
+                                        }),
+                                      }),
+                                      Q &&
+                                        (0, a.jsx)('div', {
+                                          className:
+                                            'absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto',
+                                          children: ex.map((e) =>
+                                            (0, a.jsxs)(
+                                              'button',
+                                              {
+                                                type: 'button',
+                                                onClick: () => {
+                                                  eH(e.value), ee(!1);
+                                                },
+                                                className:
+                                                  'w-full px-3 py-2.5 text-left text-sm transition-colors duration-150 flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 '.concat(
+                                                    q === e.value
+                                                      ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400'
+                                                      : 'text-gray-900 dark:text-gray-100'
+                                                  ),
+                                                children: [
+                                                  (0, a.jsx)('span', {
+                                                    className: 'truncate',
+                                                    children: e.label,
+                                                  }),
+                                                  q === e.value &&
+                                                    (0, a.jsx)(E.Z, {
+                                                      className:
+                                                        'w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 ml-2',
+                                                    }),
+                                                ],
+                                              },
+                                              e.value
+                                            )
+                                          ),
+                                        }),
+                                    ],
+                                  }),
+                                  eX(q) &&
+                                    (0, a.jsx)('div', {
+                                      className: 'mt-3',
+                                      children: (0, a.jsxs)('button', {
+                                        type: 'button',
+                                        onClick: () =>
+                                          window.open(eX(q).url, '_blank'),
+                                        className:
+                                          'flex items-center justify-center gap-1.5 w-full px-3 text-xs text-gray-500 dark:text-gray-400 cursor-pointer',
+                                        children: [
+                                          (0, a.jsx)('span', {
+                                            className: 'font-medium',
+                                            children: eX(q).text,
+                                          }),
+                                          (0, a.jsx)(I.Z, {
+                                            className: 'w-3.5 opacity-70',
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                ],
+                              }),
+                              'custom' === q &&
+                                (0, a.jsxs)('div', {
+                                  className: 'space-y-3',
+                                  children: [
+                                    (0, a.jsxs)('div', {
+                                      children: [
+                                        (0, a.jsx)('h4', {
+                                          className:
+                                            'text-sm font-medium text-gray-700 dark:text-gray-300',
+                                          children: '豆瓣图片代理地址',
+                                        }),
+                                        (0, a.jsx)('p', {
+                                          className:
+                                            'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                          children: '自定义图片代理服务器地址',
+                                        }),
+                                      ],
+                                    }),
+                                    (0, a.jsx)('input', {
+                                      type: 'text',
+                                      className:
+                                        'w-full px-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 shadow-sm hover:border-gray-400 dark:hover:border-gray-500',
+                                      placeholder:
+                                        '例如: https://proxy.example.com/fetch?url=',
+                                      value: Y,
+                                      onChange: (e) => eY(e.target.value),
+                                    }),
+                                  ],
+                                }),
+                              (0, a.jsx)('div', {
+                                className:
+                                  'border-t border-gray-200 dark:border-gray-700',
+                              }),
+                            ],
+                          }),
+                        (0, a.jsxs)('div', {
+                          className: 'flex items-center justify-between',
+                          children: [
+                            (0, a.jsxs)('div', {
+                              children: [
+                                (0, a.jsx)('h4', {
+                                  className:
+                                    'text-sm font-medium text-gray-700 dark:text-gray-300',
+                                  children: '默认聚合搜索结果',
+                                }),
+                                (0, a.jsx)('p', {
+                                  className:
+                                    'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                  children:
+                                    '搜索时默认按标题和年份聚合显示结果',
+                                }),
+                              ],
+                            }),
+                            (0, a.jsx)('label', {
+                              className: 'flex items-center cursor-pointer',
+                              children: (0, a.jsxs)('div', {
+                                className: 'relative',
+                                children: [
+                                  (0, a.jsx)('input', {
+                                    type: 'checkbox',
+                                    className: 'sr-only peer',
+                                    checked: L,
+                                    onChange: (e) => ez(e.target.checked),
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600',
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-5',
+                                  }),
+                                ],
+                              }),
+                            }),
+                          ],
+                        }),
+                        (0, a.jsxs)('div', {
+                          className: 'flex items-center justify-between',
+                          children: [
+                            (0, a.jsxs)('div', {
+                              children: [
+                                (0, a.jsx)('h4', {
+                                  className:
+                                    'text-sm font-medium text-gray-700 dark:text-gray-300',
+                                  children: '默认流式搜索模式',
+                                }),
+                                (0, a.jsx)('p', {
+                                  className:
+                                    'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                  children:
+                                    '关闭后默认使用一次性返回，空结果将不缓存',
+                                }),
+                              ],
+                            }),
+                            (0, a.jsx)('label', {
+                              className: 'flex items-center cursor-pointer',
+                              children: (0, a.jsxs)('div', {
+                                className: 'relative',
+                                children: [
+                                  (0, a.jsx)('input', {
+                                    type: 'checkbox',
+                                    className: 'sr-only peer',
+                                    checked: A,
+                                    onChange: (e) => eW(e.target.checked),
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600',
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-5',
+                                  }),
+                                ],
+                              }),
+                            }),
+                          ],
+                        }),
+                        (0, a.jsxs)('div', {
+                          className: 'flex items-center justify-between',
+                          children: [
+                            (0, a.jsxs)('div', {
+                              children: [
+                                (0, a.jsx)('h4', {
+                                  className:
+                                    'text-sm font-medium text-gray-700 dark:text-gray-300',
+                                  children: '优选播放源',
+                                }),
+                                (0, a.jsx)('p', {
+                                  className:
+                                    'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                  children:
+                                    '开启后，加载视频时执行优选，关闭则跳过',
+                                }),
+                              ],
+                            }),
+                            (0, a.jsx)('label', {
+                              className: 'flex items-center cursor-pointer',
+                              children: (0, a.jsxs)('div', {
+                                className: 'relative',
+                                children: [
+                                  (0, a.jsx)('input', {
+                                    type: 'checkbox',
+                                    className: 'sr-only peer',
+                                    checked: el,
+                                    onChange: (e) => eB(e.target.checked),
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600',
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-5',
+                                  }),
+                                ],
+                              }),
+                            }),
+                          ],
+                        }),
+                        (0, a.jsxs)('div', {
+                          className: 'flex items-center justify-between',
+                          children: [
+                            (0, a.jsxs)('div', {
+                              children: [
+                                (0, a.jsx)('h4', {
+                                  className:
+                                    'text-sm font-medium text-gray-700 dark:text-gray-300',
+                                  children: '自动匹配弹幕',
+                                }),
+                                (0, a.jsx)('p', {
+                                  className:
+                                    'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                  children:
+                                    '在进入播放页面时自动匹配并加载弹幕（推荐）',
+                                }),
+                              ],
+                            }),
+                            (0, a.jsx)('label', {
+                              className: 'flex items-center cursor-pointer',
+                              children: (0, a.jsxs)('div', {
+                                className: 'relative',
+                                children: [
+                                  (0, a.jsx)('input', {
+                                    type: 'checkbox',
+                                    className: 'sr-only peer',
+                                    checked: et,
+                                    onChange: (e) => e_(e.target.checked),
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600',
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-5',
+                                  }),
+                                ],
+                              }),
+                            }),
+                          ],
+                        }),
+                        (0, a.jsxs)('div', {
+                          className: 'flex items-center justify-between mt-2',
+                          children: [
+                            (0, a.jsxs)('div', {
+                              children: [
+                                (0, a.jsx)('h4', {
+                                  className:
+                                    'text-sm font-medium text-gray-700 dark:text-gray-300',
+                                  children: '弹幕自动尝试次数',
+                                }),
+                                (0, a.jsx)('p', {
+                                  className:
+                                    'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                  children:
+                                    '自动弹幕获取的尝试次数，-1为一直获取直到成功',
+                                }),
+                              ],
+                            }),
+                            (0, a.jsx)('input', {
+                              type: 'number',
+                              min: '-1',
+                              className:
+                                'w-11 px-2 py-1 rounded text-sm bg-[#f5f5f5] dark:bg-gray-800 text-gray-900 dark:text-gray-100 outline-none border-none focus:outline-none focus:border-none focus:ring-0',
+                              value: ea,
+                              onChange: (e) => eF(Number(e.target.value)),
+                            }),
+                          ],
+                        }),
+                        (0, a.jsxs)('div', {
+                          className: 'mt-3 relative',
+                          children: [
+                            (0, a.jsx)('h4', {
+                              className:
+                                'text-sm font-medium text-gray-700 dark:text-gray-300',
+                              children: '优先弹幕平台',
+                            }),
+                            (0, a.jsx)('button', {
+                              type: 'button',
+                              onClick: () => ec(!ei),
+                              className:
+                                'w-full px-3 py-2.5 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:border-gray-400 dark:hover:border-gray-500 text-left mt-2',
+                              children:
+                                null === (r = eu.find((e) => e.value === eo)) ||
+                                void 0 === r
+                                  ? void 0
+                                  : r.label,
+                            }),
+                            (0, a.jsx)('div', {
+                              className:
+                                'absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none mt-2',
+                              children: (0, a.jsx)(T.Z, {
+                                className:
+                                  'w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 '.concat(
+                                    ei ? 'rotate-180' : ''
+                                  ),
+                              }),
+                            }),
+                            ei &&
+                              (0, a.jsx)('div', {
+                                className:
+                                  'absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-auto',
+                                children: eu.map((e) =>
+                                  (0, a.jsxs)(
+                                    'button',
+                                    {
+                                      type: 'button',
+                                      onClick: () => {
+                                        eV(e.value), ec(!1);
+                                      },
+                                      className:
+                                        'w-full px-3 py-2.5 text-left text-sm transition-colors duration-150 flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 '.concat(
+                                          eo === e.value
+                                            ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400'
+                                            : 'text-gray-900 dark:text-gray-100'
+                                        ),
+                                      children: [
+                                        (0, a.jsx)('span', {
+                                          className: 'truncate',
+                                          children: e.label,
+                                        }),
+                                        eo === e.value &&
+                                          (0, a.jsx)(E.Z, {
+                                            className:
+                                              'w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 ml-2',
+                                          }),
+                                      ],
+                                    },
+                                    e.value
+                                  )
+                                ),
+                              }),
+                            (0, a.jsx)('p', {
+                              className:
+                                'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                              children: '自动匹配弹幕时优先使用此平台',
+                            }),
+                          ],
+                        }),
+                        (0, a.jsx)('div', {
+                          className:
+                            'border-t border-gray-200 dark:border-gray-700',
+                        }),
+                        (0, a.jsxs)('div', {
+                          className: 'space-y-3',
+                          children: [
+                            (0, a.jsx)('h4', {
+                              className:
+                                'text-sm font-medium text-gray-700 dark:text-gray-300',
+                              children: 'TVBox 接口',
+                            }),
+                            (0, a.jsxs)('div', {
+                              className: 'flex items-center gap-3',
+                              children: [
+                                (0, a.jsxs)('div', {
+                                  className:
+                                    'flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-medium shrink-0 '.concat(
+                                      eC
+                                        ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
+                                        : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+                                    ),
+                                  children: [
+                                    (0, a.jsx)('div', {
+                                      className: 'w-2 h-2 rounded-full '.concat(
+                                        eC
+                                          ? 'bg-green-500 animate-pulse'
+                                          : 'bg-gray-400'
+                                      ),
+                                    }),
+                                    (0, a.jsx)('span', {
+                                      children: eC ? '已开启' : '未开启',
+                                    }),
+                                  ],
+                                }),
+                                eC && eP
+                                  ? (0, a.jsxs)(a.Fragment, {
+                                      children: [
+                                        (0, a.jsx)('input', {
+                                          ref: (e) => {
+                                            if (e) {
+                                              let t = new URL(eP);
+                                              t.searchParams.set(
+                                                'pwd',
+                                                eE || ''
+                                              ),
+                                                (e.value = t.toString());
+                                            }
+                                          },
+                                          type: 'text',
+                                          className:
+                                            'flex-1 min-w-0 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                                          readOnly: !0,
+                                        }),
+                                        (0, a.jsx)('button', {
+                                          type: 'button',
+                                          className:
+                                            'shrink-0 px-3 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors',
+                                          onClick: (e) => {
+                                            let t =
+                                              e.currentTarget
+                                                .previousElementSibling;
+                                            navigator.clipboard.writeText(
+                                              t.value
+                                            );
+                                          },
+                                          children: '复制',
+                                        }),
+                                      ],
+                                    })
+                                  : !eC &&
+                                    (0, a.jsx)('span', {
+                                      className:
+                                        'text-xs text-gray-500 dark:text-gray-400',
+                                      children:
+                                        'localstorage' === v
+                                          ? '请修改环境变量 TVBOX_ENABLED 以开启'
+                                          : eR
+                                          ? '请前往管理面板的站点配置中开启'
+                                          : '请联系管理员开启',
+                                    }),
+                              ],
+                            }),
+                            eC &&
+                              eP &&
+                              (0, a.jsxs)('div', {
+                                className: 'space-y-2',
+                                children: [
+                                  (0, a.jsx)('p', {
+                                    className:
+                                      'text-xs text-gray-500 dark:text-gray-400',
+                                    children:
+                                      '将该地址填入 TVBox 的订阅/配置接口即可使用。',
+                                  }),
+                                  'localstorage' === v &&
+                                    (0, a.jsx)('p', {
+                                      className:
+                                        'text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-2 rounded-lg',
+                                      children:
+                                        '\uD83D\uDCA1 本地模式，开关由环境变量 TVBOX_ENABLED 控制，口令为 PASSWORD',
+                                    }),
+                                  eR &&
+                                    'localstorage' !== v &&
+                                    (0, a.jsx)('p', {
+                                      className:
+                                        'text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-2 rounded-lg',
+                                      children:
+                                        '\uD83D\uDCA1 如需修改 TVBox 配置（开关/密码），请前往管理面板的站点配置',
+                                    }),
+                                ],
+                              }),
+                          ],
+                        }),
+                        (0, a.jsx)('div', {
+                          className:
+                            'border-t border-gray-200 dark:border-gray-700',
+                        }),
+                        (0, a.jsxs)('div', {
+                          className: 'flex items-center justify-between',
+                          children: [
+                            (0, a.jsxs)('div', {
+                              children: [
+                                (0, a.jsx)('h4', {
+                                  className:
+                                    'text-sm font-medium text-gray-700 dark:text-gray-300',
+                                  children: '简洁模式',
+                                }),
+                                (0, a.jsx)('p', {
+                                  className:
+                                    'text-xs text-gray-500 dark:text-gray-400 mt-1',
+                                  children:
+                                    '开启后导航栏只保留首页和搜索，首页只保留继续观看和收藏夹',
+                                }),
+                              ],
+                            }),
+                            (0, a.jsx)('label', {
+                              className: 'flex items-center cursor-pointer',
+                              children: (0, a.jsxs)('div', {
+                                className: 'relative',
+                                children: [
+                                  (0, a.jsx)('input', {
+                                    type: 'checkbox',
+                                    className: 'sr-only peer',
+                                    checked: B,
+                                    onChange: (e) => eJ(e.target.checked),
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors dark:bg-gray-600',
+                                  }),
+                                  (0, a.jsx)('div', {
+                                    className:
+                                      'absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-5',
+                                  }),
+                                ],
+                              }),
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                    (0, a.jsx)('div', {
+                      className:
+                        'mt-6 pt-4 border-t border-gray-200 dark:border-gray-700',
+                      children: (0, a.jsx)('p', {
+                        className:
+                          'text-xs text-gray-500 dark:text-gray-400 text-center',
+                        children: '这些设置保存在本地浏览器中',
+                      }),
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            e1 = (0, a.jsxs)(a.Fragment, {
+              children: [
+                (0, a.jsx)('div', {
+                  className:
+                    'fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000]',
+                  onClick: eL,
+                }),
+                (0, a.jsxs)('div', {
+                  className:
+                    'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white dark:bg-gray-900 rounded-xl shadow-xl z-[1001] p-6',
+                  children: [
+                    (0, a.jsxs)('div', {
+                      className: 'flex items-center justify-between mb-6',
+                      children: [
+                        (0, a.jsx)('h3', {
+                          className:
+                            'text-xl font-bold text-gray-800 dark:text-gray-200',
+                          children: '修改密码',
+                        }),
+                        (0, a.jsx)('button', {
+                          onClick: eL,
+                          className:
+                            'w-8 h-8 p-1 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors',
+                          'aria-label': 'Close',
+                          children: (0, a.jsx)(C.Z, {
+                            className: 'w-full h-full',
+                          }),
+                        }),
+                      ],
+                    }),
+                    (0, a.jsxs)('div', {
+                      className: 'space-y-4',
+                      children: [
+                        (0, a.jsxs)('div', {
+                          children: [
+                            (0, a.jsx)('label', {
+                              className:
+                                'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                              children: '新密码',
+                            }),
+                            (0, a.jsx)('input', {
+                              type: 'password',
+                              className:
+                                'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400',
+                              placeholder: '请输入新密码',
+                              value: em,
+                              onChange: (e) => eh(e.target.value),
+                              disabled: ey,
+                            }),
+                          ],
+                        }),
+                        (0, a.jsxs)('div', {
+                          children: [
+                            (0, a.jsx)('label', {
+                              className:
+                                'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2',
+                              children: '确认密码',
+                            }),
+                            (0, a.jsx)('input', {
+                              type: 'password',
+                              className:
+                                'w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400',
+                              placeholder: '请再次输入新密码',
+                              value: ef,
+                              onChange: (e) => eb(e.target.value),
+                              disabled: ey,
+                            }),
+                          ],
+                        }),
+                        ev &&
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-red-500 text-sm bg-red-50 dark:bg-red-900/20 p-3 rounded-md border border-red-200 dark:border-red-800',
+                            children: ev,
+                          }),
+                      ],
+                    }),
+                    (0, a.jsxs)('div', {
+                      className:
+                        'flex gap-3 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700',
+                      children: [
+                        (0, a.jsx)('button', {
+                          onClick: eL,
+                          className:
+                            'flex-1 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors',
+                          disabled: ey,
+                          children: '取消',
+                        }),
+                        (0, a.jsx)('button', {
+                          onClick: eU,
+                          className:
+                            'flex-1 px-4 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed',
+                          disabled: ey || !em || !ef,
+                          children: ey ? '修改中...' : '确认修改',
+                        }),
+                      ],
+                    }),
+                    (0, a.jsx)('div', {
+                      className:
+                        'mt-4 pt-4 border-t border-gray-200 dark:border-gray-700',
+                      children: (0, a.jsx)('p', {
+                        className:
+                          'text-xs text-gray-500 dark:text-gray-400 text-center',
+                        children: '修改密码后需要重新登录',
+                      }),
+                    }),
+                  ],
+                }),
+              ],
+            });
+          return (0, a.jsxs)(a.Fragment, {
+            children: [
+              (0, a.jsxs)('div', {
+                className: 'relative',
+                children: [
+                  (0, a.jsx)('button', {
+                    onClick: () => {
+                      c(!i);
+                    },
+                    className:
+                      'w-10 h-10 p-2 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200/50 dark:text-gray-300 dark:hover:bg-gray-700/50 transition-colors',
+                    'aria-label': 'User Menu',
+                    children: (0, a.jsx)(P.Z, { className: 'w-full h-full' }),
+                  }),
+                  ek === O.qu.HAS_UPDATE &&
+                    (0, a.jsx)('div', {
+                      className:
+                        'absolute top-[2px] right-[2px] w-2 h-2 bg-yellow-500 rounded-full',
+                    }),
+                ],
+              }),
+              i && M && (0, D.createPortal)(eQ, document.body),
+              u && M && (0, D.createPortal)(e0, document.body),
+              x && M && (0, D.createPortal)(e1, document.body),
+              (0, a.jsx)(F, { isOpen: f, onClose: () => b(!1) }),
+            ],
+          });
+        };
+      var V = (0, l.memo)((e) => {
+          let { showBackButton: t = !1 } = e,
+            { siteName: r } = (0, v.W)(),
+            [s, n] = (0, l.useState)(0);
+          return (
+            (0, l.useEffect)(() => {
+              let e = () => {
+                {
+                  let e = localStorage.getItem('downloadTasks');
+                  if (e)
+                    try {
+                      let t = JSON.parse(e).filter(
+                        (e) =>
+                          'downloading' === e.status ||
+                          'paused' === e.status ||
+                          'waiting' === e.status ||
+                          'error' === e.status
+                      ).length;
+                      n(t);
+                    } catch (e) {
+                      n(0);
+                    }
+                  else n(0);
+                }
+              };
+              e();
+              let t = () => {
+                e();
+              };
+              return (
+                window.addEventListener('storage', t),
+                window.addEventListener('downloadTasksUpdated', t),
+                () => {
+                  window.removeEventListener('storage', t),
+                    window.removeEventListener('downloadTasksUpdated', t);
+                }
+              );
+            }, []),
+            (0, a.jsx)(a.Fragment, {
+              children: (0, a.jsx)('header', {
+                className:
+                  'md:hidden relative w-full bg-white/70 backdrop-blur-xl border-b border-gray-200/50 shadow-sm dark:bg-gray-900/70 dark:border-gray-700/50',
+                children: (0, a.jsxs)('div', {
+                  className: 'h-12 flex items-center justify-between px-4',
+                  children: [
+                    (0, a.jsxs)('div', {
+                      className: 'flex items-center gap-3',
+                      children: [
+                        t && (0, a.jsx)(p, {}),
+                        (0, a.jsx)(x.default, {
+                          href: '/',
+                          className:
+                            'text-xl font-bold text-green-600 tracking-tight hover:opacity-80 transition-opacity',
+                          children: r,
+                        }),
+                      ],
+                    }),
+                    (0, a.jsxs)('div', {
+                      className: 'flex items-center gap-2',
+                      children: [
+                        (0, a.jsxs)('button', {
+                          onClick: () => {
+                            window.dispatchEvent(
+                              new Event('showDownloadManager')
+                            );
+                          },
+                          className:
+                            'p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors relative',
+                          title: '下载管理器',
+                          children: [
+                            (0, a.jsx)(b.Z, { className: 'h-5 w-5' }),
+                            s > 0 &&
+                              (0, a.jsx)('span', {
+                                className:
+                                  'absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center',
+                                children: s > 9 ? '9+' : s,
+                              }),
+                          ],
+                        }),
+                        (0, a.jsx)(w.T, {}),
+                        (0, a.jsx)(B, {}),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+            })
+          );
+        }),
+        z = r(9018),
+        W = r(7407),
+        J = r(4090),
+        G = r(4855),
+        q = r(3563),
+        H = (0, l.memo)((e) => {
+          let { activePath: t } = e,
+            r = (0, s.useRouter)(),
+            f = (0, s.usePathname)(),
+            y = (0, s.useSearchParams)(),
+            { siteName: p } = (0, v.W)(),
+            { startLoading: k } = (0, h.w)(),
+            [j, N] = (0, l.useState)(t || '/'),
+            [S, T] = (0, l.useState)(''),
+            [E, I] = (0, l.useState)(!1),
+            P = (0, l.useRef)(null),
+            [D, R] = (0, l.useState)([]),
+            [O, M] = (0, l.useState)(null),
+            [Z, L] = (0, l.useState)([]),
+            [U, A] = (0, l.useState)(!1),
+            _ = (0, l.useRef)(null),
+            F = (0, l.useRef)(null),
+            [V, H] = (0, l.useState)(!1),
+            Y = (0, l.useRef)(null),
+            [X, K] = (0, l.useState)(0);
+          (0, l.useEffect)(() => {
+            let e = () => {
+              {
+                let e = localStorage.getItem('downloadTasks');
+                if (e)
+                  try {
+                    let t = JSON.parse(e).filter(
+                      (e) =>
+                        'downloading' === e.status ||
+                        'paused' === e.status ||
+                        'waiting' === e.status ||
+                        'error' === e.status
+                    ).length;
+                    K(t);
+                  } catch (e) {
+                    K(0);
+                  }
+                else K(0);
+              }
+            };
+            e();
+            let t = () => {
+              e();
+            };
+            return (
+              window.addEventListener('storage', t),
+              window.addEventListener('downloadTasksUpdated', t),
+              () => {
+                window.removeEventListener('storage', t),
+                  window.removeEventListener('downloadTasksUpdated', t);
+              }
+            );
+          }, []);
+          let [$, Q] = (0, l.useState)(!1),
+            [ee, et] = (0, l.useState)(!1);
+          (0, l.useEffect)(() => {
+            et(!0);
+            {
+              let e = localStorage.getItem('simpleMode');
+              null !== e && Q(JSON.parse(e));
+            }
+            (0, J.nO)().then(L);
+            let e = (0, J.rq)('searchHistoryUpdated', L);
+            return () => {
+              e();
+            };
+          }, []),
+            (0, l.useEffect)(() => {
+              if (t) N(t);
+              else {
+                let e = y.toString();
+                N(e ? ''.concat(f, '?').concat(e) : f);
+              }
+            }, [t, f, y]),
+            (0, l.useEffect)(() => {
+              if ('/search' === f) {
+                let e = y.get('q');
+                e ? T(decodeURIComponent(e)) : T('');
+                let t = y.get('sources');
+                t && R(t.split(','));
+              }
+            }, [f, y]);
+          let [er, ea] = (0, l.useState)([
+            { icon: d.Z, label: '电影', href: '/douban?type=movie' },
+            { icon: i.Z, label: '剧集', href: '/douban?type=tv' },
+            { icon: c.Z, label: '动漫', href: '/douban?type=anime' },
+            { icon: u.Z, label: '综艺', href: '/douban?type=show' },
+          ]);
+          (0, l.useEffect)(() => {
+            (0, m.V)().then((e) => {
+              e.length > 0 &&
+                ea((e) => [
+                  ...e,
+                  { icon: g.Z, label: '自定义', href: '/douban?type=custom' },
+                ]);
+            });
+          }, []);
+          let es = (e) => {
+              T(e), A(!1), (0, J.F0)(e), '/search' !== f && k();
+              let t = new URLSearchParams();
+              t.set('q', e),
+                D.length > 0 && t.set('sources', D.join(',')),
+                r.push('/search?'.concat(t.toString()));
+            },
+            el = async (e, t) => {
+              t.stopPropagation(), await (0, J.Rw)(e);
+            },
+            en = async () => {
+              await (0, J.Ev)(), A(!1);
+            };
+          (0, l.useEffect)(() => {
+            let e = (e) => {
+              V &&
+                Y.current &&
+                !Y.current.contains(e.target) &&
+                (H(!1), O && M(null), U && A(!1));
+            };
+            return (
+              document.addEventListener('mousedown', e),
+              () => {
+                document.removeEventListener('mousedown', e);
+              }
+            );
+          }, [V, O, U]),
+            (0, l.useEffect)(() => {
+              let e = (e) => {
+                U &&
+                  F.current &&
+                  _.current &&
+                  !F.current.contains(e.target) &&
+                  !_.current.contains(e.target) &&
+                  A(!1);
+              };
+              return (
+                document.addEventListener('mousedown', e),
+                () => {
+                  document.removeEventListener('mousedown', e);
+                }
+              );
+            }, [U]);
+          let eo = (0, a.jsxs)('div', {
+              className: 'flex-1 max-w-md flex items-center',
+              ref: Y,
+              children: [
+                (0, a.jsx)('div', {
+                  className: 'flex-shrink-0',
+                  children: (0, a.jsx)(q.Z, {
+                    selectedSources: D,
+                    onChange: R,
+                    openFilter: O,
+                    setOpenFilter: M,
+                    size: 'compact',
+                  }),
+                }),
+                (0, a.jsxs)('div', {
+                  className: 'relative flex-1',
+                  children: [
+                    (0, a.jsxs)('form', {
+                      onSubmit: (e) => {
+                        e.preventDefault();
+                        let t = S.trim();
+                        if (t) {
+                          (0, J.F0)(t), '/search' !== f && k();
+                          let e = new URLSearchParams();
+                          e.set('q', t),
+                            D.length > 0 && e.set('sources', D.join(',')),
+                            r.push('/search?'.concat(e.toString())),
+                            I(!1),
+                            A(!1);
+                        }
+                      },
+                      className: 'relative',
+                      children: [
+                        (0, a.jsx)(o.Z, {
+                          className:
+                            'absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400 dark:text-gray-500',
+                        }),
+                        (0, a.jsx)('input', {
+                          ref: P,
+                          type: 'text',
+                          value: S,
+                          onChange: (e) => {
+                            let t = e.target.value;
+                            T(t), I(t.trim().length > 0), A(!1);
+                          },
+                          onFocus: () => {
+                            S.trim().length > 0 && I(!0), A(!1);
+                          },
+                          placeholder: '搜索电影、电视剧...',
+                          className:
+                            'w-full h-10 rounded-r-lg rounded-l-none bg-gray-100/80 py-2 pl-10 pr-20 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white transition-all duration-200 border border-gray-200/50 border-l-0 dark:bg-gray-800 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:bg-gray-700 dark:border-gray-700',
+                        }),
+                        (0, a.jsxs)('div', {
+                          className:
+                            'absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1',
+                          children: [
+                            S &&
+                              (0, a.jsx)('button', {
+                                type: 'button',
+                                onClick: () => {
+                                  var e;
+                                  T(''),
+                                    I(!1),
+                                    null === (e = P.current) ||
+                                      void 0 === e ||
+                                      e.focus();
+                                },
+                                className:
+                                  'text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors',
+                                children: (0, a.jsx)(C.Z, {
+                                  className: 'h-4 w-4',
+                                }),
+                              }),
+                            (0, a.jsxs)('button', {
+                              ref: _,
+                              type: 'button',
+                              onClick: () => A(!U),
+                              className:
+                                'text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors relative',
+                              title: '搜索历史',
+                              children: [
+                                (0, a.jsx)(z.Z, { className: 'h-4 w-4' }),
+                                Z.length > 0 &&
+                                  (0, a.jsx)('span', {
+                                    className:
+                                      'absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full',
+                                  }),
+                              ],
+                            }),
+                          ],
+                        }),
+                        (0, a.jsx)(G.Z, {
+                          query: S,
+                          isVisible: E,
+                          onSelect: (e) => {
+                            T(e),
+                              I(!1),
+                              A(!1),
+                              (0, J.F0)(e),
+                              '/search' !== f && k();
+                            let t = new URLSearchParams();
+                            t.set('q', e),
+                              D.length > 0 && t.set('sources', D.join(',')),
+                              r.push('/search?'.concat(t.toString()));
+                          },
+                          onClose: () => I(!1),
+                        }),
+                      ],
+                    }),
+                    U &&
+                      Z.length > 0 &&
+                      (0, a.jsxs)('div', {
+                        ref: F,
+                        className:
+                          'absolute top-full right-0 mt-2 w-80 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg max-h-96 overflow-y-auto z-50',
+                        children: [
+                          (0, a.jsxs)('div', {
+                            className:
+                              'p-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between',
+                            children: [
+                              (0, a.jsx)('h3', {
+                                className:
+                                  'text-sm font-semibold text-gray-700 dark:text-gray-300',
+                                children: '搜索历史',
+                              }),
+                              (0, a.jsx)('button', {
+                                onClick: en,
+                                className:
+                                  'text-xs text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-500 transition-colors',
+                                children: '清空全部',
+                              }),
+                            ],
+                          }),
+                          (0, a.jsx)('div', {
+                            className: 'p-2',
+                            children: Z.map((e, t) =>
+                              (0, a.jsxs)(
+                                'div',
+                                {
+                                  className:
+                                    'group flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer',
+                                  onClick: () => es(e),
+                                  children: [
+                                    (0, a.jsx)('span', {
+                                      className:
+                                        'text-sm text-gray-700 dark:text-gray-300 truncate flex-1',
+                                      children: e,
+                                    }),
+                                    (0, a.jsx)('button', {
+                                      onClick: (t) => el(e, t),
+                                      className:
+                                        'ml-2 text-gray-400 hover:text-red-500 dark:text-gray-500 dark:hover:text-red-500 transition-colors',
+                                      title: '删除',
+                                      children: (0, a.jsx)(W.Z, {
+                                        className: 'h-3 w-3',
+                                      }),
+                                    }),
+                                  ],
+                                },
+                                'history-'.concat(e, '-').concat(t)
+                              )
+                            ),
+                          }),
+                        ],
+                      }),
+                  ],
+                }),
+              ],
+            }),
+            ed = (0, a.jsx)('button', {
+              onClick: () => {
+                H(!0),
+                  setTimeout(() => {
+                    var e;
+                    return null === (e = P.current) || void 0 === e
+                      ? void 0
+                      : e.focus();
+                  }, 300);
+              },
+              className:
+                'p-2 text-gray-700 hover:bg-gray-100/50 hover:text-green-600 rounded-lg transition-colors duration-200 dark:text-gray-300 dark:hover:text-green-400 dark:hover:bg-gray-700/50 flex-shrink-0',
+              title: '搜索',
+              children: (0, a.jsx)(o.Z, { className: 'h-5 w-5' }),
+            });
+          return (0, a.jsx)(a.Fragment, {
+            children: (0, a.jsx)('header', {
+              className:
+                'hidden md:block sticky top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-sm dark:bg-gray-900/80 dark:border-gray-700/50',
+              children: (0, a.jsxs)('div', {
+                className:
+                  'mx-auto px-6 h-16 flex items-center justify-between gap-6',
+                children: [
+                  $
+                    ? (0, a.jsx)('div', {
+                        className:
+                          'absolute left-1/2 transform -translate-x-1/2',
+                        children: (0, a.jsx)(x.default, {
+                          href: '/',
+                          className:
+                            'flex items-center justify-center select-none hover:opacity-80 transition-opacity duration-200',
+                          onClick: () => {
+                            '/' !== j && k();
+                          },
+                          children: (0, a.jsx)('span', {
+                            className:
+                              'text-2xl font-bold text-green-600 tracking-tight',
+                            children: p,
+                          }),
+                        }),
+                      })
+                    : (0, a.jsx)(x.default, {
+                        href: '/',
+                        className:
+                          'flex items-center justify-center select-none hover:opacity-80 transition-opacity duration-200 flex-shrink-0',
+                        onClick: () => {
+                          '/' !== j && k();
+                        },
+                        children: (0, a.jsx)('span', {
+                          className:
+                            'text-2xl font-bold text-green-600 tracking-tight',
+                          children: p,
+                        }),
+                      }),
+                  (0, a.jsxs)('nav', {
+                    className: 'flex items-center gap-1 flex-shrink-0',
+                    children: [
+                      ee &&
+                        !$ &&
+                        (0, a.jsxs)(x.default, {
+                          href: '/',
+                          onClick: () => {
+                            '/' !== j && k(), N('/');
+                          },
+                          'data-active': '/' === j,
+                          className:
+                            'group flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100/50 hover:text-green-600 data-[active=true]:bg-green-500/10 data-[active=true]:text-green-600 font-medium transition-colors duration-200 dark:text-gray-300 dark:hover:text-green-400 dark:hover:bg-gray-700/50 dark:data-[active=true]:bg-green-500/10 dark:data-[active=true]:text-green-400',
+                          children: [
+                            (0, a.jsx)(n.Z, { className: 'h-4 w-4' }),
+                            (0, a.jsx)('span', { children: '首页' }),
+                          ],
+                        }),
+                      ee &&
+                        !$ &&
+                        er.map((e) => {
+                          var t;
+                          let r =
+                              null === (t = e.href.match(/type=([^&]+)/)) ||
+                              void 0 === t
+                                ? void 0
+                                : t[1],
+                            s = decodeURIComponent(j),
+                            l =
+                              s === decodeURIComponent(e.href) ||
+                              (s.startsWith('/douban') &&
+                                s.includes('type='.concat(r))),
+                            n = e.icon;
+                          return (0, a.jsxs)(
+                            x.default,
+                            {
+                              href: e.href,
+                              onClick: () => {
+                                l || k(), N(e.href);
+                              },
+                              'data-active': l,
+                              className:
+                                'group flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100/50 hover:text-green-600 data-[active=true]:bg-green-500/10 data-[active=true]:text-green-600 font-medium transition-colors duration-200 dark:text-gray-300 dark:hover:text-green-400 dark:hover:bg-gray-700/50 dark:data-[active=true]:bg-green-500/10 dark:data-[active=true]:text-green-400',
+                              children: [
+                                (0, a.jsx)(n, { className: 'h-4 w-4' }),
+                                (0, a.jsx)('span', { children: e.label }),
+                              ],
+                            },
+                            e.label
+                          );
+                        }),
+                    ],
+                  }),
+                  (0, a.jsx)('div', { className: 'flex-1' }),
+                  (0, a.jsxs)('div', {
+                    className: 'flex items-center justify-end',
+                    children: [V && eo, !V && ed],
+                  }),
+                  (0, a.jsxs)('div', {
+                    className: 'flex items-center gap-2 flex-shrink-0 mr-9',
+                    children: [
+                      (0, a.jsxs)('button', {
+                        onClick: () => {
+                          window.dispatchEvent(
+                            new Event('showDownloadManager')
+                          );
+                        },
+                        className:
+                          'p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors relative',
+                        title: '下载管理器',
+                        children: [
+                          (0, a.jsx)(b.Z, { className: 'h-5 w-5' }),
+                          X > 0 &&
+                            (0, a.jsx)('span', {
+                              className:
+                                'absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center',
+                              children: X > 99 ? '99+' : X,
+                            }),
+                        ],
+                      }),
+                      (0, a.jsx)(w.T, {}),
+                      (0, a.jsx)(B, {}),
+                    ],
+                  }),
+                ],
+              }),
+            }),
+          });
+        }),
+        Y = (0, l.memo)(() => {
+          let e = (0, s.usePathname)();
+          return ['/login', '/warning'].some((t) => e.startsWith(t))
+            ? null
+            : (0, a.jsxs)(a.Fragment, {
+                children: [
+                  (0, a.jsx)(V, { showBackButton: !1 }),
+                  (0, a.jsx)(H, {}),
+                  (0, a.jsx)('div', {
+                    className: 'md:hidden',
+                    children: (0, a.jsx)(f, {}),
+                  }),
+                ],
+              });
+        });
+    },
+    2888: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        default: function () {
+          return p;
+        },
+      });
+      var a = r(7569),
+        s = r(5663),
+        l = r(8448),
+        n = r(4819),
+        o = r(7656),
+        d = r(9346),
+        i = r(9392),
+        c = r(7407),
+        u = r(4989),
+        g = r.n(u),
+        x = r(2038),
+        m = r(904),
+        h = r(4660),
+        f = r(8474),
+        b = (e) => {
+          let {
+              task: t,
+              isOpen: r,
+              onClose: l,
+              onSegmentRetry: o,
+              taskExists: d,
+              concurrency: i = 6,
+              streamMode: c = 'disabled',
+            } = e,
+            [u, g] = (0, s.useState)(new Set()),
+            [, m] = (0, s.useState)({}),
+            b = async (e) => {
+              if (!u.has(e)) {
+                if (d && !d()) {
+                  console.log('任务已删除，取消片段 '.concat(e + 1, ' 的重试'));
+                  return;
+                }
+                g((t) => new Set(t).add(e));
+                try {
+                  let r = await (0, x.qA)(t.tsUrlList[e]);
+                  t.aesConf.key &&
+                    (r = (0, x.jz)(r, t.aesConf.key, t.aesConf.iv)),
+                    t.downloadedSegments || (t.downloadedSegments = new Map()),
+                    t.downloadedSegments.set(e, r),
+                    (t.finishList[e].status = 'success'),
+                    t.finishNum++,
+                    (t.errorNum = Math.max(0, t.errorNum - 1)),
+                    o && o(e),
+                    m({}),
+                    console.log('片段 '.concat(e + 1, ' 重试成功，数据已保存'));
+                } catch (t) {
+                  console.error('片段 '.concat(e + 1, ' 重试失败:'), t);
+                } finally {
+                  g((t) => {
+                    let r = new Set(t);
+                    return r.delete(e), r;
+                  });
+                }
+              }
+            },
+            y = async () => {
+              if (d && !d()) {
+                console.log('任务已删除，取消批量重试');
+                return;
+              }
+              let e = t.finishList
+                .map((e, t) => ({ item: e, index: t }))
+                .filter((e) => {
+                  let { item: t } = e;
+                  return 'error' === t.status;
+                })
+                .map((e) => {
+                  let { index: t } = e;
+                  return t;
+                });
+              if (0 === e.length) {
+                console.log('⚠️ 没有失败的片段可重试');
+                return;
+              }
+              console.log(
+                '开始批量重试 '
+                  .concat(e.length, ' 个失败片段，并发数: ')
+                  .concat(i)
+              );
+              let r = [...e],
+                a = async () => {
+                  for (; r.length > 0; ) {
+                    if (d && !d()) {
+                      console.log('任务已删除，停止批量重试');
+                      return;
+                    }
+                    let e = r.shift();
+                    void 0 !== e && (await b(e));
+                  }
+                },
+                s = [];
+              for (let t = 0; t < Math.min(i, e.length); t++) s.push(a());
+              try {
+                await Promise.all(s);
+                let e = t.finishList.filter((e) => 'error' === e.status).length;
+                if (
+                  (console.log('批量重试完成，剩余失败片段: '.concat(e)),
+                  0 === e)
+                ) {
+                  var l;
+                  console.log(
+                    '✅ 所有片段已成功！已保存 '.concat(
+                      (null === (l = t.downloadedSegments) || void 0 === l
+                        ? void 0
+                        : l.size) || 0,
+                      ' 个片段数据，即将自动合并保存...'
+                    )
+                  );
+                }
+              } catch (e) {
+                console.error('批量重试出错:', e);
+              }
+            };
+          if (
+            ((0, s.useEffect)(() => {
+              let e = (e) => {
+                'Escape' === e.key && l();
+              };
+              return (
+                r && document.addEventListener('keydown', e),
+                () => {
+                  document.removeEventListener('keydown', e);
+                }
+              );
+            }, [r, l]),
+            !r)
+          )
+            return null;
+          let { startSegment: p, endSegment: v } = t.rangeDownload,
+            w = t.finishList.slice(p - 1, v),
+            k = p - 1,
+            j = t.segmentDurations || [],
+            N = j.slice(0, p - 1).reduce((e, t) => e + t, 0),
+            S = j.slice(0, v).reduce((e, t) => e + t, 0),
+            C = w.filter((e) => 'success' === e.status).length,
+            T = w.filter((e) => 'error' === e.status).length,
+            E = w.filter((e) => 'downloading' === e.status).length,
+            I = w.filter((e) => '' === e.status).length;
+          return (0, a.jsx)('div', {
+            className:
+              'fixed inset-0 bg-black/50 backdrop-blur-sm z-[10000] flex items-center justify-center p-4',
+            children: (0, a.jsxs)('div', {
+              className:
+                'bg-white dark:bg-gray-800 rounded-xl shadow-2xl w-full max-w-4xl max-h-[80vh] flex flex-col',
+              children: [
+                (0, a.jsxs)('div', {
+                  className:
+                    'flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700',
+                  children: [
+                    (0, a.jsxs)('div', {
+                      children: [
+                        (0, a.jsx)('h2', {
+                          className:
+                            'text-lg font-semibold text-gray-900 dark:text-white',
+                          children: '片段列表',
+                        }),
+                        (0, a.jsx)('p', {
+                          className:
+                            'text-sm text-gray-500 dark:text-gray-400 mt-1',
+                          children: t.title,
+                        }),
+                        (0, a.jsxs)('p', {
+                          className:
+                            'text-xs text-gray-400 dark:text-gray-500 mt-1',
+                          children: [
+                            '片段范围：',
+                            p,
+                            ' ~ ',
+                            v,
+                            ' \xa0|\xa0 时长范围：',
+                            (0, f.m)(N),
+                            ' ~ ',
+                            (0, f.m)(S),
+                          ],
+                        }),
+                      ],
+                    }),
+                    (0, a.jsx)('button', {
+                      onClick: l,
+                      className:
+                        'p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors',
+                      children: (0, a.jsx)(n.Z, { className: 'h-5 w-5' }),
+                    }),
+                  ],
+                }),
+                (0, a.jsx)('div', {
+                  className:
+                    'p-4 bg-gray-50 dark:bg-gray-900/50 border-b border-gray-200 dark:border-gray-700',
+                  children: (0, a.jsxs)('div', {
+                    className: 'grid grid-cols-2 sm:grid-cols-5 gap-3',
+                    children: [
+                      (0, a.jsxs)('div', {
+                        className: 'bg-white dark:bg-gray-800 rounded-lg p-3',
+                        children: [
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-xs text-gray-500 dark:text-gray-400',
+                            children: '总片段',
+                          }),
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-lg font-semibold text-gray-900 dark:text-white mt-1',
+                            children: w.length,
+                          }),
+                        ],
+                      }),
+                      (0, a.jsxs)('div', {
+                        className:
+                          'bg-green-50 dark:bg-green-900/20 rounded-lg p-3',
+                        children: [
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-xs text-green-600 dark:text-green-400',
+                            children: '成功',
+                          }),
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-lg font-semibold text-green-700 dark:text-green-300 mt-1',
+                            children: C,
+                          }),
+                        ],
+                      }),
+                      (0, a.jsxs)('div', {
+                        className:
+                          'bg-red-50 dark:bg-red-900/20 rounded-lg p-3 relative',
+                        children: [
+                          (0, a.jsx)('div', {
+                            className: 'text-xs text-red-600 dark:text-red-400',
+                            children: '失败',
+                          }),
+                          (0, a.jsxs)('div', {
+                            className: 'flex items-center justify-between mt-1',
+                            children: [
+                              (0, a.jsx)('div', {
+                                className:
+                                  'text-lg font-semibold text-red-700 dark:text-red-300',
+                                children: T,
+                              }),
+                              (0, a.jsx)('button', {
+                                onClick: y,
+                                disabled:
+                                  u.size > 0 || 0 === T || 'disabled' !== c,
+                                className:
+                                  'p-1.5 rounded-md hover:bg-red-200 dark:hover:bg-red-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors',
+                                title:
+                                  'disabled' !== c
+                                    ? '边下边存模式重试由重试次数控制'
+                                    : '重试所有失败片段',
+                                children: (0, a.jsx)(h.Z, {
+                                  className:
+                                    'h-4 w-4 text-red-600 dark:text-red-400 '.concat(
+                                      u.size > 0 ? 'animate-spin' : ''
+                                    ),
+                                }),
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                      (0, a.jsxs)('div', {
+                        className:
+                          'bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3',
+                        children: [
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-xs text-blue-600 dark:text-blue-400',
+                            children: '下载中',
+                          }),
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-lg font-semibold text-blue-700 dark:text-blue-300 mt-1',
+                            children: E,
+                          }),
+                        ],
+                      }),
+                      (0, a.jsxs)('div', {
+                        className:
+                          'bg-gray-100 dark:bg-gray-700 rounded-lg p-3',
+                        children: [
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-xs text-gray-600 dark:text-gray-400',
+                            children: '待下载',
+                          }),
+                          (0, a.jsx)('div', {
+                            className:
+                              'text-lg font-semibold text-gray-700 dark:text-gray-300 mt-1',
+                            children: I,
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                }),
+                (0, a.jsx)('div', {
+                  className: 'flex-1 overflow-y-auto p-4',
+                  children: (0, a.jsx)('div', {
+                    className:
+                      'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2',
+                    children: w.map((e, t) => {
+                      let r = k + t,
+                        s = u.has(r),
+                        l =
+                          'success' === e.status
+                            ? 'bg-green-100 dark:bg-green-900/30 border-green-300 dark:border-green-700'
+                            : 'error' === e.status
+                            ? 'bg-red-100 dark:bg-red-900/30 border-red-300 dark:border-red-700'
+                            : 'downloading' === e.status
+                            ? 'bg-blue-100 dark:bg-blue-900/30 border-blue-300 dark:border-blue-700'
+                            : 'bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600',
+                        n =
+                          'success' === e.status
+                            ? 'text-green-700 dark:text-green-300'
+                            : 'error' === e.status
+                            ? 'text-red-700 dark:text-red-300'
+                            : 'downloading' === e.status
+                            ? 'text-blue-700 dark:text-blue-300'
+                            : 'text-gray-700 dark:text-gray-300';
+                      return (0, a.jsxs)(
+                        'div',
+                        {
+                          className:
+                            'relative border rounded-lg p-3 transition-all '
+                              .concat(l, ' ')
+                              .concat(
+                                'error' !== e.status || s || 'disabled' !== c
+                                  ? ''
+                                  : 'cursor-pointer hover:shadow-md'
+                              ),
+                          onClick: () => {
+                            'error' !== e.status ||
+                              s ||
+                              'disabled' !== c ||
+                              b(r);
+                          },
+                          title:
+                            'error' === e.status
+                              ? 'disabled' !== c
+                                ? '边下边存模式无法重试失败片段'
+                                : '点击重试'
+                              : 'success' === e.status
+                              ? '下载成功'
+                              : 'downloading' === e.status
+                              ? '下载中'
+                              : '待下载',
+                          children: [
+                            (0, a.jsxs)('div', {
+                              className: 'flex items-center justify-between',
+                              children: [
+                                (0, a.jsxs)('span', {
+                                  className: 'text-sm font-medium '.concat(n),
+                                  children: ['#', r + 1],
+                                }),
+                                'error' === e.status &&
+                                  (0, a.jsx)(h.Z, {
+                                    className: 'h-3 w-3 '
+                                      .concat(n, ' ')
+                                      .concat(s ? 'animate-spin' : ''),
+                                  }),
+                              ],
+                            }),
+                            (0, a.jsx)('div', {
+                              className: 'text-xs mt-1 '.concat(
+                                n,
+                                ' opacity-75'
+                              ),
+                              children:
+                                'success' === e.status
+                                  ? '✓ 成功'
+                                  : 'error' === e.status
+                                  ? '✗ 失败'.concat(
+                                      e.retryCount
+                                        ? ' (重试'.concat(e.retryCount, '次)')
+                                        : ''
+                                    )
+                                  : 'downloading' === e.status
+                                  ? '⟳ '.concat(
+                                      e.retryCount && e.retryCount > 0
+                                        ? '重试中(第'.concat(
+                                            e.retryCount,
+                                            '次)'
+                                          )
+                                        : '下载中'
+                                    )
+                                  : '○ 待下载',
+                            }),
+                          ],
+                        },
+                        r
+                      );
+                    }),
+                  }),
+                }),
+                (0, a.jsx)('div', {
+                  className:
+                    'p-4 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700',
+                  children: (0, a.jsx)('p', {
+                    className:
+                      'text-xs text-gray-500 dark:text-gray-400 text-center',
+                    children:
+                      '点击红色片段可以重试下载 • 绿色表示成功 • 蓝色表示下载中 • 灰色表示待下载',
+                  }),
+                }),
+              ],
+            }),
+          });
+        },
+        y = (e) => {
+          let { isOpen: t, onClose: u } = e,
+            [h, y] = (0, s.useState)([]),
+            [p, v] = (0, s.useState)(!1),
+            [w, k] = (0, s.useState)(null),
+            j = (0, s.useRef)([]),
+            N = (0, s.useRef)(!1),
+            S = (0, s.useRef)(!1),
+            C = (0, s.useRef)(new Set());
+          (0, s.useEffect)(() => {
+            j.current = h;
+          }, [h]),
+            (0, s.useEffect)(() => {
+              {
+                let e = localStorage.getItem('downloadTasks');
+                if (e)
+                  try {
+                    let t = JSON.parse(e).map((e) => {
+                      let t =
+                          'downloading' === e._originalStatus ||
+                          'downloading' === e.status,
+                        { _originalStatus: r, ...a } = e;
+                      return {
+                        ...a,
+                        status: t ? 'paused' : e.status,
+                        autoResume: t,
+                        abortController: void 0,
+                      };
+                    });
+                    y(t);
+                  } catch (e) {}
+              }
+            }, []),
+            (0, s.useEffect)(() => {
+              if (N.current) return;
+              let e = h.filter((e) => e.autoResume && 'paused' === e.status);
+              e.length > 0 &&
+                ((N.current = !0),
+                setTimeout(() => {
+                  e.forEach((e) => {
+                    R(e.id);
+                  }),
+                    y((e) => e.map((e) => ({ ...e, autoResume: !1 })));
+                }, 500));
+            }, [h]),
+            (0, s.useEffect)(() => {
+              {
+                let e = h.map((e) => {
+                  let {
+                    abortController: t,
+                    pauseResumeController: r,
+                    config: a,
+                    ...s
+                  } = e;
+                  return {
+                    ...s,
+                    config: a
+                      ? {
+                          downloadType: a.downloadType,
+                          concurrency: a.concurrency,
+                          rangeMode: a.rangeMode,
+                          startSegment: a.startSegment,
+                          endSegment: a.endSegment,
+                          streamMode: a.streamMode,
+                          maxRetries: a.maxRetries,
+                        }
+                      : void 0,
+                    _originalStatus: s.status,
+                  };
+                });
+                localStorage.setItem('downloadTasks', JSON.stringify(e)),
+                  window.dispatchEvent(new Event('downloadTasksUpdated'));
+              }
+            }, [h]),
+            (0, s.useEffect)(() => {
+              let e = () => {
+                (S.current = !0),
+                  j.current.forEach((e) => {
+                    'downloading' === e.status &&
+                      e.abortController &&
+                      e.abortController.abort(),
+                      e.pauseResumeController &&
+                        e.pauseResumeController.destroy();
+                  });
+              };
+              return (
+                window.addEventListener('beforeunload', e),
+                () => {
+                  window.removeEventListener('beforeunload', e);
+                }
+              );
+            }, []);
+          let T = (0, s.useCallback)(async function (
+              e,
+              t,
+              r,
+              a,
+              s,
+              l,
+              n,
+              o,
+              d
+            ) {
+              let i =
+                  arguments.length > 9 && void 0 !== arguments[9]
+                    ? arguments[9]
+                    : 'disabled',
+                c =
+                  arguments.length > 10 && void 0 !== arguments[10]
+                    ? arguments[10]
+                    : 3,
+                u = arguments.length > 11 ? arguments[11] : void 0;
+              try {
+                var g;
+                (t.type = s),
+                  n &&
+                    (t.rangeDownload = {
+                      startSegment: Math.max(
+                        1,
+                        Math.min(o, t.tsUrlList.length)
+                      ),
+                      endSegment: Math.max(1, Math.min(d, t.tsUrlList.length)),
+                      targetSegment: Math.abs(d - o) + 1,
+                    }),
+                  await (0, x.MP)(
+                    t,
+                    (r) => {
+                      y((a) =>
+                        a.map((a) => {
+                          if (
+                            a.id !== e ||
+                            'merging' === a.status ||
+                            a.isEarlyCompleting
+                          )
+                            return a;
+                          let s = 'downloading' === a.status,
+                            l = a.parsedTask
+                              ? {
+                                  ...a.parsedTask,
+                                  finishNum: t.finishNum,
+                                  errorNum: t.errorNum,
+                                  finishList: t.finishList,
+                                  downloadedSegments: t.downloadedSegments,
+                                }
+                              : void 0;
+                          return {
+                            ...a,
+                            progress: r.percentage,
+                            current: r.current,
+                            total: r.total,
+                            status: s
+                              ? 'done' === r.status
+                                ? 'completed'
+                                : 'error' === r.status
+                                ? 'error'
+                                : 'downloading'
+                              : a.status,
+                            parsedTask: l,
+                          };
+                        })
+                      );
+                    },
+                    r.signal,
+                    a,
+                    l,
+                    i,
+                    c,
+                    u
+                  );
+                let m = j.current.find((t) => t.id === e),
+                  h =
+                    null == m
+                      ? void 0
+                      : null === (g = m.parsedTask) || void 0 === g
+                      ? void 0
+                      : g.finishList.some((e) => 'error' === e.status);
+                h && 'disabled' === i
+                  ? console.log(
+                      '⚠️ 任务 '.concat(e, ' 有失败片段，保持下载状态等待重试')
+                    )
+                  : (y((t) =>
+                      t.map((t) =>
+                        t.id === e ? { ...t, abortController: void 0 } : t
+                      )
+                    ),
+                    h &&
+                      'disabled' !== i &&
+                      console.log(
+                        '✅ 边下边存模式：任务 '.concat(
+                          e,
+                          ' 已完成，失败片段已跳过'
+                        )
+                      ));
+              } catch (t) {
+                if (t instanceof Error && '下载已取消' === t.message) {
+                  let t = j.current.find((t) => t.id === e);
+                  if (
+                    (null == t ? void 0 : t.isEarlyCompleting) ||
+                    (null == t ? void 0 : t.status) === 'completed'
+                  )
+                    return;
+                  S.current ||
+                    y((t) =>
+                      t.map((t) =>
+                        t.id === e
+                          ? { ...t, status: 'paused', abortController: void 0 }
+                          : t
+                      )
+                    );
+                } else
+                  console.error('下载失败:', t),
+                    y((t) =>
+                      t.map((t) =>
+                        t.id === e
+                          ? { ...t, status: 'error', abortController: void 0 }
+                          : t
+                      )
+                    );
+              }
+            },
+            []),
+            E = (0, s.useCallback)(
+              (e) => {
+                var t;
+                let r = Date.now().toString(),
+                  a = new AbortController(),
+                  s = new x.zc(),
+                  l = { current: null },
+                  n = {
+                    id: r,
+                    url: e.url,
+                    title: e.title,
+                    status: 'downloading',
+                    progress: 0,
+                    current: 0,
+                    total: e.parsedTask.tsUrlList.length,
+                    config: {
+                      downloadType: e.downloadType,
+                      concurrency: e.concurrency,
+                      rangeMode: e.rangeMode,
+                      startSegment: e.startSegment,
+                      endSegment: e.endSegment,
+                      streamMode: e.streamMode,
+                      maxRetries:
+                        null !== (t = e.maxRetries) && void 0 !== t ? t : 3,
+                      parsedTask: e.parsedTask,
+                    },
+                    parsedTask: e.parsedTask,
+                    abortController: a,
+                    pauseResumeController: s,
+                    completeStreamRef: l,
+                  };
+                y((e) => [...e, n]),
+                  setTimeout(() => {
+                    T(
+                      r,
+                      e.parsedTask,
+                      a,
+                      s,
+                      e.downloadType,
+                      e.concurrency,
+                      e.rangeMode,
+                      e.startSegment,
+                      e.endSegment,
+                      e.streamMode,
+                      e.maxRetries || 3,
+                      l
+                    );
+                  }, 0);
+              },
+              [T]
+            );
+          (0, s.useEffect)(() => {
+            let e = (e) => {
+              var t;
+              let r = e.detail,
+                a = Date.now().toString(),
+                s = new AbortController(),
+                l = new x.zc(),
+                n = { current: null },
+                o = {
+                  id: a,
+                  url: r.url,
+                  title: r.title,
+                  status: 'downloading',
+                  progress: 0,
+                  current: 0,
+                  total: r.parsedTask.tsUrlList.length,
+                  config: {
+                    downloadType: r.downloadType,
+                    concurrency: r.concurrency,
+                    rangeMode: r.rangeMode,
+                    startSegment: r.startSegment,
+                    endSegment: r.endSegment,
+                    streamMode: r.streamMode,
+                    maxRetries:
+                      null !== (t = r.maxRetries) && void 0 !== t ? t : 3,
+                    parsedTask: r.parsedTask,
+                  },
+                  parsedTask: r.parsedTask,
+                  abortController: s,
+                  pauseResumeController: l,
+                  completeStreamRef: n,
+                };
+              y((e) => [...e, o]),
+                setTimeout(() => {
+                  var e;
+                  T(
+                    a,
+                    r.parsedTask,
+                    s,
+                    l,
+                    r.downloadType,
+                    r.concurrency,
+                    r.rangeMode,
+                    r.startSegment,
+                    r.endSegment,
+                    r.streamMode,
+                    null !== (e = r.maxRetries) && void 0 !== e ? e : 3,
+                    n
+                  );
+                }, 0);
+            };
+            return (
+              window.addEventListener('addDownloadTask', e),
+              () => {
+                window.removeEventListener('addDownloadTask', e);
+              }
+            );
+          }, [T]);
+          let I = (0, s.useCallback)(
+              async (e, t) => {
+                let r = j.current.find((t) => t.id === e);
+                if (!(null == r ? void 0 : r.config)) return;
+                let a = new AbortController(),
+                  s = new x.zc(),
+                  l = { current: null },
+                  {
+                    downloadType: n,
+                    concurrency: o,
+                    rangeMode: d,
+                    startSegment: i,
+                    endSegment: c,
+                    streamMode: u,
+                    maxRetries: g,
+                  } = r.config;
+                y((t) =>
+                  t.map((t) =>
+                    t.id === e
+                      ? {
+                          ...t,
+                          status: 'downloading',
+                          abortController: a,
+                          pauseResumeController: s,
+                          completeStreamRef: l,
+                        }
+                      : t
+                  )
+                ),
+                  T(
+                    e,
+                    t,
+                    a,
+                    s,
+                    n,
+                    o,
+                    d,
+                    i,
+                    c,
+                    u || 'disabled',
+                    null != g ? g : 3,
+                    l
+                  );
+              },
+              [T]
+            ),
+            P = (0, s.useCallback)((e) => {
+              y((t) => {
+                let r = t.find((t) => t.id === e);
+                return (
+                  (null == r ? void 0 : r.abortController) &&
+                    r.abortController.abort(),
+                  (null == r ? void 0 : r.pauseResumeController) &&
+                    r.pauseResumeController.destroy(),
+                  t.filter((t) => t.id !== e)
+                );
+              });
+            }, []),
+            D = (0, s.useCallback)((e) => {
+              y((t) => {
+                let r = t.find((t) => t.id === e);
+                return (
+                  (null == r ? void 0 : r.pauseResumeController) &&
+                    r.pauseResumeController.pause(),
+                  t.map((t) => (t.id === e ? { ...t, status: 'paused' } : t))
+                );
+              });
+            }, []),
+            R = (0, s.useCallback)(
+              async (e) => {
+                var t, a, s, l;
+                console.log(
+                  '\uD83D\uDD04 resumeTask 被调用: taskId='.concat(e)
+                );
+                let n = j.current.find((t) => t.id === e);
+                if (!n) {
+                  console.log('⚠️ 找不到任务: '.concat(e));
+                  return;
+                }
+                console.log(
+                  '\uD83D\uDCCB 任务状态: '
+                    .concat(n.status, ', abortController: ')
+                    .concat(!!n.abortController)
+                );
+                let o =
+                  null === (t = n.parsedTask) || void 0 === t
+                    ? void 0
+                    : t.finishList.some((e) => 'error' === e.status);
+                if ('downloading' === n.status && n.abortController && o) {
+                  console.log('⚠️ 任务正在下载中且有失败片段，跳过');
+                  return;
+                }
+                if (
+                  n.pauseResumeController &&
+                  n.pauseResumeController.getPaused()
+                ) {
+                  console.log('▶️ 任务处于暂停状态，恢复下载...'),
+                    n.pauseResumeController.resume(),
+                    y((t) =>
+                      t.map((t) =>
+                        t.id === e ? { ...t, status: 'downloading' } : t
+                      )
+                    );
+                  return;
+                }
+                let d =
+                  n.parsedTask ||
+                  (null === (a = n.config) || void 0 === a
+                    ? void 0
+                    : a.parsedTask);
+                if (d) {
+                  let t =
+                      (null === (s = d.downloadedSegments) || void 0 === s
+                        ? void 0
+                        : s.size) || 0,
+                    a =
+                      (null === (l = n.config) || void 0 === l
+                        ? void 0
+                        : l.streamMode) !== 'disabled',
+                    { startSegment: o, endSegment: i } = d.rangeDownload,
+                    c = 0,
+                    u = 0,
+                    g = 0;
+                  for (let e = o - 1; e < i; e++) {
+                    let t = d.finishList[e].status;
+                    '' === t || 'downloading' === t
+                      ? c++
+                      : 'success' === t
+                      ? u++
+                      : 'error' === t && g++;
+                  }
+                  let x = i - o + 1;
+                  if (
+                    (console.log(
+                      '✅ 使用已保存的 parsedTask，范围内片段: '
+                        .concat(x, '个，成功: ')
+                        .concat(u, '，失败: ')
+                        .concat(g, '，待下载: ')
+                        .concat(c, '，已保存数据: ')
+                        .concat(t, ' 个, 边下边存: ')
+                        .concat(a)
+                    ),
+                    0 === c)
+                  ) {
+                    if (0 === g) {
+                      if (
+                        (console.log(
+                          '\uD83C\uDF89 范围内所有 '.concat(
+                            x,
+                            ' 个片段都已成功下载'
+                          )
+                        ),
+                        a)
+                      ) {
+                        console.log(
+                          '✅ 边下边存模式，数据已写入文件，直接标记为完成'
+                        ),
+                          y((t) =>
+                            t.map((t) =>
+                              t.id === e
+                                ? { ...t, status: 'completed', progress: 100 }
+                                : t
+                            )
+                          );
+                        return;
+                      }
+                      console.log(
+                        '\uD83D\uDCE6 普通模式，开始合并 '.concat(
+                          t,
+                          ' 个片段数据...'
+                        )
+                      ),
+                        y((t) =>
+                          t.map((t) =>
+                            t.id === e
+                              ? { ...t, status: 'merging', progress: 99 }
+                              : t
+                          )
+                        ),
+                        setTimeout(async () => {
+                          try {
+                            var t, a;
+                            let s;
+                            let l = [];
+                            for (let e = o - 1; e < i; e++) {
+                              let t =
+                                null === (a = d.downloadedSegments) ||
+                                void 0 === a
+                                  ? void 0
+                                  : a.get(e);
+                              t && l.push(t);
+                            }
+                            if (0 === l.length)
+                              throw Error('没有可合并的片段数据');
+                            console.log(
+                              '\uD83D\uDCE6 合并 '.concat(
+                                l.length,
+                                ' 个片段...'
+                              )
+                            );
+                            let { mergeSegments: c, triggerDownload: u } =
+                                await Promise.resolve().then(r.bind(r, 2038)),
+                              { transmuxTSToMP4: g } =
+                                await Promise.resolve().then(r.bind(r, 9309)),
+                              m =
+                                (null === (t = n.config) || void 0 === t
+                                  ? void 0
+                                  : t.downloadType) || 'TS';
+                            if ('MP4' === m) {
+                              let e = d.durationSecond || 0,
+                                t = d.finishList.length;
+                              console.log('\uD83C\uDFAC 转码为 MP4 格式...'),
+                                (s = g(l, (x / t) * e));
+                            } else s = c(l, m);
+                            u(s, d.title, m),
+                              y((t) =>
+                                t.map((t) =>
+                                  t.id === e
+                                    ? {
+                                        ...t,
+                                        status: 'completed',
+                                        progress: 100,
+                                      }
+                                    : t
+                                )
+                              ),
+                              console.log('✅ 合并下载完成！');
+                          } catch (t) {
+                            console.error('合并下载失败:', t),
+                              y((t) =>
+                                t.map((t) =>
+                                  t.id === e ? { ...t, status: 'error' } : t
+                                )
+                              );
+                          }
+                        }, 100);
+                      return;
+                    }
+                    console.log(
+                      '⚠️ 范围内有 '.concat(g, ' 个片段失败，等待手动重试')
+                    );
+                    return;
+                  }
+                  console.log(
+                    '▶️ 还有 '.concat(c, ' 个片段待下载，继续下载...')
+                  ),
+                    I(e, d);
+                  return;
+                }
+                try {
+                  let t = await (0, x.BV)(n.url);
+                  (t.title = n.title),
+                    y((r) =>
+                      r.map((r) => {
+                        var a, s, l, n, o, d;
+                        return r.id === e
+                          ? {
+                              ...r,
+                              config: {
+                                downloadType:
+                                  (null === (a = r.config) || void 0 === a
+                                    ? void 0
+                                    : a.downloadType) || 'TS',
+                                concurrency:
+                                  (null === (s = r.config) || void 0 === s
+                                    ? void 0
+                                    : s.concurrency) || 6,
+                                rangeMode:
+                                  (null === (l = r.config) || void 0 === l
+                                    ? void 0
+                                    : l.rangeMode) || !1,
+                                startSegment:
+                                  (null === (n = r.config) || void 0 === n
+                                    ? void 0
+                                    : n.startSegment) || 1,
+                                endSegment:
+                                  (null === (o = r.config) || void 0 === o
+                                    ? void 0
+                                    : o.endSegment) || t.tsUrlList.length,
+                                streamMode:
+                                  (null === (d = r.config) || void 0 === d
+                                    ? void 0
+                                    : d.streamMode) || 'disabled',
+                                parsedTask: t,
+                              },
+                            }
+                          : r;
+                      })
+                    ),
+                    I(e, t);
+                } catch (t) {
+                  console.error('重新解析失败:', t),
+                    y((t) =>
+                      t.map((t) => (t.id === e ? { ...t, status: 'error' } : t))
+                    );
+                }
+              },
+              [I]
+            ),
+            O = (0, s.useCallback)(() => {
+              y(
+                (e) => (
+                  e.forEach((e) => {
+                    'downloading' === e.status &&
+                      e.pauseResumeController &&
+                      e.pauseResumeController.pause();
+                  }),
+                  e.map((e) =>
+                    'downloading' === e.status ? { ...e, status: 'paused' } : e
+                  )
+                )
+              );
+            }, []),
+            M = (0, s.useCallback)(() => {
+              j.current.forEach((e) => {
+                ('waiting' === e.status ||
+                  'paused' === e.status ||
+                  'error' === e.status) &&
+                  R(e.id);
+              });
+            }, [R]),
+            Z = (0, s.useCallback)(() => {
+              y(
+                (e) => (
+                  e.forEach((e) => {
+                    e.abortController && e.abortController.abort(),
+                      e.pauseResumeController &&
+                        e.pauseResumeController.destroy();
+                  }),
+                  []
+                )
+              );
+            }, []);
+          return t
+            ? (0, a.jsxs)(a.Fragment, {
+                children: [
+                  (0, a.jsx)('div', {
+                    className:
+                      'fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] flex items-center justify-center p-4',
+                    children: (0, a.jsxs)('div', {
+                      className:
+                        'bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-4xl max-h-[80vh] flex flex-col',
+                      children: [
+                        (0, a.jsxs)('div', {
+                          className:
+                            'flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700',
+                          children: [
+                            (0, a.jsxs)('h2', {
+                              className:
+                                'text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2',
+                              children: [
+                                (0, a.jsx)(l.Z, { className: 'h-5 w-5' }),
+                                '下载管理器',
+                              ],
+                            }),
+                            (0, a.jsx)('button', {
+                              onClick: u,
+                              className:
+                                'p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors',
+                              children: (0, a.jsx)(n.Z, {
+                                className: 'h-5 w-5',
+                              }),
+                            }),
+                          ],
+                        }),
+                        (0, a.jsxs)('div', {
+                          className:
+                            'p-4 border-b border-gray-200 dark:border-gray-700 flex gap-2',
+                          children: [
+                            (0, a.jsxs)('button', {
+                              onClick: () => v(!0),
+                              className:
+                                'px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center gap-2',
+                              children: [
+                                (0, a.jsx)(l.Z, { className: 'h-4 w-4' }),
+                                '添加下载',
+                              ],
+                            }),
+                            (0, a.jsxs)('button', {
+                              onClick: M,
+                              className:
+                                'px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors flex items-center gap-2',
+                              children: [
+                                (0, a.jsx)(o.Z, { className: 'h-4 w-4' }),
+                                '全部开始',
+                              ],
+                            }),
+                            (0, a.jsxs)('button', {
+                              onClick: O,
+                              className:
+                                'px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors flex items-center gap-2',
+                              children: [
+                                (0, a.jsx)(d.Z, { className: 'h-4 w-4' }),
+                                '全部暂停',
+                              ],
+                            }),
+                            (0, a.jsx)('button', {
+                              onClick: Z,
+                              className:
+                                'px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors',
+                              children: '清空全部',
+                            }),
+                          ],
+                        }),
+                        (0, a.jsx)('div', {
+                          className: 'flex-1 overflow-y-auto p-4 space-y-3',
+                          children:
+                            0 === h.length
+                              ? (0, a.jsx)('div', {
+                                  className:
+                                    'text-center py-12 text-gray-500 dark:text-gray-400',
+                                  children: '暂无下载任务',
+                                })
+                              : h.map((e) => {
+                                  var t;
+                                  return (0, a.jsxs)(
+                                    'div',
+                                    {
+                                      className:
+                                        'bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 space-y-3',
+                                      children: [
+                                        (0, a.jsxs)('div', {
+                                          className:
+                                            'flex items-start justify-between gap-4',
+                                          children: [
+                                            (0, a.jsxs)('div', {
+                                              className: 'flex-1 min-w-0',
+                                              children: [
+                                                (0, a.jsx)('h3', {
+                                                  className:
+                                                    'font-medium text-gray-900 dark:text-white truncate',
+                                                  children: e.title,
+                                                }),
+                                                (0, a.jsx)('p', {
+                                                  className:
+                                                    'text-sm text-gray-500 dark:text-gray-400 truncate mt-1',
+                                                  children: e.url,
+                                                }),
+                                                e.config &&
+                                                  (0, a.jsxs)('div', {
+                                                    className:
+                                                      'flex flex-wrap gap-2 mt-2',
+                                                    children: [
+                                                      (0, a.jsxs)('span', {
+                                                        className:
+                                                          'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',
+                                                        children: [
+                                                          e.config.downloadType,
+                                                          ' 格式',
+                                                        ],
+                                                      }),
+                                                      (0, a.jsxs)('span', {
+                                                        className:
+                                                          'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400',
+                                                        children: [
+                                                          e.config.concurrency,
+                                                          ' 线程',
+                                                        ],
+                                                      }),
+                                                      e.config.rangeMode &&
+                                                        (() => {
+                                                          let t = 0,
+                                                            r = 0;
+                                                          if (
+                                                            e.parsedTask &&
+                                                            Array.isArray(
+                                                              e.parsedTask
+                                                                .segmentDurations
+                                                            )
+                                                          ) {
+                                                            let {
+                                                                startSegment: a,
+                                                                endSegment: s,
+                                                              } =
+                                                                e.parsedTask
+                                                                  .rangeDownload,
+                                                              l =
+                                                                e.parsedTask
+                                                                  .segmentDurations;
+                                                            (t = l
+                                                              .slice(0, a - 1)
+                                                              .reduce(
+                                                                (e, t) => e + t,
+                                                                0
+                                                              )),
+                                                              (r = l
+                                                                .slice(0, s)
+                                                                .reduce(
+                                                                  (e, t) =>
+                                                                    e + t,
+                                                                  0
+                                                                ));
+                                                          }
+                                                          return (0, a.jsxs)(
+                                                            'span',
+                                                            {
+                                                              className:
+                                                                'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400',
+                                                              children: [
+                                                                '范围: ',
+                                                                e.config
+                                                                  .startSegment,
+                                                                '-',
+                                                                e.config
+                                                                  .endSegment,
+                                                                e.parsedTask &&
+                                                                  e.parsedTask
+                                                                    .segmentDurations &&
+                                                                  e.parsedTask
+                                                                    .segmentDurations
+                                                                    .length >
+                                                                    0 &&
+                                                                  (0, a.jsxs)(
+                                                                    a.Fragment,
+                                                                    {
+                                                                      children:
+                                                                        [
+                                                                          '\xa0|\xa0时长: ',
+                                                                          (0,
+                                                                          f.m)(
+                                                                            t
+                                                                          ),
+                                                                          ' ~ ',
+                                                                          (0,
+                                                                          f.m)(
+                                                                            r
+                                                                          ),
+                                                                        ],
+                                                                    }
+                                                                  ),
+                                                              ],
+                                                            }
+                                                          );
+                                                        })(),
+                                                      e.parsedTask &&
+                                                        (() => {
+                                                          let {
+                                                              startSegment: t,
+                                                              endSegment: r,
+                                                            } =
+                                                              e.parsedTask
+                                                                .rangeDownload,
+                                                            s =
+                                                              e.parsedTask.finishList
+                                                                .slice(t - 1, r)
+                                                                .filter(
+                                                                  (e) =>
+                                                                    'error' ===
+                                                                    e.status
+                                                                ).length;
+                                                          return s > 0
+                                                            ? (0, a.jsxs)(
+                                                                'span',
+                                                                {
+                                                                  className:
+                                                                    'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400',
+                                                                  children: [
+                                                                    '失败: ',
+                                                                    s,
+                                                                    ' 个片段',
+                                                                  ],
+                                                                }
+                                                              )
+                                                            : null;
+                                                        })(),
+                                                    ],
+                                                  }),
+                                              ],
+                                            }),
+                                            (0, a.jsxs)('div', {
+                                              className:
+                                                'flex items-center gap-2 flex-shrink-0',
+                                              children: [
+                                                e.parsedTask &&
+                                                  (0, a.jsx)('button', {
+                                                    onClick: async () => {
+                                                      var t, a, s, l;
+                                                      if (
+                                                        !C.current.has(e.id) &&
+                                                        e.parsedTask
+                                                      ) {
+                                                        if (
+                                                          'disabled' !==
+                                                          ((null ===
+                                                            (t = e.config) ||
+                                                          void 0 === t
+                                                            ? void 0
+                                                            : t.streamMode) ||
+                                                            'disabled')
+                                                        ) {
+                                                          if (
+                                                            !(
+                                                              await g().fire({
+                                                                title:
+                                                                  '立即保存',
+                                                                text: '立即保存将跳过后续片段下载，直接完成下载。文件将包含目前已下载的片段。\n\n是否继续？',
+                                                                icon: 'warning',
+                                                                showCancelButton:
+                                                                  !0,
+                                                                confirmButtonText:
+                                                                  '确定',
+                                                                cancelButtonText:
+                                                                  '取消',
+                                                                customClass: {
+                                                                  container:
+                                                                    'z-[11000]',
+                                                                },
+                                                              })
+                                                            ).isConfirmed
+                                                          )
+                                                            return;
+                                                          if (
+                                                            null ===
+                                                              (a =
+                                                                e.completeStreamRef) ||
+                                                            void 0 === a
+                                                              ? void 0
+                                                              : a.current
+                                                          )
+                                                            try {
+                                                              y((t) =>
+                                                                t.map((t) =>
+                                                                  t.id === e.id
+                                                                    ? {
+                                                                        ...t,
+                                                                        isEarlyCompleting:
+                                                                          !0,
+                                                                      }
+                                                                    : t
+                                                                )
+                                                              ),
+                                                                e.abortController &&
+                                                                  e.abortController.abort(),
+                                                                await new Promise(
+                                                                  (e) =>
+                                                                    setTimeout(
+                                                                      e,
+                                                                      100
+                                                                    )
+                                                                ),
+                                                                await e.completeStreamRef.current(),
+                                                                y((t) =>
+                                                                  t.map((t) =>
+                                                                    t.id ===
+                                                                    e.id
+                                                                      ? {
+                                                                          ...t,
+                                                                          status:
+                                                                            'completed',
+                                                                          progress: 100,
+                                                                          current:
+                                                                            t.total,
+                                                                          abortController:
+                                                                            void 0,
+                                                                        }
+                                                                      : t
+                                                                  )
+                                                                ),
+                                                                setTimeout(
+                                                                  () => {
+                                                                    y((t) =>
+                                                                      t.map(
+                                                                        (t) =>
+                                                                          t.id ===
+                                                                            e.id &&
+                                                                          'completed' ===
+                                                                            t.status
+                                                                            ? {
+                                                                                ...t,
+                                                                                isEarlyCompleting:
+                                                                                  !1,
+                                                                              }
+                                                                            : t
+                                                                      )
+                                                                    );
+                                                                  },
+                                                                  1e3
+                                                                );
+                                                            } catch (t) {
+                                                              console.error(
+                                                                '完成下载失败:',
+                                                                t
+                                                              ),
+                                                                g().fire({
+                                                                  icon: 'error',
+                                                                  title:
+                                                                    '完成下载失败',
+                                                                  text:
+                                                                    t instanceof
+                                                                    Error
+                                                                      ? t.message
+                                                                      : String(
+                                                                          t
+                                                                        ),
+                                                                }),
+                                                                y((t) =>
+                                                                  t.map((t) =>
+                                                                    t.id ===
+                                                                    e.id
+                                                                      ? {
+                                                                          ...t,
+                                                                          isEarlyCompleting:
+                                                                            !1,
+                                                                        }
+                                                                      : t
+                                                                  )
+                                                                );
+                                                            }
+                                                          else
+                                                            g().fire({
+                                                              icon: 'error',
+                                                              title:
+                                                                '无法完成下载',
+                                                              text: '流未初始化',
+                                                            });
+                                                          return;
+                                                        }
+                                                        C.current.add(e.id);
+                                                        try {
+                                                          let t;
+                                                          let {
+                                                              mergeSegments: a,
+                                                              triggerDownload:
+                                                                n,
+                                                            } =
+                                                              await Promise.resolve().then(
+                                                                r.bind(r, 2038)
+                                                              ),
+                                                            {
+                                                              transmuxTSToMP4:
+                                                                o,
+                                                            } =
+                                                              await Promise.resolve().then(
+                                                                r.bind(r, 9309)
+                                                              ),
+                                                            {
+                                                              startSegment: d,
+                                                              endSegment: i,
+                                                            } =
+                                                              e.parsedTask
+                                                                .rangeDownload,
+                                                            c =
+                                                              (null ===
+                                                                (s =
+                                                                  e.config) ||
+                                                              void 0 === s
+                                                                ? void 0
+                                                                : s.downloadType) ||
+                                                              'TS',
+                                                            u = [];
+                                                          for (
+                                                            let t = d - 1;
+                                                            t < i;
+                                                            t++
+                                                          ) {
+                                                            let r =
+                                                              null ===
+                                                                (l =
+                                                                  e.parsedTask
+                                                                    .downloadedSegments) ||
+                                                              void 0 === l
+                                                                ? void 0
+                                                                : l.get(t);
+                                                            r && u.push(r);
+                                                          }
+                                                          if (0 === u.length) {
+                                                            alert(
+                                                              '没有可合并的片段数据！'
+                                                            );
+                                                            return;
+                                                          }
+                                                          if ('MP4' === c) {
+                                                            let r =
+                                                              ((e.parsedTask
+                                                                .durationSecond ||
+                                                                0) /
+                                                                (i - d + 1)) *
+                                                              u.length;
+                                                            t = o(u, r);
+                                                          } else t = a(u, c);
+                                                          n(
+                                                            t,
+                                                            e.parsedTask.title,
+                                                            c
+                                                          );
+                                                        } catch (e) {
+                                                          alert(
+                                                            '合并下载失败：' +
+                                                              (e instanceof
+                                                              Error
+                                                                ? e.message
+                                                                : e)
+                                                          );
+                                                        } finally {
+                                                          setTimeout(
+                                                            () =>
+                                                              C.current.delete(
+                                                                e.id
+                                                              ),
+                                                            2e3
+                                                          );
+                                                        }
+                                                      }
+                                                    },
+                                                    className:
+                                                      'p-2 hover:bg-green-100 dark:hover:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg transition-colors',
+                                                    title:
+                                                      (null ===
+                                                        (t = e.config) ||
+                                                      void 0 === t
+                                                        ? void 0
+                                                        : t.streamMode) ===
+                                                      'disabled'
+                                                        ? '立即合并已下载片段并导出文件'
+                                                        : '立即保存（将跳过后续片段下载，直接完成下载）',
+                                                    children: (0, a.jsx)(l.Z, {
+                                                      className: 'h-4 w-4',
+                                                    }),
+                                                  }),
+                                                e.parsedTask &&
+                                                  (0, a.jsx)('button', {
+                                                    onClick: () => k(e.id),
+                                                    className:
+                                                      'p-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors',
+                                                    title: '查看片段',
+                                                    children: (0, a.jsx)(i.Z, {
+                                                      className: 'h-4 w-4',
+                                                    }),
+                                                  }),
+                                                'downloading' === e.status
+                                                  ? (0, a.jsx)('button', {
+                                                      onClick: () => D(e.id),
+                                                      className:
+                                                        'p-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors',
+                                                      title: '暂停',
+                                                      children: (0, a.jsx)(
+                                                        d.Z,
+                                                        { className: 'h-4 w-4' }
+                                                      ),
+                                                    })
+                                                  : 'waiting' === e.status ||
+                                                    'paused' === e.status ||
+                                                    'error' === e.status
+                                                  ? (0, a.jsx)('button', {
+                                                      onClick: () => R(e.id),
+                                                      className:
+                                                        'p-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors',
+                                                      title: '开始/继续',
+                                                      children: (0, a.jsx)(
+                                                        o.Z,
+                                                        { className: 'h-4 w-4' }
+                                                      ),
+                                                    })
+                                                  : null,
+                                                (0, a.jsx)('button', {
+                                                  onClick: () => P(e.id),
+                                                  className:
+                                                    'p-2 hover:bg-red-100 dark:hover:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg transition-colors',
+                                                  title: '删除',
+                                                  children: (0, a.jsx)(c.Z, {
+                                                    className: 'h-4 w-4',
+                                                  }),
+                                                }),
+                                              ],
+                                            }),
+                                          ],
+                                        }),
+                                        (0, a.jsxs)('div', {
+                                          className: 'space-y-1',
+                                          children: [
+                                            (0, a.jsxs)('div', {
+                                              className:
+                                                'flex items-center justify-between text-sm',
+                                              children: [
+                                                (0, a.jsx)('span', {
+                                                  className:
+                                                    'text-gray-700 dark:text-gray-300',
+                                                  children:
+                                                    'completed' === e.status
+                                                      ? '已完成'
+                                                      : 'merging' === e.status
+                                                      ? '合并中'
+                                                      : 'downloading' ===
+                                                        e.status
+                                                      ? '下载中'
+                                                      : 'error' === e.status
+                                                      ? '下载失败'
+                                                      : 'paused' === e.status
+                                                      ? '已暂停'
+                                                      : '等待中',
+                                                }),
+                                                (0, a.jsxs)('span', {
+                                                  className:
+                                                    'text-gray-600 dark:text-gray-400',
+                                                  children: [
+                                                    Math.floor(e.progress),
+                                                    '%',
+                                                  ],
+                                                }),
+                                              ],
+                                            }),
+                                            (0, a.jsx)('div', {
+                                              className:
+                                                'w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2',
+                                              children: (0, a.jsx)('div', {
+                                                className:
+                                                  'bg-green-600 h-2 rounded-full transition-all duration-300',
+                                                style: {
+                                                  width: ''.concat(
+                                                    e.progress,
+                                                    '%'
+                                                  ),
+                                                },
+                                              }),
+                                            }),
+                                            (0, a.jsx)('div', {
+                                              className:
+                                                'flex items-center justify-between text-xs text-gray-500 dark:text-gray-400',
+                                              children: (0, a.jsxs)('span', {
+                                                children: [
+                                                  e.current,
+                                                  ' / ',
+                                                  e.total,
+                                                  ' 片段',
+                                                ],
+                                              }),
+                                            }),
+                                          ],
+                                        }),
+                                      ],
+                                    },
+                                    e.id
+                                  );
+                                }),
+                        }),
+                      ],
+                    }),
+                  }),
+                  (0, a.jsx)(m.Z, {
+                    isOpen: p,
+                    onClose: () => v(!1),
+                    onAddTask: (e) => {
+                      E(e), v(!1);
+                    },
+                    initialUrl: '',
+                    initialTitle: '',
+                  }),
+                  w &&
+                    (() => {
+                      var e, t;
+                      let r = h.find((e) => e.id === w);
+                      return (null == r ? void 0 : r.parsedTask)
+                        ? (0, a.jsx)(b, {
+                            task: r.parsedTask,
+                            isOpen: !0,
+                            onClose: () => k(null),
+                            taskExists: () => h.some((e) => e.id === w),
+                            concurrency:
+                              (null === (e = r.config) || void 0 === e
+                                ? void 0
+                                : e.concurrency) || 6,
+                            streamMode:
+                              (null === (t = r.config) || void 0 === t
+                                ? void 0
+                                : t.streamMode) || 'disabled',
+                            onSegmentRetry: (e) => {
+                              y((e) =>
+                                e.map((e) => {
+                                  if (e.id === w && e.parsedTask) {
+                                    let { startSegment: r, endSegment: a } =
+                                        e.parsedTask.rangeDownload,
+                                      s = 0,
+                                      l = 0;
+                                    for (let t = r - 1; t < a; t++)
+                                      'success' ===
+                                      e.parsedTask.finishList[t].status
+                                        ? s++
+                                        : 'error' ===
+                                            e.parsedTask.finishList[t].status &&
+                                          l++;
+                                    let n = a - r + 1,
+                                      o = (s / n) * 100;
+                                    if (0 === l && s === n) {
+                                      var t;
+                                      if (C.current.has(w))
+                                        return (
+                                          console.log(
+                                            '⚠️ 任务 '.concat(
+                                              w,
+                                              ' 已经在合并中，跳过'
+                                            )
+                                          ),
+                                          e
+                                        );
+                                      C.current.add(w),
+                                        console.log(
+                                          '✅ 范围内所有 '
+                                            .concat(
+                                              n,
+                                              ' 个片段重试成功！downloadedSegments 有 '
+                                            )
+                                            .concat(
+                                              (null ===
+                                                (t =
+                                                  e.parsedTask
+                                                    .downloadedSegments) ||
+                                              void 0 === t
+                                                ? void 0
+                                                : t.size) || 0,
+                                              ' 个片段，自动触发合并保存...'
+                                            )
+                                        ),
+                                        k(null),
+                                        y((e) =>
+                                          e.map((e) =>
+                                            e.id === w
+                                              ? {
+                                                  ...e,
+                                                  abortController: void 0,
+                                                }
+                                              : e
+                                          )
+                                        ),
+                                        setTimeout(() => {
+                                          R(w),
+                                            setTimeout(() => {
+                                              C.current.delete(w);
+                                            }, 3e3);
+                                        }, 500);
+                                    }
+                                    return { ...e, current: s, progress: o };
+                                  }
+                                  return e;
+                                })
+                              );
+                            },
+                          })
+                        : null;
+                    })(),
+                ],
+              })
+            : null;
+        },
+        p = (0, s.memo)(() => {
+          let [e, t] = (0, s.useState)(!1);
+          return (
+            (0, s.useEffect)(() => {
+              let e = () => t(!0);
+              return (
+                window.addEventListener('showDownloadManager', e),
+                () => {
+                  window.removeEventListener('showDownloadManager', e);
+                }
+              );
+            }, []),
+            (0, a.jsx)(y, { isOpen: e, onClose: () => t(!1) })
+          );
+        });
+    },
+    9038: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        NavigationLoadingIndicator: function () {
+          return n;
+        },
+      });
+      var a = r(7569),
+        s = r(5663),
+        l = r(7703);
+      function n() {
+        let { isLoading: e } = (0, l.w)(),
+          [t, r] = (0, s.useState)(!1),
+          [n, o] = (0, s.useState)(!1);
+        return ((0, s.useEffect)(() => {
+          e ? (r(!0), o(!0)) : (o(!1), r(!1));
+        }, [e]),
+        t)
+          ? (0, a.jsx)(a.Fragment, {
+              children: (0, a.jsx)('div', {
+                className:
+                  'fixed inset-0 z-[50] bg-white/90 backdrop-blur-xl transition-opacity duration-500 dark:bg-gray-900/90',
+                style: {
+                  opacity: n ? 1 : 0,
+                  pointerEvents: n ? 'auto' : 'none',
+                },
+                children: (0, a.jsxs)('div', {
+                  className: 'flex items-center justify-center h-full',
+                  children: [
+                    (0, a.jsx)('div', {
+                      className: 'relative',
+                      children: (0, a.jsxs)('div', {
+                        className: 'relative w-20 h-20',
+                        children: [
+                          (0, a.jsxs)('div', {
+                            className:
+                              'absolute inset-0 bg-gradient-to-br from-yellow-300 to-yellow-500 dark:from-yellow-400 dark:to-yellow-600 rounded-full shadow-lg shadow-yellow-500/30 animate-bounce',
+                            style: { animationDuration: '2s' },
+                            children: [
+                              (0, a.jsx)('div', {
+                                className:
+                                  'absolute top-3 left-4 w-2 h-2 bg-yellow-600/40 dark:bg-yellow-700/40 rounded-full',
+                              }),
+                              (0, a.jsx)('div', {
+                                className:
+                                  'absolute top-6 right-5 w-1.5 h-1.5 bg-yellow-600/40 dark:bg-yellow-700/40 rounded-full',
+                              }),
+                              (0, a.jsx)('div', {
+                                className:
+                                  'absolute bottom-4 left-6 w-1 h-1 bg-yellow-600/40 dark:bg-yellow-700/40 rounded-full',
+                              }),
+                            ],
+                          }),
+                          (0, a.jsx)('div', {
+                            className:
+                              'absolute -bottom-1 -left-1 w-2 h-2 bg-yellow-400 dark:bg-yellow-300 rounded-full animate-spin',
+                            style: {
+                              animationDuration: '4s',
+                              animationDirection: 'reverse',
+                            },
+                            children: (0, a.jsx)('div', {
+                              className:
+                                'absolute inset-0 flex items-center justify-center',
+                              children: (0, a.jsx)('div', {
+                                className:
+                                  'w-0.5 h-0.5 bg-yellow-600 dark:bg-yellow-500 rounded-full',
+                              }),
+                            }),
+                          }),
+                        ],
+                      }),
+                    }),
+                    (0, a.jsxs)('div', {
+                      className:
+                        'absolute mt-32 text-gray-700 dark:text-gray-300 font-medium text-sm',
+                      children: [
+                        (0, a.jsx)('span', {
+                          className: 'animate-pulse',
+                          children: '\uD83C\uDF19',
+                        }),
+                        (0, a.jsx)('span', {
+                          className: 'animate-pulse',
+                          style: { animationDelay: '0.2s' },
+                          children: ' 月亮正在努力加载中',
+                        }),
+                        (0, a.jsx)('span', {
+                          className: 'animate-pulse',
+                          style: { animationDelay: '0.4s' },
+                          children: ' ✨',
+                        }),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+            })
+          : null;
+      }
+    },
+    7703: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        NavigationLoadingProvider: function () {
+          return d;
+        },
+        w: function () {
+          return o;
+        },
+      });
+      var a = r(7569),
+        s = r(1383),
+        l = r(5663);
+      let n = (0, l.createContext)({
+          isLoading: !1,
+          startLoading: () => {},
+          stopLoading: () => {},
+        }),
+        o = () => (0, l.useContext)(n);
+      function d(e) {
+        let { children: t } = e,
+          [r, o] = (0, l.useState)(!1),
+          d = (0, s.usePathname)(),
+          i = (0, s.useSearchParams)(),
+          c = (0, l.useCallback)(() => {
+            o(!0);
+          }, []),
+          u = (0, l.useCallback)(() => {
+            o(!1);
+          }, []);
+        return (
+          (0, l.useEffect)(() => {
+            let e = setTimeout(() => {
+              o(!1);
+            }, 300);
+            return () => clearTimeout(e);
+          }, [d, i]),
+          (0, a.jsx)(n.Provider, {
+            value: { isLoading: r, startLoading: c, stopLoading: u },
+            children: t,
+          })
+        );
+      }
+    },
+    6766: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        default: function () {
+          return l;
+        },
+      });
+      var a = r(5663),
+        s = r(2846);
+      function l() {
+        return (
+          (0, a.useEffect)(() => {
+            let e = (0, s.detectStreamingCapability)();
+            'service-worker' === e.method
+              ? fetch('/sw.js', { method: 'HEAD' })
+                  .then((e) => {
+                    if (!e.ok) throw Error('Service Worker 文件不存在');
+                    return navigator.serviceWorker.register('/sw.js', {
+                      scope: '/',
+                      updateViaCache: 'none',
+                    });
+                  })
+                  .then((e) => {
+                    console.log(
+                      '✅ Service Worker 注册成功，支持完整的边下边存功能'
+                    ),
+                      e.addEventListener('updatefound', () => {
+                        console.log('Service Worker 发现更新');
+                      });
+                  })
+                  .catch((e) => {
+                    console.warn(
+                      '⚠️ Service Worker 注册失败，将使用降级方案:',
+                      e.message
+                    );
+                  })
+              : 'file-system-access' === e.method
+              ? console.log(
+                  '✅ 支持 File System Access API，可以使用边下边存功能（Chrome/Edge）'
+                )
+              : 'blob' === e.method &&
+                console.warn(
+                  '⚠️ 当前环境使用 Blob 降级方案\n' +
+                    '限制: '.concat(e.limitation, '\n') +
+                    '建议：使用 Chrome/Edge 浏览器或本地部署版本以获得更好的下载体验'
+                );
+          }, []),
+          null
+        );
+      }
+    },
+    8959: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        SiteProvider: function () {
+          return o;
+        },
+        W: function () {
+          return n;
+        },
+      });
+      var a = r(7569),
+        s = r(5663);
+      let l = (0, s.createContext)({
+          siteName: 'MoonTV',
+          announcement:
+            '本网站仅提供影视信息搜索服务，所有内容均来自第三方网站。本站不存储任何视频资源，不对任何内容的准确性、合法性、完整性负责。',
+        }),
+        n = () => (0, s.useContext)(l);
+      function o(e) {
+        let { children: t, siteName: r, announcement: s } = e;
+        return (0, a.jsx)(l.Provider, {
+          value: { siteName: r, announcement: s },
+          children: t,
+        });
+      }
+    },
+    2370: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        default: function () {
+          return s;
+        },
+      });
+      var a = r(5663);
+      function s() {
+        return (
+          (0, a.useEffect)(() => {
+            (async () => {
+              try {
+                let e = await fetch('/api/admin/subscription', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ action: 'check' }),
+                });
+                if (e.ok) {
+                  let t = await e.json();
+                  t.updated
+                    ? console.log('订阅自动更新已执行', t)
+                    : console.log('订阅自动更新未执行:', t.reason);
+                } else console.warn('订阅自动更新检查失败:', e.status);
+              } catch (e) {
+                console.error('订阅自动更新检查异常:', e);
+              }
+            })();
+          }, []),
+          null
+        );
+      }
+    },
+    8423: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        ThemeProvider: function () {
+          return l;
+        },
+      });
+      var a = r(7569),
+        s = r(3411);
+      function l(e) {
+        let { children: t, ...r } = e;
+        return (0, a.jsx)(s.f, {
+          attribute: 'class',
+          defaultTheme: 'system',
+          enableSystem: !0,
+          ...r,
+          children: t,
+        });
+      }
+      r(5663);
+    },
+    4768: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        T: function () {
+          return i;
+        },
+      });
+      var a = r(7569),
+        s = r(2358),
+        l = r(2167),
+        n = r(1383),
+        o = r(3411),
+        d = r(5663);
+      function i() {
+        let [e, t] = (0, d.useState)(!1),
+          { setTheme: r, resolvedTheme: i } = (0, o.F)(),
+          c = (0, n.usePathname)(),
+          u = (e) => {
+            let t = document.querySelector('meta[name="theme-color"]');
+            if (t)
+              t.setAttribute('content', 'dark' === e ? '#0c111c' : '#f9fbfe');
+            else {
+              let t = document.createElement('meta');
+              (t.name = 'theme-color'),
+                (t.content = 'dark' === e ? '#0c111c' : '#f9fbfe'),
+                document.head.appendChild(t);
+            }
+          };
+        return ((0, d.useEffect)(() => {
+          t(!0);
+        }, []),
+        (0, d.useEffect)(() => {
+          e && u(i);
+        }, [e, i, c]),
+        e)
+          ? (0, a.jsx)('button', {
+              onClick: () => {
+                let e = 'dark' === i ? 'light' : 'dark';
+                if ((u(e), !document.startViewTransition)) {
+                  r(e);
+                  return;
+                }
+                document.startViewTransition(() => {
+                  r(e);
+                });
+              },
+              className:
+                'w-10 h-10 p-2 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200/50 dark:text-gray-300 dark:hover:bg-gray-700/50 transition-colors',
+              'aria-label': 'Toggle theme',
+              children:
+                'dark' === i
+                  ? (0, a.jsx)(s.Z, { className: 'w-full h-full' })
+                  : (0, a.jsx)(l.Z, { className: 'w-full h-full' }),
+            })
+          : (0, a.jsx)('div', { className: 'w-10 h-10' });
+      }
+    },
+    1753: function (e, t, r) {
+      'use strict';
+      r.d(t, {
+        default: function () {
+          return s;
+        },
+      });
+      var a = r(5663);
+      function s() {
+        return (
+          (0, a.useEffect)(() => {
+            (async () => {
+              try {
+                let e = await fetch('/api/user/online', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({}),
+                  cache: 'no-store',
+                });
+                if (!e.ok) {
+                  let t = await e.text().catch(() => '');
+                  console.error('更新用户在线时间失败', {
+                    status: e.status,
+                    statusText: e.statusText,
+                    body: t,
+                  });
+                }
+              } catch (e) {
+                console.error('调用更新用户在线时间接口出错', e);
+              }
+            })();
+          }, []),
+          null
+        );
+      }
+    },
+    2846: function (e, t, r) {
+      'use strict';
+      function a() {
+        return (
+          'showSaveFilePicker' in window &&
+          'function' == typeof window.showSaveFilePicker
+        );
+      }
+      async function s(e, t) {
+        if (!a()) return null;
+        try {
+          let t = '.ts';
+          e.toLowerCase().endsWith('.mp4')
+            ? (t = '.mp4')
+            : e.toLowerCase().endsWith('.ts') && (t = '.ts');
+          let r = {
+              suggestedName: e,
+              types: [
+                { description: 'Video files', accept: { 'video/*': [t] } },
+              ],
+            },
+            a = await window.showSaveFilePicker(r),
+            s = await a.createWritable();
+          return new WritableStream({
+            async write(e) {
+              await s.write(e);
+            },
+            async close() {
+              await s.close();
+            },
+            async abort(e) {
+              await s.abort(e);
+            },
+          });
+        } catch (e) {
+          if ('AbortError' === e.name)
+            return console.log('用户取消了文件保存'), null;
+          return console.error('File System Access API 错误:', e), null;
+        }
+      }
+      function l(e) {
+        let t =
+            arguments.length > 1 && void 0 !== arguments[1]
+              ? arguments[1]
+              : 524288e3,
+          r = [],
+          a = 0;
+        return new WritableStream({
+          write(e) {
+            if ((a += e.length) > t)
+              throw Error(
+                '文件大小超过限制 ('.concat(
+                  Math.round(t / 1024 / 1024),
+                  'MB)，'
+                ) +
+                  '请使用支持 Service Worker 或 File System Access API 的浏览器'
+              );
+            r.push(e);
+          },
+          close() {
+            let t = new Blob(r, { type: 'application/octet-stream' }),
+              a = URL.createObjectURL(t),
+              s = document.createElement('a');
+            (s.href = a),
+              (s.download = e),
+              (s.style.display = 'none'),
+              document.body.appendChild(s),
+              s.click(),
+              setTimeout(() => {
+                document.body.removeChild(s), URL.revokeObjectURL(a);
+              }, 100),
+              (r.length = 0);
+          },
+          abort(e) {
+            console.error('下载被中止:', e), (r.length = 0);
+          },
+        });
+      }
+      async function n(e, t) {
+        if (a()) {
+          console.log('使用 File System Access API');
+          let r = await s(e, t);
+          if (r) return r;
+        }
+        if (
+          'serviceWorker' in navigator &&
+          navigator.serviceWorker.controller &&
+          window.isSecureContext
+        )
+          throw (
+            (console.log('Service Worker 可用，尝试使用流式下载'),
+            Error('USE_SERVICE_WORKER'))
+          );
+        if (
+          (console.warn(
+            '当前环境不支持流式下载，使用 Blob 降级方案（可能有内存限制）'
+          ),
+          t &&
+            t > 524288e3 &&
+            !confirm(
+              '文件较大，可能导致内存不足。建议使用 Chrome/Edge 浏览器或本地部署版本。\n\n是否继续下载？'
+            ))
+        )
+          throw Error('用户取消下载');
+        return l(e);
+      }
+      function o() {
+        let e =
+          window.location.hostname.includes('pages.dev') ||
+          window.location.hostname.includes('.workers.dev') ||
+          window.location.hostname.includes('.vercel.app') ||
+          window.location.hostname.includes('.netlify.app');
+        return a()
+          ? { supported: !0, method: 'file-system-access' }
+          : 'serviceWorker' in navigator && window.isSecureContext && !e
+          ? { supported: !0, method: 'service-worker' }
+          : {
+              supported: !0,
+              method: 'blob',
+              limitation: '文件大小限制约 500MB，不支持超大文件',
+            };
+      }
+      r.r(t),
+        r.d(t, {
+          createAdaptiveWriteStream: function () {
+            return n;
+          },
+          createBlobWriteStream: function () {
+            return l;
+          },
+          createFileSystemWriteStream: function () {
+            return s;
+          },
+          detectStreamingCapability: function () {
+            return o;
+          },
+          supportsFileSystemAccess: function () {
+            return a;
+          },
+        });
+    },
+    4073: function (e, t, r) {
+      'use strict';
+      var a, s;
+      r.d(t, {
+        Df: function () {
+          return n;
+        },
+        n4: function () {
+          return d;
+        },
+        qu: function () {
+          return a;
+        },
+        we: function () {
+          return l;
+        },
+      });
+      let l = '3.8.2';
+      async function n() {
+        try {
+          let e = await o(
+            'https://raw.githubusercontent.com/Stardm0/MoonTV/main/VERSION.txt'
+          );
+          if (e) return d(e);
+          let t = await o(
+            [
+              'https://raw.githubusercontent.com/Stardm0/MoonTV/main/VERSION.txt',
+            ][1]
+          );
+          if (t) return d(t);
+          return 'fetch_failed';
+        } catch (e) {
+          return console.error('版本检查失败:', e), 'fetch_failed';
+        }
+      }
+      async function o(e) {
+        try {
+          let t = new AbortController(),
+            r = setTimeout(() => t.abort(), 5e3),
+            a = Date.now(),
+            s = e.includes('?')
+              ? ''.concat(e, '&_t=').concat(a)
+              : ''.concat(e, '?_t=').concat(a),
+            l = await fetch(s, {
+              method: 'GET',
+              signal: t.signal,
+              headers: { 'Content-Type': 'text/plain' },
+            });
+          if ((clearTimeout(r), !l.ok))
+            throw Error('HTTP error! status: '.concat(l.status));
+          return (await l.text()).trim();
+        } catch (t) {
+          return console.warn('从 '.concat(e, ' 获取版本信息失败:'), t), null;
+        }
+      }
+      function d(e) {
+        if (e === l) return 'no_update';
+        try {
+          let t = l.split('.').map((e) => {
+              let t = parseInt(e, 10);
+              if (isNaN(t) || t < 0)
+                throw Error('无效的版本号格式: '.concat(l));
+              return t;
+            }),
+            r = e.split('.').map((t) => {
+              let r = parseInt(t, 10);
+              if (isNaN(r) || r < 0)
+                throw Error('无效的版本号格式: '.concat(e));
+              return r;
+            }),
+            a = (e) => {
+              if (e.length >= 3) return e.slice(0, 3);
+              {
+                let t = [...e];
+                for (; t.length < 3; ) t.push(0);
+                return t;
+              }
+            },
+            s = a(t),
+            n = a(r);
+          for (let e = 0; e < 3; e++) {
+            if (n[e] > s[e]) return 'has_update';
+            if (n[e] < s[e]) break;
+          }
+          return 'no_update';
+        } catch (t) {
+          return (
+            console.error('版本号比较失败:', t),
+            e !== l ? 'has_update' : 'no_update'
+          );
+        }
+      }
+      ((s = a || (a = {})).HAS_UPDATE = 'has_update'),
+        (s.NO_UPDATE = 'no_update'),
+        (s.FETCH_FAILED = 'fetch_failed');
+    },
+    9966: function () {},
+  },
+  function (e) {
+    e.O(
+      0,
+      [
+        606, 245, 705, 11, 886, 108, 728, 325, 969, 669, 429, 333, 314, 133,
+        744,
+      ],
+      function () {
+        return e((e.s = 1721));
+      }
+    ),
+      (_N_E = e.O());
+  },
+]);

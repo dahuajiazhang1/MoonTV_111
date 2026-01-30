@@ -73,7 +73,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // 检测是否为云平台构建
-const isCloudflarePages = process.env.CF_PAGES === '1' || 
+const isCloudflarePages =
+  process.env.CF_PAGES === '1' ||
   process.env.CLOUDFLARE_PAGES === '1' ||
   process.argv.includes('pages:build');
 

@@ -4,7 +4,16 @@ import { AdminConfig } from './admin.types';
 import { D1Storage } from './d1.db';
 import { KvrocksStorage } from './kvrocks.db';
 import { RedisStorage } from './redis.db';
-import { Favorite, IStorage, PlayRecord, SkipConfig, SubscriptionPlan, UserSubscription, PaymentOrder, PaymentSettings } from './types';
+import {
+  Favorite,
+  IStorage,
+  PlayRecord,
+  SkipConfig,
+  SubscriptionPlan,
+  UserSubscription,
+  PaymentOrder,
+  PaymentSettings,
+} from './types';
 import { UpstashRedisStorage } from './upstash.db';
 
 // storage type 常量: 'localstorage' | 'redis' | 'kvrocks' | 'upstash' | 'd1'，默认 'localstorage'
@@ -238,7 +247,9 @@ export class DbManager {
   // ---------- 订阅和支付相关 ----------
 
   // 订阅套餐
-  async getSubscriptionPlans(includeInactive?: boolean): Promise<SubscriptionPlan[]> {
+  async getSubscriptionPlans(
+    includeInactive?: boolean
+  ): Promise<SubscriptionPlan[]> {
     if (typeof (this.storage as any).getSubscriptionPlans === 'function') {
       return (this.storage as any).getSubscriptionPlans(includeInactive);
     }
@@ -259,7 +270,9 @@ export class DbManager {
   }
 
   // 用户订阅
-  async getUserSubscription(userName: string): Promise<UserSubscription | null> {
+  async getUserSubscription(
+    userName: string
+  ): Promise<UserSubscription | null> {
     if (typeof (this.storage as any).getUserSubscription === 'function') {
       return (this.storage as any).getUserSubscription(userName);
     }
@@ -307,7 +320,10 @@ export class DbManager {
     return [];
   }
 
-  async getAllOrders(page: number = 1, limit: number = 20): Promise<{ orders: PaymentOrder[], total: number }> {
+  async getAllOrders(
+    page: number = 1,
+    limit: number = 20
+  ): Promise<{ orders: PaymentOrder[]; total: number }> {
     if (typeof (this.storage as any).getAllOrders === 'function') {
       return (this.storage as any).getAllOrders(page, limit);
     }
@@ -320,9 +336,19 @@ export class DbManager {
     }
   }
 
-  async updateOrderStatus(orderNo: string, status: 'approved' | 'rejected', adminId?: number, reason?: string): Promise<void> {
+  async updateOrderStatus(
+    orderNo: string,
+    status: 'approved' | 'rejected',
+    adminId?: number,
+    reason?: string
+  ): Promise<void> {
     if (typeof (this.storage as any).updateOrderStatus === 'function') {
-      await (this.storage as any).updateOrderStatus(orderNo, status, adminId, reason);
+      await (this.storage as any).updateOrderStatus(
+        orderNo,
+        status,
+        adminId,
+        reason
+      );
     }
   }
 

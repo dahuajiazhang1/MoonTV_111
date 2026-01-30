@@ -26,15 +26,15 @@
 
 ### 优势对比
 
-| 特性 | Netlify | Cloudflare Pages | Vercel |
-|------|---------|------------------|--------|
-| **原作者推荐** | ✅ **是** | ❌ 否 | ❌ 否 |
-| 账号封禁风险 | 🟢 低 | 🔴 高（视频内容敏感） | 🟡 中等 |
-| 免费额度 | 🟢 充足 | 🟢 充足 | 🟡 有限 |
-| 部署速度 | 🟢 快 | 🟢 快 | 🟢 快 |
-| 数据库支持 | Upstash | D1 | Upstash |
-| 国内访问速度 | 🟡 中等 | 🟢 快 | 🟡 中等 |
-| **月度成本** | **$0** | $0 | $0 |
+| 特性           | Netlify   | Cloudflare Pages      | Vercel  |
+| -------------- | --------- | --------------------- | ------- |
+| **原作者推荐** | ✅ **是** | ❌ 否                 | ❌ 否   |
+| 账号封禁风险   | 🟢 低     | 🔴 高（视频内容敏感） | 🟡 中等 |
+| 免费额度       | 🟢 充足   | 🟢 充足               | 🟡 有限 |
+| 部署速度       | 🟢 快     | 🟢 快                 | 🟢 快   |
+| 数据库支持     | Upstash   | D1                    | Upstash |
+| 国内访问速度   | 🟡 中等   | 🟢 快                 | 🟡 中等 |
+| **月度成本**   | **$0**    | $0                    | $0      |
 
 > [!IMPORTANT]
 > Cloudflare Pages 对视频聚合网站和会员付费功能管控严格，**存在封号风险**。Netlify 政策相对宽松。
@@ -44,22 +44,24 @@
 ## 🛠️ 部署前准备
 
 ### 1. GitHub 账号
+
 - 注册 [GitHub](https://github.com)（如已有可跳过）
 - Fork 本项目到你的账号
 
 ### 2. Netlify 账号
+
 - 访问 [Netlify](https://www.netlify.com/)
 - 使用 GitHub 账号登录（推荐）
 
 ### 3. 准备环境变量
+
 至少需要设置以下密码：
 
 ```bash
 PASSWORD=your_strong_password_here
 ```
 
-> [!WARNING]
-> **安全提醒**：请务必设置强密码，避免公开访问导致的法律风险。
+> [!WARNING] > **安全提醒**：请务必设置强密码，避免公开访问导致的法律风险。
 
 ---
 
@@ -83,8 +85,8 @@ PASSWORD=your_strong_password_here
 Netlify 会自动检测 Next.js 项目，保持以下默认设置：
 
 ```yaml
-Build command:   npm run build       # 自动检测
-Publish directory: .next             # 自动检测
+Build command: npm run build # 自动检测
+Publish directory: .next # 自动检测
 ```
 
 > [!NOTE]
@@ -94,8 +96,8 @@ Publish directory: .next             # 自动检测
 
 在部署前，点击 **Show advanced → New variable**：
 
-| 变量名 | 值 | 说明 |
-|--------|------|------|
+| 变量名     | 值                  | 说明               |
+| ---------- | ------------------- | ------------------ |
 | `PASSWORD` | `your_password_123` | 管理员密码（必填） |
 
 > [!TIP]
@@ -146,8 +148,7 @@ UPSTASH_URL=https://your-db-12345.upstash.io    # REST API 端点
 UPSTASH_TOKEN=AXXXXxxxxxxxxxxxxxXXXXX          # REST API Token
 ```
 
-> [!CAUTION]
-> **请勿泄露 TOKEN**，这相当于数据库密码！
+> [!CAUTION] > **请勿泄露 TOKEN**，这相当于数据库密码！
 
 ### 第三步：配置 Netlify 环境变量
 
@@ -155,13 +156,13 @@ UPSTASH_TOKEN=AXXXXxxxxxxxxxxxxxXXXXX          # REST API Token
 2. **Site configuration → Environment variables**
 3. 点击 **Add a variable**，添加以下变量：
 
-| 变量名 | 值 | 来源 |
-|--------|------|------|
-| `NEXT_PUBLIC_STORAGE_TYPE` | `upstash` | 固定值 |
-| `UPSTASH_URL` | `https://your-db.upstash.io` | 从 Upstash 复制 |
-| `UPSTASH_TOKEN` | `AXXXxxx...` | 从 Upstash 复制 |
-| `USERNAME` | `admin` | 管理员用户名 |
-| `PASSWORD` | `your_admin_password` | 管理员密码 |
+| 变量名                     | 值                           | 来源            |
+| -------------------------- | ---------------------------- | --------------- |
+| `NEXT_PUBLIC_STORAGE_TYPE` | `upstash`                    | 固定值          |
+| `UPSTASH_URL`              | `https://your-db.upstash.io` | 从 Upstash 复制 |
+| `UPSTASH_TOKEN`            | `AXXXxxx...`                 | 从 Upstash 复制 |
+| `USERNAME`                 | `admin`                      | 管理员用户名    |
+| `PASSWORD`                 | `your_admin_password`        | 管理员密码      |
 
 ### 第四步：重新部署
 
@@ -308,6 +309,7 @@ ANNOUNCEMENT=本站仅供学习交流使用，请勿用于商业用途。
 4. 根据提示添加 DNS 记录：
 
    **方式一：CNAME（推荐）**
+
    ```
    类型: CNAME
    名称: moontv
@@ -315,6 +317,7 @@ ANNOUNCEMENT=本站仅供学习交流使用，请勿用于商业用途。
    ```
 
    **方式二：A 记录**
+
    ```
    类型: A
    名称: @
@@ -354,6 +357,7 @@ ANNOUNCEMENT=本站仅供学习交流使用，请勿用于商业用途。
 ### 性能监控
 
 Netlify 免费提供：
+
 - 📈 带宽使用统计
 - 🔢 构建次数统计
 - ⚡ 函数调用次数
@@ -376,11 +380,13 @@ Netlify 免费提供：
 > 使用 Upstash Redis 时，定期备份数据！
 
 **方式一：Upstash 后台导出**
+
 1. 进入 Upstash 控制台
 2. **Data Browser → Export**
 3. 下载 `.rdb` 文件
 
 **方式二：使用 Redis CLI**
+
 ```bash
 npm install -g redis-cli
 redis-cli -u $UPSTASH_URL --tls SAVE
@@ -395,6 +401,7 @@ redis-cli -u $UPSTASH_URL --tls SAVE
 **原因**：依赖安装失败或环境变量错误
 
 **解决方案**：
+
 1. 检查 Netlify 构建日志
 2. 确认 `package.json` 中的依赖版本
 3. 清除缓存重新部署：**Deploys → Options → Clear cache and retry**
@@ -404,6 +411,7 @@ redis-cli -u $UPSTASH_URL --tls SAVE
 **原因**：环境变量 `USERNAME` 或 `PASSWORD` 未设置
 
 **解决方案**：
+
 1. 在 Netlify 添加环境变量 `USERNAME` 和 `PASSWORD`
 2. 重新部署
 3. 使用设置的用户名密码登录
@@ -413,6 +421,7 @@ redis-cli -u $UPSTASH_URL --tls SAVE
 **原因**：未配置 Upstash Redis 或配置错误
 
 **解决方案**：
+
 1. 确认 `NEXT_PUBLIC_STORAGE_TYPE=upstash`
 2. 确认 `UPSTASH_URL` 和 `UPSTASH_TOKEN` 正确
 3. 在 Upstash 控制台检查数据库状态
@@ -423,6 +432,7 @@ redis-cli -u $UPSTASH_URL --tls SAVE
 **原因**：必须使用非 localstorage 存储
 
 **解决方案**：
+
 1. 先完成 Upstash Redis 配置
 2. 确认已重新部署
 3. 使用管理员账号登录 `/admin`
@@ -433,6 +443,7 @@ redis-cli -u $UPSTASH_URL --tls SAVE
 **原因**：Netlify CDN 在国内访问速度一般
 
 **优化方案**：
+
 - 使用 Cloudflare CDN 加速（免费）
 - 绑定自定义域名并使用 Cloudflare DNS
 - 考虑使用国内 VPS 部署（Docker 方案）
@@ -442,6 +453,7 @@ redis-cli -u $UPSTASH_URL --tls SAVE
 **原因**：图片过大或格式不支持
 
 **解决方案**：
+
 1. 压缩图片至 < 500KB
 2. 使用 PNG 或 JPG 格式
 3. 清除浏览器缓存后重试
@@ -451,6 +463,7 @@ redis-cli -u $UPSTASH_URL --tls SAVE
 **原因**：数据库写入失败或逻辑错误
 
 **排查方法**：
+
 1. 在 Netlify Functions 日志中查看 `/api/admin/orders` 错误
 2. 确认 Upstash Redis 连接正常
 3. 检查订单状态是否为 `approved`
@@ -459,6 +472,7 @@ redis-cli -u $UPSTASH_URL --tls SAVE
 ### 8. 如何迁移到其他平台？
 
 **迁移步骤**：
+
 1. 备份 Upstash Redis 数据
 2. 导出 Netlify 环境变量
 3. 在新平台（如 Vercel、VPS）重新部署

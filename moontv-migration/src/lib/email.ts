@@ -13,8 +13,10 @@ import { PaymentOrder } from './types';
 // });
 
 export async function sendOrderNotification(order: PaymentOrder) {
-    console.log('Email notification is disabled for Edge Runtime (Cloudflare Pages).');
-    /*
+  console.log(
+    'Email notification is disabled for Edge Runtime (Cloudflare Pages).'
+  );
+  /*
     if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.ADMIN_EMAIL) {
         console.log('Skipping email notification: SMTP settings missing');
         return;

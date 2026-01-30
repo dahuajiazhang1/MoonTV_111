@@ -1,1 +1,530 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[569],{7230:function(e,r,t){Promise.resolve().then(t.bind(t,2699))},9818:function(e,r,t){"use strict";t.d(r,{Z:function(){return o}});var a=t(5663);let s=e=>e.replace(/([a-z0-9])([A-Z])/g,"$1-$2").toLowerCase(),n=function(){for(var e=arguments.length,r=Array(e),t=0;t<e;t++)r[t]=arguments[t];return r.filter((e,r,t)=>!!e&&t.indexOf(e)===r).join(" ")};var l={xmlns:"http://www.w3.org/2000/svg",width:24,height:24,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"};let d=(0,a.forwardRef)((e,r)=>{let{color:t="currentColor",size:s=24,strokeWidth:d=2,absoluteStrokeWidth:o,className:c="",children:i,iconNode:x,...u}=e;return(0,a.createElement)("svg",{ref:r,...l,width:s,height:s,stroke:t,strokeWidth:o?24*Number(d)/Number(s):d,className:n("lucide",c),...u},[...x.map(e=>{let[r,t]=e;return(0,a.createElement)(r,t)}),...Array.isArray(i)?i:[i]])}),o=(e,r)=>{let t=(0,a.forwardRef)((t,l)=>{let{className:o,...c}=t;return(0,a.createElement)(d,{ref:l,iconNode:r,className:n("lucide-".concat(s(e)),o),...c})});return t.displayName="".concat(e),t}},7818:function(e,r,t){"use strict";t.d(r,{Z:function(){return a}});let a=(0,t(9818).Z)("ArrowLeft",[["path",{d:"m12 19-7-7 7-7",key:"1l729n"}],["path",{d:"M19 12H5",key:"x3x0zl"}]])},73:function(e,r,t){"use strict";t.d(r,{Z:function(){return a}});let a=(0,t(9818).Z)("CircleAlert",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["line",{x1:"12",x2:"12",y1:"8",y2:"12",key:"1pkeuh"}],["line",{x1:"12",x2:"12.01",y1:"16",y2:"16",key:"4dfq90"}]])},1111:function(e,r,t){"use strict";t.d(r,{Z:function(){return a}});let a=(0,t(9818).Z)("CircleCheckBig",[["path",{d:"M21.801 10A10 10 0 1 1 17 3.335",key:"yps3ct"}],["path",{d:"m9 11 3 3L22 4",key:"1pflzl"}]])},5302:function(e,r,t){"use strict";t.d(r,{Z:function(){return a}});let a=(0,t(9818).Z)("CircleX",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["path",{d:"m15 9-6 6",key:"1uzhvr"}],["path",{d:"m9 9 6 6",key:"z0biqf"}]])},4378:function(e,r,t){"use strict";t.d(r,{Z:function(){return a}});let a=(0,t(9818).Z)("Clock",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["polyline",{points:"12 6 12 12 16 14",key:"68esgv"}]])},1383:function(e,r,t){"use strict";var a=t(3423);t.o(a,"useParams")&&t.d(r,{useParams:function(){return a.useParams}}),t.o(a,"usePathname")&&t.d(r,{usePathname:function(){return a.usePathname}}),t.o(a,"useRouter")&&t.d(r,{useRouter:function(){return a.useRouter}}),t.o(a,"useSearchParams")&&t.d(r,{useSearchParams:function(){return a.useSearchParams}})},2699:function(e,r,t){"use strict";t.r(r),t.d(r,{default:function(){return x}});var a=t(7569),s=t(5663),n=t(1383),l=t(4378),d=t(1111),o=t(5302),c=t(73),i=t(7818);function x(){let e=(0,n.useRouter)(),[r,t]=(0,s.useState)([]),[x,u]=(0,s.useState)(!0);(0,s.useEffect)(()=>{m()},[]);let m=async()=>{try{let e=await fetch("/api/user/orders"),r=await e.json();Array.isArray(r)?t(r):r.success&&Array.isArray(r.orders)&&t(r.orders)}catch(e){console.error("获取订单失败:",e)}finally{u(!1)}},h=e=>{switch(e){case"pending":return{icon:l.Z,text:"待审核",color:"text-yellow-600",bgColor:"bg-yellow-50 dark:bg-yellow-900/20",borderColor:"border-yellow-200 dark:border-yellow-800"};case"approved":return{icon:d.Z,text:"已通过",color:"text-green-600",bgColor:"bg-green-50 dark:bg-green-900/20",borderColor:"border-green-200 dark:border-green-800"};case"rejected":return{icon:o.Z,text:"已拒绝",color:"text-red-600",bgColor:"bg-red-50 dark:bg-red-900/20",borderColor:"border-red-200 dark:border-red-800"};case"expired":return{icon:c.Z,text:"已过期",color:"text-gray-600",bgColor:"bg-gray-50 dark:bg-gray-900/20",borderColor:"border-gray-200 dark:border-gray-800"};default:return{icon:l.Z,text:e,color:"text-gray-600",bgColor:"bg-gray-50",borderColor:"border-gray-200"}}};return x?(0,a.jsx)("div",{className:"min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800",children:(0,a.jsxs)("div",{className:"text-center",children:[(0,a.jsx)("div",{className:"animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"}),(0,a.jsx)("p",{className:"mt-4 text-gray-600 dark:text-gray-400",children:"加载中..."})]})}):(0,a.jsx)("div",{className:"min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8",children:(0,a.jsxs)("div",{className:"max-w-4xl mx-auto",children:[(0,a.jsxs)("button",{onClick:()=>e.push("/"),className:"flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-6 transition",children:[(0,a.jsx)(i.Z,{className:"w-5 h-5"}),"返回首页"]}),(0,a.jsxs)("div",{className:"mb-8",children:[(0,a.jsx)("h1",{className:"text-3xl font-bold text-gray-900 dark:text-white mb-2",children:"我的订单"}),(0,a.jsx)("p",{className:"text-gray-600 dark:text-gray-400",children:"查看所有订单状态和详情"})]}),0===r.length?(0,a.jsxs)("div",{className:"bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-12 text-center",children:[(0,a.jsx)(c.Z,{className:"w-16 h-16 text-gray-400 mx-auto mb-4"}),(0,a.jsx)("p",{className:"text-gray-600 dark:text-gray-400 mb-6",children:"您还没有任何订单"}),(0,a.jsx)("button",{onClick:()=>e.push("/vip"),className:"px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition",children:"立即购买会员"})]}):(0,a.jsx)("div",{className:"space-y-4",children:r.map(e=>{let r=h(e.payment_status),t=r.icon;return(0,a.jsx)("div",{className:"bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden",children:(0,a.jsxs)("div",{className:"p-6",children:[(0,a.jsxs)("div",{className:"flex items-start justify-between mb-4",children:[(0,a.jsxs)("div",{className:"flex-1",children:[(0,a.jsxs)("div",{className:"flex items-center gap-2 mb-2",children:[(0,a.jsx)("h3",{className:"text-lg font-semibold text-gray-900 dark:text-white",children:e.plan_name||"订阅套餐"}),(0,a.jsxs)("div",{className:"flex items-center gap-1 px-3 py-1 rounded-full border ".concat(r.bgColor," ").concat(r.borderColor),children:[(0,a.jsx)(t,{className:"w-4 h-4 ".concat(r.color)}),(0,a.jsx)("span",{className:"text-sm font-medium ".concat(r.color),children:r.text})]})]}),(0,a.jsxs)("p",{className:"text-sm text-gray-500 dark:text-gray-400",children:["订单号: ",e.order_no]})]}),(0,a.jsx)("div",{className:"text-right",children:(0,a.jsxs)("div",{className:"text-2xl font-bold text-purple-600 dark:text-purple-400",children:["\xa5",e.amount]})})]}),(0,a.jsxs)("div",{className:"grid grid-cols-2 gap-4 text-sm mb-4",children:[(0,a.jsxs)("div",{children:[(0,a.jsx)("span",{className:"text-gray-500 dark:text-gray-400",children:"创建时间："}),(0,a.jsx)("span",{className:"text-gray-900 dark:text-white",children:e.created_at?new Date(e.created_at).toLocaleString("zh-CN"):"-"})]}),e.plan_duration&&(0,a.jsxs)("div",{children:[(0,a.jsx)("span",{className:"text-gray-500 dark:text-gray-400",children:"套餐时长："}),(0,a.jsxs)("span",{className:"text-gray-900 dark:text-white",children:[e.plan_duration," 天"]})]}),e.verified_at&&(0,a.jsxs)("div",{children:[(0,a.jsx)("span",{className:"text-gray-500 dark:text-gray-400",children:"审核时间："}),(0,a.jsx)("span",{className:"text-gray-900 dark:text-white",children:new Date(e.verified_at).toLocaleString("zh-CN")})]}),e.expires_at&&"pending"===e.payment_status&&(0,a.jsxs)("div",{children:[(0,a.jsx)("span",{className:"text-gray-500 dark:text-gray-400",children:"过期时间："}),(0,a.jsx)("span",{className:"text-gray-900 dark:text-white",children:new Date(e.expires_at).toLocaleString("zh-CN")})]})]}),"rejected"===e.payment_status&&e.reject_reason&&(0,a.jsxs)("div",{className:"bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4",children:[(0,a.jsx)("p",{className:"text-sm font-medium text-red-800 dark:text-red-200 mb-1",children:"拒绝原因："}),(0,a.jsx)("p",{className:"text-sm text-red-700 dark:text-red-300",children:e.reject_reason})]}),e.payment_proof&&(0,a.jsxs)("div",{className:"mt-4",children:[(0,a.jsx)("p",{className:"text-sm text-gray-600 dark:text-gray-400 mb-2",children:"支付凭证："}),(0,a.jsx)("img",{src:e.payment_proof,alt:"支付凭证",className:"max-w-xs rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer hover:opacity-90",onClick:()=>window.open(e.payment_proof,"_blank")})]})]})},e.order_no)})}),r.length>0&&(0,a.jsx)("div",{className:"mt-8 text-center",children:(0,a.jsx)("button",{onClick:()=>e.push("/vip"),className:"text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 font-medium",children:"继续购买会员 →"})})]})})}}},function(e){e.O(0,[314,133,744],function(){return e(e.s=7230)}),_N_E=e.O()}]);
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+  [569],
+  {
+    7230: function (e, r, t) {
+      Promise.resolve().then(t.bind(t, 2699));
+    },
+    9818: function (e, r, t) {
+      'use strict';
+      t.d(r, {
+        Z: function () {
+          return o;
+        },
+      });
+      var a = t(5663);
+      let s = (e) => e.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase(),
+        n = function () {
+          for (var e = arguments.length, r = Array(e), t = 0; t < e; t++)
+            r[t] = arguments[t];
+          return r.filter((e, r, t) => !!e && t.indexOf(e) === r).join(' ');
+        };
+      var l = {
+        xmlns: 'http://www.w3.org/2000/svg',
+        width: 24,
+        height: 24,
+        viewBox: '0 0 24 24',
+        fill: 'none',
+        stroke: 'currentColor',
+        strokeWidth: 2,
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+      };
+      let d = (0, a.forwardRef)((e, r) => {
+          let {
+            color: t = 'currentColor',
+            size: s = 24,
+            strokeWidth: d = 2,
+            absoluteStrokeWidth: o,
+            className: c = '',
+            children: i,
+            iconNode: x,
+            ...u
+          } = e;
+          return (0, a.createElement)(
+            'svg',
+            {
+              ref: r,
+              ...l,
+              width: s,
+              height: s,
+              stroke: t,
+              strokeWidth: o ? (24 * Number(d)) / Number(s) : d,
+              className: n('lucide', c),
+              ...u,
+            },
+            [
+              ...x.map((e) => {
+                let [r, t] = e;
+                return (0, a.createElement)(r, t);
+              }),
+              ...(Array.isArray(i) ? i : [i]),
+            ]
+          );
+        }),
+        o = (e, r) => {
+          let t = (0, a.forwardRef)((t, l) => {
+            let { className: o, ...c } = t;
+            return (0, a.createElement)(d, {
+              ref: l,
+              iconNode: r,
+              className: n('lucide-'.concat(s(e)), o),
+              ...c,
+            });
+          });
+          return (t.displayName = ''.concat(e)), t;
+        };
+    },
+    7818: function (e, r, t) {
+      'use strict';
+      t.d(r, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, t(9818).Z)('ArrowLeft', [
+        ['path', { d: 'm12 19-7-7 7-7', key: '1l729n' }],
+        ['path', { d: 'M19 12H5', key: 'x3x0zl' }],
+      ]);
+    },
+    73: function (e, r, t) {
+      'use strict';
+      t.d(r, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, t(9818).Z)('CircleAlert', [
+        ['circle', { cx: '12', cy: '12', r: '10', key: '1mglay' }],
+        ['line', { x1: '12', x2: '12', y1: '8', y2: '12', key: '1pkeuh' }],
+        ['line', { x1: '12', x2: '12.01', y1: '16', y2: '16', key: '4dfq90' }],
+      ]);
+    },
+    1111: function (e, r, t) {
+      'use strict';
+      t.d(r, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, t(9818).Z)('CircleCheckBig', [
+        ['path', { d: 'M21.801 10A10 10 0 1 1 17 3.335', key: 'yps3ct' }],
+        ['path', { d: 'm9 11 3 3L22 4', key: '1pflzl' }],
+      ]);
+    },
+    5302: function (e, r, t) {
+      'use strict';
+      t.d(r, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, t(9818).Z)('CircleX', [
+        ['circle', { cx: '12', cy: '12', r: '10', key: '1mglay' }],
+        ['path', { d: 'm15 9-6 6', key: '1uzhvr' }],
+        ['path', { d: 'm9 9 6 6', key: 'z0biqf' }],
+      ]);
+    },
+    4378: function (e, r, t) {
+      'use strict';
+      t.d(r, {
+        Z: function () {
+          return a;
+        },
+      });
+      let a = (0, t(9818).Z)('Clock', [
+        ['circle', { cx: '12', cy: '12', r: '10', key: '1mglay' }],
+        ['polyline', { points: '12 6 12 12 16 14', key: '68esgv' }],
+      ]);
+    },
+    1383: function (e, r, t) {
+      'use strict';
+      var a = t(3423);
+      t.o(a, 'useParams') &&
+        t.d(r, {
+          useParams: function () {
+            return a.useParams;
+          },
+        }),
+        t.o(a, 'usePathname') &&
+          t.d(r, {
+            usePathname: function () {
+              return a.usePathname;
+            },
+          }),
+        t.o(a, 'useRouter') &&
+          t.d(r, {
+            useRouter: function () {
+              return a.useRouter;
+            },
+          }),
+        t.o(a, 'useSearchParams') &&
+          t.d(r, {
+            useSearchParams: function () {
+              return a.useSearchParams;
+            },
+          });
+    },
+    2699: function (e, r, t) {
+      'use strict';
+      t.r(r),
+        t.d(r, {
+          default: function () {
+            return x;
+          },
+        });
+      var a = t(7569),
+        s = t(5663),
+        n = t(1383),
+        l = t(4378),
+        d = t(1111),
+        o = t(5302),
+        c = t(73),
+        i = t(7818);
+      function x() {
+        let e = (0, n.useRouter)(),
+          [r, t] = (0, s.useState)([]),
+          [x, u] = (0, s.useState)(!0);
+        (0, s.useEffect)(() => {
+          m();
+        }, []);
+        let m = async () => {
+            try {
+              let e = await fetch('/api/user/orders'),
+                r = await e.json();
+              Array.isArray(r)
+                ? t(r)
+                : r.success && Array.isArray(r.orders) && t(r.orders);
+            } catch (e) {
+              console.error('获取订单失败:', e);
+            } finally {
+              u(!1);
+            }
+          },
+          h = (e) => {
+            switch (e) {
+              case 'pending':
+                return {
+                  icon: l.Z,
+                  text: '待审核',
+                  color: 'text-yellow-600',
+                  bgColor: 'bg-yellow-50 dark:bg-yellow-900/20',
+                  borderColor: 'border-yellow-200 dark:border-yellow-800',
+                };
+              case 'approved':
+                return {
+                  icon: d.Z,
+                  text: '已通过',
+                  color: 'text-green-600',
+                  bgColor: 'bg-green-50 dark:bg-green-900/20',
+                  borderColor: 'border-green-200 dark:border-green-800',
+                };
+              case 'rejected':
+                return {
+                  icon: o.Z,
+                  text: '已拒绝',
+                  color: 'text-red-600',
+                  bgColor: 'bg-red-50 dark:bg-red-900/20',
+                  borderColor: 'border-red-200 dark:border-red-800',
+                };
+              case 'expired':
+                return {
+                  icon: c.Z,
+                  text: '已过期',
+                  color: 'text-gray-600',
+                  bgColor: 'bg-gray-50 dark:bg-gray-900/20',
+                  borderColor: 'border-gray-200 dark:border-gray-800',
+                };
+              default:
+                return {
+                  icon: l.Z,
+                  text: e,
+                  color: 'text-gray-600',
+                  bgColor: 'bg-gray-50',
+                  borderColor: 'border-gray-200',
+                };
+            }
+          };
+        return x
+          ? (0, a.jsx)('div', {
+              className:
+                'min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800',
+              children: (0, a.jsxs)('div', {
+                className: 'text-center',
+                children: [
+                  (0, a.jsx)('div', {
+                    className:
+                      'animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto',
+                  }),
+                  (0, a.jsx)('p', {
+                    className: 'mt-4 text-gray-600 dark:text-gray-400',
+                    children: '加载中...',
+                  }),
+                ],
+              }),
+            })
+          : (0, a.jsx)('div', {
+              className:
+                'min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8',
+              children: (0, a.jsxs)('div', {
+                className: 'max-w-4xl mx-auto',
+                children: [
+                  (0, a.jsxs)('button', {
+                    onClick: () => e.push('/'),
+                    className:
+                      'flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-6 transition',
+                    children: [
+                      (0, a.jsx)(i.Z, { className: 'w-5 h-5' }),
+                      '返回首页',
+                    ],
+                  }),
+                  (0, a.jsxs)('div', {
+                    className: 'mb-8',
+                    children: [
+                      (0, a.jsx)('h1', {
+                        className:
+                          'text-3xl font-bold text-gray-900 dark:text-white mb-2',
+                        children: '我的订单',
+                      }),
+                      (0, a.jsx)('p', {
+                        className: 'text-gray-600 dark:text-gray-400',
+                        children: '查看所有订单状态和详情',
+                      }),
+                    ],
+                  }),
+                  0 === r.length
+                    ? (0, a.jsxs)('div', {
+                        className:
+                          'bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-12 text-center',
+                        children: [
+                          (0, a.jsx)(c.Z, {
+                            className: 'w-16 h-16 text-gray-400 mx-auto mb-4',
+                          }),
+                          (0, a.jsx)('p', {
+                            className: 'text-gray-600 dark:text-gray-400 mb-6',
+                            children: '您还没有任何订单',
+                          }),
+                          (0, a.jsx)('button', {
+                            onClick: () => e.push('/vip'),
+                            className:
+                              'px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition',
+                            children: '立即购买会员',
+                          }),
+                        ],
+                      })
+                    : (0, a.jsx)('div', {
+                        className: 'space-y-4',
+                        children: r.map((e) => {
+                          let r = h(e.payment_status),
+                            t = r.icon;
+                          return (0, a.jsx)(
+                            'div',
+                            {
+                              className:
+                                'bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden',
+                              children: (0, a.jsxs)('div', {
+                                className: 'p-6',
+                                children: [
+                                  (0, a.jsxs)('div', {
+                                    className:
+                                      'flex items-start justify-between mb-4',
+                                    children: [
+                                      (0, a.jsxs)('div', {
+                                        className: 'flex-1',
+                                        children: [
+                                          (0, a.jsxs)('div', {
+                                            className:
+                                              'flex items-center gap-2 mb-2',
+                                            children: [
+                                              (0, a.jsx)('h3', {
+                                                className:
+                                                  'text-lg font-semibold text-gray-900 dark:text-white',
+                                                children:
+                                                  e.plan_name || '订阅套餐',
+                                              }),
+                                              (0, a.jsxs)('div', {
+                                                className:
+                                                  'flex items-center gap-1 px-3 py-1 rounded-full border '
+                                                    .concat(r.bgColor, ' ')
+                                                    .concat(r.borderColor),
+                                                children: [
+                                                  (0, a.jsx)(t, {
+                                                    className:
+                                                      'w-4 h-4 '.concat(
+                                                        r.color
+                                                      ),
+                                                  }),
+                                                  (0, a.jsx)('span', {
+                                                    className:
+                                                      'text-sm font-medium '.concat(
+                                                        r.color
+                                                      ),
+                                                    children: r.text,
+                                                  }),
+                                                ],
+                                              }),
+                                            ],
+                                          }),
+                                          (0, a.jsxs)('p', {
+                                            className:
+                                              'text-sm text-gray-500 dark:text-gray-400',
+                                            children: ['订单号: ', e.order_no],
+                                          }),
+                                        ],
+                                      }),
+                                      (0, a.jsx)('div', {
+                                        className: 'text-right',
+                                        children: (0, a.jsxs)('div', {
+                                          className:
+                                            'text-2xl font-bold text-purple-600 dark:text-purple-400',
+                                          children: ['\xa5', e.amount],
+                                        }),
+                                      }),
+                                    ],
+                                  }),
+                                  (0, a.jsxs)('div', {
+                                    className:
+                                      'grid grid-cols-2 gap-4 text-sm mb-4',
+                                    children: [
+                                      (0, a.jsxs)('div', {
+                                        children: [
+                                          (0, a.jsx)('span', {
+                                            className:
+                                              'text-gray-500 dark:text-gray-400',
+                                            children: '创建时间：',
+                                          }),
+                                          (0, a.jsx)('span', {
+                                            className:
+                                              'text-gray-900 dark:text-white',
+                                            children: e.created_at
+                                              ? new Date(
+                                                  e.created_at
+                                                ).toLocaleString('zh-CN')
+                                              : '-',
+                                          }),
+                                        ],
+                                      }),
+                                      e.plan_duration &&
+                                        (0, a.jsxs)('div', {
+                                          children: [
+                                            (0, a.jsx)('span', {
+                                              className:
+                                                'text-gray-500 dark:text-gray-400',
+                                              children: '套餐时长：',
+                                            }),
+                                            (0, a.jsxs)('span', {
+                                              className:
+                                                'text-gray-900 dark:text-white',
+                                              children: [
+                                                e.plan_duration,
+                                                ' 天',
+                                              ],
+                                            }),
+                                          ],
+                                        }),
+                                      e.verified_at &&
+                                        (0, a.jsxs)('div', {
+                                          children: [
+                                            (0, a.jsx)('span', {
+                                              className:
+                                                'text-gray-500 dark:text-gray-400',
+                                              children: '审核时间：',
+                                            }),
+                                            (0, a.jsx)('span', {
+                                              className:
+                                                'text-gray-900 dark:text-white',
+                                              children: new Date(
+                                                e.verified_at
+                                              ).toLocaleString('zh-CN'),
+                                            }),
+                                          ],
+                                        }),
+                                      e.expires_at &&
+                                        'pending' === e.payment_status &&
+                                        (0, a.jsxs)('div', {
+                                          children: [
+                                            (0, a.jsx)('span', {
+                                              className:
+                                                'text-gray-500 dark:text-gray-400',
+                                              children: '过期时间：',
+                                            }),
+                                            (0, a.jsx)('span', {
+                                              className:
+                                                'text-gray-900 dark:text-white',
+                                              children: new Date(
+                                                e.expires_at
+                                              ).toLocaleString('zh-CN'),
+                                            }),
+                                          ],
+                                        }),
+                                    ],
+                                  }),
+                                  'rejected' === e.payment_status &&
+                                    e.reject_reason &&
+                                    (0, a.jsxs)('div', {
+                                      className:
+                                        'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4',
+                                      children: [
+                                        (0, a.jsx)('p', {
+                                          className:
+                                            'text-sm font-medium text-red-800 dark:text-red-200 mb-1',
+                                          children: '拒绝原因：',
+                                        }),
+                                        (0, a.jsx)('p', {
+                                          className:
+                                            'text-sm text-red-700 dark:text-red-300',
+                                          children: e.reject_reason,
+                                        }),
+                                      ],
+                                    }),
+                                  e.payment_proof &&
+                                    (0, a.jsxs)('div', {
+                                      className: 'mt-4',
+                                      children: [
+                                        (0, a.jsx)('p', {
+                                          className:
+                                            'text-sm text-gray-600 dark:text-gray-400 mb-2',
+                                          children: '支付凭证：',
+                                        }),
+                                        (0, a.jsx)('img', {
+                                          src: e.payment_proof,
+                                          alt: '支付凭证',
+                                          className:
+                                            'max-w-xs rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer hover:opacity-90',
+                                          onClick: () =>
+                                            window.open(
+                                              e.payment_proof,
+                                              '_blank'
+                                            ),
+                                        }),
+                                      ],
+                                    }),
+                                ],
+                              }),
+                            },
+                            e.order_no
+                          );
+                        }),
+                      }),
+                  r.length > 0 &&
+                    (0, a.jsx)('div', {
+                      className: 'mt-8 text-center',
+                      children: (0, a.jsx)('button', {
+                        onClick: () => e.push('/vip'),
+                        className:
+                          'text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 font-medium',
+                        children: '继续购买会员 →',
+                      }),
+                    }),
+                ],
+              }),
+            });
+      }
+    },
+  },
+  function (e) {
+    e.O(0, [314, 133, 744], function () {
+      return e((e.s = 7230));
+    }),
+      (_N_E = e.O());
+  },
+]);
